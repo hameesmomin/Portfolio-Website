@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Purewealth website preview</title>
+  <desc id="desc">A modern wealth website thumbnail with glass panels, flowing financial chart lines, and blue highlights.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#04050b"/>
+      <stop offset=".48" stop-color="#161b35"/>
+      <stop offset="1" stop-color="#020307"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" x2="1">
+      <stop stop-color="#7bdff2"/>
+      <stop offset=".55" stop-color="#f6fbff"/>
+      <stop offset="1" stop-color="#8f9bff"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" rx="34" fill="url(#bg)"/>
+  <rect x="54" y="44" width="852" height="452" rx="30" fill="#ffffff" opacity=".06" stroke="#ffffff" stroke-opacity=".16"/>
+  <path d="M70 344c75-87 147-128 229-102 91 29 119 112 221 87 105-26 149-157 269-149 58 4 103 35 143 74" fill="none" stroke="url(#line)" stroke-width="18" stroke-linecap="round" opacity=".78"/>
+  <path d="M70 377c103-58 177-71 255-38 106 45 170 55 269 2 124-66 202-58 337 13" fill="none" stroke="#2446ff" stroke-width="32" stroke-linecap="round" opacity=".18"/>
+  <rect x="88" y="76" width="152" height="22" rx="11" fill="#f6fbff" opacity=".78"/>
+  <rect x="665" y="72" width="196" height="32" rx="16" fill="#ffffff" opacity=".1"/>
+  <text x="88" y="196" fill="#f6fbff" font-family="Arial, sans-serif" font-size="54" font-weight="800">Purewealth</text>
+  <text x="90" y="250" fill="#aebbc7" font-family="Arial, sans-serif" font-size="24" font-weight="700">Strategy. Growth. Clarity.</text>
+  <rect x="90" y="286" width="178" height="44" rx="22" fill="#7bdff2"/>
+  <rect x="650" y="258" width="192" height="172" rx="26" fill="#ffffff" opacity=".12"/>
+  <circle cx="746" cy="344" r="54" fill="#7bdff2" opacity=".2"/>
+  <path d="M720 348l30 28 55-74" fill="none" stroke="#b7f7ff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

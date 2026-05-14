@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Varaa Realty website preview</title>
+  <desc id="desc">A real estate brand website thumbnail with dark flowing glass layers, property search, and city tower shapes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#020307"/>
+      <stop offset=".5" stop-color="#08182b"/>
+      <stop offset="1" stop-color="#07111f"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" x2="1">
+      <stop stop-color="#f6fbff"/>
+      <stop offset=".45" stop-color="#7bdff2"/>
+      <stop offset="1" stop-color="#2446ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" rx="34" fill="url(#bg)"/>
+  <path d="M-36 242c150 74 239 37 352-35 120-76 222-92 352 1 97 70 178 83 327 25v307H-36V242z" fill="#7bdff2" opacity=".12"/>
+  <path d="M-12 292c139 53 249 20 352-44 122-77 219-81 332-4 98 67 187 79 304 34" fill="none" stroke="url(#glow)" stroke-width="22" stroke-linecap="round" opacity=".24"/>
+  <rect x="60" y="56" width="840" height="58" rx="20" fill="#ffffff" opacity=".08"/>
+  <text x="90" y="94" fill="#f6fbff" font-family="Arial, sans-serif" font-size="28" font-weight="800">VARAA</text>
+  <rect x="640" y="74" width="60" height="14" rx="7" fill="#f6fbff" opacity=".44"/>
+  <rect x="724" y="74" width="60" height="14" rx="7" fill="#f6fbff" opacity=".44"/>
+  <rect x="808" y="68" width="58" height="26" rx="13" fill="#7bdff2"/>
+  <text x="86" y="214" fill="#f6fbff" font-family="Arial, sans-serif" font-size="52" font-weight="800">Varaa Realty</text>
+  <text x="88" y="264" fill="#b7f7ff" font-family="Arial, sans-serif" font-size="25" font-weight="700">Find your next address</text>
+  <rect x="88" y="312" width="520" height="70" rx="22" fill="#ffffff" opacity=".12" stroke="#ffffff" stroke-opacity=".16"/>
+  <rect x="120" y="337" width="120" height="20" rx="10" fill="#f6fbff" opacity=".72"/>
+  <rect x="282" y="337" width="120" height="20" rx="10" fill="#f6fbff" opacity=".38"/>
+  <rect x="448" y="328" width="126" height="38" rx="19" fill="url(#glow)"/>
+  <rect x="704" y="190" width="44" height="260" rx="10" fill="#ffffff" opacity=".16"/>
+  <rect x="760" y="150" width="54" height="300" rx="10" fill="#ffffff" opacity=".22"/>
+  <rect x="828" y="232" width="42" height="218" rx="10" fill="#ffffff" opacity=".14"/>
+</svg>
