@@ -107,10 +107,9 @@ contactForm.addEventListener("submit", async (event) => {
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
+        "Accept": "application/json"
       },
-      body: JSON.stringify(payload)
+      body: formData
     });
 
     const result = await readResponse(response);
