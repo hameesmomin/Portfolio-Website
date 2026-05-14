@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-labelledby="title desc">
+  <title id="title">Hamees Momin monogram</title>
+  <desc id="desc">A dark HM monogram shaped with flowing glass and water inspired curves.</desc>
+  <defs>
+    <linearGradient id="glass" x1="28" y1="24" x2="190" y2="199" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f6fbff"/>
+      <stop offset=".42" stop-color="#7bdff2"/>
+      <stop offset="1" stop-color="#2446ff"/>
+    </linearGradient>
+    <linearGradient id="deep" x1="42" y1="31" x2="175" y2="191" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10151d"/>
+      <stop offset="1" stop-color="#020307"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.20 0 0 0 0 0.78 0 0 0 0 1 0 0 0 .58 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="220" height="220" rx="54" fill="url(#deep)"/>
+  <path d="M31 146c42 22 73-15 103 4 20 13 33 29 59 16" fill="none" stroke="#7bdff2" stroke-opacity=".28" stroke-width="16" stroke-linecap="round"/>
+  <path d="M32 76c28-29 62-23 84-7 28 20 46 22 74-1" fill="none" stroke="#f6fbff" stroke-opacity=".16" stroke-width="10" stroke-linecap="round"/>
+  <g filter="url(#glow)">
+    <path d="M54 159V61h23v38h66V61h23v98h-23v-39H77v39H54z" fill="url(#glass)"/>
+    <path d="M78 159c28-65 55-98 86-98h3v98h-22V96c-21 19-37 41-50 63H78z" fill="#f6fbff" fill-opacity=".86"/>
+  </g>
+  <path d="M44 178c31-19 58-21 86-7 24 12 41 9 55-10" fill="none" stroke="#f6fbff" stroke-opacity=".46" stroke-width="5" stroke-linecap="round"/>
+</svg>
