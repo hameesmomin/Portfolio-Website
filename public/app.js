@@ -42,6 +42,45 @@ function clearErrors() {
   formStatus.classList.remove("error");
 }
 
+function validateContactForm(payload) {
+  const errors = {};
+  const name = String(payload.name || "").trim();
+  const email = String(payload.email || "").trim();
+  const message = String(payload.message || "").trim();
+
+  if (name.length < 2 || name.length > 80) {
+    errors.name = "Enter a name between 2 and 80 characters.";
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errors.email = "Enter a valid email address.";
+  }
+
+  if (message.length < 20 || message.length > 1500) {
+    errors.message = "Enter a message between 20 and 1500 characters.";
+  }
+
+  return errors;
+}
+
+async function readResponse(response) {
+  const text = await response.text();
+
+  if (!text) {
+    return {};
+  }
+
+  try {
+    return JSON.parse(text);
+  } catch {
+    return {
+      message: response.ok
+        ? "Thanks. Your message was sent."
+        : "The form service returned an unexpected response. Please try again."
+    };
+  }
+}
+
 contactForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   clearErrors();
@@ -49,6 +88,17 @@ contactForm.addEventListener("submit", async (event) => {
   const submitButton = contactForm.querySelector("button[type='submit']");
   const formData = new FormData(contactForm);
   const payload = Object.fromEntries(formData.entries());
+  const errors = validateContactForm(payload);
+
+  if (Object.keys(errors).length > 0) {
+    for (const [field, message] of Object.entries(errors)) {
+      setFieldError(field, message);
+    }
+
+    formStatus.textContent = "Please check the highlighted fields.";
+    formStatus.classList.add("error");
+    return;
+  }
 
   submitButton.disabled = true;
   submitButton.textContent = "Sending...";
@@ -56,11 +106,14 @@ contactForm.addEventListener("submit", async (event) => {
   try {
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(payload)
     });
 
-    const result = await response.json();
+    const result = await readResponse(response);
 
     if (!response.ok) {
       if (result.fields) {
