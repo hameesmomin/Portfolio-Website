@@ -27,6 +27,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -37,6 +38,35 @@ body {
     linear-gradient(180deg, #020307 0%, #050814 44%, #020307 100%);
   isolation: isolate;
   line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+p,
+a,
+strong,
+small,
+li,
+label,
+button,
+input,
+select,
+textarea {
+  overflow-wrap: anywhere;
+}
+
+main,
+section,
+article,
+form,
+.container,
+.project-card,
+.skill-card,
+.contact-form,
+.contact-card {
+  min-width: 0;
 }
 
 .water-background {
@@ -188,11 +218,9 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: var(--header-height);
-  padding: 0 max(20px, calc((100vw - var(--container)) / 2));
+  min-height: 64px;
   margin: 12px auto 0;
   width: min(calc(100% - 28px), calc(var(--container) + 48px));
-  min-height: 64px;
   padding: 0 18px;
   background:
     linear-gradient(115deg, rgb(255 255 255 / 10%), rgb(255 255 255 / 4%)),
@@ -227,6 +255,13 @@ textarea {
   gap: 10px;
   align-items: center;
   font-weight: 800;
+  min-width: 0;
+}
+
+.brand span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .brand-logo {
@@ -245,6 +280,7 @@ textarea {
   display: flex;
   gap: 4px;
   align-items: center;
+  flex-shrink: 0;
   padding: 5px;
   background: rgb(255 255 255 / 5%);
   border: 1px solid rgb(255 255 255 / 8%);
@@ -365,7 +401,7 @@ textarea {
 .hero-grid {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.55fr);
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 360px);
   gap: 48px;
   align-items: end;
 }
@@ -394,7 +430,7 @@ textarea {
 
 .hero h1 {
   max-width: 900px;
-  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  font-size: clamp(2.45rem, 5.4vw, 4.45rem);
 }
 
 .hero-text {
@@ -533,7 +569,7 @@ textarea {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 18px;
 }
 
@@ -566,6 +602,7 @@ textarea {
   width: 100%;
   height: 100%;
   min-height: 190px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   transition: transform 700ms ease, filter 700ms ease;
 }
@@ -647,7 +684,7 @@ textarea {
 .split-layout,
 .contact-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(320px, 1fr);
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
   gap: 44px;
 }
 
@@ -1162,7 +1199,7 @@ textarea {
 .footer-actions a {
   display: grid;
   gap: 2px;
-  min-width: 190px;
+  min-width: min(100%, 190px);
   padding: 12px 14px;
   background: rgb(255 255 255 / 7%);
   border: 1px solid var(--line);
@@ -1193,6 +1230,10 @@ textarea {
 @media (max-width: 840px) {
   .container {
     width: min(100% - 28px, var(--container));
+  }
+
+  .site-header {
+    width: min(calc(100% - 20px), calc(var(--container) + 48px));
   }
 
   .nav-toggle {
@@ -1246,6 +1287,8 @@ textarea {
     border: 1px solid var(--line);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
+    max-height: calc(100vh - var(--header-height) - 28px);
+    overflow-y: auto;
   }
 
   .site-nav.is-open {
@@ -1258,15 +1301,20 @@ textarea {
 
   .hero {
     min-height: auto;
-    padding: 54px 0 44px;
+    padding: 66px 0 48px;
   }
 
   .hero-grid,
   .split-layout,
   .contact-grid,
-  .project-grid,
   .timeline {
     grid-template-columns: 1fr;
+  }
+
+  .hero h1,
+  .section h2,
+  .contact-section h2 {
+    max-width: 100%;
   }
 
   .sticky-copy {
@@ -1296,16 +1344,74 @@ textarea {
   .section {
     padding: 66px 0;
   }
+
+  .footer-inner {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .footer-actions {
+    justify-content: stretch;
+  }
+
+  .footer-actions a {
+    flex: 1 1 220px;
+    min-width: min(100%, 220px);
+  }
 }
 
 @media (max-width: 560px) {
+  :root {
+    --header-height: 68px;
+  }
+
+  .container {
+    width: min(100% - 24px, var(--container));
+  }
+
   .site-header {
-    width: min(calc(100% - 20px), calc(var(--container) + 48px));
-    padding-inline: 12px;
+    width: calc(100% - 16px);
+    min-height: 58px;
+    margin-top: 8px;
+    padding-inline: 10px;
   }
 
   .brand span:last-child {
     display: none;
+  }
+
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .nav-toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .site-nav {
+    inset: 76px 8px auto;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.05rem, 13vw, 3.05rem);
+    line-height: 1.06;
+  }
+
+  .section h2,
+  .contact-section h2 {
+    font-size: clamp(1.75rem, 11vw, 2.55rem);
+    line-height: 1.08;
+  }
+
+  .hero-text,
+  .sticky-copy p:not(.eyebrow),
+  .project-card p:not(.project-type),
+  .skills-list p,
+  .timeline p,
+  .contact-section p {
+    font-size: .98rem;
   }
 
   .hero-actions,
@@ -1337,12 +1443,73 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .project-card {
+    border-radius: 8px;
+  }
+
   .project-media {
     min-height: 160px;
   }
 
+  .project-media img {
+    min-height: 160px;
+  }
+
+  .project-body,
+  .skill-card {
+    padding: 18px;
+  }
+
+  .skill-card {
+    padding-left: 46px;
+  }
+
+  .skill-topline {
+    align-items: flex-start;
+  }
+
+  .skill-tags,
+  .tag-list {
+    gap: 7px;
+  }
+
+  .contact-card {
+    width: 100%;
+    padding: 14px;
+  }
+
   .contact-form {
     padding: 18px;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 390px) {
+  .container {
+    width: min(100% - 18px, var(--container));
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .section h2,
+  .contact-section h2 {
+    font-size: 1.65rem;
+  }
+
+  .metric {
+    font-size: 1.45rem;
+  }
+
+  .contact-card strong,
+  .footer-actions strong {
+    font-size: .92rem;
   }
 }
 
