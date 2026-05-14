@@ -8,12 +8,18 @@
       content="Portfolio website for Hamees Momin, a frontend and backend developer focused on polished user experiences and reliable systems."
     >
     <title>Hamees Momin | Full-Stack Developer</title>
-    <link rel="icon" href="/assets/favicon.svg?v=12" type="image/svg+xml">
-    <link rel="stylesheet" href="/styles.css?v=12">
-    <script src="/app.js?v=12" defer></script>
+    <link rel="icon" href="/assets/favicon.svg?v=13" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css?v=13">
+    <script src="/app.js?v=13" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+    <div class="water-background" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
     <header class="site-header" data-header>
       <a class="brand" href="#home" aria-label="Go to home">
@@ -236,8 +242,16 @@
               Send a few details and I'll respond with next steps. The form sends directly to my email and also includes direct contact options.
             </p>
             <div class="contact-links" aria-label="Direct contact options">
-              <a href="mailto:hamu.dxb@gmail.com">hamu.dxb@gmail.com</a>
-              <a href="https://wa.me/971502877142" rel="noreferrer">WhatsApp: +971 50 287 7142</a>
+              <a class="contact-card" href="mailto:hamu.dxb@gmail.com">
+                <span>Email</span>
+                <strong>hamu.dxb@gmail.com</strong>
+                <small>Best for project briefs and files</small>
+              </a>
+              <a class="contact-card" href="https://wa.me/971502877142" rel="noreferrer">
+                <span>Personal WhatsApp</span>
+                <strong>+971 50 287 7142</strong>
+                <small>Quick messages and direct calls</small>
+              </a>
             </div>
           </div>
 
@@ -284,10 +298,22 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>&copy; <span data-year></span> Hamees Momin. Built with care.</p>
-        <div>
-          <a href="mailto:hamu.dxb@gmail.com">Email</a>
-          <a href="https://wa.me/971502877142" rel="noreferrer">WhatsApp</a>
+        <div class="footer-brand">
+          <img class="footer-logo" src="/assets/logo.svg" alt="" aria-hidden="true">
+          <div>
+            <strong>Hamees Momin</strong>
+            <p>&copy; <span data-year></span> Full-stack portfolio. Built with care.</p>
+          </div>
+        </div>
+        <div class="footer-actions" aria-label="Footer contact links">
+          <a href="mailto:hamu.dxb@gmail.com">
+            <span>Email</span>
+            <strong>hamu.dxb@gmail.com</strong>
+          </a>
+          <a href="https://wa.me/971502877142" rel="noreferrer">
+            <span>WhatsApp</span>
+            <strong>+971 50 287 7142</strong>
+          </a>
         </div>
       </div>
     </footer>
