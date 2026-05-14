@@ -8,9 +8,9 @@
       content="Portfolio website for Hamees Momin, a frontend and backend developer focused on polished user experiences and reliable systems."
     >
     <title>Hamees Momin | Full-Stack Developer</title>
-    <link rel="icon" href="/assets/favicon.svg?v=8" type="image/svg+xml">
-    <link rel="stylesheet" href="/styles.css?v=8">
-    <script src="/app.js?v=8" defer></script>
+    <link rel="icon" href="/assets/favicon.svg?v=10" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css?v=10">
+    <script src="/app.js?v=10" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -37,8 +37,13 @@
     <main id="main">
       <section class="hero section-band" id="home">
         <div class="hero-bg" aria-hidden="true"></div>
+        <div class="flow-field" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <div class="container hero-grid">
-          <div class="hero-copy">
+          <div class="hero-copy" data-reveal>
             <p class="eyebrow">Frontend clarity. Backend discipline.</p>
             <h1>I build polished web experiences backed by reliable systems.</h1>
             <p class="hero-text">
@@ -51,7 +56,7 @@
             </div>
           </div>
 
-          <div class="hero-panel" aria-label="Portfolio highlights">
+          <div class="hero-panel" aria-label="Portfolio highlights" data-reveal>
             <div>
               <span class="metric">3+</span>
               <span class="metric-label">Featured projects</span>
@@ -70,13 +75,13 @@
 
       <section class="section" id="work">
         <div class="container">
-          <div class="section-heading">
+          <div class="section-heading" data-reveal>
             <p class="eyebrow">Selected work</p>
             <h2>Projects shaped around real user outcomes.</h2>
           </div>
 
           <div class="project-grid">
-            <article class="project-card">
+            <article class="project-card" data-reveal>
               <div class="project-media product" aria-hidden="true"></div>
               <div class="project-body">
                 <p class="project-type">Real Estate</p>
@@ -93,7 +98,7 @@
               </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-reveal>
               <div class="project-media commerce" aria-hidden="true"></div>
               <div class="project-body">
                 <p class="project-type">Wealth Platform</p>
@@ -110,7 +115,7 @@
               </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-reveal>
               <div class="project-media brand" aria-hidden="true"></div>
               <div class="project-body">
                 <p class="project-type">Real Estate</p>
@@ -130,25 +135,60 @@
         </div>
       </section>
 
-      <section class="section section-muted" id="skills">
+      <section class="section section-muted skills-section" id="skills">
         <div class="container split-layout">
-          <div class="section-heading">
+          <div class="section-heading sticky-copy" data-reveal>
             <p class="eyebrow">Capabilities</p>
             <h2>End-to-end delivery without losing the details.</h2>
+            <p>
+              My work moves through interface polish, backend reliability, and product clarity so the final experience feels smooth from first click to final submission.
+            </p>
           </div>
 
-          <div class="skills-list">
-            <article>
-              <h3>Frontend engineering</h3>
+          <div class="skills-flow" aria-label="Hamees Momin skills">
+            <article class="skill-card" data-reveal>
+              <div class="skill-topline">
+                <span>01</span>
+                <h3>Frontend engineering</h3>
+              </div>
               <p>Accessible UI, design systems, responsive layouts, performance budgets, and browser-tested interactions.</p>
+              <div class="skill-meter" aria-hidden="true"><span style="--level: 94%"></span></div>
+              <ul class="skill-tags">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Responsive UI</li>
+              </ul>
             </article>
-            <article>
-              <h3>Backend engineering</h3>
+
+            <article class="skill-card" data-reveal>
+              <div class="skill-topline">
+                <span>02</span>
+                <h3>Backend engineering</h3>
+              </div>
               <p>API design, validation, auth-ready architecture, database modeling, logging, and deployment-minded structure.</p>
+              <div class="skill-meter" aria-hidden="true"><span style="--level: 88%"></span></div>
+              <ul class="skill-tags">
+                <li>Node.js</li>
+                <li>APIs</li>
+                <li>Validation</li>
+                <li>Security</li>
+              </ul>
             </article>
-            <article>
-              <h3>Product thinking</h3>
+
+            <article class="skill-card" data-reveal>
+              <div class="skill-topline">
+                <span>03</span>
+                <h3>Product thinking</h3>
+              </div>
               <p>Clear user flows, measurable outcomes, pragmatic scope decisions, and documentation that keeps teams moving.</p>
+              <div class="skill-meter" aria-hidden="true"><span style="--level: 91%"></span></div>
+              <ul class="skill-tags">
+                <li>UX flow</li>
+                <li>SEO</li>
+                <li>Content</li>
+                <li>Launch</li>
+              </ul>
             </article>
           </div>
         </div>
@@ -156,23 +196,23 @@
 
       <section class="section" id="process">
         <div class="container">
-          <div class="section-heading compact">
+          <div class="section-heading compact" data-reveal>
             <p class="eyebrow">How I work</p>
             <h2>Calm process, clean delivery.</h2>
           </div>
 
           <ol class="timeline">
-            <li>
+            <li data-reveal>
               <span>01</span>
               <h3>Clarify</h3>
               <p>Define the audience, constraints, success metrics, and core flows before writing code.</p>
             </li>
-            <li>
+            <li data-reveal>
               <span>02</span>
               <h3>Build</h3>
               <p>Ship usable slices with tested interfaces, readable implementation, and thoughtful edge states.</p>
             </li>
-            <li>
+            <li data-reveal>
               <span>03</span>
               <h3>Refine</h3>
               <p>Measure performance, polish the experience, and prepare the system for deployment and maintenance.</p>
@@ -183,7 +223,7 @@
 
       <section class="section contact-section" id="contact">
         <div class="container contact-grid">
-          <div>
+          <div data-reveal>
             <p class="eyebrow">Contact</p>
             <h2>Have a project in mind?</h2>
             <p>
@@ -195,7 +235,7 @@
             </div>
           </div>
 
-          <form class="contact-form" data-contact-form novalidate>
+          <form class="contact-form" data-contact-form data-reveal novalidate>
             <input type="hidden" name="access_key" value="8cb166ec-6273-4e16-b4ea-7128fc4f34df">
             <input type="hidden" name="subject" value="New portfolio inquiry for Hamees Momin">
             <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off">
