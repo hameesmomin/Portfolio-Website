@@ -8,9 +8,9 @@
       content="Portfolio website for Hamees Momin, a frontend and backend developer focused on polished user experiences and reliable systems."
     >
     <title>Hamees Momin | Full-Stack Developer</title>
-    <link rel="icon" href="/assets/favicon.svg?v=4" type="image/svg+xml">
-    <link rel="stylesheet" href="/styles.css?v=4">
-    <script src="/app.js?v=4" defer></script>
+    <link rel="icon" href="/assets/favicon.svg?v=6" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css?v=6">
+    <script src="/app.js?v=6" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -187,11 +187,18 @@
             <p class="eyebrow">Contact</p>
             <h2>Have a project in mind?</h2>
             <p>
-              Send a few details and I'll respond with next steps. The form is connected to the Node backend included in this project.
+              Send a few details and I'll respond with next steps. The form sends directly to my email and also includes direct contact options.
             </p>
+            <div class="contact-links" aria-label="Direct contact options">
+              <a href="mailto:hamu.dxb@gmail.com">hamu.dxb@gmail.com</a>
+              <a href="https://wa.me/971502877142" rel="noreferrer">WhatsApp: +971 50 287 7142</a>
+            </div>
           </div>
 
           <form class="contact-form" data-contact-form novalidate>
+            <input type="hidden" name="access_key" value="8cb166ec-6273-4e16-b4ea-7128fc4f34df">
+            <input type="hidden" name="subject" value="New portfolio inquiry for Hamees Momin">
+            <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off">
             <div class="field">
               <label for="name">Name</label>
               <input id="name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80">
@@ -233,8 +240,8 @@
       <div class="container footer-inner">
         <p>&copy; <span data-year></span> Hamees Momin. Built with care.</p>
         <div>
-          <a href="https://github.com/" rel="noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/" rel="noreferrer">LinkedIn</a>
+          <a href="mailto:hamu.dxb@gmail.com">Email</a>
+          <a href="https://wa.me/971502877142" rel="noreferrer">WhatsApp</a>
         </div>
       </div>
     </footer>

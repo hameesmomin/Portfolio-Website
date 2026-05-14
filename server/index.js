@@ -1,5 +1,6 @@
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
+import { connect as tlsConnect } from "node:tls";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -7,7 +8,13 @@ const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const rootDir = normalize(join(__dirname, ".."));
 const publicDir = join(rootDir, "public");
 const port = Number(process.env.PORT || 3000);
+const contactEmail = process.env.CONTACT_EMAIL || "hamu.dxb@gmail.com";
 const contactWebhookUrl = process.env.CONTACT_WEBHOOK_URL;
+const smtpHost = process.env.SMTP_HOST;
+const smtpPort = Number(process.env.SMTP_PORT || 465);
+const smtpUser = process.env.SMTP_USER;
+const smtpPass = process.env.SMTP_PASS;
+const smtpFrom = process.env.SMTP_FROM || smtpUser || contactEmail;
 
 const rateLimitWindowMs = 60_000;
 const rateLimitMaxRequests = 12;
@@ -33,13 +40,139 @@ function setSecurityHeaders(res) {
   res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
   res.setHeader(
     "Content-Security-Policy",
-    "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'none'"
+    "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self' https://api.web3forms.com; form-action 'self'; base-uri 'self'; frame-ancestors 'none'"
   );
 }
 
 function sendJson(res, statusCode, payload) {
   res.writeHead(statusCode, { "Content-Type": "application/json; charset=utf-8" });
   res.end(JSON.stringify(payload));
+}
+
+function encodeBase64(value) {
+  return Buffer.from(value, "utf8").toString("base64");
+}
+
+function sanitizeHeader(value) {
+  return String(value || "").replace(/[\r\n]+/g, " ").trim();
+}
+
+function dotStuff(value) {
+  return String(value).replace(/\r?\n/g, "\r\n").replace(/^\./gm, "..");
+}
+
+function createEmailMessage(payload) {
+  const subject = sanitizeHeader(`Portfolio inquiry from ${payload.name}`);
+  const safeName = sanitizeHeader(payload.name);
+  const safeEmail = sanitizeHeader(payload.email);
+  const projectType = payload.projectType || "Not specified";
+  const body = [
+    `Name: ${payload.name}`,
+    `Email: ${payload.email}`,
+    `Project type: ${projectType}`,
+    `Received: ${payload.receivedAt}`,
+    "",
+    "Message:",
+    payload.message
+  ].join("\n");
+
+  return [
+    `From: ${safeName} via Portfolio <${smtpFrom}>`,
+    `To: Hamees Momin <${contactEmail}>`,
+    `Reply-To: ${safeName} <${safeEmail}>`,
+    `Subject: ${subject}`,
+    "MIME-Version: 1.0",
+    "Content-Type: text/plain; charset=utf-8",
+    "Content-Transfer-Encoding: 8bit",
+    "",
+    dotStuff(body)
+  ].join("\r\n");
+}
+
+function readSmtpResponse(socket) {
+  return new Promise((resolve, reject) => {
+    let buffer = "";
+
+    function cleanup() {
+      socket.off("data", onData);
+      socket.off("error", onError);
+    }
+
+    function onError(error) {
+      cleanup();
+      reject(error);
+    }
+
+    function onData(chunk) {
+      buffer += chunk.toString("utf8");
+      const lines = buffer.split(/\r?\n/).filter(Boolean);
+      const lastLine = lines.at(-1);
+
+      if (/^\d{3} /.test(lastLine || "")) {
+        cleanup();
+        resolve(buffer);
+      }
+    }
+
+    socket.on("data", onData);
+    socket.on("error", onError);
+  });
+}
+
+async function sendSmtpCommand(socket, command, expectedCodes) {
+  socket.write(`${command}\r\n`);
+  const response = await readSmtpResponse(socket);
+  const code = response.slice(0, 3);
+
+  if (!expectedCodes.includes(code)) {
+    throw new Error(`smtp_${code}`);
+  }
+
+  return response;
+}
+
+async function sendEmail(payload) {
+  if (!smtpHost || !smtpUser || !smtpPass) {
+    console.info("SMTP is not configured. Portfolio contact message:", {
+      to: contactEmail,
+      ...payload
+    });
+    return;
+  }
+
+  const socket = tlsConnect({
+    host: smtpHost,
+    port: smtpPort,
+    servername: smtpHost,
+    timeout: 15_000
+  });
+
+  try {
+    await new Promise((resolve, reject) => {
+      socket.once("secureConnect", resolve);
+      socket.once("error", reject);
+      socket.once("timeout", () => reject(new Error("smtp_timeout")));
+    });
+
+    await readSmtpResponse(socket);
+    await sendSmtpCommand(socket, "EHLO portfolio.local", ["250"]);
+    await sendSmtpCommand(socket, "AUTH LOGIN", ["334"]);
+    await sendSmtpCommand(socket, encodeBase64(smtpUser), ["334"]);
+    await sendSmtpCommand(socket, encodeBase64(smtpPass), ["235"]);
+    await sendSmtpCommand(socket, `MAIL FROM:<${smtpFrom}>`, ["250"]);
+    await sendSmtpCommand(socket, `RCPT TO:<${contactEmail}>`, ["250", "251"]);
+    await sendSmtpCommand(socket, "DATA", ["354"]);
+    socket.write(`${createEmailMessage(payload)}\r\n.\r\n`);
+
+    const dataResponse = await readSmtpResponse(socket);
+    if (dataResponse.slice(0, 3) !== "250") {
+      throw new Error(`smtp_${dataResponse.slice(0, 3)}`);
+    }
+
+    await sendSmtpCommand(socket, "QUIT", ["221"]);
+  } finally {
+    socket.end();
+  }
 }
 
 function getClientIp(req) {
@@ -132,7 +265,8 @@ async function handleContact(req, res) {
     const payload = {
       ...validation.value,
       receivedAt: new Date().toISOString(),
-      source: "portfolio-contact-form"
+      source: "portfolio-contact-form",
+      to: contactEmail
     };
 
     if (contactWebhookUrl) {
@@ -146,7 +280,7 @@ async function handleContact(req, res) {
         throw new Error("webhook_failed");
       }
     } else {
-      console.info("New portfolio contact message:", payload);
+      await sendEmail(payload);
     }
 
     sendJson(res, 200, { ok: true, message: "Thanks. Your message was sent." });

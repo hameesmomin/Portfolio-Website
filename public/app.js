@@ -54,7 +54,7 @@ contactForm.addEventListener("submit", async (event) => {
   submitButton.textContent = "Sending...";
 
   try {
-    const response = await fetch("/api/contact", {
+    const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
@@ -69,11 +69,11 @@ contactForm.addEventListener("submit", async (event) => {
         }
       }
 
-      throw new Error(result.error || "Please check the form and try again.");
+      throw new Error(result.message || "Please check the form and try again.");
     }
 
     contactForm.reset();
-    formStatus.textContent = result.message || "Thanks. Your message was sent.";
+    formStatus.textContent = "Thanks. Your message was sent.";
   } catch (error) {
     formStatus.textContent = error.message;
     formStatus.classList.add("error");

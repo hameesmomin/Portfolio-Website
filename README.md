@@ -19,4 +19,23 @@ Then open `http://localhost:3000`.
 
 ## Contact Messages
 
-By default, messages are written to the server console. In production, set `CONTACT_WEBHOOK_URL` to forward messages to a webhook endpoint.
+Contact messages are sent to `hamu.dxb@gmail.com` through Web3Forms.
+
+The frontend uses the Web3Forms access key in `public/index.html`, so no SMTP setup is required for the live contact form.
+
+The Node backend still supports SMTP as a fallback if you want to move email delivery server-side later.
+
+By default, messages are written to the server console during local development. In production, configure SMTP environment variables so the backend can send the message as email:
+
+```bash
+CONTACT_EMAIL=hamu.dxb@gmail.com
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_USER=your-gmail-address@gmail.com
+SMTP_PASS=your-gmail-app-password
+SMTP_FROM=your-gmail-address@gmail.com
+```
+
+For Gmail, use an app password rather than your normal Google account password.
+
+You can also set `CONTACT_WEBHOOK_URL` to forward messages to a webhook endpoint instead of SMTP.

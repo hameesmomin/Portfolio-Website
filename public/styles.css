@@ -513,6 +513,28 @@ textarea {
   color: rgb(255 255 255 / 72%);
 }
 
+.contact-links {
+  display: grid;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.contact-links a {
+  width: fit-content;
+  padding: 10px 12px;
+  color: var(--accent);
+  background: rgb(255 255 255 / 7%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-weight: 850;
+  backdrop-filter: blur(14px);
+}
+
+.contact-links a:hover {
+  color: #020307;
+  background: linear-gradient(135deg, #f6fbff, var(--accent));
+}
+
 .contact-form {
   display: grid;
   gap: 16px;
@@ -523,6 +545,14 @@ textarea {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
+}
+
+.botcheck {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
 }
 
 .field {
