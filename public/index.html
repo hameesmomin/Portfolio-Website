@@ -8,9 +8,9 @@
       content="Portfolio website for Hamees Momin, a frontend and backend developer focused on polished user experiences and reliable systems."
     >
     <title>Hamees Momin | Full-Stack Developer</title>
-    <link rel="icon" href="/assets/favicon.svg?v=16" type="image/svg+xml">
-    <link rel="stylesheet" href="/styles.css?v=16">
-    <script src="/app.js?v=16" defer></script>
+    <link rel="icon" href="/assets/favicon.svg?v=17" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css?v=17">
+    <script src="/app.js?v=17" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -241,17 +241,16 @@
             <p>
               Send a few details and I'll respond with next steps. The form sends directly to my email and also includes direct contact options.
             </p>
-            <div class="contact-links" aria-label="Direct contact options">
-              <a class="contact-card" href="mailto:hamu.dxb@gmail.com">
-                <span>Email</span>
-                <strong>hamu.dxb@gmail.com</strong>
-                <small>Best for project briefs and files</small>
+            <div class="contact-actions" aria-label="Direct contact options">
+              <button class="contact-button" type="button" data-email-button aria-expanded="false" aria-controls="email-popover">
+                Email
+              </button>
+              <a class="contact-button" href="https://wa.me/971502877142" rel="noreferrer">
+                WhatsApp
               </a>
-              <a class="contact-card" href="https://wa.me/971502877142" rel="noreferrer">
-                <span>Personal WhatsApp</span>
-                <strong>+971 50 287 7142</strong>
-                <small>Quick messages and direct calls</small>
-              </a>
+              <p class="email-popover" id="email-popover" role="status" aria-live="polite" data-email-popover hidden>
+                hamu.dxb@gmail.com
+              </p>
             </div>
           </div>
 
@@ -306,13 +305,13 @@
           </div>
         </div>
         <div class="footer-actions" aria-label="Footer contact links">
-          <a href="mailto:hamu.dxb@gmail.com">
+          <button type="button" data-email-button aria-expanded="false" aria-controls="email-popover">
             <span>Email</span>
-            <strong>hamu.dxb@gmail.com</strong>
-          </a>
+            <strong>Show address</strong>
+          </button>
           <a href="https://wa.me/971502877142" rel="noreferrer">
             <span>WhatsApp</span>
-            <strong>+971 50 287 7142</strong>
+            <strong>Message me</strong>
           </a>
         </div>
       </div>

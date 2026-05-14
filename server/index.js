@@ -1,4 +1,5 @@
 import { createServer } from "node:http";
+import { existsSync } from "node:fs";
 import { readFile, stat } from "node:fs/promises";
 import { connect as tlsConnect } from "node:tls";
 import { extname, join, normalize } from "node:path";
@@ -6,7 +7,8 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const rootDir = normalize(join(__dirname, ".."));
-const publicDir = join(rootDir, "public");
+const distDir = join(rootDir, "dist");
+const publicDir = existsSync(join(distDir, "index.html")) ? distDir : join(rootDir, "public");
 const port = Number(process.env.PORT || 3000);
 const contactEmail = process.env.CONTACT_EMAIL || "hamu.dxb@gmail.com";
 const contactWebhookUrl = process.env.CONTACT_WEBHOOK_URL;
@@ -19,6 +21,7 @@ const smtpFrom = process.env.SMTP_FROM || smtpUser || contactEmail;
 const rateLimitWindowMs = 60_000;
 const rateLimitMaxRequests = 12;
 const rateLimitStore = new Map();
+const isProduction = process.env.NODE_ENV === "production";
 
 const mimeTypes = {
   ".html": "text/html; charset=utf-8",
@@ -36,17 +39,55 @@ const mimeTypes = {
 function setSecurityHeaders(res) {
   res.setHeader("X-Content-Type-Options", "nosniff");
   res.setHeader("X-Frame-Options", "DENY");
-  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
-  res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+  res.setHeader("Referrer-Policy", "no-referrer");
+  res.setHeader("Permissions-Policy", "accelerometer=(), autoplay=(), camera=(), clipboard-read=(), display-capture=(), encrypted-media=(), fullscreen=(), gamepad=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=()");
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+  res.setHeader("Cross-Origin-Resource-Policy", "same-origin");
+  res.setHeader("Origin-Agent-Cluster", "?1");
+  res.setHeader("X-Permitted-Cross-Domain-Policies", "none");
+  res.setHeader("X-DNS-Prefetch-Control", "off");
+  res.setHeader("Strict-Transport-Security", "max-age=63072000; includeSubDomains; preload");
   res.setHeader(
     "Content-Security-Policy",
-    "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self' https://api.web3forms.com; form-action 'self'; base-uri 'self'; frame-ancestors 'none'"
+    [
+      "default-src 'self'",
+      "base-uri 'self'",
+      "object-src 'none'",
+      "frame-ancestors 'none'",
+      "form-action 'self' https://api.web3forms.com",
+      "img-src 'self' data:",
+      "font-src 'self'",
+      "style-src 'self'",
+      "script-src 'self'",
+      "connect-src 'self' https://api.web3forms.com",
+      "manifest-src 'self'",
+      "worker-src 'self'",
+      isProduction ? "upgrade-insecure-requests" : ""
+    ].filter(Boolean).join("; ")
   );
 }
 
 function sendJson(res, statusCode, payload) {
-  res.writeHead(statusCode, { "Content-Type": "application/json; charset=utf-8" });
+  res.writeHead(statusCode, {
+    "Cache-Control": "no-store",
+    "Content-Type": "application/json; charset=utf-8"
+  });
   res.end(JSON.stringify(payload));
+}
+
+function isTrustedOrigin(req) {
+  const host = req.headers.host;
+  const origin = req.headers.origin;
+  const referer = req.headers.referer;
+
+  if (!host || (!origin && !referer)) return true;
+
+  try {
+    const source = new URL(origin || referer);
+    return source.host === host;
+  } catch {
+    return false;
+  }
 }
 
 function encodeBase64(value) {
@@ -248,6 +289,16 @@ async function handleContact(req, res) {
     return;
   }
 
+  if (!isTrustedOrigin(req)) {
+    sendJson(res, 403, { error: "Forbidden" });
+    return;
+  }
+
+  if (!String(req.headers["content-type"] || "").includes("application/json")) {
+    sendJson(res, 415, { error: "Content-Type must be application/json" });
+    return;
+  }
+
   if (isRateLimited(req)) {
     sendJson(res, 429, { error: "Too many requests. Please try again shortly." });
     return;
@@ -308,11 +359,14 @@ async function serveStatic(req, res) {
 
     const ext = extname(filePath);
     const headers = {
-      "Content-Type": mimeTypes[ext] || "application/octet-stream"
+      "Content-Type": mimeTypes[ext] || "application/octet-stream",
+      "Cross-Origin-Resource-Policy": "same-origin"
     };
 
     if (ext !== ".html") {
       headers["Cache-Control"] = "public, max-age=604800, immutable";
+    } else {
+      headers["Cache-Control"] = "no-store";
     }
 
     res.writeHead(200, headers);

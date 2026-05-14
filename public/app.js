@@ -5,6 +5,8 @@ const contactForm = document.querySelector("[data-contact-form]");
 const formStatus = document.querySelector("[data-form-status]");
 const year = document.querySelector("[data-year]");
 const revealItems = document.querySelectorAll("[data-reveal]");
+const emailButtons = document.querySelectorAll("[data-email-button]");
+const emailPopover = document.querySelector("[data-email-popover]");
 
 year.textContent = new Date().getFullYear();
 
@@ -62,6 +64,28 @@ function setupRevealMotion() {
 }
 
 setupRevealMotion();
+
+for (const button of emailButtons) {
+  button.addEventListener("click", async () => {
+    const isOpen = !emailPopover.hidden;
+    emailPopover.hidden = isOpen;
+
+    for (const emailButton of emailButtons) {
+      emailButton.setAttribute("aria-expanded", String(!isOpen));
+    }
+
+    if (!isOpen && navigator.clipboard) {
+      try {
+        await navigator.clipboard.writeText("hamu.dxb@gmail.com");
+        emailPopover.textContent = "hamu.dxb@gmail.com copied";
+      } catch {
+        emailPopover.textContent = "hamu.dxb@gmail.com";
+      }
+    } else if (!isOpen) {
+      emailPopover.textContent = "hamu.dxb@gmail.com";
+    }
+  });
+}
 
 function setFieldError(name, message = "") {
   const error = contactForm.querySelector(`[data-error-for="${name}"]`);

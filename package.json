@@ -5,8 +5,10 @@
   "description": "A production-minded personal portfolio website with a small Node backend.",
   "type": "module",
   "scripts": {
-    "dev": "node --watch server/index.js",
+    "dev": "vite",
+    "serve": "node --watch server/index.js",
     "start": "node server/index.js",
+    "build": "vite build",
     "deploy": "wrangler deploy",
     "preview": "wrangler dev"
   },
@@ -15,5 +17,11 @@
   },
   "devDependencies": {
     "wrangler": "^4.90.1"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "vite": "^8.0.13"
   }
 }
