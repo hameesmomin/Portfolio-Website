@@ -1,50 +1,70 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+
+const contactEmail = "hamu.dxb@gmail.com";
 
 const projects = [
   {
     name: "Skywing Real Estate",
     type: "Real Estate",
-    description: "A polished real estate website focused on property discovery, trust-building content, and clear lead generation paths.",
+    description: "Property discovery, credibility content, and conversion-ready lead paths for a Dubai real estate brand.",
     href: "https://skywingrealty.com/",
     image: "/assets/skywing-thumbnail.svg",
-    tags: ["Frontend", "SEO", "Lead flow"]
+    tags: ["Frontend", "SEO", "Lead flow"],
+    className: "project-card-a"
   },
   {
     name: "Purewealth",
     type: "Wealth Platform",
-    description: "A digital presence for wealth-focused services, designed around credibility, content clarity, and confident user journeys.",
+    description: "A trust-led digital presence shaped around clarity, calm content, and confident user journeys.",
     href: "https://purewealth.me/",
     image: "/assets/purewealth-thumbnail.svg",
-    tags: ["Web design", "Performance", "UX"]
+    tags: ["Web design", "Performance", "UX"],
+    className: "project-card-b"
   },
   {
     name: "Varaa Realty",
     type: "Real Estate",
-    description: "A real estate brand website with structured service content, mobile-first layouts, and conversion-ready contact points.",
+    description: "A mobile-first real estate brand site with structured services and direct contact pathways.",
     href: "https://varaarealty.com/",
     image: "/assets/varaa-thumbnail.svg",
-    tags: ["Responsive UI", "Brand site", "Contact flow"]
+    tags: ["Responsive UI", "Brand site", "Contact flow"],
+    className: "project-card-c"
   }
 ];
 
 const skills = [
   {
     title: "Frontend engineering",
-    level: 94,
-    copy: "Accessible UI, design systems, responsive layouts, performance budgets, and browser-tested interactions.",
-    tags: ["HTML", "CSS", "JavaScript", "React"]
+    levelClass: "skill-level-94",
+    copy: "Accessible React interfaces, responsive systems, polished motion, and performance-aware implementation.",
+    tags: ["React", "CSS", "Accessibility", "Performance"]
   },
   {
     title: "Backend engineering",
-    level: 88,
-    copy: "API design, validation, auth-ready architecture, database modeling, logging, and deployment-minded structure.",
-    tags: ["Node.js", "APIs", "Security", "Email flow"]
+    levelClass: "skill-level-88",
+    copy: "API design, validation, secure contact flows, deployment structure, logging, and practical maintainability.",
+    tags: ["Node.js", "APIs", "Security", "Email"]
   },
   {
-    title: "Product thinking",
-    level: 91,
-    copy: "Clear user flows, measurable outcomes, pragmatic scope decisions, and launch-ready presentation.",
+    title: "Product delivery",
+    levelClass: "skill-level-91",
+    copy: "Clear user journeys, focused scope, credible presentation, and launch-ready digital products.",
     tags: ["UX flow", "SEO", "Content", "Launch"]
+  }
+];
+
+const processSteps = [
+  {
+    title: "Pattern",
+    copy: "Clarify the user journey, content hierarchy, trust signals, and the technical constraints before production work starts."
+  },
+  {
+    title: "Stitch",
+    copy: "Build the interface and backend in small, testable passes with clean components and secure defaults."
+  },
+  {
+    title: "Finish",
+    copy: "Refine responsiveness, performance, contact reliability, and deployment readiness until the site feels complete."
   }
 ];
 
@@ -67,7 +87,7 @@ function useReveal() {
           }
         });
       },
-      { rootMargin: "0px 0px -12% 0px", threshold: 0.16 }
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.14 }
     );
 
     items.forEach((item) => observer.observe(item));
@@ -75,16 +95,14 @@ function useReveal() {
   }, []);
 }
 
-function WaterBackground() {
+function StitchBackdrop() {
   return (
-    <div className="water-scene" aria-hidden="true">
-      <div className="water-orbit water-orbit-a" />
-      <div className="water-orbit water-orbit-b" />
-      <div className="water-orbit water-orbit-c" />
-      <div className="water-ribbon ribbon-one" />
-      <div className="water-ribbon ribbon-two" />
-      <div className="water-ribbon ribbon-three" />
-      <div className="water-grid" />
+    <div className="stitch-backdrop" aria-hidden="true">
+      <div className="fabric-grain" />
+      <div className="thread-field thread-field-one" />
+      <div className="thread-field thread-field-two" />
+      <div className="thread-field thread-field-three" />
+      <div className="thread-field thread-field-four" />
     </div>
   );
 }
@@ -94,7 +112,7 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -103,8 +121,8 @@ function Navbar() {
   const close = () => setOpen(false);
 
   return (
-    <header className={`nav-shell ${scrolled ? "is-scrolled" : ""}`}>
-      <a className="brand" href="#home" onClick={close} aria-label="Go to home">
+    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
+      <a className="brand-mark" href="#home" onClick={close} aria-label="Go to home">
         <img src="/assets/logo.svg" alt="" aria-hidden="true" />
         <span>Hamees Momin</span>
       </a>
@@ -114,10 +132,10 @@ function Navbar() {
         <span aria-hidden="true" />
       </button>
 
-      <nav className={`site-nav ${open ? "is-open" : ""}`} id="site-nav">
+      <nav className={`site-nav ${open ? "is-open" : ""}`} id="site-nav" aria-label="Main navigation">
         {["work", "skills", "process", "contact"].map((item) => (
           <a key={item} href={`#${item}`} onClick={close}>
-            {item[0].toUpperCase() + item.slice(1)}
+            {item}
           </a>
         ))}
       </nav>
@@ -125,45 +143,13 @@ function Navbar() {
   );
 }
 
-function StackedProjectCard({ project, index }) {
-  const cardRef = useRef(null);
-
-  function handlePointerMove(event) {
-    const card = cardRef.current;
-    if (!card || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    const rect = card.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width - 0.5;
-    const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-    card.style.setProperty("--tilt-x", `${(-y * 10).toFixed(2)}deg`);
-    card.style.setProperty("--tilt-y", `${(x * 12).toFixed(2)}deg`);
-    card.style.setProperty("--glow-x", `${event.clientX - rect.left}px`);
-    card.style.setProperty("--glow-y", `${event.clientY - rect.top}px`);
-  }
-
-  function resetTilt() {
-    const card = cardRef.current;
-    if (!card) return;
-    card.style.setProperty("--tilt-x", "0deg");
-    card.style.setProperty("--tilt-y", "0deg");
-  }
-
+function ProjectCard({ project }) {
   return (
-    <article
-      className="project-stack-card"
-      data-reveal
-      ref={cardRef}
-      style={{ "--stack-index": index }}
-      onPointerMove={handlePointerMove}
-      onPointerLeave={resetTilt}
-    >
-      <div className="stack-shadow stack-shadow-one" />
-      <div className="stack-shadow stack-shadow-two" />
-      <a className="project-thumb" href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.name}`}>
-        <img src={project.image} alt={`${project.name} website thumbnail`} />
+    <article className={`project-card ${project.className}`} data-reveal>
+      <a className="project-image" href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.name}`}>
+        <img src={project.image} alt={`${project.name} website thumbnail`} loading="lazy" />
       </a>
-      <div className="project-copy">
+      <div className="project-content">
         <p>{project.type}</p>
         <h3>{project.name}</h3>
         <span>{project.description}</span>
@@ -180,13 +166,13 @@ function StackedProjectCard({ project, index }) {
 
 function SkillCard({ skill, index }) {
   return (
-    <article className="skill-flow-card" data-reveal style={{ "--level": `${skill.level}%` }}>
-      <div className="skill-flow-top">
+    <article className={`skill-card ${skill.levelClass}`} data-reveal>
+      <div className="skill-card-top">
         <span>{String(index + 1).padStart(2, "0")}</span>
         <h3>{skill.title}</h3>
       </div>
       <p>{skill.copy}</p>
-      <div className="skill-line" aria-hidden="true">
+      <div className="thread-meter" aria-hidden="true">
         <span />
       </div>
       <ul>
@@ -204,20 +190,24 @@ function Contact() {
   const [errors, setErrors] = useState({});
   const [sending, setSending] = useState(false);
 
-  const contactEmail = "hamu.dxb@gmail.com";
-
   async function revealEmail() {
-    setEmailOpen((value) => !value);
-    if (!emailOpen && navigator.clipboard) {
+    const nextOpen = !emailOpen;
+    setEmailOpen(nextOpen);
+
+    if (!nextOpen) return;
+
+    if (navigator.clipboard) {
       try {
         await navigator.clipboard.writeText(contactEmail);
         setStatus(`${contactEmail} copied`);
+        return;
       } catch {
         setStatus(contactEmail);
+        return;
       }
-    } else if (!emailOpen) {
-      setStatus(contactEmail);
     }
+
+    setStatus(contactEmail);
   }
 
   async function handleSubmit(event) {
@@ -262,10 +252,10 @@ function Contact() {
   return (
     <section className="section contact-section" id="contact">
       <div className="container contact-grid">
-        <div data-reveal>
+        <div className="contact-intro" data-reveal>
           <p className="eyebrow">Contact</p>
-          <h2>Have a project in mind?</h2>
-          <p>Send a few details and I will respond with next steps. You can also reach me directly through the buttons below.</p>
+          <h2>Start the next build.</h2>
+          <p>Send project details through the secure form, or use the quick buttons for direct contact.</p>
           <div className="contact-buttons">
             <button type="button" onClick={revealEmail} aria-expanded={emailOpen} aria-controls="email-popover">Email</button>
             <a href="https://wa.me/971502877142" target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -318,24 +308,29 @@ function App() {
 
   return (
     <>
-      <WaterBackground />
+      <StitchBackdrop />
       <Navbar />
       <main>
         <section className="hero" id="home">
           <div className="container hero-grid">
             <div className="hero-copy" data-reveal>
-              <p className="eyebrow">Frontend clarity. Backend discipline.</p>
-              <h1>I build polished web experiences backed by reliable systems.</h1>
-              <p>I am Hamees Momin, a full-stack developer creating fast, accessible, maintainable websites and digital products for real businesses.</p>
+              <p className="eyebrow">Full-stack portfolio / Dubai</p>
+              <h1>Crafting bespoke digital experiences with technical precision.</h1>
+              <p>I am Hamees Momin, a full-stack developer building refined websites, responsive products, and reliable systems with a modern stitched-in level of care.</p>
               <div className="hero-actions">
                 <a className="primary-button" href="#work">View work</a>
                 <a className="ghost-button" href="#contact">Start a project</a>
               </div>
             </div>
-            <aside className="hero-metrics" data-reveal aria-label="Portfolio highlights">
-              <div><strong>3+</strong><span>Featured projects</span></div>
-              <div><strong>98</strong><span>Performance target</span></div>
-              <div><strong>4 yrs</strong><span>Full-stack delivery</span></div>
+            <aside className="atelier-panel" data-reveal aria-label="Portfolio highlights">
+              <div className="atelier-badge">HM</div>
+              <p>Digital atelier</p>
+              <h2>Threaded UI, secure backend, smooth delivery.</h2>
+              <div className="metric-grid">
+                <div><strong>3+</strong><span>Featured projects</span></div>
+                <div><strong>98</strong><span>Performance target</span></div>
+                <div><strong>4 yrs</strong><span>Delivery practice</span></div>
+              </div>
             </aside>
           </div>
         </section>
@@ -344,11 +339,11 @@ function App() {
           <div className="container">
             <div className="section-heading" data-reveal>
               <p className="eyebrow">Selected work</p>
-              <h2>Projects stacked with real business outcomes.</h2>
+              <h2>Project cards cut like a tactile archive.</h2>
             </div>
-            <div className="project-stack-grid">
-              {projects.map((project, index) => (
-                <StackedProjectCard key={project.name} project={project} index={index} />
+            <div className="project-grid">
+              {projects.map((project) => (
+                <ProjectCard key={project.name} project={project} />
               ))}
             </div>
           </div>
@@ -358,10 +353,10 @@ function App() {
           <div className="container skills-grid">
             <div className="section-heading sticky-copy" data-reveal>
               <p className="eyebrow">Capabilities</p>
-              <h2>Skills that move together like one smooth flow.</h2>
-              <p>Interface polish, backend reliability, and product clarity are designed as one connected experience.</p>
+              <h2>Skills shown as moving thread lines.</h2>
+              <p>Frontend detail, backend reliability, and product thinking are treated as one connected fabric.</p>
             </div>
-            <div className="skills-flow">
+            <div className="skills-list">
               {skills.map((skill, index) => (
                 <SkillCard key={skill.title} skill={skill} index={index} />
               ))}
@@ -372,15 +367,15 @@ function App() {
         <section className="section process-section" id="process">
           <div className="container">
             <div className="section-heading compact" data-reveal>
-              <p className="eyebrow">How I work</p>
-              <h2>Calm process, clean delivery.</h2>
+              <p className="eyebrow">Process</p>
+              <h2>A measured build rhythm.</h2>
             </div>
-            <ol className="timeline">
-              {["Clarify", "Build", "Refine"].map((item, index) => (
-                <li key={item} data-reveal>
+            <ol className="process-grid">
+              {processSteps.map((step, index) => (
+                <li key={step.title} data-reveal>
                   <span>{String(index + 1).padStart(2, "0")}</span>
-                  <h3>{item}</h3>
-                  <p>{index === 0 ? "Define the audience, constraints, success metrics, and core flows before writing code." : index === 1 ? "Ship usable slices with tested interfaces, readable implementation, and thoughtful edge states." : "Measure performance, polish the experience, and prepare the system for deployment and maintenance."}</p>
+                  <h3>{step.title}</h3>
+                  <p>{step.copy}</p>
                 </li>
               ))}
             </ol>
@@ -399,7 +394,7 @@ function App() {
             </div>
           </div>
           <div className="footer-actions">
-            <a href="#contact">Email</a>
+            <button type="button" onClick={() => navigator.clipboard?.writeText(contactEmail)}>Email</button>
             <a href="https://wa.me/971502877142" target="_blank" rel="noopener noreferrer">WhatsApp</a>
           </div>
         </div>
