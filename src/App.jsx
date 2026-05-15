@@ -5,30 +5,37 @@ const contactEmail = "hamu.dxb@gmail.com";
 const projects = [
   {
     name: "Skywing Real Estate",
-    type: "Real Estate",
-    description: "Property discovery, credibility content, and conversion-ready lead paths for a Dubai real estate brand.",
+    description: "A high-end property discovery platform featuring immersive 3D tours and complex filtering systems built for a seamless user journey.",
     href: "https://skywingrealty.com/",
     image: "/assets/skywing-thumbnail.svg",
-    tags: ["Frontend", "SEO", "Lead flow"],
-    className: "project-card-a"
+    tags: ["React", "Tailwind"],
+    className: "project-card-skywing"
   },
   {
     name: "Purewealth",
-    type: "Wealth Platform",
-    description: "A trust-led digital presence shaped around clarity, calm content, and confident user journeys.",
+    description: "Secure, high-performance wealth management dashboard with real-time data visualization.",
     href: "https://purewealth.me/",
     image: "/assets/purewealth-thumbnail.svg",
-    tags: ["Web design", "Performance", "UX"],
-    className: "project-card-b"
+    tags: ["Next.js"],
+    className: "project-card-purewealth",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-8M15 21v-8" />
+      </svg>
+    )
   },
   {
     name: "Varaa Realty",
-    type: "Real Estate",
-    description: "A mobile-first real estate brand site with structured services and direct contact pathways.",
+    description: "A corporate identity and digital presence overhaul for a leading commercial real estate firm, focusing on institutional trust and modern aesthetics.",
     href: "https://varaarealty.com/",
     image: "/assets/varaa-thumbnail.svg",
-    tags: ["Responsive UI", "Brand site", "Contact flow"],
-    className: "project-card-c"
+    tags: ["Vue.js", "Webflow"],
+    className: "project-card-varaa",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M7 17l9.2-9.2M17 17V7H7" />
+      </svg>
+    )
   }
 ];
 
@@ -50,21 +57,6 @@ const skills = [
     levelClass: "skill-level-91",
     copy: "Clear user journeys, focused scope, credible presentation, and launch-ready digital products.",
     tags: ["UX flow", "SEO", "Content", "Launch"]
-  }
-];
-
-const processSteps = [
-  {
-    title: "Pattern",
-    copy: "Clarify the user journey, content hierarchy, trust signals, and the technical constraints before production work starts."
-  },
-  {
-    title: "Stitch",
-    copy: "Build the interface and backend in small, testable passes with clean components and secure defaults."
-  },
-  {
-    title: "Finish",
-    copy: "Refine responsiveness, performance, contact reliability, and deployment readiness until the site feels complete."
   }
 ];
 
@@ -95,18 +87,6 @@ function useReveal() {
   }, []);
 }
 
-function StitchBackdrop() {
-  return (
-    <div className="stitch-backdrop" aria-hidden="true">
-      <div className="fabric-grain" />
-      <div className="thread-field thread-field-one" />
-      <div className="thread-field thread-field-two" />
-      <div className="thread-field thread-field-three" />
-      <div className="thread-field thread-field-four" />
-    </div>
-  );
-}
-
 function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -122,93 +102,41 @@ function Navbar() {
 
   return (
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
-      <a className="brand-mark" href="#home" onClick={close} aria-label="Go to home">
-        <img src="/assets/logo.svg" alt="" aria-hidden="true" />
-        <span>Hamees Momin</span>
-      </a>
+      <div className="container header-inner">
+        <a className="brand-mark" href="#home" onClick={close} aria-label="Go to home">
+          <span>Hamees Momin</span>
+        </a>
 
-      <button className="nav-toggle" type="button" aria-expanded={open} aria-controls="site-nav" onClick={() => setOpen((value) => !value)}>
-        <span className="sr-only">Open navigation</span>
-        <span aria-hidden="true" />
-      </button>
+        <button className="nav-toggle" type="button" aria-expanded={open} aria-controls="site-nav" onClick={() => setOpen((value) => !value)}>
+          <span className="sr-only">Open navigation</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d={open ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+          </svg>
+        </button>
 
-      <nav className={`site-nav ${open ? "is-open" : ""}`} id="site-nav" aria-label="Main navigation">
-        {["work", "skills", "process", "contact"].map((item) => (
-          <a key={item} href={`#${item}`} onClick={close}>
-            {item}
-          </a>
-        ))}
-      </nav>
+        <nav className={`site-nav ${open ? "is-open" : ""}`} id="site-nav" aria-label="Main navigation">
+          {["work", "about", "contact"].map((item) => (
+            <a key={item} href={`#${item}`} onClick={close} className={item === "work" ? "active" : ""}>
+              {item}
+            </a>
+          ))}
+        </nav>
+
+        <a className="primary-button cta-button" href="#contact" onClick={close}>
+          HIRE ME
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
     </header>
   );
 }
 
-function ProjectCard({ project }) {
-  return (
-    <article className={`project-card ${project.className}`} data-reveal>
-      <a className="project-image" href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.name}`}>
-        <img src={project.image} alt={`${project.name} website thumbnail`} loading="lazy" />
-      </a>
-      <div className="project-content">
-        <p>{project.type}</p>
-        <h3>{project.name}</h3>
-        <span>{project.description}</span>
-        <ul>
-          {project.tags.map((tag) => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul>
-        <a href={project.href} target="_blank" rel="noopener noreferrer">Visit site</a>
-      </div>
-    </article>
-  );
-}
-
-function SkillCard({ skill, index }) {
-  return (
-    <article className={`skill-card ${skill.levelClass}`} data-reveal>
-      <div className="skill-card-top">
-        <span>{String(index + 1).padStart(2, "0")}</span>
-        <h3>{skill.title}</h3>
-      </div>
-      <p>{skill.copy}</p>
-      <div className="thread-meter" aria-hidden="true">
-        <span />
-      </div>
-      <ul>
-        {skill.tags.map((tag) => (
-          <li key={tag}>{tag}</li>
-        ))}
-      </ul>
-    </article>
-  );
-}
-
 function Contact() {
-  const [emailOpen, setEmailOpen] = useState(false);
   const [status, setStatus] = useState("");
   const [errors, setErrors] = useState({});
   const [sending, setSending] = useState(false);
-
-  async function revealEmail() {
-    const nextOpen = !emailOpen;
-    setEmailOpen(nextOpen);
-
-    if (!nextOpen) return;
-
-    if (navigator.clipboard) {
-      try {
-        await navigator.clipboard.writeText(contactEmail);
-        setStatus(`${contactEmail} copied`);
-        return;
-      } catch {
-        setStatus(contactEmail);
-        return;
-      }
-    }
-
-    setStatus(contactEmail);
-  }
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -253,48 +181,37 @@ function Contact() {
     <section className="section contact-section" id="contact">
       <div className="container contact-grid">
         <div className="contact-intro" data-reveal>
-          <p className="eyebrow">Contact</p>
-          <h2>Start the next build.</h2>
-          <p>Send project details through the secure form, or use the quick buttons for direct contact.</p>
-          <div className="contact-buttons">
-            <button type="button" onClick={revealEmail} aria-expanded={emailOpen} aria-controls="email-popover">Email</button>
-            <a href="https://wa.me/971502877142" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-          </div>
-          {emailOpen && (
-            <p className="email-popover" id="email-popover" role="status">{status || contactEmail}</p>
-          )}
+          <h2>Start a project</h2>
+          <p>Send project details through the secure form, or reach out directly.</p>
         </div>
 
         <form className="contact-form" data-reveal onSubmit={handleSubmit} noValidate>
           <input type="hidden" name="access_key" value="8cb166ec-6273-4e16-b4ea-7128fc4f34df" />
           <input type="hidden" name="subject" value="New portfolio inquiry for Hamees Momin" />
           <input type="checkbox" name="botcheck" className="botcheck" tabIndex="-1" autoComplete="off" />
-          <label>
-            <span>Name</span>
-            <input name="name" type="text" autoComplete="name" />
-            {errors.name && <small>{errors.name}</small>}
-          </label>
-          <label>
-            <span>Email</span>
-            <input name="email" type="email" autoComplete="email" />
-            {errors.email && <small>{errors.email}</small>}
-          </label>
-          <label>
-            <span>Project type</span>
-            <select name="projectType" defaultValue="">
-              <option value="">Select one</option>
-              <option>Portfolio or personal site</option>
-              <option>Business website</option>
-              <option>Full-stack application</option>
-              <option>Frontend cleanup</option>
-            </select>
-          </label>
+          <div className="form-group">
+            <label>
+              <span>Name</span>
+              <input name="name" type="text" autoComplete="name" />
+              {errors.name && <small>{errors.name}</small>}
+            </label>
+            <label>
+              <span>Email</span>
+              <input name="email" type="email" autoComplete="email" />
+              {errors.email && <small>{errors.email}</small>}
+            </label>
+          </div>
           <label>
             <span>Message</span>
-            <textarea name="message" rows="5" />
+            <textarea name="message" rows="4" />
             {errors.message && <small>{errors.message}</small>}
           </label>
-          <button className="primary-button" type="submit" disabled={sending}>{sending ? "Sending..." : "Send message"}</button>
+          <button className="submit-button" type="submit" disabled={sending}>
+            {sending ? "SENDING..." : "SEND MESSAGE"}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
           {status && <p className="form-status">{status}</p>}
         </form>
       </div>
@@ -308,94 +225,143 @@ function App() {
 
   return (
     <>
-      <StitchBackdrop />
+      <div className="bg-overlay" />
       <Navbar />
       <main>
         <section className="hero" id="home">
-          <div className="container hero-grid">
-            <div className="hero-copy" data-reveal>
-              <p className="eyebrow">Full-stack portfolio / Dubai</p>
-              <h1>Crafting bespoke digital experiences with technical precision.</h1>
-              <p>I am Hamees Momin, a full-stack developer building refined websites, responsive products, and reliable systems with a modern stitched-in level of care.</p>
-              <div className="hero-actions">
-                <a className="primary-button" href="#work">View work</a>
-                <a className="ghost-button" href="#contact">Start a project</a>
-              </div>
-            </div>
-            <aside className="atelier-panel" data-reveal aria-label="Portfolio highlights">
-              <div className="atelier-badge">HM</div>
-              <p>Digital atelier</p>
-              <h2>Threaded UI, secure backend, smooth delivery.</h2>
-              <div className="metric-grid">
-                <div><strong>3+</strong><span>Featured projects</span></div>
-                <div><strong>98</strong><span>Performance target</span></div>
-                <div><strong>4 yrs</strong><span>Delivery practice</span></div>
-              </div>
-            </aside>
-          </div>
-        </section>
-
-        <section className="section projects-section" id="work">
           <div className="container">
-            <div className="section-heading" data-reveal>
-              <p className="eyebrow">Selected work</p>
-              <h2>Project cards cut like a tactile archive.</h2>
+            <div className="hero-content" data-reveal>
+              <div className="availability-badge">
+                <span className="dot" />
+                AVAILABLE FOR NEW PROJECTS
+              </div>
+              
+              <h1>Crafting <em className="accent">bespoke</em> digital<br />experiences with technical<br />precision.</h1>
+              
+              <div className="hero-description">
+                <p>Specializing in high-performance web applications and tactile user interfaces.<br />I weave code and design into seamless, premium products.</p>
+              </div>
             </div>
-            <div className="project-grid">
-              {projects.map((project) => (
-                <ProjectCard key={project.name} project={project} />
-              ))}
+
+            <div className="metrics-row" data-reveal>
+              <div className="metric">
+                <strong>30+</strong>
+                <span>PROJECTS SHIPPED</span>
+              </div>
+              <div className="metric">
+                <strong>98%</strong>
+                <span>PERFORMANCE SCORE</span>
+              </div>
+              <div className="metric">
+                <strong>4 Yrs</strong>
+                <span>CONSISTENT DELIVERY</span>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="section skills-section" id="skills">
-          <div className="container skills-grid">
-            <div className="section-heading sticky-copy" data-reveal>
-              <p className="eyebrow">Capabilities</p>
-              <h2>Skills shown as moving thread lines.</h2>
-              <p>Frontend detail, backend reliability, and product thinking are treated as one connected fabric.</p>
+        <section className="section" id="work">
+          <div className="container">
+            <div className="section-header" data-reveal>
+              <div className="header-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="accent">
+                  <path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z" />
+                  <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
+                </svg>
+                <h2>Selected Work</h2>
+              </div>
+              <a href="#" className="view-archive">VIEW ARCHIVE &rarr;</a>
             </div>
-            <div className="skills-list">
+
+            <div className="bento-grid">
+              {/* Skywing (Large left card) */}
+              <a href={projects[0].href} target="_blank" rel="noopener noreferrer" className={`bento-card ${projects[0].className}`} data-reveal>
+                <div className="card-bg">
+                   <img src={projects[0].image} alt={projects[0].name} loading="lazy" />
+                   <div className="card-gradient" />
+                </div>
+                <div className="card-content">
+                  <div className="tags">
+                    {projects[0].tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
+                  </div>
+                  <h3>{projects[0].name}</h3>
+                  <p>{projects[0].description}</p>
+                </div>
+              </a>
+
+              {/* Purewealth (Top right card) */}
+              <a href={projects[1].href} target="_blank" rel="noopener noreferrer" className={`bento-card ${projects[1].className}`} data-reveal>
+                <div className="card-bg">
+                   <img src={projects[1].image} alt={projects[1].name} loading="lazy" />
+                   <div className="card-gradient" />
+                </div>
+                <div className="card-icon">{projects[1].icon}</div>
+                <div className="card-content">
+                  <div className="tags">
+                    {projects[1].tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
+                  </div>
+                  <h3>{projects[1].name}</h3>
+                  <p>{projects[1].description}</p>
+                </div>
+              </a>
+
+              {/* Varaa (Bottom right card) */}
+              <a href={projects[2].href} target="_blank" rel="noopener noreferrer" className={`bento-card ${projects[2].className}`} data-reveal>
+                <div className="card-bg">
+                   <img src={projects[2].image} alt={projects[2].name} loading="lazy" />
+                   <div className="card-gradient" />
+                </div>
+                <div className="card-icon">{projects[2].icon}</div>
+                <div className="card-content">
+                  <div className="tags">
+                    {projects[2].tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
+                  </div>
+                  <h3>{projects[2].name}</h3>
+                  <p>{projects[2].description}</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="section" id="about">
+          <div className="container">
+            <div className="section-header" data-reveal>
+              <h2>Capabilities</h2>
+            </div>
+            <div className="skills-grid">
               {skills.map((skill, index) => (
-                <SkillCard key={skill.title} skill={skill} index={index} />
+                <div key={skill.title} className="skill-item" data-reveal>
+                  <div className="skill-header">
+                    <span className="skill-number">{String(index + 1).padStart(2, "0")}</span>
+                    <h3>{skill.title}</h3>
+                  </div>
+                  <p>{skill.copy}</p>
+                  <div className="tags">
+                    {skill.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
+                  </div>
+                </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className="section process-section" id="process">
-          <div className="container">
-            <div className="section-heading compact" data-reveal>
-              <p className="eyebrow">Process</p>
-              <h2>A measured build rhythm.</h2>
-            </div>
-            <ol className="process-grid">
-              {processSteps.map((step, index) => (
-                <li key={step.title} data-reveal>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <h3>{step.title}</h3>
-                  <p>{step.copy}</p>
-                </li>
-              ))}
-            </ol>
           </div>
         </section>
 
         <Contact />
       </main>
+
       <footer className="site-footer">
         <div className="container footer-inner">
           <div className="footer-brand">
-            <img src="/assets/logo.svg" alt="" aria-hidden="true" />
-            <div>
-              <strong>Hamees Momin</strong>
-              <p>© {year} Full-stack portfolio. Built with care.</p>
-            </div>
+            <strong>Hamees Momin</strong>
           </div>
-          <div className="footer-actions">
-            <button type="button" onClick={() => navigator.clipboard?.writeText(contactEmail)}>Email</button>
-            <a href="https://wa.me/971502877142" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <div className="footer-center">
+            <p>© {year} Hamees Momin. Stitched with precision.</p>
+          </div>
+          <div className="footer-links">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer">GITHUB</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">TWITTER</a>
+            <button onClick={() => navigator.clipboard?.writeText(contactEmail)}>EMAIL</button>
           </div>
         </div>
       </footer>
