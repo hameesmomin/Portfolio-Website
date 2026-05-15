@@ -7,7 +7,7 @@ const projects = [
     name: "Skywing Real Estate",
     description: "A high-end property discovery platform featuring immersive 3D tours and complex filtering systems built for a seamless user journey.",
     href: "https://skywingrealty.com/",
-    image: "/assets/skywing-thumbnail.svg",
+    image: "/assets/skywing-new.png",
     tags: ["React", "Tailwind"],
     className: "project-card-skywing"
   },
@@ -15,7 +15,7 @@ const projects = [
     name: "Purewealth",
     description: "Secure, high-performance wealth management dashboard with real-time data visualization.",
     href: "https://purewealth.me/",
-    image: "/assets/purewealth-thumbnail.svg",
+    image: "/assets/purewealth-new.png",
     tags: ["Next.js"],
     className: "project-card-purewealth",
     icon: (
@@ -28,7 +28,7 @@ const projects = [
     name: "Varaa Realty",
     description: "A corporate identity and digital presence overhaul for a leading commercial real estate firm, focusing on institutional trust and modern aesthetics.",
     href: "https://varaarealty.com/",
-    image: "/assets/varaa-thumbnail.svg",
+    image: "/assets/varaa-new.png",
     tags: ["Vue.js", "Webflow"],
     className: "project-card-varaa",
     icon: (
