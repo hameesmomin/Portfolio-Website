@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Skywing Real Estate stitched architectural thumbnail</title>
+  <desc id="desc">A dark stitched textile inspired architectural villa scene with indigo and orange thread accents.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#11121a"/>
+      <stop offset=".52" stop-color="#181827"/>
+      <stop offset="1" stop-color="#08080a"/>
+    </linearGradient>
+    <pattern id="grain" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M0 2h16M0 9h16M4 0v16M12 0v16" stroke="#ffffff" stroke-opacity=".035" stroke-width="1"/>
+    </pattern>
+    <filter id="threadShadow">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000000" flood-opacity=".6"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" fill="url(#sky)"/>
+  <rect width="1200" height="760" fill="url(#grain)"/>
+  <path d="M-80 620C140 420 304 424 456 504c178 94 346 70 516-92 118-112 220-140 340-72" fill="none" stroke="#d96f2c" stroke-width="26" stroke-linecap="round" opacity=".58" filter="url(#threadShadow)"/>
+  <path d="M-74 658C158 480 330 486 472 558c198 100 386 48 548-118 96-98 190-128 318-84" fill="none" stroke="#d96f2c" stroke-width="10" stroke-linecap="round" opacity=".7"/>
+  <path d="M88 500h1024" stroke="#d2d0c8" stroke-opacity=".25" stroke-width="2" stroke-dasharray="14 16"/>
+  <path d="M170 500V304l178-110 178 110v196" fill="#101018" stroke="#d2d0c8" stroke-opacity=".32" stroke-width="3" stroke-dasharray="16 12"/>
+  <path d="M526 500V260h426v240" fill="#151522" stroke="#d96f2c" stroke-opacity=".45" stroke-width="3" stroke-dasharray="18 12"/>
+  <path d="M220 498V342h94v156M382 498V342h94v156M584 498V320h92v178M714 498V320h92v178M844 498V320h92v178" fill="#09090d" stroke="#d2d0c8" stroke-opacity=".22" stroke-width="2"/>
+  <path d="M170 304h356M526 260h426" stroke="#d96f2c" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="990" cy="186" r="54" fill="none" stroke="#d96f2c" stroke-width="7" stroke-dasharray="18 12" opacity=".8"/>
+  <text x="88" y="106" fill="#e8e7ef" font-family="Arial, sans-serif" font-size="42" font-weight="800">Skywing Real Estate</text>
+  <text x="88" y="150" fill="#ffb56b" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="6">PROPERTY DISCOVERY</text>
+</svg>
+

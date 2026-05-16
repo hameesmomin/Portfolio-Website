@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Varaa Realty stitched corporate thumbnail</title>
+  <desc id="desc">A geometric city tower composition in dark fabric with indigo stitch lines.</desc>
+  <defs>
+    <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0a0d"/>
+      <stop offset=".42" stop-color="#161724"/>
+      <stop offset="1" stop-color="#09090b"/>
+    </linearGradient>
+    <pattern id="grain" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0 5h20M0 14h20M5 0v20M15 0v20" stroke="#ffffff" stroke-opacity=".032" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="760" fill="url(#base)"/>
+  <rect width="1200" height="760" fill="url(#grain)"/>
+  <path d="M600 122L430 642M600 122l170 520M600 122v520" stroke="#d2d0c8" stroke-opacity=".16" stroke-width="3" stroke-dasharray="14 14"/>
+  <path d="M242 642V270l174-78v450M482 642V180l118-58 118 58v462M784 642V240l176 72v330" fill="#12131b" stroke="#d96f2c" stroke-opacity=".45" stroke-width="4" stroke-dasharray="18 12"/>
+  <path d="M286 324h78M286 398h78M286 472h78M286 546h78M524 246h152M524 320h152M524 394h152M524 468h152M524 542h152M828 356h84M828 430h84M828 504h84" stroke="#d2d0c8" stroke-opacity=".3" stroke-width="8" stroke-linecap="round"/>
+  <path d="M120 642h960" stroke="#d96f2c" stroke-width="8" stroke-linecap="round" stroke-dasharray="26 20"/>
+  <path d="M-40 190C152 60 338 98 468 224c148 144 324 144 456 6 90-94 210-126 350-54" fill="none" stroke="#d96f2c" stroke-width="18" stroke-linecap="round" opacity=".5"/>
+  <path d="M-30 228C166 94 348 126 486 252c146 134 326 128 452-6 92-98 204-126 330-62" fill="none" stroke="#d2d0c8" stroke-width="4" stroke-linecap="round" stroke-dasharray="16 12" opacity=".75"/>
+  <text x="94" y="104" fill="#e8e7ef" font-family="Arial, sans-serif" font-size="42" font-weight="800">Varaa Realty</text>
+  <text x="94" y="150" fill="#ffb56b" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="6">CORPORATE REAL ESTATE</text>
+</svg>
+
