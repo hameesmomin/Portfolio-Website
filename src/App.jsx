@@ -270,7 +270,7 @@ function App() {
                 </svg>
                 <h2>Selected Work</h2>
               </div>
-              <a href="#" className="view-archive">VIEW ARCHIVE &rarr;</a>
+              <a href="#contact" className="view-archive">BOOK A BUILD &rarr;</a>
             </div>
 
             <div className="bento-grid">
@@ -355,13 +355,11 @@ function App() {
             <strong>Hamees Momin</strong>
           </div>
           <div className="footer-center">
-            <p>© {year} Hamees Momin. Stitched with precision.</p>
+            <p>(c) {year} Hamees Momin. Stitched with precision.</p>
           </div>
           <div className="footer-links">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">GITHUB</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">TWITTER</a>
-            <button onClick={() => navigator.clipboard?.writeText(contactEmail)}>EMAIL</button>
+            <a href={`mailto:${contactEmail}`}>EMAIL</a>
+            <a href="https://wa.me/971502877142" target="_blank" rel="noopener noreferrer">WHATSAPP</a>
           </div>
         </div>
       </footer>
