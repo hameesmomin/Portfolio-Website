@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hameesmomin.com/sitemap.xml
+Host: https://hameesmomin.com
+

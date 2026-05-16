@@ -7,7 +7,8 @@ const projects = [
     name: "Skywing Real Estate",
     description: "A high-end property discovery platform featuring immersive 3D tours and complex filtering systems built for a seamless user journey.",
     href: "https://skywingrealty.com/",
-    image: "/assets/skywing-stitch.svg",
+    image: "/assets/skywing-project-1600.webp",
+    imageSet: "/assets/skywing-project-900.webp 900w, /assets/skywing-project-1600.webp 1600w",
     tags: ["React", "Tailwind"],
     className: "project-card-skywing"
   },
@@ -15,7 +16,8 @@ const projects = [
     name: "Purewealth",
     description: "Secure, high-performance wealth management dashboard with real-time data visualization.",
     href: "https://purewealth.me/",
-    image: "/assets/purewealth-stitch.svg",
+    image: "/assets/purewealth-project-1600.webp",
+    imageSet: "/assets/purewealth-project-900.webp 900w, /assets/purewealth-project-1600.webp 1600w",
     tags: ["Next.js"],
     className: "project-card-purewealth",
     icon: (
@@ -28,7 +30,8 @@ const projects = [
     name: "Varaa Realty",
     description: "A corporate identity and digital presence overhaul for a leading commercial real estate firm, focusing on institutional trust and modern aesthetics.",
     href: "https://varaarealty.com/",
-    image: "/assets/varaa-stitch.svg",
+    image: "/assets/varaa-project-1600.webp",
+    imageSet: "/assets/varaa-project-900.webp 900w, /assets/varaa-project-1600.webp 1600w",
     tags: ["Vue.js", "Webflow"],
     className: "project-card-varaa",
     icon: (
@@ -227,7 +230,7 @@ function App() {
     <>
       <div className="bg-overlay" />
       <Navbar />
-      <main>
+      <main itemScope itemType="https://schema.org/Person">
         <section className="hero" id="home">
           <div className="container">
             <div className="hero-content" data-reveal>
@@ -236,10 +239,14 @@ function App() {
                 AVAILABLE FOR NEW PROJECTS
               </div>
               
-              <h1>Crafting <em className="accent">bespoke</em> digital experiences with technical precision.</h1>
+              <h1><span itemProp="name">Hamees Momin</span> crafts <em className="accent">bespoke</em> digital experiences with technical precision.</h1>
+              <meta itemProp="jobTitle" content="Full-Stack Developer" />
+              <meta itemProp="email" content={contactEmail} />
+              <meta itemProp="telephone" content="+971502877142" />
+              <meta itemProp="url" content="https://hameesmomin.com/" />
               
               <div className="hero-description">
-                <p>Specializing in high-performance web applications and tactile user interfaces. I weave code and design into seamless, premium products.</p>
+                <p itemProp="description">Specializing in high-performance web applications and tactile user interfaces. I weave code and design into seamless, premium products.</p>
               </div>
             </div>
 
@@ -275,24 +282,25 @@ function App() {
 
             <div className="bento-grid">
               {/* Skywing (Large left card) */}
-              <a href={projects[0].href} target="_blank" rel="noopener noreferrer" className={`bento-card ${projects[0].className}`} data-reveal>
+              <a href={projects[0].href} target="_blank" rel="noopener noreferrer" className={`bento-card ${projects[0].className}`} data-reveal itemProp="workExample" itemScope itemType="https://schema.org/CreativeWork">
                 <div className="card-bg">
-                   <img src={projects[0].image} alt={projects[0].name} loading="lazy" />
+                   <img src={projects[0].image} srcSet={projects[0].imageSet} sizes="(max-width: 900px) calc(100vw - 32px), 52vw" alt={projects[0].name} loading="eager" fetchPriority="high" />
                    <div className="card-gradient" />
                 </div>
                 <div className="card-content">
                   <div className="tags">
                     {projects[0].tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
                   </div>
-                  <h3>{projects[0].name}</h3>
-                  <p>{projects[0].description}</p>
+                  <h3 itemProp="name">{projects[0].name}</h3>
+                  <p itemProp="description">{projects[0].description}</p>
+                  <meta itemProp="url" content={projects[0].href} />
                 </div>
               </a>
 
               {/* Purewealth (Top right card) */}
-              <a href={projects[1].href} target="_blank" rel="noopener noreferrer" className={`bento-card ${projects[1].className}`} data-reveal>
+              <a href={projects[1].href} target="_blank" rel="noopener noreferrer" className={`bento-card ${projects[1].className}`} data-reveal itemProp="workExample" itemScope itemType="https://schema.org/CreativeWork">
                 <div className="card-bg">
-                   <img src={projects[1].image} alt={projects[1].name} loading="lazy" />
+                   <img src={projects[1].image} srcSet={projects[1].imageSet} sizes="(max-width: 900px) calc(100vw - 32px), 42vw" alt={projects[1].name} loading="lazy" />
                    <div className="card-gradient" />
                 </div>
                 <div className="card-icon">{projects[1].icon}</div>
@@ -300,15 +308,16 @@ function App() {
                   <div className="tags">
                     {projects[1].tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
                   </div>
-                  <h3>{projects[1].name}</h3>
-                  <p>{projects[1].description}</p>
+                  <h3 itemProp="name">{projects[1].name}</h3>
+                  <p itemProp="description">{projects[1].description}</p>
+                  <meta itemProp="url" content={projects[1].href} />
                 </div>
               </a>
 
               {/* Varaa (Bottom right card) */}
-              <a href={projects[2].href} target="_blank" rel="noopener noreferrer" className={`bento-card ${projects[2].className}`} data-reveal>
+              <a href={projects[2].href} target="_blank" rel="noopener noreferrer" className={`bento-card ${projects[2].className}`} data-reveal itemProp="workExample" itemScope itemType="https://schema.org/CreativeWork">
                 <div className="card-bg">
-                   <img src={projects[2].image} alt={projects[2].name} loading="lazy" />
+                   <img src={projects[2].image} srcSet={projects[2].imageSet} sizes="(max-width: 900px) calc(100vw - 32px), 42vw" alt={projects[2].name} loading="lazy" />
                    <div className="card-gradient" />
                 </div>
                 <div className="card-icon">{projects[2].icon}</div>
@@ -316,8 +325,9 @@ function App() {
                   <div className="tags">
                     {projects[2].tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
                   </div>
-                  <h3>{projects[2].name}</h3>
-                  <p>{projects[2].description}</p>
+                  <h3 itemProp="name">{projects[2].name}</h3>
+                  <p itemProp="description">{projects[2].description}</p>
+                  <meta itemProp="url" content={projects[2].href} />
                 </div>
               </a>
             </div>
