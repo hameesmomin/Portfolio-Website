@@ -188,7 +188,7 @@ async function renderProduct(page, product) {
       text(product.name.toUpperCase(), panelX + 28, panelY + 45, "900 14px Inter, Arial", product.accent);
       text("Secure demo login", panelX + 28, panelY + 88, "900 31px Inter, Arial", "#f7f4ef");
       const typedEmail = product.email.slice(0, Math.floor(product.email.length * Math.min(1, p * 2.2)));
-      const typedPass = "•".repeat(Math.floor(product.password.length * Math.max(0, Math.min(1, (p - .32) * 2.6))));
+      const typedPass = "*".repeat(Math.floor(product.password.length * Math.max(0, Math.min(1, (p - .32) * 2.6))));
       [
         ["Email", typedEmail],
         ["Password", typedPass]
@@ -303,7 +303,8 @@ async function renderProduct(page, product) {
     drawFrame(1.7 / product.pages.length);
     const poster = canvas.toDataURL("image/png").split(",")[1];
 
-    const stream = canvas.captureStream(fps);
+    const stream = canvas.captureStream(0);
+    const [track] = stream.getVideoTracks();
     const mimeType = MediaRecorder.isTypeSupported("video/webm;codecs=vp9")
       ? "video/webm;codecs=vp9"
       : "video/webm;codecs=vp8";
@@ -313,16 +314,14 @@ async function renderProduct(page, product) {
       if (event.data.size) chunks.push(event.data);
     };
 
-    const start = performance.now();
-    function tick(now) {
-      const t = Math.min((now - start) / duration, 1);
-      drawFrame(t);
-      if (t < 1) requestAnimationFrame(tick);
-    }
-
     recorder.start();
-    requestAnimationFrame(tick);
-    await new Promise((resolve) => setTimeout(resolve, duration + 350));
+    const frameCount = Math.ceil((duration / 1000) * fps);
+    const frameDelay = 1000 / fps;
+    for (let frame = 0; frame <= frameCount; frame += 1) {
+      drawFrame(frame / frameCount);
+      track?.requestFrame?.();
+      await new Promise((resolve) => setTimeout(resolve, frameDelay));
+    }
     recorder.stop();
     await new Promise((resolve) => {
       recorder.onstop = resolve;
