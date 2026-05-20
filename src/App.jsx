@@ -161,6 +161,29 @@ const trustSignals = [
   }
 ];
 
+const deliveryStandards = [
+  {
+    title: "Security-first setup",
+    copy: "Forms, headers, gated demos, and deployment settings are treated as part of the product, not an afterthought.",
+    proof: "CSP, validation, private demos"
+  },
+  {
+    title: "Performance that feels premium",
+    copy: "Pages are built to load quickly, stay responsive, and keep motion smooth across phone, tablet, and desktop screens.",
+    proof: "Responsive checks, optimized assets"
+  },
+  {
+    title: "Business-readable UX",
+    copy: "The interface explains outcomes clearly, so owners and managers understand what the software does without needing a technical tour.",
+    proof: "Outcome copy, guided walkthroughs"
+  },
+  {
+    title: "Launch-ready handoff",
+    copy: "SEO files, transfer notes, build scripts, and local test paths are kept organized so the project can move from demo to deployment cleanly.",
+    proof: "SEO schema, transfer guide"
+  }
+];
+
 function useReveal() {
   useEffect(() => {
     const items = document.querySelectorAll("[data-reveal]");
@@ -494,6 +517,32 @@ function ProductDemoHub() {
   );
 }
 
+function DeliveryStandards() {
+  return (
+    <section className="section standards-section" id="standards">
+      <div className="container">
+        <div className="section-header" data-reveal>
+          <div>
+            <span className="section-kicker">DELIVERY STANDARD</span>
+            <h2>Built to impress buyers and survive production.</h2>
+          </div>
+          <a href="#contact" className="view-archive">PLAN A BUILD &rarr;</a>
+        </div>
+        <div className="standards-grid">
+          {deliveryStandards.map((standard, index) => (
+            <article className="standard-card" key={standard.title} data-reveal>
+              <span className="skill-number">{String(index + 1).padStart(2, "0")}</span>
+              <h3>{standard.title}</h3>
+              <p>{standard.copy}</p>
+              <strong>{standard.proof}</strong>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function App() {
   const year = useMemo(() => new Date().getFullYear(), []);
   useReveal();
@@ -629,6 +678,8 @@ function App() {
             </div>
           </div>
         </section>
+
+        <DeliveryStandards />
 
         <Contact />
       </main>
