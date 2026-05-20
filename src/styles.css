@@ -122,6 +122,15 @@ img {
   border: 0;
 }
 
+.botcheck {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 .container {
   width: min(100% - clamp(32px, 7vw, 80px), var(--container));
   margin-inline: auto;
