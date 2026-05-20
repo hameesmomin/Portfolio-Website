@@ -518,7 +518,7 @@ function App() {
               <meta itemProp="url" content="https://hameesmomin.com/" />
               
               <div className="hero-description">
-                <p itemProp="description">Specializing in high-performance web applications and tactile user interfaces. I weave code and design into seamless, premium products.</p>
+                <p itemProp="description">Specializing in secure, high-performance web applications, private AI product demos, and tactile user interfaces. I weave code and design into seamless, premium products.</p>
               </div>
             </div>
 

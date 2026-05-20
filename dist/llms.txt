@@ -1,10 +1,10 @@
 # Hamees Momin
 
-> Full-stack developer portfolio for Hamees Momin, focused on secure, high-performance websites, AI cybersecurity tooling, real estate platforms, wealth interfaces, and polished digital products.
+> Full-stack developer and AI product builder portfolio for Hamees Momin, focused on secure, high-performance websites, business web applications, private AI product demos, real estate platforms, document intelligence, construction reporting, and cybersecurity readiness.
 
 ## Primary Pages
 
-- [Home](https://hameesmomin.com/): Overview of Hamees Momin, full-stack development services, featured projects, capabilities, and contact options.
+- [Home](https://hameesmomin.com/): Overview of Hamees Momin, full-stack development services, selected work, private AI product demos, capabilities, and contact options.
 - [Selected Work](https://hameesmomin.com/#work): Featured projects including Skywing Real Estate, Purewealth, and Varaa Realty.
 - [Private Product Demos](https://hameesmomin.com/#products): Gated access overview for Aura Command, Documind, Siteflow, and SecureOps.
 - [Capabilities](https://hameesmomin.com/#about): Frontend engineering, backend engineering, and product delivery capabilities.
@@ -15,10 +15,18 @@
 - [Skywing Real Estate](https://skywingrealty.com/): Real estate website focused on property discovery, performance, and lead generation.
 - [Purewealth](https://purewealth.me/): Wealth-oriented digital platform focused on clarity, trust, and user experience.
 - [Varaa Realty](https://varaarealty.com/): Real estate brand website with structured services and conversion-ready contact flows.
-- Aura Command: WhatsApp operations platform positioned around never losing a lead.
-- Documind: Document intelligence platform positioned around avoiding costly document expiries.
-- Siteflow: Construction operations platform positioned around turning daily site updates into signed reports.
-- SecureOps: Cybersecurity operations platform positioned around seeing business security risks before attackers or auditors do.
+- Aura Command: WhatsApp operations platform positioned around never losing a lead, with shared inboxes, AI follow-up, CRM handoff, and accountability.
+- Documind: Document intelligence platform positioned around avoiding costly document expiries, renewal risk, document search, and audit-ready access.
+- Siteflow: Construction operations platform positioned around turning daily site updates into signed reports, approvals, materials, snags, and PDF reporting.
+- SecureOps: Defensive cybersecurity operations platform positioned around seeing business security risks before attackers or auditors do.
+
+## Service Keywords
+
+Full-stack developer, React developer, frontend engineer, backend engineer, Dubai web developer, UAE web developer, AI product builder, private product demos, business web applications, real estate website developer, WhatsApp lead management software, document intelligence UAE, construction reporting software, cybersecurity readiness dashboard.
+
+## Demo Access Policy
+
+The portfolio publicly shows videos and business descriptions. Live access to product apps is gated or local-only to protect valuable software, data, and demo credentials.
 
 ## Contact
 

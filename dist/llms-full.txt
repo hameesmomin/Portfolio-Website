@@ -2,7 +2,7 @@
 
 ## Site Summary
 
-Hamees Momin is a full-stack developer building polished, secure, high-performance websites and digital products. The portfolio highlights frontend engineering, backend engineering, AI cybersecurity tooling, product delivery, responsive interface work, secure contact handling, and real estate or wealth-related projects.
+Hamees Momin is a full-stack developer and AI product builder creating polished, secure, high-performance websites, business web applications, and private product demos. The portfolio highlights frontend engineering, backend engineering, product delivery, responsive interface work, secure contact handling, real estate or wealth-related projects, and AI systems for WhatsApp operations, document intelligence, construction reporting, and cybersecurity readiness.
 
 ## Services And Capabilities
 
@@ -10,6 +10,8 @@ Hamees Momin is a full-stack developer building polished, secure, high-performan
 - Backend engineering: Node.js APIs, validation, secure contact flows, deployment structure, and maintainable server logic.
 - AI product strategy: Private demo positioning for Aura Command, Documind, Siteflow, and SecureOps, with gated access rather than open public demos.
 - Product delivery: User-flow clarity, SEO basics, launch readiness, content structure, and business-focused digital products.
+- Security and trust: Strict security headers, gated demo access, contact validation, private local app testing, and no public exposure of live demo credentials.
+- SEO and discovery: Metadata, Open Graph previews, Twitter cards, JSON-LD schema, sitemap.xml, robots.txt, llms.txt, and llms-full.txt.
 
 ## Featured Work
 
@@ -20,6 +22,22 @@ Hamees Momin is a full-stack developer building polished, secure, high-performan
 - Documind: A document intelligence and renewal-risk workspace for UAE business documents.
 - Siteflow: A construction operations platform for daily reports, snags, attendance, materials, contractors, approvals, and PDF-ready reporting.
 - SecureOps: A defensive AI security operations platform for risk posture, vulnerabilities, incidents, reports, and executive summaries.
+
+## Product Positioning
+
+- Aura Command solves missed WhatsApp leads by turning conversations into accountable sales workflows.
+- Documind solves scattered document and expiry tracking by making renewals, licenses, contracts, and IDs searchable and actionable.
+- Siteflow solves construction reporting chaos by converting daily site activity into structured reports and approval records.
+- SecureOps solves unclear security posture by translating risks, assets, vulnerabilities, and incidents into business-readable priorities.
+
+## SEO Entities
+
+- Person: Hamees Momin
+- Website: https://hameesmomin.com/
+- Service category: Full-stack web development, frontend engineering, backend engineering, AI product demo development, business web application development.
+- Main markets: Dubai, United Arab Emirates, and global remote clients.
+- Main project examples: Skywing Real Estate, Purewealth, Varaa Realty.
+- Main product demos: Aura Command, Documind, Siteflow, SecureOps.
 
 ## Contact Details
 
