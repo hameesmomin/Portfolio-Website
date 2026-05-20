@@ -72,6 +72,7 @@ const productDemos = [
     fit: "Real estate teams, clinics, agencies, and service businesses",
     status: "Strongest commercial potential",
     localUrl: "http://127.0.0.1:8031/",
+    credentials: { email: "aisha@example.com", password: "password" },
     videoSrc: "/assets/trailers/aura-command-demo.webm",
     trailerGif: "/assets/trailers/aura-command-linkedin.gif",
     reel: ["WhatsApp lead captured", "AI qualifies intent", "Team owner assigned", "Follow-up never missed"]
@@ -84,6 +85,7 @@ const productDemos = [
     fit: "SMEs, HR teams, operations teams, document-heavy businesses",
     status: "Easiest to explain and sell",
     localUrl: "http://127.0.0.1:8032/",
+    credentials: { email: "owner@documind.test", password: "password" },
     videoSrc: "/assets/trailers/documind-demo.webm",
     trailerGif: "/assets/trailers/documind-linkedin.gif",
     reel: ["Documents uploaded", "AI extracts expiry dates", "Renewal risk sorted", "Team notified before penalties"]
@@ -96,6 +98,7 @@ const productDemos = [
     fit: "Contractors, consultants, project managers, site teams",
     status: "Focused niche SaaS",
     localUrl: "http://127.0.0.1:8033/",
+    credentials: { email: "owner@siteflow.test", password: "password" },
     videoSrc: "/assets/trailers/siteflow-demo.webm",
     trailerGif: "/assets/trailers/siteflow-linkedin.gif",
     reel: ["Site notes collected", "Snags and materials logged", "Daily report compiled", "Client-ready PDF approved"]
@@ -108,6 +111,7 @@ const productDemos = [
     fit: "SMEs, regulated teams, IT providers, compliance-driven firms",
     status: "High-ticket potential",
     localUrl: "http://127.0.0.1:8024/",
+    credentials: { email: "owner@secureops.demo", password: "Password123!" },
     videoSrc: "/assets/trailers/secureops-demo.webm",
     trailerGif: "/assets/trailers/secureops-linkedin.gif",
     reel: ["Assets scanned", "Risks prioritized", "AI explains business impact", "Executive report prepared"]
@@ -361,6 +365,13 @@ function ProductDemoHub() {
               <p className="product-outcome">{product.outcome}</p>
               <p>{product.description}</p>
               <div className="product-fit">{product.fit}</div>
+              {isLocalDemo && (
+                <div className="local-credentials" aria-label={`${product.name} local demo credentials`}>
+                  <span>Local login</span>
+                  <code>{product.credentials.email}</code>
+                  <code>{product.credentials.password}</code>
+                </div>
+              )}
               <div className="product-actions">
                 <button className="primary-button" type="button" onClick={() => setSelectedProduct(product)}>Watch demo video</button>
                 {isLocalDemo && <a className="local-app-button" href={product.localUrl}>Open local app</a>}
@@ -376,7 +387,16 @@ function ProductDemoHub() {
             <h3>{selectedProduct.name}</h3>
             <p className="product-outcome">{selectedProduct.outcome}</p>
             <p>{selectedProduct.description}</p>
-            {isLocalDemo && <a className="local-app-button local-app-button-wide" href={selectedProduct.localUrl}>Open {selectedProduct.name} locally</a>}
+            {isLocalDemo && (
+              <>
+                <div className="local-credentials local-credentials-panel" aria-label={`${selectedProduct.name} local demo credentials`}>
+                  <span>Local test credentials</span>
+                  <code>{selectedProduct.credentials.email}</code>
+                  <code>{selectedProduct.credentials.password}</code>
+                </div>
+                <a className="local-app-button local-app-button-wide" href={selectedProduct.localUrl}>Open {selectedProduct.name} locally</a>
+              </>
+            )}
             <InquiryForm selectedProduct={selectedProduct.name} compact />
           </div>
         </div>

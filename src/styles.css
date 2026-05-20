@@ -768,6 +768,42 @@ em.accent {
   margin: 4px 0 8px;
 }
 
+.local-credentials {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 12px;
+  border: 1px dashed rgba(255, 181, 107, .3);
+  border-radius: 6px;
+  background: rgba(5, 5, 7, .46);
+}
+
+.local-credentials span {
+  color: var(--thread-orange-bright);
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.local-credentials code {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, .32);
+  color: #f7f4ef;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: .78rem;
+}
+
+.local-credentials-panel {
+  margin: 18px 0 12px;
+}
+
 .demo-request-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
@@ -842,9 +878,11 @@ em.accent {
 
 .demo-video-file {
   width: 100%;
-  min-height: 430px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  max-height: min(70vh, 560px);
   background: #050507;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
