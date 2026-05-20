@@ -33,9 +33,11 @@ const mimeTypes = {
   ".svg": "image/svg+xml",
   ".ico": "image/x-icon",
   ".png": "image/png",
+  ".gif": "image/gif",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
-  ".webp": "image/webp"
+  ".webp": "image/webp",
+  ".webm": "video/webm"
 };
 
 function setSecurityHeaders(res) {

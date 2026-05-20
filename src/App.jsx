@@ -146,6 +146,21 @@ const productDemos = [
   }
 ];
 
+const trustSignals = [
+  {
+    title: "Outcome-first demos",
+    copy: "Each product is framed around a business headache, not a feature list, so decision-makers instantly understand the value."
+  },
+  {
+    title: "Private by design",
+    copy: "Live app access stays local and gated. Public visitors see polished walkthroughs and request access before touching sensitive workflows."
+  },
+  {
+    title: "Built for operators",
+    copy: "The apps speak the language of leads, expiries, site reports, and risk, which makes them easier to sell to real businesses."
+  }
+];
+
 function useReveal() {
   useEffect(() => {
     const items = document.querySelectorAll("[data-reveal]");
@@ -327,7 +342,17 @@ function DemoVideoPanel({ product }) {
           <span />
           <strong>{product.name} Demo Video</strong>
         </div>
-        <video className="demo-video-file" src={product.videoSrc} controls autoPlay muted loop playsInline preload="metadata" />
+        <video
+          className="demo-video-file"
+          src={product.videoSrc}
+          poster={`/assets/trailers/${product.key}-screen.png`}
+          controls
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        />
       </div>
     );
   }
@@ -377,6 +402,14 @@ function ProductDemoHub() {
             <h2>AI systems packaged around business outcomes.</h2>
           </div>
           <a className="view-archive" href="#contact">REQUEST ACCESS &rarr;</a>
+        </div>
+        <div className="demo-pull-strip" data-reveal>
+          {trustSignals.map((item) => (
+            <div key={item.title}>
+              <span>{item.title}</span>
+              <p>{item.copy}</p>
+            </div>
+          ))}
         </div>
         <div className="product-grid">
           {productDemos.map((product, index) => (
@@ -450,6 +483,11 @@ function ProductDemoHub() {
             )}
             <InquiryForm selectedProduct={selectedProduct.name} compact />
           </div>
+        </div>
+        <div className="portfolio-close" data-reveal>
+          <span>WHAT COMPANIES SHOULD FEEL HERE</span>
+          <p>Not “nice website.” More like: this person understands how messy business operations really work, and can turn that mess into software people actually want to use.</p>
+          <a className="primary-button" href="#contact">Start the conversation</a>
         </div>
       </div>
     </section>
