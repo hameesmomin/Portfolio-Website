@@ -419,8 +419,8 @@ function ProductDemoHub() {
                 <span className="product-status">{product.status}</span>
               </div>
               <button className="product-preview" type="button" onClick={() => setSelectedProduct(product)} aria-label={`Watch ${product.name} demo video`}>
-                <img src={product.trailerGif} alt="" loading="lazy" />
-                <span>Watch trailer</span>
+                <img src={`/assets/trailers/${product.key}-screen.png`} alt="" loading="lazy" />
+                <span>Watch walkthrough</span>
               </button>
               <h3>{product.name}</h3>
               <p className="product-outcome">{product.outcome}</p>
@@ -448,7 +448,7 @@ function ProductDemoHub() {
         <div className="demo-request-grid" id="demo-request" data-reveal>
           <DemoVideoPanel product={selectedProduct} />
           <div className="demo-request-copy">
-            <span className="section-kicker">LOCKED LOCAL DEMO</span>
+            <span className="section-kicker">{isLocalDemo ? "LOCAL TEST DEMO" : "PRIVATE DEMO VIDEO"}</span>
             <h3>{selectedProduct.name}</h3>
             <p className="product-outcome">{selectedProduct.outcome}</p>
             <p>{selectedProduct.description}</p>

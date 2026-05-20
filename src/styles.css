@@ -868,7 +868,7 @@ em.accent {
 
 .demo-request-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(22px, 4vw, 36px);
   margin-top: 34px;
   align-items: stretch;
@@ -942,7 +942,7 @@ em.accent {
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
-  max-height: min(70vh, 560px);
+  max-height: min(72vh, 680px);
   background: #050507;
   object-fit: contain;
   display: block;
@@ -1039,8 +1039,8 @@ em.accent {
 
 .demo-request-copy h3 {
   margin: 0;
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.05;
 }
 
 .demo-request-copy p {
@@ -1159,8 +1159,14 @@ em.accent {
 }
 
 .contact-form-compact .form-group {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
+}
+
+@media (min-width: 1180px) {
+  .demo-request-grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
+  }
 }
 
 @keyframes demo-float {
