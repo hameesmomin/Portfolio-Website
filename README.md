@@ -8,12 +8,22 @@ A dependency-light portfolio website built with modern frontend and backend prac
 npm run dev
 ```
 
+Then open the Vite URL shown in the terminal.
+
+To test the production-style Node server:
+
+```bash
+npm run build
+npm run start
+```
+
 Then open `http://localhost:3000`.
 
 ## What Is Included
 
 - Semantic, responsive frontend with accessible navigation and forms
 - Backend contact API with request size limits, validation, basic rate limiting, and security headers
+- Gated product demo hub for high-value AI applications
 - Static asset caching for production-friendly delivery
 - Environment-based contact message destination
 
@@ -39,3 +49,7 @@ SMTP_FROM=your-gmail-address@gmail.com
 For Gmail, use an app password rather than your normal Google account password.
 
 You can also set `CONTACT_WEBHOOK_URL` to forward messages to a webhook endpoint instead of SMTP.
+
+## Product Demo Strategy
+
+The portfolio presents Aura Command, Documind, Siteflow, and SecureOps as private product demos. Live app access should be issued only through gated, expiring demo accounts with seeded data, audit logs, and restricted export/API/admin features.

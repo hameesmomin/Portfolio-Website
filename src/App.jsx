@@ -63,6 +63,57 @@ const skills = [
   }
 ];
 
+const productDemos = [
+  {
+    key: "aura-command",
+    name: "Aura Command",
+    outcome: "Never lose a WhatsApp lead again.",
+    description: "A governed WhatsApp command center for shared inboxes, AI follow-up, CRM handoff, team accountability, and revenue visibility.",
+    fit: "Real estate teams, clinics, agencies, and service businesses",
+    status: "Strongest commercial potential",
+    localUrl: "http://127.0.0.1:8031/",
+    videoSrc: "/assets/trailers/aura-command-demo.webm",
+    trailerGif: "/assets/trailers/aura-command-linkedin.gif",
+    reel: ["WhatsApp lead captured", "AI qualifies intent", "Team owner assigned", "Follow-up never missed"]
+  },
+  {
+    key: "documind",
+    name: "Documind",
+    outcome: "Know every document expiry before it costs you money.",
+    description: "An AI document workspace for UAE licenses, IDs, contracts, invoices, renewals, source-grounded answers, and audit-ready access.",
+    fit: "SMEs, HR teams, operations teams, document-heavy businesses",
+    status: "Easiest to explain and sell",
+    localUrl: "http://127.0.0.1:8032/",
+    videoSrc: "/assets/trailers/documind-demo.webm",
+    trailerGif: "/assets/trailers/documind-linkedin.gif",
+    reel: ["Documents uploaded", "AI extracts expiry dates", "Renewal risk sorted", "Team notified before penalties"]
+  },
+  {
+    key: "siteflow",
+    name: "Siteflow",
+    outcome: "Turn daily site chaos into signed reports.",
+    description: "A construction operations system for daily reports, snags, attendance, materials, contractors, approvals, and PDF-ready reporting.",
+    fit: "Contractors, consultants, project managers, site teams",
+    status: "Focused niche SaaS",
+    localUrl: "http://127.0.0.1:8033/",
+    videoSrc: "/assets/trailers/siteflow-demo.webm",
+    trailerGif: "/assets/trailers/siteflow-linkedin.gif",
+    reel: ["Site notes collected", "Snags and materials logged", "Daily report compiled", "Client-ready PDF approved"]
+  },
+  {
+    key: "secureops",
+    name: "SecureOps",
+    outcome: "See your business security risks before attackers or auditors do.",
+    description: "A defensive AI security operations dashboard for risk posture, vulnerabilities, incidents, audit logs, reports, and executive summaries.",
+    fit: "SMEs, regulated teams, IT providers, compliance-driven firms",
+    status: "High-ticket potential",
+    localUrl: "http://127.0.0.1:8024/",
+    videoSrc: "/assets/trailers/secureops-demo.webm",
+    trailerGif: "/assets/trailers/secureops-linkedin.gif",
+    reel: ["Assets scanned", "Risks prioritized", "AI explains business impact", "Executive report prepared"]
+  }
+];
+
 function useReveal() {
   useEffect(() => {
     const items = document.querySelectorAll("[data-reveal]");
@@ -118,9 +169,14 @@ function Navbar() {
         </button>
 
         <nav className={`site-nav ${open ? "is-open" : ""}`} id="site-nav" aria-label="Main navigation">
-          {["work", "about", "contact"].map((item) => (
-            <a key={item} href={`#${item}`} onClick={close} className={item === "work" ? "active" : ""}>
-              {item}
+          {[
+            ["work", "work"],
+            ["products", "products"],
+            ["about", "about"],
+            ["contact", "contact"]
+          ].map(([href, label]) => (
+            <a key={href} href={`#${href}`} onClick={close} className={href === "work" ? "active" : ""}>
+              {label}
             </a>
           ))}
         </nav>
@@ -136,7 +192,7 @@ function Navbar() {
   );
 }
 
-function Contact() {
+function InquiryForm({ selectedProduct = "", compact = false }) {
   const [status, setStatus] = useState("");
   const [errors, setErrors] = useState({});
   const [sending, setSending] = useState(false);
@@ -181,16 +237,10 @@ function Contact() {
   }
 
   return (
-    <section className="section contact-section" id="contact">
-      <div className="container contact-grid">
-        <div className="contact-intro" data-reveal>
-          <h2>Start a project</h2>
-          <p>Send project details through the secure form, or reach out directly.</p>
-        </div>
-
-        <form className="contact-form" data-reveal onSubmit={handleSubmit} noValidate>
+        <form className={`contact-form ${compact ? "contact-form-compact" : ""}`} data-reveal={!compact} onSubmit={handleSubmit} noValidate>
           <input type="hidden" name="access_key" value="8cb166ec-6273-4e16-b4ea-7128fc4f34df" />
           <input type="hidden" name="subject" value="New portfolio inquiry for Hamees Momin" />
+          <input type="hidden" name="product_demo" value={selectedProduct} />
           <input type="checkbox" name="botcheck" className="botcheck" tabIndex="-1" autoComplete="off" />
           <div className="form-group">
             <label>
@@ -217,6 +267,119 @@ function Contact() {
           </button>
           {status && <p className="form-status">{status}</p>}
         </form>
+  );
+}
+
+function Contact() {
+  return (
+    <section className="section contact-section" id="contact">
+      <div className="container contact-grid">
+        <div className="contact-intro" data-reveal>
+          <h2>Start a project</h2>
+          <p>Send project details through the secure form, or reach out directly.</p>
+        </div>
+
+        <InquiryForm />
+      </div>
+    </section>
+  );
+}
+
+function DemoVideoPanel({ product }) {
+  if (product.videoSrc) {
+    return (
+      <div className={`demo-video-shell demo-video-${product.key}`} aria-label={`${product.name} demo video`}>
+        <div className="video-toolbar">
+          <span />
+          <span />
+          <span />
+          <strong>{product.name} Demo Video</strong>
+        </div>
+        <video className="demo-video-file" src={product.videoSrc} controls autoPlay muted loop playsInline preload="metadata" />
+      </div>
+    );
+  }
+
+  return (
+    <div className={`demo-video-shell demo-video-${product.key}`} aria-label={`${product.name} demo video preview`}>
+      <div className="video-toolbar">
+        <span />
+        <span />
+        <span />
+        <strong>{product.name} Demo Reel</strong>
+      </div>
+      <div className="video-stage">
+        <div className="video-orbit" />
+        <div className="video-card video-card-main">
+          <span>{product.outcome}</span>
+          <strong>{product.reel[0]}</strong>
+        </div>
+        <div className="video-card video-card-secondary">
+          <span>AI workflow</span>
+          <strong>{product.reel[1]}</strong>
+        </div>
+        <div className="video-card video-card-tertiary">
+          <span>Business result</span>
+          <strong>{product.reel[3]}</strong>
+        </div>
+        <div className="video-progress">
+          {product.reel.map((step) => (
+            <span key={step}>{step}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProductDemoHub() {
+  const [selectedProduct, setSelectedProduct] = useState(productDemos[0]);
+  const isLocalDemo = typeof window !== "undefined" && ["localhost", "127.0.0.1"].includes(window.location.hostname);
+
+  return (
+    <section className="section product-section" id="products">
+      <div className="container">
+        <div className="section-header" data-reveal>
+          <div>
+            <span className="section-kicker">PRIVATE PRODUCT DEMOS</span>
+            <h2>AI systems packaged around business outcomes.</h2>
+          </div>
+          <a className="view-archive" href="#contact">REQUEST ACCESS &rarr;</a>
+        </div>
+        <div className="product-grid">
+          {productDemos.map((product, index) => (
+            <article className="product-card" key={product.name} data-reveal>
+              <div className="product-card-top">
+                <span className="skill-number">{String(index + 1).padStart(2, "0")}</span>
+                <span className="product-status">{product.status}</span>
+              </div>
+              <button className="product-preview" type="button" onClick={() => setSelectedProduct(product)} aria-label={`Watch ${product.name} demo video`}>
+                <img src={product.trailerGif} alt="" loading="lazy" />
+                <span>Watch trailer</span>
+              </button>
+              <h3>{product.name}</h3>
+              <p className="product-outcome">{product.outcome}</p>
+              <p>{product.description}</p>
+              <div className="product-fit">{product.fit}</div>
+              <div className="product-actions">
+                <button className="primary-button" type="button" onClick={() => setSelectedProduct(product)}>Watch demo video</button>
+                {isLocalDemo && <a className="local-app-button" href={product.localUrl}>Open local app</a>}
+                <a className="ghost-button" href="#demo-request" onClick={() => setSelectedProduct(product)}>Request gated demo</a>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className="demo-request-grid" id="demo-request" data-reveal>
+          <DemoVideoPanel product={selectedProduct} />
+          <div className="demo-request-copy">
+            <span className="section-kicker">LOCKED LOCAL DEMO</span>
+            <h3>{selectedProduct.name}</h3>
+            <p className="product-outcome">{selectedProduct.outcome}</p>
+            <p>{selectedProduct.description}</p>
+            {isLocalDemo && <a className="local-app-button local-app-button-wide" href={selectedProduct.localUrl}>Open {selectedProduct.name} locally</a>}
+            <InquiryForm selectedProduct={selectedProduct.name} compact />
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -333,6 +496,8 @@ function App() {
             </div>
           </div>
         </section>
+
+        <ProductDemoHub />
 
         <section className="section" id="about">
           <div className="container">

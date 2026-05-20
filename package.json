@@ -16,7 +16,11 @@
     "node": ">=20"
   },
   "devDependencies": {
+    "playwright": "^1.60.0",
     "wrangler": "^4.90.1"
+  },
+  "overrides": {
+    "ws": "^8.18.3"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^6.0.1",

@@ -2,12 +2,13 @@
 
 ## Site Summary
 
-Hamees Momin is a full-stack developer building polished, secure, high-performance websites and digital products. The portfolio highlights frontend engineering, backend engineering, product delivery, responsive interface work, secure contact handling, and real estate or wealth-related projects.
+Hamees Momin is a full-stack developer building polished, secure, high-performance websites and digital products. The portfolio highlights frontend engineering, backend engineering, AI cybersecurity tooling, product delivery, responsive interface work, secure contact handling, and real estate or wealth-related projects.
 
 ## Services And Capabilities
 
 - Frontend engineering: React interfaces, responsive layouts, accessibility, performance-minded CSS, visual polish, and reusable UI structure.
 - Backend engineering: Node.js APIs, validation, secure contact flows, deployment structure, and maintainable server logic.
+- AI product strategy: Private demo positioning for Aura Command, Documind, Siteflow, and SecureOps, with gated access rather than open public demos.
 - Product delivery: User-flow clarity, SEO basics, launch readiness, content structure, and business-focused digital products.
 
 ## Featured Work
@@ -15,6 +16,10 @@ Hamees Momin is a full-stack developer building polished, secure, high-performan
 - Skywing Real Estate: A real estate platform focused on property discovery, lead generation, premium presentation, and user confidence.
 - Purewealth: A wealth-oriented digital experience focused on clarity, credibility, and performance.
 - Varaa Realty: A real estate website focused on brand trust, structured service presentation, and direct contact flows.
+- Aura Command: A WhatsApp operations command center for shared inboxes, AI follow-up, CRM handoff, and lead accountability.
+- Documind: A document intelligence and renewal-risk workspace for UAE business documents.
+- Siteflow: A construction operations platform for daily reports, snags, attendance, materials, contractors, approvals, and PDF-ready reporting.
+- SecureOps: A defensive AI security operations platform for risk posture, vulnerabilities, incidents, reports, and executive summaries.
 
 ## Contact Details
 
@@ -23,5 +28,4 @@ Hamees Momin is a full-stack developer building polished, secure, high-performan
 
 ## Technical Notes
 
-The site is a React/Vite frontend with a Node server fallback. It uses local assets, strict security headers, responsive image formats, SEO metadata, a sitemap, robots.txt, and advisory llms.txt files.
-
+The site is a React/Vite frontend with a Node server fallback. It uses local assets, strict security headers, responsive image formats, SEO metadata, a sitemap, robots.txt, advisory llms.txt files, and gated product-demo positioning for valuable AI applications.
