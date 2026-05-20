@@ -238,7 +238,7 @@ function postHtml(product) {
         </div>
         <div class="bottom">
           <div class="tags">${tags}</div>
-          <div class="cta">Explore the product<br><span>hameesmomin.com</span></div>
+          <div class="cta">Explore the product<br><span>portfoliowebsite.hamu-dxb.workers.dev</span></div>
         </div>
       </div>
     </main>

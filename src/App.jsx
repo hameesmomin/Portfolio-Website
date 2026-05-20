@@ -620,7 +620,7 @@ function App() {
               <meta itemProp="jobTitle" content="Full-Stack Developer" />
               <meta itemProp="email" content={contactEmail} />
               <meta itemProp="telephone" content="+971502877142" />
-              <meta itemProp="url" content="https://hameesmomin.com/" />
+              <meta itemProp="url" content="https://portfoliowebsite.hamu-dxb.workers.dev/" />
               
               <div className="hero-description">
                 <p itemProp="description">Specializing in secure, high-performance web applications, private AI product demos, and tactile user interfaces. I weave code and design into seamless, premium products.</p>

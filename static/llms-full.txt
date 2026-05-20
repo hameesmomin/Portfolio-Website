@@ -33,7 +33,7 @@ Hamees Momin is a full-stack developer and AI product builder creating polished,
 ## SEO Entities
 
 - Person: Hamees Momin
-- Website: https://hameesmomin.com/
+- Website: https://portfoliowebsite.hamu-dxb.workers.dev/
 - Service category: Full-stack web development, frontend engineering, backend engineering, AI product demo development, business web application development.
 - Main markets: Dubai, United Arab Emirates, and global remote clients.
 - Main project examples: Skywing Real Estate, Purewealth, Varaa Realty.

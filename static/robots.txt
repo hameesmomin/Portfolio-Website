@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hameesmomin.com/sitemap.xml
+Sitemap: https://portfoliowebsite.hamu-dxb.workers.dev/sitemap.xml
 Clean-param: fbclid
 Clean-param: gclid
 Clean-param: utm_source
@@ -9,4 +9,4 @@ Clean-param: utm_medium
 Clean-param: utm_campaign
 Clean-param: utm_term
 Clean-param: utm_content
-Host: https://hameesmomin.com
+Host: https://portfoliowebsite.hamu-dxb.workers.dev

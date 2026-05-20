@@ -4,11 +4,11 @@
 
 ## Primary Pages
 
-- [Home](https://hameesmomin.com/): Overview of Hamees Momin, full-stack development services, selected work, private AI product demos, capabilities, and contact options.
-- [Selected Work](https://hameesmomin.com/#work): Featured projects including Skywing Real Estate, Purewealth, and Varaa Realty.
-- [Private Product Demos](https://hameesmomin.com/#products): Gated access overview for Aura Command, Documind, Siteflow, and SecureOps.
-- [Capabilities](https://hameesmomin.com/#about): Frontend engineering, backend engineering, and product delivery capabilities.
-- [Contact](https://hameesmomin.com/#contact): Secure inquiry form, email contact, and WhatsApp contact for project requests.
+- [Home](https://portfoliowebsite.hamu-dxb.workers.dev/): Overview of Hamees Momin, full-stack development services, selected work, private AI product demos, capabilities, and contact options.
+- [Selected Work](https://portfoliowebsite.hamu-dxb.workers.dev/#work): Featured projects including Skywing Real Estate, Purewealth, and Varaa Realty.
+- [Private Product Demos](https://portfoliowebsite.hamu-dxb.workers.dev/#products): Gated access overview for Aura Command, Documind, Siteflow, and SecureOps.
+- [Capabilities](https://portfoliowebsite.hamu-dxb.workers.dev/#about): Frontend engineering, backend engineering, and product delivery capabilities.
+- [Contact](https://portfoliowebsite.hamu-dxb.workers.dev/#contact): Secure inquiry form, email contact, and WhatsApp contact for project requests.
 
 ## Featured Projects
 
