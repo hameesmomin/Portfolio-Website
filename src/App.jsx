@@ -67,6 +67,7 @@ const productDemos = [
   {
     key: "aura-command",
     name: "Aura Command",
+    logoType: "aura",
     outcome: "Never lose a WhatsApp lead again.",
     description: "A governed WhatsApp command center for shared inboxes, AI follow-up, CRM handoff, team accountability, and revenue visibility.",
     problem: "Sales teams lose warm leads when chats sit inside one person’s phone, replies get delayed, or nobody knows who owns the next move.",
@@ -88,6 +89,7 @@ const productDemos = [
   {
     key: "documind",
     name: "Documind",
+    logoType: "documind",
     outcome: "Know every document expiry before it costs you money.",
     description: "An AI document workspace for UAE licenses, IDs, contracts, invoices, renewals, source-grounded answers, and audit-ready access.",
     problem: "Important documents are scattered across drives, inboxes, and folders until an expiry date, compliance request, or missing contract becomes an expensive surprise.",
@@ -109,6 +111,7 @@ const productDemos = [
   {
     key: "siteflow",
     name: "Siteflow",
+    logoType: "siteflow",
     outcome: "Turn daily site chaos into signed reports.",
     description: "A construction operations system for daily reports, snags, attendance, materials, contractors, approvals, and PDF-ready reporting.",
     problem: "Site updates often live in WhatsApp messages, photos, notebooks, and memory, making it hard to prove what happened, who approved it, and what changed.",
@@ -130,6 +133,7 @@ const productDemos = [
   {
     key: "secureops",
     name: "SecureOps",
+    logoType: "secureops",
     outcome: "See your business security risks before attackers or auditors do.",
     description: "A defensive AI security operations dashboard for risk posture, vulnerabilities, incidents, audit logs, reports, and executive summaries.",
     problem: "Small and mid-sized companies are expected to look secure, but often lack a clear view of risks, evidence, vulnerabilities, and what leadership should fix first.",
@@ -359,6 +363,48 @@ function Contact() {
   );
 }
 
+function ProductLogo({ product, compact = false }) {
+  return (
+    <div className={`product-logo ${compact ? "product-logo-compact" : ""} product-logo-${product.logoType}`} aria-hidden="true">
+      {product.logoType === "aura" && (
+        <>
+          <span className="logo-aura-core" />
+          <span className="logo-aura-ring logo-aura-ring-one" />
+          <span className="logo-aura-ring logo-aura-ring-two" />
+          <span className="logo-aura-ray logo-aura-ray-one" />
+          <span className="logo-aura-ray logo-aura-ray-two" />
+        </>
+      )}
+      {product.logoType === "documind" && (
+        <>
+          <span className="logo-doc-page" />
+          <span className="logo-doc-line logo-doc-line-one" />
+          <span className="logo-doc-line logo-doc-line-two" />
+          <span className="logo-doc-lens" />
+        </>
+      )}
+      {product.logoType === "siteflow" && (
+        <>
+          <span className="logo-site-block logo-site-block-one" />
+          <span className="logo-site-block logo-site-block-two" />
+          <span className="logo-site-block logo-site-block-three" />
+          <span className="logo-site-flow-line" />
+          <span className="logo-site-check" />
+        </>
+      )}
+      {product.logoType === "secureops" && (
+        <>
+          <span className="logo-shield" />
+          <span className="logo-shield-core" />
+          <span className="logo-risk-dot logo-risk-dot-one" />
+          <span className="logo-risk-dot logo-risk-dot-two" />
+          <span className="logo-risk-dot logo-risk-dot-three" />
+        </>
+      )}
+    </div>
+  );
+}
+
 function DemoVideoPanel({ product }) {
   if (product.videoSrc) {
     return (
@@ -445,7 +491,7 @@ function ProductDemoHub() {
           {productDemos.map((product, index) => (
             <article className="product-card" key={product.name} data-reveal>
               <div className="product-card-top">
-                <span className="skill-number">{String(index + 1).padStart(2, "0")}</span>
+                <ProductLogo product={product} compact />
                 <span className="product-status">{product.status}</span>
               </div>
               <button className="product-preview" type="button" onClick={() => setSelectedProduct(product)} aria-label={`Watch ${product.name} demo video`}>
@@ -479,7 +525,10 @@ function ProductDemoHub() {
           <DemoVideoPanel product={selectedProduct} />
           <div className="demo-request-copy">
             <span className="section-kicker">{isLocalDemo ? "LOCAL TEST DEMO" : "PRIVATE DEMO VIDEO"}</span>
-            <h3>{selectedProduct.name}</h3>
+            <div className="selected-product-brand">
+              <ProductLogo product={selectedProduct} />
+              <h3>{selectedProduct.name}</h3>
+            </div>
             <p className="product-outcome">{selectedProduct.outcome}</p>
             <p>{selectedProduct.description}</p>
             <div className="demo-business-copy">

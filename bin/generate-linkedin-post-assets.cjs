@@ -226,7 +226,7 @@ function postHtml(product) {
             <div class="mark ${product.markClass}">${product.markHtml}</div>
             <div class="brand-name">
               <strong>${escapeHtml(product.name)}</strong>
-              <span>Private AI Product Demo</span>
+              <span>Business AI Product</span>
             </div>
           </div>
           <div class="built">Built by Hamees Momin</div>
@@ -238,7 +238,7 @@ function postHtml(product) {
         </div>
         <div class="bottom">
           <div class="tags">${tags}</div>
-          <div class="cta">Request the demo<br><span>hameesmomin.com</span></div>
+          <div class="cta">Explore the product<br><span>hameesmomin.com</span></div>
         </div>
       </div>
     </main>
