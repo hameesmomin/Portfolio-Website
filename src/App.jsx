@@ -75,7 +75,8 @@ const productDemos = [
     status: "Strongest commercial potential",
     localUrl: "http://127.0.0.1:8031/",
     credentials: { email: "aisha@example.com", password: "password" },
-    videoSrc: "/assets/trailers/aura-command-demo.webm",
+    videoSrc: "/assets/trailers/aura-command-walkthrough-20260520.webm",
+    posterSrc: "/assets/trailers/aura-command-poster-20260520.png",
     trailerGif: "/assets/trailers/aura-command-linkedin.gif",
     reel: ["WhatsApp lead captured", "AI qualifies intent", "Team owner assigned", "Follow-up never missed"],
     faq: [
@@ -95,7 +96,8 @@ const productDemos = [
     status: "Easiest to explain and sell",
     localUrl: "http://127.0.0.1:8032/",
     credentials: { email: "owner@documind.test", password: "password" },
-    videoSrc: "/assets/trailers/documind-demo.webm",
+    videoSrc: "/assets/trailers/documind-walkthrough-20260520.webm",
+    posterSrc: "/assets/trailers/documind-poster-20260520.png",
     trailerGif: "/assets/trailers/documind-linkedin.gif",
     reel: ["Documents uploaded", "AI extracts expiry dates", "Renewal risk sorted", "Team notified before penalties"],
     faq: [
@@ -115,7 +117,8 @@ const productDemos = [
     status: "Focused niche SaaS",
     localUrl: "http://127.0.0.1:8033/",
     credentials: { email: "owner@siteflow.test", password: "password" },
-    videoSrc: "/assets/trailers/siteflow-demo.webm",
+    videoSrc: "/assets/trailers/siteflow-walkthrough-20260520.webm",
+    posterSrc: "/assets/trailers/siteflow-poster-20260520.png",
     trailerGif: "/assets/trailers/siteflow-linkedin.gif",
     reel: ["Site notes collected", "Snags and materials logged", "Daily report compiled", "Client-ready PDF approved"],
     faq: [
@@ -135,7 +138,8 @@ const productDemos = [
     status: "High-ticket potential",
     localUrl: "http://127.0.0.1:8024/",
     credentials: { email: "owner@secureops.demo", password: "Password123!" },
-    videoSrc: "/assets/trailers/secureops-demo.webm",
+    videoSrc: "/assets/trailers/secureops-walkthrough-20260520.webm",
+    posterSrc: "/assets/trailers/secureops-poster-20260520.png",
     trailerGif: "/assets/trailers/secureops-linkedin.gif",
     reel: ["Assets scanned", "Risks prioritized", "AI explains business impact", "Executive report prepared"],
     faq: [
@@ -366,16 +370,19 @@ function DemoVideoPanel({ product }) {
           <strong>{product.name} Demo Video</strong>
         </div>
         <video
+          key={product.key}
           className="demo-video-file"
-          src={product.videoSrc}
-          poster={`/assets/trailers/${product.key}-screen.png`}
           controls
           autoPlay
           muted
           loop
           playsInline
           preload="metadata"
-        />
+          poster={product.posterSrc}
+        >
+          <source src={product.videoSrc} type="video/webm" />
+          Your browser cannot play this walkthrough video. Please request demo access through the form.
+        </video>
       </div>
     );
   }
@@ -442,7 +449,7 @@ function ProductDemoHub() {
                 <span className="product-status">{product.status}</span>
               </div>
               <button className="product-preview" type="button" onClick={() => setSelectedProduct(product)} aria-label={`Watch ${product.name} demo video`}>
-                <img src={`/assets/trailers/${product.key}-screen.png`} alt="" loading="lazy" />
+                <img src={product.posterSrc} alt="" loading="lazy" />
                 <span>Watch walkthrough</span>
               </button>
               <h3>{product.name}</h3>
