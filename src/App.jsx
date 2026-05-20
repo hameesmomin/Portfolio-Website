@@ -69,52 +69,80 @@ const productDemos = [
     name: "Aura Command",
     outcome: "Never lose a WhatsApp lead again.",
     description: "A governed WhatsApp command center for shared inboxes, AI follow-up, CRM handoff, team accountability, and revenue visibility.",
+    problem: "Sales teams lose warm leads when chats sit inside one person’s phone, replies get delayed, or nobody knows who owns the next move.",
+    importance: "Aura Command turns messy WhatsApp conversations into a managed revenue workflow, so every inquiry has context, ownership, follow-up, and a visible path to closing.",
     fit: "Real estate teams, clinics, agencies, and service businesses",
     status: "Strongest commercial potential",
     localUrl: "http://127.0.0.1:8031/",
     credentials: { email: "aisha@example.com", password: "password" },
     videoSrc: "/assets/trailers/aura-command-demo.webm",
     trailerGif: "/assets/trailers/aura-command-linkedin.gif",
-    reel: ["WhatsApp lead captured", "AI qualifies intent", "Team owner assigned", "Follow-up never missed"]
+    reel: ["WhatsApp lead captured", "AI qualifies intent", "Team owner assigned", "Follow-up never missed"],
+    faq: [
+      ["Can my team use it without changing how customers message us?", "Yes. The pitch is simple: keep WhatsApp as the customer channel, but add structure, routing, visibility, and AI assistance behind the scenes."],
+      ["What makes it valuable to a business owner?", "It protects the leads they already paid to generate. Fewer missed replies, clearer accountability, and faster follow-up can turn directly into recovered revenue."],
+      ["Is it meant to replace a CRM?", "Not necessarily. It can act as the WhatsApp command layer and either feed a CRM or handle lighter CRM needs for teams that want one focused workspace."]
+    ]
   },
   {
     key: "documind",
     name: "Documind",
     outcome: "Know every document expiry before it costs you money.",
     description: "An AI document workspace for UAE licenses, IDs, contracts, invoices, renewals, source-grounded answers, and audit-ready access.",
+    problem: "Important documents are scattered across drives, inboxes, and folders until an expiry date, compliance request, or missing contract becomes an expensive surprise.",
+    importance: "Documind gives operations teams a single place to store, search, understand, and act on documents before deadlines turn into penalties.",
     fit: "SMEs, HR teams, operations teams, document-heavy businesses",
     status: "Easiest to explain and sell",
     localUrl: "http://127.0.0.1:8032/",
     credentials: { email: "owner@documind.test", password: "password" },
     videoSrc: "/assets/trailers/documind-demo.webm",
     trailerGif: "/assets/trailers/documind-linkedin.gif",
-    reel: ["Documents uploaded", "AI extracts expiry dates", "Renewal risk sorted", "Team notified before penalties"]
+    reel: ["Documents uploaded", "AI extracts expiry dates", "Renewal risk sorted", "Team notified before penalties"],
+    faq: [
+      ["What problem does Documind solve first?", "Expiry awareness. It helps teams spot renewals, licenses, IDs, contracts, and critical dates before they become stressful last-minute work."],
+      ["Why would a company pay for this?", "Because document mistakes create real costs: fines, delayed approvals, lost time, compliance pressure, and team confusion."],
+      ["Can it answer questions from uploaded documents?", "Yes. The product direction is source-grounded document intelligence, so teams can ask practical questions and trace answers back to the right files."]
+    ]
   },
   {
     key: "siteflow",
     name: "Siteflow",
     outcome: "Turn daily site chaos into signed reports.",
     description: "A construction operations system for daily reports, snags, attendance, materials, contractors, approvals, and PDF-ready reporting.",
+    problem: "Site updates often live in WhatsApp messages, photos, notebooks, and memory, making it hard to prove what happened, who approved it, and what changed.",
+    importance: "Siteflow gives construction teams a cleaner record of the day, turning scattered field activity into accountable reports that clients and managers can trust.",
     fit: "Contractors, consultants, project managers, site teams",
     status: "Focused niche SaaS",
     localUrl: "http://127.0.0.1:8033/",
     credentials: { email: "owner@siteflow.test", password: "password" },
     videoSrc: "/assets/trailers/siteflow-demo.webm",
     trailerGif: "/assets/trailers/siteflow-linkedin.gif",
-    reel: ["Site notes collected", "Snags and materials logged", "Daily report compiled", "Client-ready PDF approved"]
+    reel: ["Site notes collected", "Snags and materials logged", "Daily report compiled", "Client-ready PDF approved"],
+    faq: [
+      ["Who is Siteflow for?", "Contractors, consultants, and project teams that need daily visibility without chasing updates across ten separate chat threads."],
+      ["What is the business benefit?", "Better proof, cleaner handovers, faster reporting, and fewer disputes about what happened on site."],
+      ["Can it support client-ready reporting?", "Yes. The core idea is to convert daily field inputs into structured records and polished reports that are easier to review and approve."]
+    ]
   },
   {
     key: "secureops",
     name: "SecureOps",
     outcome: "See your business security risks before attackers or auditors do.",
     description: "A defensive AI security operations dashboard for risk posture, vulnerabilities, incidents, audit logs, reports, and executive summaries.",
+    problem: "Small and mid-sized companies are expected to look secure, but often lack a clear view of risks, evidence, vulnerabilities, and what leadership should fix first.",
+    importance: "SecureOps packages security posture into language a business can act on, helping teams prioritize risks, prepare for audits, and show clients they take security seriously.",
     fit: "SMEs, regulated teams, IT providers, compliance-driven firms",
     status: "High-ticket potential",
     localUrl: "http://127.0.0.1:8024/",
     credentials: { email: "owner@secureops.demo", password: "Password123!" },
     videoSrc: "/assets/trailers/secureops-demo.webm",
     trailerGif: "/assets/trailers/secureops-linkedin.gif",
-    reel: ["Assets scanned", "Risks prioritized", "AI explains business impact", "Executive report prepared"]
+    reel: ["Assets scanned", "Risks prioritized", "AI explains business impact", "Executive report prepared"],
+    faq: [
+      ["Is SecureOps a hacking tool?", "No. It is positioned as defensive readiness: visibility, prioritization, reporting, and risk communication for business teams."],
+      ["Why is it high-ticket?", "Security affects trust, contracts, audits, and insurance. A clear risk dashboard can support bigger buying decisions than a simple productivity tool."],
+      ["What would prospects see in the demo?", "A guided view of assets, risk posture, issue prioritization, audit-style evidence, and executive summaries that make security easier to understand."]
+    ]
   }
 ];
 
@@ -363,6 +391,10 @@ function ProductDemoHub() {
               </button>
               <h3>{product.name}</h3>
               <p className="product-outcome">{product.outcome}</p>
+              <div className="problem-snapshot">
+                <span>Problem solved</span>
+                <p>{product.problem}</p>
+              </div>
               <p>{product.description}</p>
               <div className="product-fit">{product.fit}</div>
               {isLocalDemo && (
@@ -387,6 +419,25 @@ function ProductDemoHub() {
             <h3>{selectedProduct.name}</h3>
             <p className="product-outcome">{selectedProduct.outcome}</p>
             <p>{selectedProduct.description}</p>
+            <div className="demo-business-copy">
+              <div>
+                <span>Problem</span>
+                <p>{selectedProduct.problem}</p>
+              </div>
+              <div>
+                <span>Why businesses care</span>
+                <p>{selectedProduct.importance}</p>
+              </div>
+            </div>
+            <div className="product-faq">
+              <span className="section-kicker">BUYER FAQ</span>
+              {selectedProduct.faq.map(([question, answer]) => (
+                <details key={question}>
+                  <summary>{question}</summary>
+                  <p>{answer}</p>
+                </details>
+              ))}
+            </div>
             {isLocalDemo && (
               <>
                 <div className="local-credentials local-credentials-panel" aria-label={`${selectedProduct.name} local demo credentials`}>

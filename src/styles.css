@@ -710,6 +710,31 @@ em.accent {
   font-size: .92rem;
 }
 
+.problem-snapshot {
+  margin: 14px 0 12px;
+  padding: 12px;
+  border-left: 2px solid var(--thread-orange-bright);
+  background: linear-gradient(90deg, rgba(255, 154, 70, .12), transparent);
+}
+
+.problem-snapshot span,
+.demo-business-copy span {
+  display: inline-flex;
+  margin-bottom: 7px;
+  color: var(--thread-orange-bright);
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.problem-snapshot p {
+  margin: 0;
+  color: #f1ece7;
+  font-size: .86rem;
+  line-height: 1.55;
+}
+
 .product-outcome {
   color: var(--thread-orange-bright) !important;
   font-size: 1.08rem !important;
@@ -983,6 +1008,83 @@ em.accent {
 
 .demo-request-copy p {
   color: var(--muted);
+}
+
+.demo-business-copy {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.demo-business-copy > div {
+  padding: 14px;
+  border: 1px dashed rgba(255, 181, 107, .28);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(255, 154, 70, .1), transparent 48%),
+    rgba(5, 5, 7, .34);
+}
+
+.demo-business-copy p {
+  margin: 0;
+  color: #f3efea;
+  font-size: .94rem;
+  line-height: 1.58;
+}
+
+.product-faq {
+  display: grid;
+  gap: 10px;
+  margin: 22px 0;
+}
+
+.product-faq .section-kicker {
+  margin-bottom: 2px;
+}
+
+.product-faq details {
+  border: 1px dashed rgba(210, 208, 200, .2);
+  border-radius: 6px;
+  background: rgba(5, 5, 7, .36);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.product-faq details[open],
+.product-faq details:hover {
+  border-color: rgba(255, 154, 70, .45);
+  box-shadow: 0 0 22px rgba(217, 111, 44, .12);
+}
+
+.product-faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 13px 14px;
+  color: var(--ink);
+  font-size: .88rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.product-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.product-faq summary::after {
+  float: right;
+  color: var(--thread-orange-bright);
+  content: "+";
+}
+
+.product-faq details[open] summary::after {
+  content: "-";
+}
+
+.product-faq p {
+  margin: 0;
+  padding: 0 14px 14px;
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.58;
 }
 
 .contact-form-compact {
