@@ -224,6 +224,33 @@ const deliveryStandards = [
   }
 ];
 
+const enterpriseCapabilities = [
+  {
+    title: "Integration marketplace",
+    copy: "CRM, WhatsApp, SIEM, ERP, storage, email, Zapier, Make, n8n, custom API, OAuth, and signed webhook surfaces designed per product."
+  },
+  {
+    title: "Developer platform",
+    copy: "API docs, scoped API keys, custom API builder structure, webhook builder, integration logs, usage analytics, and rate-limit-ready access."
+  },
+  {
+    title: "Automation engine",
+    copy: "Product-specific triggers and actions for lead follow-up, document review, site operations, security incidents, scheduled reports, and executive alerts."
+  },
+  {
+    title: "Executive command",
+    copy: "Health scores, product analytics, feature usage tracking, audit logs, scheduled reports, and decision-ready dashboards for owners and leadership."
+  },
+  {
+    title: "Enterprise controls",
+    copy: "Multi-tenant workspaces, RBAC, feature gating, customer portal structure, white-label support, secure credentials, and demo data mode."
+  },
+  {
+    title: "Contextual AI copilots",
+    copy: "Each app has a domain-specific AI assistant: sales follow-up, security risk, document intelligence, or construction progress."
+  }
+];
+
 function useReveal() {
   useEffect(() => {
     const items = document.querySelectorAll("[data-reveal]");
@@ -728,6 +755,31 @@ function TrustCenterPreview() {
   );
 }
 
+function EnterpriseSaaSLayer() {
+  return (
+    <section className="section enterprise-layer" id="enterprise">
+      <div className="container">
+        <div className="section-header" data-reveal>
+          <div>
+            <span className="section-kicker">WORLD-CLASS SAAS LAYER</span>
+            <h2>Built to grow from small teams to enterprise buyers.</h2>
+          </div>
+          <a href="#contact" className="view-archive">DISCUSS A PILOT &rarr;</a>
+        </div>
+        <div className="enterprise-grid">
+          {enterpriseCapabilities.map((capability, index) => (
+            <article className="enterprise-card" key={capability.title} data-reveal>
+              <span className="skill-number">{String(index + 1).padStart(2, "0")}</span>
+              <h3>{capability.title}</h3>
+              <p>{capability.copy}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function DeliveryStandards() {
   return (
     <section className="section standards-section" id="standards">
@@ -867,6 +919,8 @@ function App() {
         </section>
 
         <ProductDemoHub />
+
+        <EnterpriseSaaSLayer />
 
         <section className="section" id="about">
           <div className="container">

@@ -64,3 +64,19 @@ The portfolio now positions the demo hub as a business SaaS ecosystem:
 - Siteflow: AI Construction Operations & Site Management Platform
 
 Each product card should communicate standalone readiness, integration readiness, subscription readiness, security posture, target users, business value, AI features, integrations, tech stack, and roadmap. Screenshot and social export planning folders live in `portfolio-screenshots/` and `social-post-assets/`.
+
+## Enterprise SaaS Layer
+
+The portfolio now highlights the cross-product SaaS capabilities expected by small businesses, medium businesses, and enterprise buyers:
+
+- Integration Marketplace
+- Custom API Builder
+- OAuth Connector Framework
+- Webhook Builder
+- Workflow Automation Engine
+- Developer Portal and API Documentation
+- API Key Management and Integration Logs
+- Usage Analytics and Product Analytics
+- Executive Dashboard and Health Scores
+- White Label Support and Customer Portal
+- Feature Usage Tracking, Audit Logs, Scheduled Reports, AI Copilot, Guided Onboarding, and Demo Data Mode
