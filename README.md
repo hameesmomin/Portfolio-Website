@@ -52,7 +52,7 @@ You can also set `CONTACT_WEBHOOK_URL` to forward messages to a webhook endpoint
 
 ## Product Demo Strategy
 
-The portfolio presents Aura Command, Documind, Siteflow, and SecureOps as private product demos. Live app access should be issued only through gated, expiring demo accounts with seeded data, audit logs, and restricted export/API/admin features.
+The portfolio presents Aura Command, Documind, Siteflow, and SecureOps as commercial SaaS products. Live app access should be issued only through gated, expiring demo accounts with seeded data, audit logs, and restricted export/API/admin features.
 
 ## SaaS Product Showcase
 
@@ -63,7 +63,7 @@ The portfolio now positions the demo hub as a business SaaS ecosystem:
 - Documind: AI Document Intelligence Platform for UAE Businesses
 - Siteflow: AI Construction Operations & Site Management Platform
 
-Each product card should communicate standalone readiness, integration readiness, subscription readiness, security posture, target users, business value, AI features, integrations, tech stack, and roadmap. Screenshot and social export planning folders live in `portfolio-screenshots/` and `social-post-assets/`.
+Each product card should communicate product overview, target industry, business value, subscription tiers, integration capabilities, executive dashboard, health score, security, API framework, workflow automation, enterprise features, tech stack, and roadmap. Screenshot and social export planning folders live in `portfolio-screenshots/` and `social-post-assets/`.
 
 ## Enterprise SaaS Layer
 

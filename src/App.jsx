@@ -69,6 +69,7 @@ const productDemos = [
     name: "Aura Command",
     logoType: "aura",
     outcome: "Never lose a WhatsApp lead again.",
+    category: "Commercial SaaS Product / Revenue Operations",
     description: "A governed WhatsApp command center for shared inboxes, AI follow-up, CRM handoff, team accountability, and revenue visibility.",
     problem: "Sales teams lose warm leads when chats sit inside one person's phone, replies get delayed, or nobody knows who owns the next move.",
     importance: "Aura Command turns messy WhatsApp conversations into a managed revenue workflow, so every inquiry has context, ownership, follow-up, and a visible path to closing.",
@@ -82,6 +83,9 @@ const productDemos = [
     integratedMode: "WhatsApp Business API, website forms, HubSpot, Zoho CRM, Salesforce, Pipedrive, Google Sheets, Zapier, Make, n8n, and custom CRM APIs.",
     securityMeasures: ["Tenant-scoped data", "RBAC", "Audit logs", "Encrypted provider tokens", "Rate-limited APIs"],
     subscriptionModel: "Starter for small teams, Business for CRM/API automation, Enterprise for SSO-ready controls, white-label, and custom CRM connectors.",
+    apiFramework: "Scoped REST API for leads, conversations, messages, website intake, CRM pipeline sync, signed webhooks, and integration logs.",
+    workflowAutomation: "Automations for lead assignment, missed follow-up alerts, SLA escalation, CRM task creation, WhatsApp template handoff, and manager notifications.",
+    enterpriseFeatures: ["SSO-ready structure", "White-label support", "Multiple WhatsApp channels", "Custom CRM connectors", "Advanced forecasting"],
     techStack: ["Laravel", "React", "TypeScript", "Sanctum", "Reverb-ready", "MySQL"],
     roadmap: ["Template manager", "Broadcast campaign controls", "Revenue attribution reports", "Advanced CRM sync"],
     localUrl: "http://127.0.0.1:8031/",
@@ -101,6 +105,7 @@ const productDemos = [
     name: "Documind",
     logoType: "documind",
     outcome: "Know every document expiry before it costs you money.",
+    category: "Commercial SaaS Product / Document Intelligence",
     description: "An AI document workspace for UAE licenses, IDs, contracts, invoices, renewals, source-grounded answers, and audit-ready access.",
     problem: "Important documents are scattered across drives, inboxes, and folders until an expiry date, compliance request, or missing contract becomes an expensive surprise.",
     importance: "Documind gives operations teams a single place to store, search, understand, and act on documents before deadlines turn into penalties.",
@@ -114,6 +119,9 @@ const productDemos = [
     integratedMode: "Google Drive, SharePoint, OneDrive, Dropbox-ready storage, CRM, ERP, HR systems, email ingestion, and custom document APIs.",
     securityMeasures: ["Private storage", "Signed downloads", "RBAC", "Audit trail", "Tenant isolation"],
     subscriptionModel: "Starter for document control, Business for bulk upload and integrations, Enterprise for SSO-ready retention and advanced audit controls.",
+    apiFramework: "Scoped document API for uploads, metadata, expiry alerts, AI queries, folder/tag records, signed downloads, webhooks, and integration logs.",
+    workflowAutomation: "Automations for document classification, low-confidence review queues, expiry reminders, approval requests, owner assignment, and storage sync.",
+    enterpriseFeatures: ["Custom document models", "Redaction workflows", "Multi-department workspaces", "Advanced compliance reporting", "Retention controls"],
     techStack: ["Laravel", "Inertia React", "Tailwind", "Database queues", "SQLite/MySQL"],
     roadmap: ["Real OCR provider", "Redaction workflow", "Duplicate detection", "Email ingestion"],
     localUrl: "http://127.0.0.1:8032/",
@@ -133,6 +141,7 @@ const productDemos = [
     name: "Siteflow",
     logoType: "siteflow",
     outcome: "Turn daily site chaos into signed reports.",
+    category: "Commercial SaaS Product / Construction Operations",
     description: "A construction operations system for daily reports, snags, attendance, materials, contractors, approvals, and PDF-ready reporting.",
     problem: "Site updates often live in WhatsApp messages, photos, notebooks, and memory, making it hard to prove what happened, who approved it, and what changed.",
     importance: "Siteflow gives construction teams a cleaner record of the day, turning scattered field activity into accountable reports that clients and managers can trust.",
@@ -146,6 +155,9 @@ const productDemos = [
     integratedMode: "ERP, procurement tools, accounting systems, real estate CRM, document storage, email, custom APIs, and webhooks.",
     securityMeasures: ["Company-scoped projects", "Role permissions", "Audit logs", "Private uploads", "Rate-limited imports"],
     subscriptionModel: "Starter for small project teams, Business for approvals and advanced reports, Enterprise for ERP integrations and on-premise-ready deployments.",
+    apiFramework: "Scoped project API for projects, daily reports, snags, materials, attendance, approvals, contractors, signed webhooks, and integration logs.",
+    workflowAutomation: "Automations for overdue snags, low stock alerts, approval requests, contractor notifications, report generation, and delay-risk escalation.",
+    enterpriseFeatures: ["ERP integration", "Procurement integration", "Multi-company management", "White-label reports", "Custom workflows"],
     techStack: ["Laravel", "React", "Tailwind", "Sanctum", "Database queues", "MySQL/SQLite"],
     roadmap: ["Gantt timeline", "RFI/submittal module", "Budget variance", "Weather and site condition logs"],
     localUrl: "http://127.0.0.1:8033/",
@@ -165,6 +177,7 @@ const productDemos = [
     name: "SecureOps",
     logoType: "secureops",
     outcome: "See your business security risks before attackers or auditors do.",
+    category: "Commercial SaaS Product / Cybersecurity Operations",
     description: "A defensive AI security operations dashboard for risk posture, vulnerabilities, incidents, audit logs, reports, and executive summaries.",
     problem: "Small and mid-sized companies are expected to look secure, but often lack a clear view of risks, evidence, vulnerabilities, and what leadership should fix first.",
     importance: "SecureOps packages security posture into language a business can act on, helping teams prioritize risks, prepare for audits, and show clients they take security seriously.",
@@ -178,6 +191,9 @@ const productDemos = [
     integratedMode: "Splunk, Wazuh, Microsoft Sentinel, Elastic SIEM, QRadar, generic syslog/API ingestion, email alerts, and custom webhooks.",
     securityMeasures: ["RBAC", "Audit logs", "Private evidence", "Defensive AI guardrails", "Signed report access"],
     subscriptionModel: "Starter for readiness tracking, Business for incident/compliance reports, Enterprise for SIEM connectors and board reporting.",
+    apiFramework: "Scoped security API for assets, risks, vulnerabilities, incidents, evidence, reports, webhook ingestion, and integration logs.",
+    workflowAutomation: "Automations for critical alerts, vulnerability SLA escalation, remediation assignment, control-gap reminders, executive report scheduling, and incident updates.",
+    enterpriseFeatures: ["SIEM integrations", "MITRE ATT&CK mapping-ready", "Custom frameworks", "Vendor assessments", "Board-level reporting"],
     techStack: ["Laravel", "React", "Tailwind", "Sanctum", "DomPDF", "Database queues"],
     roadmap: ["MITRE mapping", "Security questionnaire module", "Custom frameworks", "Monthly board report generator"],
     localUrl: "http://127.0.0.1:8024/",
@@ -610,8 +626,8 @@ function ProductDemoHub() {
       <div className="container">
         <div className="section-header" data-reveal>
           <div>
-            <span className="section-kicker">PRIVATE PRODUCT DEMOS</span>
-            <h2>AI systems packaged around business outcomes.</h2>
+            <span className="section-kicker">COMMERCIAL SAAS PRODUCTS</span>
+            <h2>Business platforms built for revenue, risk, operations, and executive visibility.</h2>
           </div>
           <a className="view-archive" href="#contact">REQUEST ACCESS &rarr;</a>
         </div>
@@ -635,6 +651,7 @@ function ProductDemoHub() {
                 <span>Watch walkthrough</span>
               </button>
               <h3>{product.name}</h3>
+              <p className="product-category">{product.category}</p>
               <p className="product-outcome">{product.outcome}</p>
               <div className="product-badges" aria-label={`${product.name} feature badges`}>
                 {product.badges.slice(0, 5).map((badge) => (
@@ -734,27 +751,46 @@ function ProductCaseStudy({ product }) {
   return (
     <section className="product-case-study" id="case-studies" data-reveal>
       <div className="case-study-header">
-        <span className="section-kicker">BUSINESS SAAS PRODUCT I BUILT</span>
+          <span className="section-kicker">COMMERCIAL SAAS PRODUCT</span>
         <h2>{product.name}: {product.outcome}</h2>
         <p>{product.businessValue}</p>
       </div>
 
       <div className="case-study-grid">
         <article>
+          <span>Product overview</span>
+          <p>{product.description}</p>
+        </article>
+        <article>
+          <span>Target industry</span>
+          <p>{product.fit}</p>
+        </article>
+        <article>
+          <span>Business value</span>
+          <p>{product.businessValue}</p>
+        </article>
+        <article>
+          <span>Subscription tiers</span>
+          <p>{product.subscriptionModel}</p>
+        </article>
+      </div>
+
+      <div className="case-study-grid case-study-grid-wide">
+        <article>
           <span>Problem</span>
           <p>{product.problem}</p>
         </article>
         <article>
-          <span>Target users</span>
-          <p>{product.fit}</p>
+          <span>Integration capabilities</span>
+          <p>{product.integratedMode}</p>
         </article>
         <article>
-          <span>Solution</span>
-          <p>{product.description}</p>
+          <span>API framework</span>
+          <p>{product.apiFramework}</p>
         </article>
         <article>
-          <span>Subscription model</span>
-          <p>{product.subscriptionModel}</p>
+          <span>Workflow automation</span>
+          <p>{product.workflowAutomation}</p>
         </article>
       </div>
 
@@ -772,8 +808,8 @@ function ProductCaseStudy({ product }) {
           <p>{product.standaloneMode}</p>
         </div>
         <div>
-          <span>Integrated mode</span>
-          <p>{product.integratedMode}</p>
+          <span>Enterprise features</span>
+          <p>{product.enterpriseFeatures.join(", ")}</p>
         </div>
       </div>
 
@@ -1098,14 +1134,19 @@ function ProductPage({ product }) {
             <ProductCaseStudy product={product} />
             <div className="product-detail-matrix" data-reveal>
               {[
-                ["Target industry", product.fit],
+                ["Product Overview", product.description],
+                ["Target Industry", product.fit],
                 ["Business value", product.businessValue],
+                ["Subscription Tiers", product.subscriptionModel],
                 ["AI features", product.reel.join(", ")],
-                ["Integrations", product.integratedMode],
+                ["Integration Capabilities", product.integratedMode],
                 ["Security", product.securityMeasures.join(", ")],
+                ["API Framework", product.apiFramework],
+                ["Workflow Automation", product.workflowAutomation],
+                ["Executive Dashboard", product.executiveKpis.join(", ")],
+                ["Health Score", product.healthScore],
+                ["Enterprise Features", product.enterpriseFeatures.join(", ")],
                 ["Architecture", product.techStack.join(", ")],
-                ["Subscription tiers", product.subscriptionModel],
-                ["Executive dashboard", product.executiveKpis.join(", ")],
                 ["Roadmap", product.roadmap.join(", ")]
               ].map(([title, copy]) => (
                 <article key={title}>

@@ -986,6 +986,15 @@ em.accent {
   font-size: 1.35rem;
 }
 
+.product-category {
+  margin: 8px 0 0 !important;
+  color: #f4eee8 !important;
+  font-size: .66rem !important;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
 .product-preview {
   position: relative;
   overflow: hidden;
@@ -1455,6 +1464,10 @@ em.accent {
 
 .case-study-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.case-study-grid-wide {
+  margin-top: -12px;
 }
 
 .mode-grid,
