@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 const contactEmail = "hamu.dxb@gmail.com";
 
@@ -70,7 +70,7 @@ const productDemos = [
     logoType: "aura",
     outcome: "Never lose a WhatsApp lead again.",
     description: "A governed WhatsApp command center for shared inboxes, AI follow-up, CRM handoff, team accountability, and revenue visibility.",
-    problem: "Sales teams lose warm leads when chats sit inside one person’s phone, replies get delayed, or nobody knows who owns the next move.",
+    problem: "Sales teams lose warm leads when chats sit inside one person's phone, replies get delayed, or nobody knows who owns the next move.",
     importance: "Aura Command turns messy WhatsApp conversations into a managed revenue workflow, so every inquiry has context, ownership, follow-up, and a visible path to closing.",
     fit: "Real estate teams, clinics, agencies, and service businesses",
     status: "Strongest commercial potential",
@@ -281,6 +281,39 @@ const healthScoreSystems = [
   ["Siteflow", "Project Health Score", "Budget variance, timeline variance, site issues, contractor performance, safety incidents, inspections, materials, milestones"]
 ];
 
+const companyMetrics = [
+  ["4", "SaaS products"],
+  ["50+", "core modules"],
+  ["4", "health score systems"],
+  ["API", "framework-ready"],
+  ["RBAC", "security-first"],
+  ["AI", "workflow copilots"]
+];
+
+const certifications = [
+  ["CompTIA Security+", "Cybersecurity fundamentals, risk, controls, identity, operations"],
+  ["Google Cybersecurity Certificate", "SOC concepts, detection, incident response, Python and SIEM basics"],
+  ["CySA+", "Planned: defensive analysis, monitoring, threat detection"],
+  ["PenTest+", "Planned: offensive security methodology and validation"]
+];
+
+const technicalExpertise = [
+  "Laravel", "PHP", "MySQL", "React", "REST APIs", "OAuth", "Webhooks", "SaaS Architecture",
+  "Enterprise Applications", "Cloud Infrastructure", "AI Integrations", "Role-Based Access Control",
+  "Cybersecurity", "SIEM Integrations", "CRM Integrations", "Automation Systems"
+];
+
+const trustCenterItems = [
+  ["Security-first Development", "Threat-aware architecture, safe defaults, defensive product thinking, and clear separation between demo and production behavior."],
+  ["Audit Logging", "Sensitive actions are designed to leave accountable records for owners, admins, and compliance reviewers."],
+  ["RBAC", "Owner, admin, manager, analyst, agent, and viewer patterns keep sensitive workflows behind the right permissions."],
+  ["Encryption", "Provider credentials, tokens, and sensitive settings are treated as encrypted server-side concerns."],
+  ["Secure API Design", "Scoped API keys, rate limits, signed webhooks, validation, and tenant checks are part of the integration model."],
+  ["Multi-Tenant Isolation", "Company/workspace boundaries are central to the data model and product architecture."],
+  ["Secure File Handling", "Private storage, signed access, upload validation, and audit trails are planned where documents or evidence are handled."],
+  ["Responsible Disclosure", "Security contact and disclosure handling are part of the trust-center roadmap."]
+];
+
 function useReveal() {
   useEffect(() => {
     const items = document.querySelectorAll("[data-reveal]");
@@ -311,6 +344,8 @@ function useReveal() {
 function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const isSubPage = typeof window !== "undefined" && window.location.pathname !== "/";
+  const linkTo = (hash) => (isSubPage ? `/${hash}` : hash);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -337,20 +372,20 @@ function Navbar() {
 
         <nav className={`site-nav ${open ? "is-open" : ""}`} id="site-nav" aria-label="Main navigation">
           {[
-            ["work", "work"],
-            ["products", "products"],
-            ["case-studies", "case studies"],
-            ["about", "about"],
-            ["contact", "contact"]
+            ["#products", "products"],
+            ["#enterprise", "enterprise"],
+            ["#expertise", "expertise"],
+            ["/trust", "trust"],
+            ["#contact", "contact"]
           ].map(([href, label]) => (
-            <a key={href} href={`#${href}`} onClick={close} className={href === "work" ? "active" : ""}>
+            <a key={href} href={href.startsWith("#") ? linkTo(href) : href} onClick={close}>
               {label}
             </a>
           ))}
         </nav>
 
         <a className="primary-button cta-button" href="#contact" onClick={close}>
-          HIRE ME
+          REQUEST DEMO
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
@@ -422,6 +457,17 @@ function InquiryForm({ selectedProduct = "", compact = false }) {
               {errors.email && <small>{errors.email}</small>}
             </label>
           </div>
+          <label>
+            <span>Inquiry type</span>
+            <select name="inquiry_type" defaultValue={selectedProduct ? "Request Demo" : "Business Inquiry"}>
+              <option>Request Demo</option>
+              <option>Book Consultation</option>
+              <option>Business Inquiry</option>
+              <option>Partnership Inquiry</option>
+              <option>Project Discussion</option>
+              <option>Recruiting / Hiring</option>
+            </select>
+          </label>
           <label>
             <span>Message</span>
             <textarea name="message" rows="4" />
@@ -615,7 +661,7 @@ function ProductDemoHub() {
                 </div>
               )}
               <div className="product-actions">
-                <a className="primary-button" href="#case-studies" onClick={() => setSelectedProduct(product)}>View case study</a>
+                <a className="primary-button" href={`/products/${product.key}`} onClick={() => setSelectedProduct(product)}>View case study</a>
                 <a className="ghost-button" href="#screenshots" onClick={() => setSelectedProduct(product)}>View screenshots</a>
                 {isLocalDemo && <a className="local-app-button" href={product.localUrl}>Open local app</a>}
                 <a className="ghost-button" href="#demo-request" onClick={() => setSelectedProduct(product)}>Request gated demo</a>
@@ -670,7 +716,7 @@ function ProductDemoHub() {
         </div>
         <div className="portfolio-close" data-reveal>
           <span>WHAT COMPANIES SHOULD FEEL HERE</span>
-          <p>Not “nice website.” More like: this person understands how messy business operations really work, and can turn that mess into software people actually want to use.</p>
+          <p>Not "nice website." More like: this person understands how messy business operations really work, and can turn that mess into software people actually want to use.</p>
           <a className="primary-button" href="#contact">Start the conversation</a>
         </div>
       </div>
@@ -873,6 +919,245 @@ function HealthScoreSection() {
   );
 }
 
+function ExecutiveMetricsSection() {
+  return (
+    <section className="section executive-metrics" id="metrics">
+      <div className="container">
+        <div className="section-header" data-reveal>
+          <div>
+            <span className="section-kicker">SOFTWARE COMPANY SIGNALS</span>
+            <h2>Product depth built for serious business conversations.</h2>
+          </div>
+          <a href="#products" className="view-archive">EXPLORE PRODUCTS &rarr;</a>
+        </div>
+        <div className="company-metric-grid">
+          {companyMetrics.map(([value, label]) => (
+            <article className="company-metric-card" key={label} data-reveal>
+              <strong>{value}</strong>
+              <span>{label}</span>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CertificationsSection() {
+  return (
+    <section className="section credentials-section" id="credentials">
+      <div className="container">
+        <div className="section-header" data-reveal>
+          <div>
+            <span className="section-kicker">CERTIFICATIONS</span>
+            <h2>Cybersecurity-backed product engineering.</h2>
+          </div>
+        </div>
+        <div className="credential-grid">
+          {certifications.map(([title, copy]) => (
+            <article className="credential-card" key={title} data-reveal>
+              <span>{title.includes("Planned") ? "Roadmap" : "Verified"}</span>
+              <h3>{title}</h3>
+              <p>{copy}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TechnicalExpertiseSection() {
+  return (
+    <section className="section expertise-section" id="expertise">
+      <div className="container">
+        <div className="section-header" data-reveal>
+          <div>
+            <span className="section-kicker">TECHNICAL EXPERTISE</span>
+            <h2>Full-stack, SaaS, cybersecurity, and enterprise systems.</h2>
+          </div>
+        </div>
+        <div className="expertise-cloud" data-reveal>
+          {technicalExpertise.map((item) => <span key={item}>{item}</span>)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ScreenshotGallerySection() {
+  const gallery = productDemos.flatMap((product) => [
+    [`${product.name} dashboard`, `/assets/trailers/${product.key}-01-dashboard.png`, product.name],
+    [`${product.name} feature screen`, `/assets/trailers/${product.key}-screen.png`, product.name]
+  ]);
+
+  return (
+    <section className="section gallery-section" id="gallery">
+      <div className="container">
+        <div className="section-header" data-reveal>
+          <div>
+            <span className="section-kicker">SCREENSHOT GALLERY</span>
+            <h2>Demo-ready product surfaces without requiring login.</h2>
+          </div>
+          <a href="#contact" className="view-archive">REQUEST WALKTHROUGH &rarr;</a>
+        </div>
+        <div className="gallery-grid">
+          {gallery.map(([title, src, product]) => (
+            <figure className="gallery-card" key={title} data-reveal>
+              <img src={src} alt={title} loading="lazy" />
+              <figcaption>
+                <span>{product}</span>
+                <strong>{title}</strong>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function InteractiveDemoSection() {
+  return (
+    <section className="section demo-explorer-section" id="demo-explorer">
+      <div className="container demo-explorer" data-reveal>
+        <div>
+          <span className="section-kicker">INTERACTIVE DEMO EXPERIENCE</span>
+          <h2>Explore workflows, dashboards, reports, and integrations before requesting access.</h2>
+          <p>Public visitors can review guided product narratives, screenshots, buyer FAQs, architecture, health scores, and demo videos. Live app access stays gated for clean demo data, audit control, and product protection.</p>
+        </div>
+        <div className="demo-explorer-list">
+          {["Explore Screens", "View Product Workflows", "View Dashboards", "See Reports", "View Integrations"].map((item) => <span key={item}>{item}</span>)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TrustPage() {
+  useReveal();
+
+  return (
+    <>
+      <div className="bg-overlay" />
+      <Navbar />
+      <main className="subpage-main">
+        <section className="subpage-hero">
+          <div className="container">
+            <span className="section-kicker">TRUST CENTER</span>
+            <h1>Security-first architecture for enterprise SaaS products.</h1>
+            <p>Auditability, RBAC, encryption, secure APIs, tenant isolation, responsible disclosure, and compliance-ready practices are treated as product foundations.</p>
+          </div>
+        </section>
+        <section className="section">
+          <div className="container trust-page-grid">
+            {trustCenterItems.map(([title, copy]) => (
+              <article className="trust-page-card" key={title} data-reveal>
+                <h2>{title}</h2>
+                <p>{copy}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+function ProductPage({ product }) {
+  useReveal();
+  const screenshots = [
+    `/assets/trailers/${product.key}-01-dashboard.png`,
+    `/assets/trailers/${product.key}-screen.png`,
+    `/assets/trailers/${product.key}-poster-20260520.png`
+  ];
+
+  return (
+    <>
+      <div className="bg-overlay" />
+      <Navbar />
+      <main className="subpage-main product-detail-page">
+        <section className="subpage-hero product-page-hero">
+          <div className="container product-page-hero-grid">
+            <div>
+              <span className="section-kicker">{product.healthScore}</span>
+              <h1>{product.name}: {product.description}</h1>
+              <p>{product.businessValue}</p>
+              <div className="product-page-actions">
+                <a className="primary-button" href="#request-demo">Request demo</a>
+                <a className="ghost-button" href="#screenshots">View screenshots</a>
+              </div>
+            </div>
+            <DemoVideoPanel product={product} />
+          </div>
+        </section>
+        <section className="section">
+          <div className="container">
+            <ProductCaseStudy product={product} />
+            <div className="product-detail-matrix" data-reveal>
+              {[
+                ["Target industry", product.fit],
+                ["Business value", product.businessValue],
+                ["AI features", product.reel.join(", ")],
+                ["Integrations", product.integratedMode],
+                ["Security", product.securityMeasures.join(", ")],
+                ["Architecture", product.techStack.join(", ")],
+                ["Subscription tiers", product.subscriptionModel],
+                ["Executive dashboard", product.executiveKpis.join(", ")],
+                ["Roadmap", product.roadmap.join(", ")]
+              ].map(([title, copy]) => (
+                <article key={title}>
+                  <span>{title}</span>
+                  <p>{copy}</p>
+                </article>
+              ))}
+            </div>
+            <div className="premium-screenshot-wall" id="screenshots" data-reveal>
+              {screenshots.map((src) => (
+                <img key={src} src={src} alt={`${product.name} SaaS screenshot`} loading="lazy" />
+              ))}
+            </div>
+            <div className="demo-request-grid" id="request-demo" data-reveal>
+              <DemoVideoPanel product={product} />
+              <div className="demo-request-copy">
+                <span className="section-kicker">REQUEST PRODUCT DEMO</span>
+                <h3>{product.name}</h3>
+                <p>{product.importance}</p>
+                <InquiryForm selectedProduct={product.name} compact />
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+function Footer() {
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="site-footer">
+      <div className="container footer-inner">
+        <div className="footer-brand">
+          <strong>Hamees Momin</strong>
+        </div>
+        <div className="footer-center">
+          <p>(c) {year} Hamees Momin. Enterprise SaaS, security, and product engineering.</p>
+        </div>
+        <div className="footer-links">
+          <a href={`mailto:${contactEmail}`}>EMAIL</a>
+          <a href="/trust">TRUST</a>
+          <a href="https://wa.me/971502877142" target="_blank" rel="noopener noreferrer">WHATSAPP</a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
 function DeliveryStandards() {
   return (
     <section className="section standards-section" id="standards">
@@ -900,8 +1185,18 @@ function DeliveryStandards() {
 }
 
 function App() {
-  const year = useMemo(() => new Date().getFullYear(), []);
   useReveal();
+  const path = typeof window !== "undefined" ? window.location.pathname : "/";
+  const productMatch = path.match(/^\/products\/([^/]+)$/);
+  const routedProduct = productMatch ? productDemos.find((product) => product.key === productMatch[1]) : null;
+
+  if (routedProduct) {
+    return <ProductPage product={routedProduct} />;
+  }
+
+  if (path === "/trust") {
+    return <TrustPage />;
+  }
 
   return (
     <>
@@ -916,7 +1211,8 @@ function App() {
                 AVAILABLE FOR NEW PROJECTS
               </div>
               
-              <h1><span itemProp="name">Hamees Momin</span> crafts <em className="accent">bespoke</em> digital experiences with technical precision.</h1>
+              <h1>Building Enterprise SaaS Products, AI Solutions & Secure Business Platforms.</h1>
+              <meta itemProp="name" content="Hamees Momin" />
               <meta itemProp="jobTitle" content="Full-Stack Developer" />
               <meta itemProp="email" content={contactEmail} />
               <meta itemProp="telephone" content="+971502877142" />
@@ -924,6 +1220,10 @@ function App() {
               
               <div className="hero-description">
                 <p itemProp="description">Full-stack software engineer, SaaS product builder, cybersecurity professional, and enterprise application developer building secure, high-performance products with real business workflows.</p>
+              </div>
+              <div className="hero-actions">
+                <a className="primary-button" href="#products">Explore products</a>
+                <a className="ghost-button" href="#contact">Request demo</a>
               </div>
             </div>
 
@@ -943,6 +1243,8 @@ function App() {
             </div>
           </div>
         </section>
+
+        <ExecutiveMetricsSection />
 
         <section className="section" id="work">
           <div className="container">
@@ -1019,6 +1321,10 @@ function App() {
 
         <HealthScoreSection />
 
+        <ScreenshotGallerySection />
+
+        <InteractiveDemoSection />
+
         <section className="section" id="about">
           <div className="container">
             <div className="section-header" data-reveal>
@@ -1041,25 +1347,16 @@ function App() {
           </div>
         </section>
 
+        <TechnicalExpertiseSection />
+
+        <CertificationsSection />
+
         <DeliveryStandards />
 
         <Contact />
       </main>
 
-      <footer className="site-footer">
-        <div className="container footer-inner">
-          <div className="footer-brand">
-            <strong>Hamees Momin</strong>
-          </div>
-          <div className="footer-center">
-            <p>(c) {year} Hamees Momin. Stitched with precision.</p>
-          </div>
-          <div className="footer-links">
-            <a href={`mailto:${contactEmail}`}>EMAIL</a>
-            <a href="https://wa.me/971502877142" target="_blank" rel="noopener noreferrer">WHATSAPP</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
