@@ -75,6 +75,8 @@ const productDemos = [
     fit: "Real estate teams, clinics, agencies, and service businesses",
     status: "Strongest commercial potential",
     badges: ["WhatsApp revenue ops", "CRM-ready", "SLA follow-ups", "AI replies", "Revenue attribution"],
+    healthScore: "Revenue Operations Health Score",
+    executiveKpis: ["Pipeline Value", "Active Leads", "Lead Conversion Rate", "Team Performance", "Revenue Forecast"],
     businessValue: "Protects paid leads, shortens response time, improves agent accountability, and gives owners a clear view of revenue follow-up.",
     standaloneMode: "Manual lead intake, shared inbox workflow, agent assignment, lifecycle stages, follow-up calendar, AI summaries, and business reporting.",
     integratedMode: "WhatsApp Business API, website forms, HubSpot, Zoho CRM, Salesforce, Pipedrive, Google Sheets, Zapier, Make, n8n, and custom CRM APIs.",
@@ -105,6 +107,8 @@ const productDemos = [
     fit: "SMEs, HR teams, operations teams, document-heavy businesses",
     status: "Easiest to explain and sell",
     badges: ["Expiry intelligence", "OCR-ready", "Secure search", "Approval workflows", "Source Q&A"],
+    healthScore: "Document Compliance Score",
+    executiveKpis: ["Documents Expiring Soon", "Missing Documentation", "Approval Bottlenecks", "Contract Risk", "Renewal Forecast"],
     businessValue: "Reduces fines, missed renewals, document confusion, and time lost searching across inboxes, drives, and folders.",
     standaloneMode: "Secure uploads, document classification, metadata extraction, expiry tracking, review queues, approvals, search, and reports.",
     integratedMode: "Google Drive, SharePoint, OneDrive, Dropbox-ready storage, CRM, ERP, HR systems, email ingestion, and custom document APIs.",
@@ -135,6 +139,8 @@ const productDemos = [
     fit: "Contractors, consultants, project managers, site teams",
     status: "Focused niche SaaS",
     badges: ["Daily reports", "Snag tracking", "Contractors", "Approvals", "Client PDFs"],
+    healthScore: "Project Health Score",
+    executiveKpis: ["Budget Performance", "Timeline Performance", "Delay Risks", "Contractor Rankings", "Safety Overview"],
     businessValue: "Turns scattered field updates into accountable records, reducing disputes, delays, reporting friction, and management blind spots.",
     standaloneMode: "Projects, site reports, snags, materials, attendance, approvals, photos, safety issues, contractor scoring, and PDF-ready reports.",
     integratedMode: "ERP, procurement tools, accounting systems, real estate CRM, document storage, email, custom APIs, and webhooks.",
@@ -165,6 +171,8 @@ const productDemos = [
     fit: "SMEs, regulated teams, IT providers, compliance-driven firms",
     status: "High-ticket potential",
     badges: ["SIEM-ready", "Risk scoring", "Incidents", "Compliance", "Executive reports"],
+    healthScore: "Security Posture Score",
+    executiveKpis: ["Compliance Status", "Open Risks", "Critical Vulnerabilities", "Incident Trends", "Board-Level Report"],
     businessValue: "Helps businesses see risks, prove security work, prepare for audits, and explain technical exposure in executive language.",
     standaloneMode: "Asset inventory, vulnerability register, incident timeline, risk scoring, evidence locker, controls, remediation tasks, and reports.",
     integratedMode: "Splunk, Wazuh, Microsoft Sentinel, Elastic SIEM, QRadar, generic syslog/API ingestion, email alerts, and custom webhooks.",
@@ -264,6 +272,13 @@ const qualityPrinciples = [
     title: "Distinct product identity",
     copy: "Aura stays revenue operations, SecureOps stays security and compliance, Documind stays document intelligence, and Siteflow stays construction operations."
   }
+];
+
+const healthScoreSystems = [
+  ["Aura Command", "Revenue Operations Health Score", "Lead response, missed leads, follow-ups, conversion, agent activity, pipeline velocity, CRM sync, engagement"],
+  ["SecureOps", "Security Posture Score", "Vulnerabilities, incidents, compliance, remediation, asset coverage, SIEM alerts, accepted risk, control coverage"],
+  ["Documind", "Document Compliance Score", "Expired documents, missing files, approvals, processing backlog, OCR confidence, contract review, renewal readiness"],
+  ["Siteflow", "Project Health Score", "Budget variance, timeline variance, site issues, contractor performance, safety incidents, inspections, materials, milestones"]
 ];
 
 function useReveal() {
@@ -699,6 +714,14 @@ function ProductCaseStudy({ product }) {
 
       <div className="mode-grid">
         <div>
+          <span>Operational dashboard</span>
+          <p>{product.standaloneMode}</p>
+        </div>
+        <div>
+          <span>Executive dashboard</span>
+          <p>{product.healthScore} with {product.executiveKpis.join(", ")} and AI recommendations designed for management review.</p>
+        </div>
+        <div>
           <span>Standalone mode</span>
           <p>{product.standaloneMode}</p>
         </div>
@@ -812,6 +835,36 @@ function ProductQualitySection() {
               <span className="skill-number">{String(index + 1).padStart(2, "0")}</span>
               <h3>{item.title}</h3>
               <p>{item.copy}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HealthScoreSection() {
+  return (
+    <section className="section health-score-section" id="health-scores">
+      <div className="container">
+        <div className="section-header" data-reveal>
+          <div>
+            <span className="section-kicker">EXECUTIVE DASHBOARDS + HEALTH SCORES</span>
+            <h2>Each product has a management-grade score system.</h2>
+          </div>
+          <a href="#case-studies" className="view-archive">VIEW CASE STUDIES &rarr;</a>
+        </div>
+        <div className="health-score-grid">
+          {healthScoreSystems.map(([product, score, factors]) => (
+            <article className="health-score-card" key={product} data-reveal>
+              <span>{product}</span>
+              <h3>{score}</h3>
+              <p>{factors}</p>
+              <div className="score-bands">
+                <strong className="score-green">80-100</strong>
+                <strong className="score-yellow">60-79</strong>
+                <strong className="score-red">0-59</strong>
+              </div>
             </article>
           ))}
         </div>
@@ -963,6 +1016,8 @@ function App() {
         <EnterpriseSaaSLayer />
 
         <ProductQualitySection />
+
+        <HealthScoreSection />
 
         <section className="section" id="about">
           <div className="container">

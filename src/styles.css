@@ -1583,6 +1583,78 @@ em.accent {
   font-size: .92rem;
 }
 
+.health-score-section {
+  position: relative;
+}
+
+.health-score-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.health-score-card {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px dashed var(--border-dashed);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, .06), transparent 44%),
+    rgba(8, 8, 10, .78);
+}
+
+.health-score-card > span {
+  color: var(--thread-orange-bright);
+  font-size: .65rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.health-score-card h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.2rem;
+  line-height: 1.18;
+}
+
+.health-score-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+.score-bands {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.score-bands strong {
+  display: inline-flex;
+  justify-content: center;
+  padding: 7px 6px;
+  border-radius: 4px;
+  font-size: .65rem;
+}
+
+.score-green {
+  background: rgba(52, 211, 153, .13);
+  color: #a7f3d0;
+}
+
+.score-yellow {
+  background: rgba(251, 191, 36, .13);
+  color: #fde68a;
+}
+
+.score-red {
+  background: rgba(251, 113, 133, .13);
+  color: #fecdd3;
+}
+
 .demo-business-copy {
   display: grid;
   gap: 12px;
@@ -1940,7 +2012,8 @@ em.accent {
   }
 
   .enterprise-grid,
-  .quality-grid {
+  .quality-grid,
+  .health-score-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2134,7 +2207,8 @@ em.accent {
   }
 
   .enterprise-grid,
-  .quality-grid {
+  .quality-grid,
+  .health-score-grid {
     grid-template-columns: 1fr;
   }
 

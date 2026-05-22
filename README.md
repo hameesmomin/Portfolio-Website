@@ -86,3 +86,14 @@ The portfolio now highlights the cross-product SaaS capabilities expected by sma
 Portfolio and app claims must distinguish complete features from framework-ready architecture. A feature should only be presented as complete when it works correctly, is responsive, secure, documented, polished, integrated into reporting, role-aware, tenant-scoped, and tested or otherwise verifiable.
 
 The portfolio positions Hamees Momin as a full-stack software engineer, SaaS product builder, cybersecurity professional, and enterprise application developer. Project pages and sections should demonstrate business value, technical depth, security considerations, integration readiness, scalability, and real-world applicability without blurring the separate product identities.
+
+## Executive Dashboards And Health Scores
+
+Each SaaS product has separate operational and executive dashboard positioning plus a proprietary score system:
+
+- Aura Command: Revenue Operations Health Score
+- SecureOps: Security Posture Score
+- Documind: Document Compliance Score
+- Siteflow: Project Health Score
+
+Scores use green/yellow/red bands, score history, trend analysis, factor breakdowns, and are intended for executive dashboards, PDF exports, scheduled reports, monthly summaries, email reports, and AI summaries.
