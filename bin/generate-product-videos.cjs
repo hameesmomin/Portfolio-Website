@@ -13,12 +13,16 @@ const products = [
     outcome: "Never lose a WhatsApp lead again.",
     accent: "#ff9a46",
     pages: [
-      ["Login", "Qualified access", ["Email prefilled", "Password protected", "Private workspace"]],
-      ["Command Dashboard", "Live revenue view", ["New WhatsApp leads", "SLA timers", "Pipeline value"]],
-      ["Shared Inbox", "Every chat has an owner", ["AI summary", "Priority tags", "Next reply drafted"]],
-      ["CRM Pipeline", "Lead handoff without chaos", ["Owner assigned", "Deal stage", "Follow-up date"]],
-      ["AI Follow-up", "Replies that keep deals warm", ["Intent detected", "Objection handled", "Reminder queued"]],
-      ["Security", "Access stays controlled", ["Roles", "Audit trail", "Session visibility"]]
+      ["Login", "Qualified access", ["Private workspace", "Role-aware login", "Demo tenant"]],
+      ["Executive Dashboard", "Revenue health in 30 seconds", ["Pipeline value", "Conversion trend", "AI recommendations"]],
+      ["Shared Inbox", "Every chat has an owner", ["SLA timers", "Priority tags", "Reply context"]],
+      ["Lead Pipeline", "Revenue workflow without chaos", ["Lifecycle stage", "Owner assigned", "Close reason"]],
+      ["AI Follow-up", "Replies that keep deals warm", ["Intent detected", "Suggested reply", "Reminder queued"]],
+      ["Team Analytics", "Accountability by agent", ["Activity trend", "Response speed", "Won revenue"]],
+      ["Integration Studio", "Connect CRM and web forms", ["Data mapping", "Webhook builder", "API keys"]],
+      ["Workflow Builder", "Automate next best action", ["IF lead created", "THEN assign agent", "ELSE escalate"]],
+      ["Billing And Limits", "Commercial SaaS controls", ["Plans", "Usage", "Feature gates"]],
+      ["Security Center", "Access stays controlled", ["Roles", "Audit trail", "Session visibility"]]
     ]
   },
   {
@@ -29,12 +33,16 @@ const products = [
     outcome: "Know every document expiry before it costs you money.",
     accent: "#ffb56b",
     pages: [
-      ["Login", "Secure document workspace", ["Owner login", "Private tenant", "Access protected"]],
-      ["Dashboard", "Renewal risk at a glance", ["Expired soon", "Missing files", "Team tasks"]],
+      ["Login", "Secure document workspace", ["Private tenant", "Owner login", "Access protected"]],
+      ["Executive Dashboard", "Compliance health in 30 seconds", ["Expiring soon", "Missing files", "Renewal forecast"]],
       ["Document Vault", "One clean source of truth", ["Trade license", "Emirates ID", "Contracts"]],
+      ["Upload Flow", "Files become structured records", ["Classification", "OCR-ready", "Confidence score"]],
       ["Expiry Intelligence", "Deadlines before drama", ["30-day warning", "Penalty risk", "Owner notified"]],
+      ["Approval Queue", "Human review stays visible", ["Reviewer", "Status", "Bottleneck"]],
       ["AI Assistant", "Ask the files", ["Source-backed answer", "Clause lookup", "Renewal checklist"]],
-      ["Security", "Audit-ready access", ["Roles", "Logs", "Sensitive files"]]
+      ["Integration Studio", "Connect storage and systems", ["SharePoint", "Drive", "Data mapping"]],
+      ["Reports", "Owner-ready compliance view", ["PDF export", "CSV export", "Scheduled report"]],
+      ["Security Center", "Audit-ready access", ["Roles", "Logs", "Sensitive files"]]
     ]
   },
   {
@@ -46,10 +54,14 @@ const products = [
     accent: "#f2994a",
     pages: [
       ["Login", "Private project access", ["Demo tenant", "Site manager login", "Secure workspace"]],
-      ["Project Dashboard", "All sites in motion", ["Progress", "Delays", "Open approvals"]],
+      ["Executive Dashboard", "Project health in 30 seconds", ["Budget variance", "Delay risk", "Safety trend"]],
+      ["Project Dashboard", "All sites in motion", ["Progress", "Open snags", "Pending approvals"]],
       ["Daily Reports", "The site diary writes itself", ["Weather", "Labour", "Photos"]],
+      ["Snag Tracking", "Issues get owners and deadlines", ["Severity", "Responsible party", "Evidence"]],
       ["Materials", "Know what arrived and what is missing", ["Deliveries", "Stock risk", "Supplier notes"]],
       ["Approvals", "Decisions stop getting buried", ["Pending sign-off", "Variation request", "Client response"]],
+      ["Contractors", "Performance becomes measurable", ["Ranking", "Delay impact", "Quality score"]],
+      ["Integration Studio", "Connect ERP and procurement", ["Data mapping", "Webhooks", "API keys"]],
       ["PDF Report", "A clean record clients can sign", ["Summary", "Evidence", "Export ready"]]
     ]
   },
@@ -62,10 +74,14 @@ const products = [
     accent: "#ff8f3d",
     pages: [
       ["Login", "Defensive security access", ["Owner login", "Protected dashboard", "Audit mode"]],
-      ["Risk Dashboard", "Security posture in plain English", ["Risk score", "Open findings", "Priority fixes"]],
+      ["Executive Dashboard", "Security posture in plain English", ["Posture score", "Open risks", "Board summary"]],
       ["Assets", "Know what must be protected", ["Web apps", "Cloud services", "User accounts"]],
       ["Vulnerabilities", "Fix the issues that matter first", ["Severity", "Business impact", "Suggested action"]],
       ["Incidents", "Evidence without panic", ["Timeline", "Owner", "Response status"]],
+      ["Risk Register", "Accountability for exposure", ["Likelihood", "Impact", "Acceptance"]],
+      ["Compliance", "Audit readiness without scramble", ["Controls", "Evidence", "Owners"]],
+      ["Integration Studio", "Connect SIEM and alerts", ["Sentinel", "Wazuh", "Data mapping"]],
+      ["AI Copilot", "Defensive recommendations only", ["Explain risk", "Next action", "Executive summary"]],
       ["Executive Report", "Board-friendly security summary", ["Top risks", "Next steps", "Export ready"]]
     ]
   }
@@ -82,7 +98,7 @@ async function renderProduct(page, product) {
     document.body.appendChild(canvas);
 
     const ctx = canvas.getContext("2d");
-    const duration = 19000;
+    const duration = 76000;
     const fps = 30;
 
     function roundRect(x, y, w, h, r) {
@@ -344,8 +360,11 @@ async function main() {
   for (const product of products) {
     console.log(`Rendering ${product.name}`);
     const result = await renderProduct(page, product);
-    await fs.writeFile(path.join(outDir, `${product.key}-demo.webm`), Buffer.from(result.video, "base64"));
-    await fs.writeFile(path.join(outDir, `${product.key}-screen.png`), Buffer.from(result.poster, "base64"));
+    const video = Buffer.from(result.video, "base64");
+    const poster = Buffer.from(result.poster, "base64");
+    await fs.writeFile(path.join(outDir, `${product.key}-walkthrough-20260523.webm`), video);
+    await fs.writeFile(path.join(outDir, `${product.key}-screen.png`), poster);
+    await fs.writeFile(path.join(outDir, `${product.key}-poster-20260523.png`), poster);
   }
 
   await browser.close();

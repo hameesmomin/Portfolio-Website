@@ -1192,6 +1192,18 @@ em.accent {
   font-size: .78rem;
 }
 
+.local-credentials small,
+.public-demo-note {
+  color: rgba(247, 244, 239, .66);
+  font-size: .78rem;
+  line-height: 1.5;
+}
+
+.public-demo-note {
+  max-width: 620px;
+  margin: 16px 0 0;
+}
+
 .local-credentials-panel {
   margin: 18px 0 12px;
 }

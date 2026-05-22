@@ -54,6 +54,19 @@ You can also set `CONTACT_WEBHOOK_URL` to forward messages to a webhook endpoint
 
 The portfolio presents Aura Command, Documind, Siteflow, and SecureOps as commercial SaaS products. Live app access should be issued only through gated, expiring demo accounts with seeded data, audit logs, and restricted export/API/admin features.
 
+On the public live site, visitors can view case studies, screenshots, product walkthrough videos, brochures, and request a guided demo. The live portfolio must not expose direct launch buttons or seeded credentials for the SaaS apps.
+
+When the portfolio is opened on `localhost`, `127.0.0.1`, or `::1`, it shows local-only launch buttons for the sibling app repos:
+
+- Aura Command: `http://127.0.0.1:8031/`
+- Documind: `http://127.0.0.1:8032/`
+- Siteflow: `http://127.0.0.1:8033/`
+- SecureOps: `http://127.0.0.1:8024/`
+
+Use each app README for seeded local demo accounts. Do not place seeded credentials in the public portfolio bundle.
+
+Product walkthrough videos live in `static/assets/trailers/`. Run `node bin/generate-product-videos.cjs` to regenerate the long WebM walkthroughs and posters for the live site.
+
 ## SaaS Product Showcase
 
 The portfolio now positions the demo hub as a business SaaS ecosystem:

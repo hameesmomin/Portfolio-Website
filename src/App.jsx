@@ -88,10 +88,9 @@ const productDemos = [
     enterpriseFeatures: ["SSO-ready structure", "White-label support", "Multiple WhatsApp channels", "Custom CRM connectors", "Advanced forecasting"],
     techStack: ["Laravel", "React", "TypeScript", "Sanctum", "Reverb-ready", "MySQL"],
     roadmap: ["Template manager", "Broadcast campaign controls", "Revenue attribution reports", "Advanced CRM sync"],
-    localUrl: "http://127.0.0.1:8031/",
-    credentials: { email: "aisha@example.com", password: "password" },
-    videoSrc: "/assets/trailers/aura-command-walkthrough-20260520.webm",
-    posterSrc: "/assets/trailers/aura-command-poster-20260520.png",
+    localPort: "8031",
+    videoSrc: "/assets/trailers/aura-command-walkthrough-20260523.webm",
+    posterSrc: "/assets/trailers/aura-command-poster-20260523.png",
     trailerGif: "/assets/trailers/aura-command-linkedin.gif",
     reel: ["WhatsApp lead captured", "AI qualifies intent", "Team owner assigned", "Follow-up never missed"],
     faq: [
@@ -124,10 +123,9 @@ const productDemos = [
     enterpriseFeatures: ["Custom document models", "Redaction workflows", "Multi-department workspaces", "Advanced compliance reporting", "Retention controls"],
     techStack: ["Laravel", "Inertia React", "Tailwind", "Database queues", "SQLite/MySQL"],
     roadmap: ["Real OCR provider", "Redaction workflow", "Duplicate detection", "Email ingestion"],
-    localUrl: "http://127.0.0.1:8032/",
-    credentials: { email: "owner@documind.test", password: "password" },
-    videoSrc: "/assets/trailers/documind-walkthrough-20260520.webm",
-    posterSrc: "/assets/trailers/documind-poster-20260520.png",
+    localPort: "8032",
+    videoSrc: "/assets/trailers/documind-walkthrough-20260523.webm",
+    posterSrc: "/assets/trailers/documind-poster-20260523.png",
     trailerGif: "/assets/trailers/documind-linkedin.gif",
     reel: ["Documents uploaded", "AI extracts expiry dates", "Renewal risk sorted", "Team notified before penalties"],
     faq: [
@@ -160,10 +158,9 @@ const productDemos = [
     enterpriseFeatures: ["ERP integration", "Procurement integration", "Multi-company management", "White-label reports", "Custom workflows"],
     techStack: ["Laravel", "React", "Tailwind", "Sanctum", "Database queues", "MySQL/SQLite"],
     roadmap: ["Gantt timeline", "RFI/submittal module", "Budget variance", "Weather and site condition logs"],
-    localUrl: "http://127.0.0.1:8033/",
-    credentials: { email: "owner@siteflow.test", password: "password" },
-    videoSrc: "/assets/trailers/siteflow-walkthrough-20260520.webm",
-    posterSrc: "/assets/trailers/siteflow-poster-20260520.png",
+    localPort: "8033",
+    videoSrc: "/assets/trailers/siteflow-walkthrough-20260523.webm",
+    posterSrc: "/assets/trailers/siteflow-poster-20260523.png",
     trailerGif: "/assets/trailers/siteflow-linkedin.gif",
     reel: ["Site notes collected", "Snags and materials logged", "Daily report compiled", "Client-ready PDF approved"],
     faq: [
@@ -196,10 +193,9 @@ const productDemos = [
     enterpriseFeatures: ["SIEM integrations", "MITRE ATT&CK mapping-ready", "Custom frameworks", "Vendor assessments", "Board-level reporting"],
     techStack: ["Laravel", "React", "Tailwind", "Sanctum", "DomPDF", "Database queues"],
     roadmap: ["MITRE mapping", "Security questionnaire module", "Custom frameworks", "Monthly board report generator"],
-    localUrl: "http://127.0.0.1:8024/",
-    credentials: { email: "owner@secureops.demo", password: "Password123!" },
-    videoSrc: "/assets/trailers/secureops-walkthrough-20260520.webm",
-    posterSrc: "/assets/trailers/secureops-poster-20260520.png",
+    localPort: "8024",
+    videoSrc: "/assets/trailers/secureops-walkthrough-20260523.webm",
+    posterSrc: "/assets/trailers/secureops-poster-20260523.png",
     trailerGif: "/assets/trailers/secureops-linkedin.gif",
     reel: ["Assets scanned", "Risks prioritized", "AI explains business impact", "Executive report prepared"],
     faq: [
@@ -209,6 +205,13 @@ const productDemos = [
     ]
   }
 ];
+
+const isLocalPortfolioHost = () => {
+  if (typeof window === "undefined") return false;
+  return ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
+};
+
+const getLocalAppUrl = (product) => `http://127.0.0.1:${product.localPort}/`;
 
 const trustSignals = [
   {
@@ -565,7 +568,7 @@ function DemoVideoPanel({ product }) {
           <span />
           <span />
           <span />
-          <strong>{product.name} Demo Video</strong>
+          <strong>{product.name} Full Walkthrough</strong>
         </div>
         <video
           key={product.key}
@@ -619,7 +622,7 @@ function DemoVideoPanel({ product }) {
 
 function ProductDemoHub() {
   const [selectedProduct, setSelectedProduct] = useState(productDemos[0]);
-  const isLocalDemo = typeof window !== "undefined" && ["localhost", "127.0.0.1"].includes(window.location.hostname);
+  const isLocalDemo = isLocalPortfolioHost();
 
   return (
     <section className="section product-section" id="products">
@@ -671,16 +674,16 @@ function ProductDemoHub() {
               <p>{product.description}</p>
               <div className="product-fit">{product.fit}</div>
               {isLocalDemo && (
-                <div className="local-credentials" aria-label={`${product.name} local demo credentials`}>
-                  <span>Local login</span>
-                  <code>{product.credentials.email}</code>
-                  <code>{product.credentials.password}</code>
+                <div className="local-credentials" aria-label={`${product.name} local app connection`}>
+                  <span>Local app</span>
+                  <code>{getLocalAppUrl(product)}</code>
+                  <small>Use the seeded demo account from that app&apos;s README.</small>
                 </div>
               )}
               <div className="product-actions">
                 <a className="primary-button" href={`/products/${product.key}`} onClick={() => setSelectedProduct(product)}>View case study</a>
                 <a className="ghost-button" href="#screenshots" onClick={() => setSelectedProduct(product)}>View screenshots</a>
-                {isLocalDemo && <a className="local-app-button" href={product.localUrl}>Open local app</a>}
+                {isLocalDemo && <a className="local-app-button" href={getLocalAppUrl(product)}>Open local app</a>}
                 <a className="ghost-button" href="#demo-request" onClick={() => setSelectedProduct(product)}>Request gated demo</a>
               </div>
             </article>
@@ -720,12 +723,12 @@ function ProductDemoHub() {
             </div>
             {isLocalDemo && (
               <>
-                <div className="local-credentials local-credentials-panel" aria-label={`${selectedProduct.name} local demo credentials`}>
-                  <span>Local test credentials</span>
-                  <code>{selectedProduct.credentials.email}</code>
-                  <code>{selectedProduct.credentials.password}</code>
+                <div className="local-credentials local-credentials-panel" aria-label={`${selectedProduct.name} local app connection`}>
+                  <span>Local app connection</span>
+                  <code>{getLocalAppUrl(selectedProduct)}</code>
+                  <small>Run the product repo locally and use the seeded demo account documented in its README.</small>
                 </div>
-                <a className="local-app-button local-app-button-wide" href={selectedProduct.localUrl}>Open {selectedProduct.name} locally</a>
+                <a className="local-app-button local-app-button-wide" href={getLocalAppUrl(selectedProduct)}>Open {selectedProduct.name} locally</a>
               </>
             )}
             <InquiryForm selectedProduct={selectedProduct.name} compact />
@@ -1104,10 +1107,11 @@ function TrustPage() {
 
 function ProductPage({ product }) {
   useReveal();
+  const isLocalDemo = isLocalPortfolioHost();
   const screenshots = [
     `/assets/trailers/${product.key}-01-dashboard.png`,
     `/assets/trailers/${product.key}-screen.png`,
-    `/assets/trailers/${product.key}-poster-20260520.png`
+    product.posterSrc
   ];
 
   return (
@@ -1124,7 +1128,11 @@ function ProductPage({ product }) {
               <div className="product-page-actions">
                 <a className="primary-button" href="#request-demo">Request demo</a>
                 <a className="ghost-button" href="#screenshots">View screenshots</a>
+                {isLocalDemo && <a className="local-app-button" href={getLocalAppUrl(product)}>Open local app</a>}
               </div>
+              {!isLocalDemo && (
+                <p className="public-demo-note">Live app access is private. Public visitors can review the walkthrough, screenshots, case study, and request a guided demo.</p>
+              )}
             </div>
             <DemoVideoPanel product={product} />
           </div>
