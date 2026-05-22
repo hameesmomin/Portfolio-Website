@@ -97,3 +97,14 @@ Each SaaS product has separate operational and executive dashboard positioning p
 - Siteflow: Project Health Score
 
 Scores use green/yellow/red bands, score history, trend analysis, factor breakdowns, and are intended for executive dashboards, PDF exports, scheduled reports, monthly summaries, email reports, and AI summaries.
+
+## Product Brochures
+
+Detailed company-owner brochures are generated in `product-brochures/`:
+
+- `aura-command-brochure.pdf`
+- `secureops-brochure.pdf`
+- `documind-brochure.pdf`
+- `siteflow-brochure.pdf`
+
+Run `node scripts/generate-product-brochures.mjs` to regenerate the editable HTML and PDF versions.
