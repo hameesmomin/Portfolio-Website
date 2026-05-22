@@ -74,6 +74,14 @@ const productDemos = [
     importance: "Aura Command turns messy WhatsApp conversations into a managed revenue workflow, so every inquiry has context, ownership, follow-up, and a visible path to closing.",
     fit: "Real estate teams, clinics, agencies, and service businesses",
     status: "Strongest commercial potential",
+    badges: ["WhatsApp revenue ops", "CRM-ready", "SLA follow-ups", "AI replies", "Revenue attribution"],
+    businessValue: "Protects paid leads, shortens response time, improves agent accountability, and gives owners a clear view of revenue follow-up.",
+    standaloneMode: "Manual lead intake, shared inbox workflow, agent assignment, lifecycle stages, follow-up calendar, AI summaries, and business reporting.",
+    integratedMode: "WhatsApp Business API, website forms, HubSpot, Zoho CRM, Salesforce, Pipedrive, Google Sheets, Zapier, Make, n8n, and custom CRM APIs.",
+    securityMeasures: ["Tenant-scoped data", "RBAC", "Audit logs", "Encrypted provider tokens", "Rate-limited APIs"],
+    subscriptionModel: "Starter for small teams, Business for CRM/API automation, Enterprise for SSO-ready controls, white-label, and custom CRM connectors.",
+    techStack: ["Laravel", "React", "TypeScript", "Sanctum", "Reverb-ready", "MySQL"],
+    roadmap: ["Template manager", "Broadcast campaign controls", "Revenue attribution reports", "Advanced CRM sync"],
     localUrl: "http://127.0.0.1:8031/",
     credentials: { email: "aisha@example.com", password: "password" },
     videoSrc: "/assets/trailers/aura-command-walkthrough-20260520.webm",
@@ -96,6 +104,14 @@ const productDemos = [
     importance: "Documind gives operations teams a single place to store, search, understand, and act on documents before deadlines turn into penalties.",
     fit: "SMEs, HR teams, operations teams, document-heavy businesses",
     status: "Easiest to explain and sell",
+    badges: ["Expiry intelligence", "OCR-ready", "Secure search", "Approval workflows", "Source Q&A"],
+    businessValue: "Reduces fines, missed renewals, document confusion, and time lost searching across inboxes, drives, and folders.",
+    standaloneMode: "Secure uploads, document classification, metadata extraction, expiry tracking, review queues, approvals, search, and reports.",
+    integratedMode: "Google Drive, SharePoint, OneDrive, Dropbox-ready storage, CRM, ERP, HR systems, email ingestion, and custom document APIs.",
+    securityMeasures: ["Private storage", "Signed downloads", "RBAC", "Audit trail", "Tenant isolation"],
+    subscriptionModel: "Starter for document control, Business for bulk upload and integrations, Enterprise for SSO-ready retention and advanced audit controls.",
+    techStack: ["Laravel", "Inertia React", "Tailwind", "Database queues", "SQLite/MySQL"],
+    roadmap: ["Real OCR provider", "Redaction workflow", "Duplicate detection", "Email ingestion"],
     localUrl: "http://127.0.0.1:8032/",
     credentials: { email: "owner@documind.test", password: "password" },
     videoSrc: "/assets/trailers/documind-walkthrough-20260520.webm",
@@ -118,6 +134,14 @@ const productDemos = [
     importance: "Siteflow gives construction teams a cleaner record of the day, turning scattered field activity into accountable reports that clients and managers can trust.",
     fit: "Contractors, consultants, project managers, site teams",
     status: "Focused niche SaaS",
+    badges: ["Daily reports", "Snag tracking", "Contractors", "Approvals", "Client PDFs"],
+    businessValue: "Turns scattered field updates into accountable records, reducing disputes, delays, reporting friction, and management blind spots.",
+    standaloneMode: "Projects, site reports, snags, materials, attendance, approvals, photos, safety issues, contractor scoring, and PDF-ready reports.",
+    integratedMode: "ERP, procurement tools, accounting systems, real estate CRM, document storage, email, custom APIs, and webhooks.",
+    securityMeasures: ["Company-scoped projects", "Role permissions", "Audit logs", "Private uploads", "Rate-limited imports"],
+    subscriptionModel: "Starter for small project teams, Business for approvals and advanced reports, Enterprise for ERP integrations and on-premise-ready deployments.",
+    techStack: ["Laravel", "React", "Tailwind", "Sanctum", "Database queues", "MySQL/SQLite"],
+    roadmap: ["Gantt timeline", "RFI/submittal module", "Budget variance", "Weather and site condition logs"],
     localUrl: "http://127.0.0.1:8033/",
     credentials: { email: "owner@siteflow.test", password: "password" },
     videoSrc: "/assets/trailers/siteflow-walkthrough-20260520.webm",
@@ -140,6 +164,14 @@ const productDemos = [
     importance: "SecureOps packages security posture into language a business can act on, helping teams prioritize risks, prepare for audits, and show clients they take security seriously.",
     fit: "SMEs, regulated teams, IT providers, compliance-driven firms",
     status: "High-ticket potential",
+    badges: ["SIEM-ready", "Risk scoring", "Incidents", "Compliance", "Executive reports"],
+    businessValue: "Helps businesses see risks, prove security work, prepare for audits, and explain technical exposure in executive language.",
+    standaloneMode: "Asset inventory, vulnerability register, incident timeline, risk scoring, evidence locker, controls, remediation tasks, and reports.",
+    integratedMode: "Splunk, Wazuh, Microsoft Sentinel, Elastic SIEM, QRadar, generic syslog/API ingestion, email alerts, and custom webhooks.",
+    securityMeasures: ["RBAC", "Audit logs", "Private evidence", "Defensive AI guardrails", "Signed report access"],
+    subscriptionModel: "Starter for readiness tracking, Business for incident/compliance reports, Enterprise for SIEM connectors and board reporting.",
+    techStack: ["Laravel", "React", "Tailwind", "Sanctum", "DomPDF", "Database queues"],
+    roadmap: ["MITRE mapping", "Security questionnaire module", "Custom frameworks", "Monthly board report generator"],
     localUrl: "http://127.0.0.1:8024/",
     credentials: { email: "owner@secureops.demo", password: "Password123!" },
     videoSrc: "/assets/trailers/secureops-walkthrough-20260520.webm",
@@ -250,6 +282,7 @@ function Navbar() {
           {[
             ["work", "work"],
             ["products", "products"],
+            ["case-studies", "case studies"],
             ["about", "about"],
             ["contact", "contact"]
           ].map(([href, label]) => (
@@ -500,6 +533,17 @@ function ProductDemoHub() {
               </button>
               <h3>{product.name}</h3>
               <p className="product-outcome">{product.outcome}</p>
+              <div className="product-badges" aria-label={`${product.name} feature badges`}>
+                {product.badges.slice(0, 5).map((badge) => (
+                  <span key={badge}>{badge}</span>
+                ))}
+              </div>
+              <div className="readiness-flags">
+                <span>Standalone-ready</span>
+                <span>Integration-ready</span>
+                <span>Subscription-ready</span>
+                <span>Security-first</span>
+              </div>
               <div className="problem-snapshot">
                 <span>Problem solved</span>
                 <p>{product.problem}</p>
@@ -514,13 +558,17 @@ function ProductDemoHub() {
                 </div>
               )}
               <div className="product-actions">
-                <button className="primary-button" type="button" onClick={() => setSelectedProduct(product)}>Watch demo video</button>
+                <a className="primary-button" href="#case-studies" onClick={() => setSelectedProduct(product)}>View case study</a>
+                <a className="ghost-button" href="#screenshots" onClick={() => setSelectedProduct(product)}>View screenshots</a>
                 {isLocalDemo && <a className="local-app-button" href={product.localUrl}>Open local app</a>}
                 <a className="ghost-button" href="#demo-request" onClick={() => setSelectedProduct(product)}>Request gated demo</a>
               </div>
             </article>
           ))}
         </div>
+        <ProductCaseStudy product={selectedProduct} />
+        <ProductEcosystem />
+        <TrustCenterPreview />
         <div className="demo-request-grid" id="demo-request" data-reveal>
           <DemoVideoPanel product={selectedProduct} />
           <div className="demo-request-copy">
@@ -568,6 +616,113 @@ function ProductDemoHub() {
           <p>Not “nice website.” More like: this person understands how messy business operations really work, and can turn that mess into software people actually want to use.</p>
           <a className="primary-button" href="#contact">Start the conversation</a>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function ProductCaseStudy({ product }) {
+  const screenshots = [
+    `/assets/trailers/${product.key}-01-dashboard.png`,
+    `/assets/trailers/${product.key}-screen.png`,
+    product.posterSrc
+  ];
+
+  return (
+    <section className="product-case-study" id="case-studies" data-reveal>
+      <div className="case-study-header">
+        <span className="section-kicker">BUSINESS SAAS PRODUCT I BUILT</span>
+        <h2>{product.name}: {product.outcome}</h2>
+        <p>{product.businessValue}</p>
+      </div>
+
+      <div className="case-study-grid">
+        <article>
+          <span>Problem</span>
+          <p>{product.problem}</p>
+        </article>
+        <article>
+          <span>Target users</span>
+          <p>{product.fit}</p>
+        </article>
+        <article>
+          <span>Solution</span>
+          <p>{product.description}</p>
+        </article>
+        <article>
+          <span>Subscription model</span>
+          <p>{product.subscriptionModel}</p>
+        </article>
+      </div>
+
+      <div className="mode-grid">
+        <div>
+          <span>Standalone mode</span>
+          <p>{product.standaloneMode}</p>
+        </div>
+        <div>
+          <span>Integrated mode</span>
+          <p>{product.integratedMode}</p>
+        </div>
+      </div>
+
+      <div className="case-study-lists">
+        <div>
+          <span>AI features</span>
+          <ul>{product.reel.map((item) => <li key={item}>{item}</li>)}</ul>
+        </div>
+        <div>
+          <span>Security measures</span>
+          <ul>{product.securityMeasures.map((item) => <li key={item}>{item}</li>)}</ul>
+        </div>
+        <div>
+          <span>Tech stack</span>
+          <ul>{product.techStack.map((item) => <li key={item}>{item}</li>)}</ul>
+        </div>
+        <div>
+          <span>Roadmap</span>
+          <ul>{product.roadmap.map((item) => <li key={item}>{item}</li>)}</ul>
+        </div>
+      </div>
+
+      <div className="screenshot-strip" id="screenshots" aria-label={`${product.name} screenshots`}>
+        {screenshots.map((src) => (
+          <img key={src} src={src} alt={`${product.name} product screenshot`} loading="lazy" />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ProductEcosystem() {
+  return (
+    <section className="ecosystem-section" data-reveal>
+      <div>
+        <span className="section-kicker">PRODUCT ECOSYSTEM</span>
+        <h2>Four focused SaaS products, one business-ready architecture.</h2>
+      </div>
+      <div className="ecosystem-grid">
+        <p><strong>Aura Command</strong> handles sales, WhatsApp, CRM, lead ownership, and revenue operations.</p>
+        <p><strong>SecureOps</strong> centralizes security events, risks, vulnerabilities, compliance evidence, and executive reporting.</p>
+        <p><strong>Documind</strong> manages documents, renewals, contracts, compliance files, secure search, and document intelligence.</p>
+        <p><strong>Siteflow</strong> organizes construction sites, contractors, approvals, materials, daily reports, and project operations.</p>
+      </div>
+    </section>
+  );
+}
+
+function TrustCenterPreview() {
+  const trustItems = ["RBAC", "Audit logs", "API-ready", "Multi-tenant SaaS", "Subscription-ready", "Secure file handling", "Encrypted credentials", "Enterprise integrations"];
+
+  return (
+    <section className="trust-center-preview" id="trust" data-reveal>
+      <div>
+        <span className="section-kicker">TRUST CENTER</span>
+        <h2>Security-first product engineering.</h2>
+        <p>Each app is designed around tenant isolation, access control, auditability, safe integrations, and clear upgrade boundaries.</p>
+      </div>
+      <div className="trust-pill-grid">
+        {trustItems.map((item) => <span key={item}>{item}</span>)}
       </div>
     </section>
   );
