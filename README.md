@@ -80,3 +80,9 @@ The portfolio now highlights the cross-product SaaS capabilities expected by sma
 - Executive Dashboard and Health Scores
 - White Label Support and Customer Portal
 - Feature Usage Tracking, Audit Logs, Scheduled Reports, AI Copilot, Guided Onboarding, and Demo Data Mode
+
+## Product Quality Gate
+
+Portfolio and app claims must distinguish complete features from framework-ready architecture. A feature should only be presented as complete when it works correctly, is responsive, secure, documented, polished, integrated into reporting, role-aware, tenant-scoped, and tested or otherwise verifiable.
+
+The portfolio positions Hamees Momin as a full-stack software engineer, SaaS product builder, cybersecurity professional, and enterprise application developer. Project pages and sections should demonstrate business value, technical depth, security considerations, integration readiness, scalability, and real-world applicability without blurring the separate product identities.

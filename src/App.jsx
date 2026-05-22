@@ -251,6 +251,21 @@ const enterpriseCapabilities = [
   }
 ];
 
+const qualityPrinciples = [
+  {
+    title: "Business-first features",
+    copy: "Every capability is tied to a problem, target user, outcome, workflow fit, reporting value, and security model before it is treated as product work."
+  },
+  {
+    title: "Honest completion standard",
+    copy: "Finished features must work, be responsive, documented, secure, role-aware, tenant-scoped, integrated into reporting, and verifiable."
+  },
+  {
+    title: "Distinct product identity",
+    copy: "Aura stays revenue operations, SecureOps stays security and compliance, Documind stays document intelligence, and Siteflow stays construction operations."
+  }
+];
+
 function useReveal() {
   useEffect(() => {
     const items = document.querySelectorAll("[data-reveal]");
@@ -780,6 +795,31 @@ function EnterpriseSaaSLayer() {
   );
 }
 
+function ProductQualitySection() {
+  return (
+    <section className="section quality-section" id="quality">
+      <div className="container">
+        <div className="section-header" data-reveal>
+          <div>
+            <span className="section-kicker">PRODUCT QUALITY REQUIREMENTS</span>
+            <h2>Enterprise polish without empty feature theater.</h2>
+          </div>
+          <a href="#products" className="view-archive">VIEW PRODUCTS &rarr;</a>
+        </div>
+        <div className="quality-grid">
+          {qualityPrinciples.map((item, index) => (
+            <article className="quality-card" key={item.title} data-reveal>
+              <span className="skill-number">{String(index + 1).padStart(2, "0")}</span>
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function DeliveryStandards() {
   return (
     <section className="section standards-section" id="standards">
@@ -830,7 +870,7 @@ function App() {
               <meta itemProp="url" content="https://portfoliowebsite.hamu-dxb.workers.dev/" />
               
               <div className="hero-description">
-                <p itemProp="description">Specializing in secure, high-performance web applications, private AI product demos, and tactile user interfaces. I weave code and design into seamless, premium products.</p>
+                <p itemProp="description">Full-stack software engineer, SaaS product builder, cybersecurity professional, and enterprise application developer building secure, high-performance products with real business workflows.</p>
               </div>
             </div>
 
@@ -921,6 +961,8 @@ function App() {
         <ProductDemoHub />
 
         <EnterpriseSaaSLayer />
+
+        <ProductQualitySection />
 
         <section className="section" id="about">
           <div className="container">

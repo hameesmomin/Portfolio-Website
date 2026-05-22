@@ -1526,11 +1526,13 @@ em.accent {
   align-items: center;
 }
 
-.enterprise-layer {
+.enterprise-layer,
+.quality-section {
   position: relative;
 }
 
-.enterprise-grid {
+.enterprise-grid,
+.quality-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
@@ -1540,7 +1542,8 @@ em.accent {
   background: rgba(210, 208, 200, .16);
 }
 
-.enterprise-card {
+.enterprise-card,
+.quality-card {
   position: relative;
   min-width: 0;
   padding: clamp(22px, 3vw, 30px);
@@ -1549,7 +1552,8 @@ em.accent {
     rgba(8, 8, 10, .84);
 }
 
-.enterprise-card::before {
+.enterprise-card::before,
+.quality-card::before {
   position: absolute;
   inset: 10px;
   border: 1px dashed rgba(210, 208, 200, .12);
@@ -1558,19 +1562,22 @@ em.accent {
   pointer-events: none;
 }
 
-.enterprise-card > * {
+.enterprise-card > *,
+.quality-card > * {
   position: relative;
   z-index: 1;
 }
 
-.enterprise-card h3 {
+.enterprise-card h3,
+.quality-card h3 {
   margin: 18px 0 12px;
   color: var(--ink);
   font-size: 1.12rem;
   line-height: 1.2;
 }
 
-.enterprise-card p {
+.enterprise-card p,
+.quality-card p {
   margin: 0;
   color: var(--muted);
   font-size: .92rem;
@@ -1932,7 +1939,8 @@ em.accent {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .enterprise-grid {
+  .enterprise-grid,
+  .quality-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2125,7 +2133,8 @@ em.accent {
     grid-template-columns: 1fr;
   }
 
-  .enterprise-grid {
+  .enterprise-grid,
+  .quality-grid {
     grid-template-columns: 1fr;
   }
 
