@@ -29,10 +29,9 @@ const products = [
       soft: '#e7f7f1',
       paper: '#f2fbf7',
       card: '#f6fffb',
-      muted: '#4b635c',
+      muted: '#213f38',
       grid: '#d7eee6',
     },
-    icon: 'AC',
     stats: [
       ['Revenue Health', '92', 'Lead response and follow-up quality'],
       ['Pipeline Value', 'AED 4.8M', 'Visible revenue opportunities'],
@@ -95,10 +94,9 @@ const products = [
       soft: '#fff4de',
       paper: '#fff8ea',
       card: '#fffaf0',
-      muted: '#67513a',
+      muted: '#3f2a12',
       grid: '#f4dfbc',
     },
-    icon: 'SF',
     stats: [
       ['Project Health', '86', 'Budget, schedule, safety, and progress'],
       ['Delay Risk', '3 sites', 'Early escalation before cost impact'],
@@ -161,10 +159,9 @@ const products = [
       soft: '#eaf2ff',
       paper: '#f1f6ff',
       card: '#f7fbff',
-      muted: '#43536f',
+      muted: '#1f355f',
       grid: '#d7e5ff',
     },
-    icon: 'DM',
     stats: [
       ['Compliance Score', '89', 'Document health and renewal readiness'],
       ['Expiring Soon', '17', 'Licenses, contracts, IDs, and records'],
@@ -227,10 +224,9 @@ const products = [
       soft: '#e8f3ff',
       paper: '#f0f7fb',
       card: '#f7fbff',
-      muted: '#43566a',
+      muted: '#1e3448',
       grid: '#cfe2f3',
     },
-    icon: 'SO',
     stats: [
       ['Cyber Risk Score', '84', 'Vulnerabilities, access, controls, and incidents'],
       ['Critical Items', '6', 'Prioritized remediation required'],
@@ -517,7 +513,6 @@ function comparison(product) {
 function page(product, label, inner, className = '') {
   return `
     <section class="page ${className}">
-      <div class="page-mark">${esc(product.icon)}</div>
       ${inner}
       <footer>
         <span>${esc(product.name)}</span>
@@ -560,7 +555,7 @@ function render(product) {
       linear-gradient(180deg, ${t.paper}, ${t.card ?? t.paper} 52%, ${t.soft});
     padding: 15mm 15mm 14mm;
   }
-  .page > *:not(.page-mark) {
+  .page > * {
     position: relative;
     z-index: 1;
   }
@@ -601,7 +596,7 @@ function render(product) {
     font-size: 7.5pt;
     font-weight: 800;
   }
-  .cover .eyebrow { color: rgba(255,255,255,.76); }
+  .cover .eyebrow { color: rgba(255,255,255,.9); }
   h1, h2, h3, p { margin: 0; }
   h1 {
     font-size: 43pt;
@@ -615,7 +610,7 @@ function render(product) {
     line-height: 1.24;
     max-width: 142mm;
     margin-top: 6mm;
-    color: rgba(255,255,255,.88);
+    color: rgba(255,255,255,.96);
   }
   .cover-grid {
     display: grid;
@@ -665,32 +660,8 @@ function render(product) {
     gap: 8mm;
     padding-top: 5mm;
     border-top: 1px solid rgba(255,255,255,.25);
-    color: rgba(255,255,255,.82);
+    color: rgba(255,255,255,.92);
     font-size: 8.8pt;
-  }
-  .icon-seal {
-    width: 19mm;
-    height: 19mm;
-    display: grid;
-    place-items: center;
-    border-radius: 6mm;
-    background: ${t.card ?? t.paper};
-    color: ${t.accent};
-    font-weight: 900;
-    font-size: 13pt;
-    margin-bottom: 7mm;
-  }
-  .page-mark {
-    position: absolute;
-    right: 10mm;
-    top: 8mm;
-    color: ${t.grid};
-    font-size: 42pt;
-    line-height: 1;
-    font-weight: 900;
-    opacity: .42;
-    z-index: 0;
-    pointer-events: none;
   }
   h2 {
     color: ${t.ink};
@@ -918,14 +889,14 @@ function render(product) {
     display: grid;
     align-content: space-between;
   }
-  .flow-step span { color: rgba(255,255,255,.64); font-size: 7pt; font-weight: 900; }
+  .flow-step span { color: rgba(255,255,255,.86); font-size: 7pt; font-weight: 900; }
   .flow-step strong { font-size: 8pt; line-height: 1.16; }
   .callout {
     background: ${t.ink};
     color: #fff;
     border-color: ${t.ink};
   }
-  .callout p, .callout li { color: rgba(255,255,255,.78); }
+  .callout p, .callout li { color: rgba(255,255,255,.9); }
   .callout h3 { color: #fff; }
   .mockup {
     border-radius: 7mm;
@@ -1065,7 +1036,6 @@ function render(product) {
   <section class="page cover">
     <div class="cover-inner">
       <div>
-        <div class="icon-seal">${esc(product.icon)}</div>
         <div class="eyebrow">Investor-ready commercial SaaS product brochure</div>
         <h1>${esc(product.name)}</h1>
         <p class="subtitle">${esc(product.category)}</p>

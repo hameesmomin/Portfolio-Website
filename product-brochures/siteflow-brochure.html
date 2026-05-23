@@ -27,7 +27,7 @@
       linear-gradient(180deg, #fff8ea, #fffaf0 52%, #fff4de);
     padding: 15mm 15mm 14mm;
   }
-  .page > *:not(.page-mark) {
+  .page > * {
     position: relative;
     z-index: 1;
   }
@@ -68,7 +68,7 @@
     font-size: 7.5pt;
     font-weight: 800;
   }
-  .cover .eyebrow { color: rgba(255,255,255,.76); }
+  .cover .eyebrow { color: rgba(255,255,255,.9); }
   h1, h2, h3, p { margin: 0; }
   h1 {
     font-size: 43pt;
@@ -82,7 +82,7 @@
     line-height: 1.24;
     max-width: 142mm;
     margin-top: 6mm;
-    color: rgba(255,255,255,.88);
+    color: rgba(255,255,255,.96);
   }
   .cover-grid {
     display: grid;
@@ -132,32 +132,8 @@
     gap: 8mm;
     padding-top: 5mm;
     border-top: 1px solid rgba(255,255,255,.25);
-    color: rgba(255,255,255,.82);
+    color: rgba(255,255,255,.92);
     font-size: 8.8pt;
-  }
-  .icon-seal {
-    width: 19mm;
-    height: 19mm;
-    display: grid;
-    place-items: center;
-    border-radius: 6mm;
-    background: #fffaf0;
-    color: #b45309;
-    font-weight: 900;
-    font-size: 13pt;
-    margin-bottom: 7mm;
-  }
-  .page-mark {
-    position: absolute;
-    right: 10mm;
-    top: 8mm;
-    color: #f4dfbc;
-    font-size: 42pt;
-    line-height: 1;
-    font-weight: 900;
-    opacity: .42;
-    z-index: 0;
-    pointer-events: none;
   }
   h2 {
     color: #432300;
@@ -175,7 +151,7 @@
   }
   .lead {
     max-width: 156mm;
-    color: #67513a;
+    color: #3f2a12;
     font-size: 11.4pt;
     margin-bottom: 5.5mm;
   }
@@ -206,7 +182,7 @@
   .feature-card { min-height: 29mm; padding: 3.6mm; }
   .feature-card h3 { font-size: 9.4pt; margin-bottom: 1.1mm; }
   .feature-card p { font-size: 8.35pt; line-height: 1.28; }
-  .feature-card p, .module p, .tier p, .card p { color: #67513a; }
+  .feature-card p, .module p, .tier p, .card p { color: #3f2a12; }
   .feature-meta { margin-top: 2mm; gap: 1.3mm; }
   .feature-meta span { font-size: 5.9pt; padding: 1.2mm 1.7mm; }
   .problem-card {
@@ -224,7 +200,7 @@
     letter-spacing: .09em;
     text-transform: uppercase;
   }
-  .problem-card p { color: #67513a; margin-top: 2mm; }
+  .problem-card p { color: #3f2a12; margin-top: 2mm; }
   .explain-card {
     border: 1px solid #f4dfbc;
     border-radius: 5mm;
@@ -267,7 +243,7 @@
     margin-bottom: 1mm;
   }
   .explain-grid p {
-    color: #67513a;
+    color: #3f2a12;
     font-size: 8.15pt;
     line-height: 1.27;
   }
@@ -279,7 +255,7 @@
     background: #fffaf0;
   }
   .support-card p {
-    color: #67513a;
+    color: #3f2a12;
     font-size: 8pt;
     line-height: 1.28;
     margin-top: 1.7mm;
@@ -304,7 +280,7 @@
   .vs-column.product h3, .vs-column.product li { color: #fff; }
   .vs-column h3 { font-size: 14pt; margin-bottom: 4mm; }
   .vs-column ul { margin: 0; padding-left: 5mm; display: grid; gap: 4mm; }
-  .vs-column li { color: #67513a; font-size: 11pt; }
+  .vs-column li { color: #3f2a12; font-size: 11pt; }
   .stat {
     padding: 4mm;
     min-height: 25mm;
@@ -327,9 +303,9 @@
     position: relative;
     z-index: 1;
   }
-  .stat div { color: #67513a; font-size: 7.8pt; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+  .stat div { color: #3f2a12; font-size: 7.8pt; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
   .stat strong { display: block; font-size: 18pt; line-height: 1.05; margin: 2mm 0; color: #432300; }
-  .stat span { color: #67513a; font-size: 8pt; }
+  .stat span { color: #3f2a12; font-size: 8pt; }
   ul.clean {
     list-style: none;
     padding: 0;
@@ -340,7 +316,7 @@
   ul.clean li {
     position: relative;
     padding-left: 6mm;
-    color: #67513a;
+    color: #3f2a12;
     font-size: 9.4pt;
     line-height: 1.26;
   }
@@ -385,14 +361,14 @@
     display: grid;
     align-content: space-between;
   }
-  .flow-step span { color: rgba(255,255,255,.64); font-size: 7pt; font-weight: 900; }
+  .flow-step span { color: rgba(255,255,255,.86); font-size: 7pt; font-weight: 900; }
   .flow-step strong { font-size: 8pt; line-height: 1.16; }
   .callout {
     background: #432300;
     color: #fff;
     border-color: #432300;
   }
-  .callout p, .callout li { color: rgba(255,255,255,.78); }
+  .callout p, .callout li { color: rgba(255,255,255,.9); }
   .callout h3 { color: #fff; }
   .mockup {
     border-radius: 7mm;
@@ -427,7 +403,7 @@
     background: #fff8ea;
     border: 1px solid #f4dfbc;
   }
-  .mock-card span { display: block; color: #67513a; font-size: 7.4pt; font-weight: 800; }
+  .mock-card span { display: block; color: #3f2a12; font-size: 7.4pt; font-weight: 800; }
   .mock-card strong { display: block; font-size: 12pt; margin: 1.3mm 0 2mm; }
   .mock-card i {
     display: block;
@@ -457,7 +433,7 @@
     background: #fffaf0;
     border-radius: 3mm;
   }
-  .insight p { color: #67513a; margin-top: 1mm; }
+  .insight p { color: #3f2a12; margin-top: 1mm; }
   .architecture {
     display: grid;
     gap: 3mm;
@@ -501,19 +477,19 @@
     border-right: 1px solid #f4dfbc;
     border-bottom: 1px solid #f4dfbc;
     font-size: 7.9pt;
-    color: #67513a;
+    color: #3f2a12;
   }
   th { color: #432300; background: #fff4de; text-align: left; width: 21%; }
   td:last-child, th:last-child { border-right: 0; }
   tr:last-child td, tr:last-child th { border-bottom: 0; }
   .tier { min-height: 56mm; }
   .tier strong { display: block; font-size: 14pt; margin-bottom: 1mm; }
-  .tier em { display: block; color: #67513a; font-style: normal; margin-bottom: 3mm; }
+  .tier em { display: block; color: #3f2a12; font-style: normal; margin-bottom: 3mm; }
   .tier-features span { font-size: 7.2pt; padding: 1.7mm 2.2mm; }
   footer {
     display: flex;
     justify-content: space-between;
-    color: #67513a;
+    color: #3f2a12;
     font-size: 7.2pt;
     font-weight: 800;
     border-top: 1px solid #f4dfbc;
@@ -532,7 +508,6 @@
   <section class="page cover">
     <div class="cover-inner">
       <div>
-        <div class="icon-seal">SF</div>
         <div class="eyebrow">Investor-ready commercial SaaS product brochure</div>
         <h1>SiteFlow</h1>
         <p class="subtitle">AI Construction Command Center for UAE Contractors</p>
@@ -560,7 +535,6 @@
 
   
     <section class="page ">
-      <div class="page-mark">SF</div>
       
     <div class="section-title"><span class="eyebrow">60 second overview</span></div>
     <h2>Built as a serious commercial product, not a demo dashboard.</h2>
@@ -620,7 +594,6 @@
 
   
     <section class="page ">
-      <div class="page-mark">SF</div>
       
     <div class="section-title"><span class="eyebrow">Problem</span></div>
     <h2>The current operating model is too fragmented for modern businesses.</h2>
@@ -658,7 +631,6 @@
 
   
     <section class="page ">
-      <div class="page-mark">SF</div>
       
     <div class="section-title"><span class="eyebrow">Current market challenges</span></div>
     <h2>Why the market is ready for SiteFlow.</h2>
@@ -730,7 +702,6 @@
 
   
     <section class="page ">
-      <div class="page-mark">SF</div>
       
     <div class="section-title"><span class="eyebrow">Solution</span></div>
     <h2>SiteFlow converts daily operations into an AI-native business system.</h2>
@@ -791,7 +762,6 @@
 
   
     <section class="page ">
-      <div class="page-mark">SF</div>
       
     <div class="section-title"><span class="eyebrow">Tier 1 feature explanations</span></div>
     <h2>Hero features that create the strongest buying reason.</h2>
@@ -837,7 +807,6 @@
 
   
     <section class="page ">
-      <div class="page-mark">SF</div>
       
     <div class="section-title"><span class="eyebrow">Tier 2 feature explanations</span></div>
     <h2>Core features that make the product useful every day.</h2>
@@ -911,7 +880,6 @@
 
   
     <section class="page ">
-      <div class="page-mark">SF</div>
       
     <div class="section-title"><span class="eyebrow">AI-native capabilities</span></div>
     <h2>AI features explained for business owners and investors.</h2>
@@ -985,7 +953,6 @@
 
   
     <section class="page ">
-      <div class="page-mark">SF</div>
       
     <div class="section-title"><span class="eyebrow">Enterprise integration layer</span></div>
     <h2>Marketplace, API framework, webhooks, OAuth, logs, and data mapping.</h2>
@@ -1029,7 +996,6 @@
 
   
     <section class="page ">
-      <div class="page-mark">SF</div>
       
     <div class="section-title"><span class="eyebrow">Business benefits</span></div>
     <h2>Clear value for owners, teams, and executives.</h2>
@@ -1103,7 +1069,6 @@
 
   
     <section class="page ">
-      <div class="page-mark">SF</div>
       
     <div class="section-title"><span class="eyebrow">Traditional solution vs our product</span></div>
     <h2>Why SiteFlow is more compelling than manual operations or generic tools.</h2>
@@ -1133,7 +1098,6 @@
 
   
     <section class="page ">
-      <div class="page-mark">SF</div>
       
     <div class="section-title"><span class="eyebrow">Pricing architecture</span></div>
     <h2>Subscription path from small business to enterprise.</h2>
@@ -1212,7 +1176,6 @@
 
   
     <section class="page ">
-      <div class="page-mark">SF</div>
       
     <div class="section-title"><span class="eyebrow">Enterprise readiness</span></div>
     <h2>Designed to scale beyond a single customer demo.</h2>
@@ -1248,7 +1211,6 @@
 
   
     <section class="page ">
-      <div class="page-mark">SF</div>
       
     <div class="section-title"><span class="eyebrow">Security and trust</span></div>
     <h2>Security features explained in business language.</h2>
@@ -1269,7 +1231,6 @@
 
   
     <section class="page ">
-      <div class="page-mark">SF</div>
       
     <div class="section-title"><span class="eyebrow">Future expansion</span></div>
     <h2>Roadmap that expands product depth without changing the core architecture.</h2>
@@ -1319,7 +1280,6 @@
 
   
     <section class="page ">
-      <div class="page-mark">SF</div>
       
     <div class="section-title"><span class="eyebrow">Closing page</span></div>
     <h2>SiteFlow is built to be shown to serious buyers.</h2>
