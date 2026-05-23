@@ -23,9 +23,13 @@
     position: relative;
     page-break-after: always;
     background:
-      radial-gradient(circle at 85% 8%, #e7f7f1 0, transparent 30%),
-      linear-gradient(180deg, #fbfffd, #ffffff 46%, #e7f7f1);
+      radial-gradient(circle at 96% 0%, #e7f7f1 0, transparent 24%),
+      linear-gradient(180deg, #f2fbf7, #f6fffb 52%, #e7f7f1);
     padding: 15mm 15mm 14mm;
+  }
+  .page > *:not(.page-mark) {
+    position: relative;
+    z-index: 1;
   }
   .page:last-child { page-break-after: auto; }
   .cover {
@@ -97,7 +101,7 @@
   }
   .cover-panel {
     border-radius: 7mm;
-    background: rgba(255,255,255,.94);
+    background: #f6fffb;
     color: #082f2a;
     padding: 6mm;
     box-shadow: 0 20px 55px rgba(0,0,0,.22);
@@ -137,7 +141,7 @@
     display: grid;
     place-items: center;
     border-radius: 6mm;
-    background: #fff;
+    background: #f6fffb;
     color: #0f766e;
     font-weight: 900;
     font-size: 13pt;
@@ -152,6 +156,8 @@
     line-height: 1;
     font-weight: 900;
     opacity: .42;
+    z-index: 0;
+    pointer-events: none;
   }
   h2 {
     color: #082f2a;
@@ -192,11 +198,11 @@
   .stack { display: grid; gap: 4mm; }
   .card, .feature-card, .module, .stat, .tier, .callout {
     border: 1px solid #d7eee6;
-    background: rgba(255,255,255,.86);
+    background: #f6fffb;
     border-radius: 5mm;
     box-shadow: 0 10px 28px rgba(21, 28, 35, .05);
   }
-  .card, .feature-card, .module, .tier, .callout { padding: 5mm; }
+  .card, .feature-card, .module, .tier, .callout { padding: 4.4mm; }
   .feature-card { min-height: 29mm; padding: 3.6mm; }
   .feature-card h3 { font-size: 9.4pt; margin-bottom: 1.1mm; }
   .feature-card p { font-size: 8.35pt; line-height: 1.28; }
@@ -207,7 +213,7 @@
     min-height: 38mm;
     padding: 4.5mm;
     border-radius: 5mm;
-    background: #fff;
+    background: #f6fffb;
     border: 1px solid #d7eee6;
     box-shadow: 0 10px 28px rgba(21, 28, 35, .05);
   }
@@ -222,12 +228,12 @@
   .explain-card {
     border: 1px solid #d7eee6;
     border-radius: 5mm;
-    background: rgba(255,255,255,.92);
+    background: #f6fffb;
     padding: 4.3mm;
     box-shadow: 0 10px 28px rgba(21, 28, 35, .05);
   }
   .explain-card.hero {
-    background: linear-gradient(145deg, #fff, #e7f7f1);
+    background: linear-gradient(145deg, #f6fffb, #e7f7f1);
     border-left: 1.7mm solid #0f766e;
   }
   .feature-heading {
@@ -249,7 +255,7 @@
   .explain-grid div {
     padding: 3mm;
     border-radius: 3.5mm;
-    background: rgba(255,255,255,.72);
+    background: rgba(255,255,255,.42);
     border: 1px solid #d7eee6;
   }
   .explain-grid b {
@@ -270,7 +276,7 @@
     padding: 4mm;
     border-radius: 5mm;
     border: 1px solid #d7eee6;
-    background: #fff;
+    background: #f6fffb;
   }
   .support-card p {
     color: #4b635c;
@@ -288,7 +294,7 @@
     border-radius: 6mm;
     padding: 5mm;
     border: 1px solid #d7eee6;
-    background: #fff;
+    background: #f6fffb;
   }
   .vs-column.product {
     color: #fff;
@@ -300,8 +306,8 @@
   .vs-column ul { margin: 0; padding-left: 5mm; display: grid; gap: 4mm; }
   .vs-column li { color: #4b635c; font-size: 11pt; }
   .stat {
-    padding: 4.5mm;
-    min-height: 27mm;
+    padding: 4mm;
+    min-height: 25mm;
     position: relative;
     overflow: hidden;
   }
@@ -314,6 +320,12 @@
     height: 25mm;
     border-radius: 50%;
     background: #e7f7f1;
+    z-index: 0;
+    opacity: .55;
+  }
+  .stat > * {
+    position: relative;
+    z-index: 1;
   }
   .stat div { color: #4b635c; font-size: 7.8pt; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
   .stat strong { display: block; font-size: 18pt; line-height: 1.05; margin: 2mm 0; color: #082f2a; }
@@ -323,12 +335,14 @@
     padding: 0;
     margin: 0;
     display: grid;
-    gap: 2.4mm;
+    gap: 1.75mm;
   }
   ul.clean li {
     position: relative;
     padding-left: 6mm;
     color: #4b635c;
+    font-size: 9.4pt;
+    line-height: 1.26;
   }
   ul.clean li::before {
     content: "";
@@ -383,7 +397,7 @@
   .mockup {
     border-radius: 7mm;
     border: 1px solid #d7eee6;
-    background: linear-gradient(180deg, #fff, #e7f7f1);
+    background: linear-gradient(180deg, #f6fffb, #e7f7f1);
     padding: 4mm;
     box-shadow: 0 24px 60px rgba(21, 28, 35, .12);
   }
@@ -410,7 +424,7 @@
     min-height: 19mm;
     border-radius: 4mm;
     padding: 3mm;
-    background: #fff;
+    background: #f2fbf7;
     border: 1px solid #d7eee6;
   }
   .mock-card span { display: block; color: #4b635c; font-size: 7.4pt; font-weight: 800; }
@@ -428,7 +442,7 @@
     background:
       linear-gradient(90deg, #d7eee6 1px, transparent 1px),
       linear-gradient(0deg, #d7eee6 1px, transparent 1px),
-      rgba(255,255,255,.7);
+      rgba(255,255,255,.35);
     background-size: 12mm 12mm;
     display: flex;
     gap: 3mm;
@@ -440,7 +454,7 @@
     margin-top: 4mm;
     padding: 4mm;
     border-left: 1.4mm solid #0f766e;
-    background: #fff;
+    background: #f6fffb;
     border-radius: 3mm;
   }
   .insight p { color: #4b635c; margin-top: 1mm; }
@@ -450,7 +464,7 @@
     padding: 5mm;
     border: 1px solid #d7eee6;
     border-radius: 6mm;
-    background: #fff;
+    background: #f6fffb;
   }
   .arch-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
   .arch-node {
@@ -479,7 +493,7 @@
     overflow: hidden;
     border-radius: 5mm;
     border: 1px solid #d7eee6;
-    background: #fff;
+    background: #f6fffb;
   }
   th, td {
     vertical-align: top;
@@ -497,10 +511,6 @@
   .tier em { display: block; color: #4b635c; font-style: normal; margin-bottom: 3mm; }
   .tier-features span { font-size: 7.2pt; padding: 1.7mm 2.2mm; }
   footer {
-    position: absolute;
-    left: 15mm;
-    right: 15mm;
-    bottom: 6.5mm;
     display: flex;
     justify-content: space-between;
     color: #4b635c;
@@ -508,6 +518,7 @@
     font-weight: 800;
     border-top: 1px solid #d7eee6;
     padding-top: 2.5mm;
+    margin-top: 4mm;
   }
   code {
     color: #0f766e;
@@ -521,7 +532,7 @@
   <section class="page cover">
     <div class="cover-inner">
       <div>
-        <div class="icon-seal">WA</div>
+        <div class="icon-seal">AC</div>
         <div class="eyebrow">Investor-ready commercial SaaS product brochure</div>
         <h1>Aura Command</h1>
         <p class="subtitle">AI WhatsApp Revenue &amp; Business Command Center</p>
@@ -549,7 +560,7 @@
 
   
     <section class="page ">
-      <div class="page-mark">WA</div>
+      <div class="page-mark">AC</div>
       
     <div class="section-title"><span class="eyebrow">60 second overview</span></div>
     <h2>Built as a serious commercial product, not a demo dashboard.</h2>
@@ -579,7 +590,7 @@
       <span>AI summaries and automation</span>
     </article>
   </div>
-    <div class="grid-2" style="margin-top:7mm">
+    <div class="grid-2" style="margin-top:5mm">
       <div class="callout">
         <h3>Product overview</h3>
         <p>Turn WhatsApp conversations and lead follow-up into a measurable revenue operations system. The platform supports standalone operations first, then expands through integrations, automation, API access, executive reporting, and enterprise governance.</p>
@@ -589,7 +600,7 @@
         <p>Company owners, sales directors, real estate teams, service businesses, call centers, and WhatsApp-heavy operations teams.</p>
       </div>
     </div>
-    <div class="grid-2" style="margin-top:5mm">
+    <div class="grid-2" style="margin-top:3.5mm">
       <div class="card">
         <h3>Revenue opportunities</h3>
         <ul class="clean"><li>Recover missed leads and improve response speed.</li><li>Give management one operating view of WhatsApp revenue activity.</li><li>Replace scattered manual follow-up with governed automation.</li><li>Connect WhatsApp operations to CRM, reporting, and executive decisions.</li></ul>
@@ -609,7 +620,7 @@
 
   
     <section class="page ">
-      <div class="page-mark">WA</div>
+      <div class="page-mark">AC</div>
       
     <div class="section-title"><span class="eyebrow">Problem</span></div>
     <h2>The current operating model is too fragmented for modern businesses.</h2>
@@ -647,7 +658,7 @@
 
   
     <section class="page ">
-      <div class="page-mark">WA</div>
+      <div class="page-mark">AC</div>
       
     <div class="section-title"><span class="eyebrow">Current market challenges</span></div>
     <h2>Why the market is ready for Aura Command.</h2>
@@ -719,7 +730,7 @@
 
   
     <section class="page ">
-      <div class="page-mark">WA</div>
+      <div class="page-mark">AC</div>
       
     <div class="section-title"><span class="eyebrow">Solution</span></div>
     <h2>Aura Command converts daily operations into an AI-native business system.</h2>
@@ -780,7 +791,7 @@
 
   
     <section class="page ">
-      <div class="page-mark">WA</div>
+      <div class="page-mark">AC</div>
       
     <div class="section-title"><span class="eyebrow">Tier 1 feature explanations</span></div>
     <h2>Hero features that create the strongest buying reason.</h2>
@@ -826,7 +837,7 @@
 
   
     <section class="page ">
-      <div class="page-mark">WA</div>
+      <div class="page-mark">AC</div>
       
     <div class="section-title"><span class="eyebrow">Tier 2 feature explanations</span></div>
     <h2>Core features that make the product useful every day.</h2>
@@ -900,7 +911,7 @@
 
   
     <section class="page ">
-      <div class="page-mark">WA</div>
+      <div class="page-mark">AC</div>
       
     <div class="section-title"><span class="eyebrow">AI-native capabilities</span></div>
     <h2>AI features explained for business owners and investors.</h2>
@@ -974,7 +985,7 @@
 
   
     <section class="page ">
-      <div class="page-mark">WA</div>
+      <div class="page-mark">AC</div>
       
     <div class="section-title"><span class="eyebrow">Enterprise integration layer</span></div>
     <h2>Marketplace, API framework, webhooks, OAuth, logs, and data mapping.</h2>
@@ -1018,7 +1029,7 @@
 
   
     <section class="page ">
-      <div class="page-mark">WA</div>
+      <div class="page-mark">AC</div>
       
     <div class="section-title"><span class="eyebrow">Business benefits</span></div>
     <h2>Clear value for owners, teams, and executives.</h2>
@@ -1092,7 +1103,7 @@
 
   
     <section class="page ">
-      <div class="page-mark">WA</div>
+      <div class="page-mark">AC</div>
       
     <div class="section-title"><span class="eyebrow">Traditional solution vs our product</span></div>
     <h2>Why Aura Command is more compelling than manual operations or generic tools.</h2>
@@ -1122,7 +1133,7 @@
 
   
     <section class="page ">
-      <div class="page-mark">WA</div>
+      <div class="page-mark">AC</div>
       
     <div class="section-title"><span class="eyebrow">Pricing architecture</span></div>
     <h2>Subscription path from small business to enterprise.</h2>
@@ -1201,7 +1212,7 @@
 
   
     <section class="page ">
-      <div class="page-mark">WA</div>
+      <div class="page-mark">AC</div>
       
     <div class="section-title"><span class="eyebrow">Enterprise readiness</span></div>
     <h2>Designed to scale beyond a single customer demo.</h2>
@@ -1237,7 +1248,7 @@
 
   
     <section class="page ">
-      <div class="page-mark">WA</div>
+      <div class="page-mark">AC</div>
       
     <div class="section-title"><span class="eyebrow">Security and trust</span></div>
     <h2>Security features explained in business language.</h2>
@@ -1258,7 +1269,7 @@
 
   
     <section class="page ">
-      <div class="page-mark">WA</div>
+      <div class="page-mark">AC</div>
       
     <div class="section-title"><span class="eyebrow">Future expansion</span></div>
     <h2>Roadmap that expands product depth without changing the core architecture.</h2>
@@ -1308,7 +1319,7 @@
 
   
     <section class="page ">
-      <div class="page-mark">WA</div>
+      <div class="page-mark">AC</div>
       
     <div class="section-title"><span class="eyebrow">Closing page</span></div>
     <h2>Aura Command is built to be shown to serious buyers.</h2>

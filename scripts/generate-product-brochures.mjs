@@ -27,11 +27,12 @@ const products = [
       accent: '#0f766e',
       accent2: '#22c55e',
       soft: '#e7f7f1',
-      paper: '#fbfffd',
+      paper: '#f2fbf7',
+      card: '#f6fffb',
       muted: '#4b635c',
       grid: '#d7eee6',
     },
-    icon: 'WA',
+    icon: 'AC',
     stats: [
       ['Revenue Health', '92', 'Lead response and follow-up quality'],
       ['Pipeline Value', 'AED 4.8M', 'Visible revenue opportunities'],
@@ -92,7 +93,8 @@ const products = [
       accent: '#b45309',
       accent2: '#f59e0b',
       soft: '#fff4de',
-      paper: '#fffdf8',
+      paper: '#fff8ea',
+      card: '#fffaf0',
       muted: '#67513a',
       grid: '#f4dfbc',
     },
@@ -157,7 +159,8 @@ const products = [
       accent: '#1d4ed8',
       accent2: '#38bdf8',
       soft: '#eaf2ff',
-      paper: '#fbfdff',
+      paper: '#f1f6ff',
+      card: '#f7fbff',
       muted: '#43536f',
       grid: '#d7e5ff',
     },
@@ -218,13 +221,14 @@ const products = [
     audience: 'Company owners, IT managers, cybersecurity teams, compliance officers, auditors, risk managers, and executives.',
     promise: 'Make security posture, risk, compliance, and incident readiness understandable to both technical teams and management.',
     theme: {
-      ink: '#2f1308',
-      accent: '#7c2d12',
-      accent2: '#ef4444',
-      soft: '#fff0ea',
-      paper: '#fffdfb',
-      muted: '#634338',
-      grid: '#f2d4c7',
+      ink: '#0f1f2e',
+      accent: '#2563eb',
+      accent2: '#14b8a6',
+      soft: '#e8f3ff',
+      paper: '#f0f7fb',
+      card: '#f7fbff',
+      muted: '#43566a',
+      grid: '#cfe2f3',
     },
     icon: 'SO',
     stats: [
@@ -552,9 +556,13 @@ function render(product) {
     position: relative;
     page-break-after: always;
     background:
-      radial-gradient(circle at 85% 8%, ${t.soft} 0, transparent 30%),
-      linear-gradient(180deg, ${t.paper}, #ffffff 46%, ${t.soft});
+      radial-gradient(circle at 96% 0%, ${t.soft} 0, transparent 24%),
+      linear-gradient(180deg, ${t.paper}, ${t.card ?? t.paper} 52%, ${t.soft});
     padding: 15mm 15mm 14mm;
+  }
+  .page > *:not(.page-mark) {
+    position: relative;
+    z-index: 1;
   }
   .page:last-child { page-break-after: auto; }
   .cover {
@@ -626,7 +634,7 @@ function render(product) {
   }
   .cover-panel {
     border-radius: 7mm;
-    background: rgba(255,255,255,.94);
+    background: ${t.card ?? t.paper};
     color: ${t.ink};
     padding: 6mm;
     box-shadow: 0 20px 55px rgba(0,0,0,.22);
@@ -666,7 +674,7 @@ function render(product) {
     display: grid;
     place-items: center;
     border-radius: 6mm;
-    background: #fff;
+    background: ${t.card ?? t.paper};
     color: ${t.accent};
     font-weight: 900;
     font-size: 13pt;
@@ -681,6 +689,8 @@ function render(product) {
     line-height: 1;
     font-weight: 900;
     opacity: .42;
+    z-index: 0;
+    pointer-events: none;
   }
   h2 {
     color: ${t.ink};
@@ -721,11 +731,11 @@ function render(product) {
   .stack { display: grid; gap: 4mm; }
   .card, .feature-card, .module, .stat, .tier, .callout {
     border: 1px solid ${t.grid};
-    background: rgba(255,255,255,.86);
+    background: ${t.card ?? t.paper};
     border-radius: 5mm;
     box-shadow: 0 10px 28px rgba(21, 28, 35, .05);
   }
-  .card, .feature-card, .module, .tier, .callout { padding: 5mm; }
+  .card, .feature-card, .module, .tier, .callout { padding: 4.4mm; }
   .feature-card { min-height: 29mm; padding: 3.6mm; }
   .feature-card h3 { font-size: 9.4pt; margin-bottom: 1.1mm; }
   .feature-card p { font-size: 8.35pt; line-height: 1.28; }
@@ -736,7 +746,7 @@ function render(product) {
     min-height: 38mm;
     padding: 4.5mm;
     border-radius: 5mm;
-    background: #fff;
+    background: ${t.card ?? t.paper};
     border: 1px solid ${t.grid};
     box-shadow: 0 10px 28px rgba(21, 28, 35, .05);
   }
@@ -751,12 +761,12 @@ function render(product) {
   .explain-card {
     border: 1px solid ${t.grid};
     border-radius: 5mm;
-    background: rgba(255,255,255,.92);
+    background: ${t.card ?? t.paper};
     padding: 4.3mm;
     box-shadow: 0 10px 28px rgba(21, 28, 35, .05);
   }
   .explain-card.hero {
-    background: linear-gradient(145deg, #fff, ${t.soft});
+    background: linear-gradient(145deg, ${t.card ?? t.paper}, ${t.soft});
     border-left: 1.7mm solid ${t.accent};
   }
   .feature-heading {
@@ -778,7 +788,7 @@ function render(product) {
   .explain-grid div {
     padding: 3mm;
     border-radius: 3.5mm;
-    background: rgba(255,255,255,.72);
+    background: rgba(255,255,255,.42);
     border: 1px solid ${t.grid};
   }
   .explain-grid b {
@@ -799,7 +809,7 @@ function render(product) {
     padding: 4mm;
     border-radius: 5mm;
     border: 1px solid ${t.grid};
-    background: #fff;
+    background: ${t.card ?? t.paper};
   }
   .support-card p {
     color: ${t.muted};
@@ -817,7 +827,7 @@ function render(product) {
     border-radius: 6mm;
     padding: 5mm;
     border: 1px solid ${t.grid};
-    background: #fff;
+    background: ${t.card ?? t.paper};
   }
   .vs-column.product {
     color: #fff;
@@ -829,8 +839,8 @@ function render(product) {
   .vs-column ul { margin: 0; padding-left: 5mm; display: grid; gap: 4mm; }
   .vs-column li { color: ${t.muted}; font-size: 11pt; }
   .stat {
-    padding: 4.5mm;
-    min-height: 27mm;
+    padding: 4mm;
+    min-height: 25mm;
     position: relative;
     overflow: hidden;
   }
@@ -843,6 +853,12 @@ function render(product) {
     height: 25mm;
     border-radius: 50%;
     background: ${t.soft};
+    z-index: 0;
+    opacity: .55;
+  }
+  .stat > * {
+    position: relative;
+    z-index: 1;
   }
   .stat div { color: ${t.muted}; font-size: 7.8pt; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
   .stat strong { display: block; font-size: 18pt; line-height: 1.05; margin: 2mm 0; color: ${t.ink}; }
@@ -852,12 +868,14 @@ function render(product) {
     padding: 0;
     margin: 0;
     display: grid;
-    gap: 2.4mm;
+    gap: 1.75mm;
   }
   ul.clean li {
     position: relative;
     padding-left: 6mm;
     color: ${t.muted};
+    font-size: 9.4pt;
+    line-height: 1.26;
   }
   ul.clean li::before {
     content: "";
@@ -912,7 +930,7 @@ function render(product) {
   .mockup {
     border-radius: 7mm;
     border: 1px solid ${t.grid};
-    background: linear-gradient(180deg, #fff, ${t.soft});
+    background: linear-gradient(180deg, ${t.card ?? t.paper}, ${t.soft});
     padding: 4mm;
     box-shadow: 0 24px 60px rgba(21, 28, 35, .12);
   }
@@ -939,7 +957,7 @@ function render(product) {
     min-height: 19mm;
     border-radius: 4mm;
     padding: 3mm;
-    background: #fff;
+    background: ${t.paper};
     border: 1px solid ${t.grid};
   }
   .mock-card span { display: block; color: ${t.muted}; font-size: 7.4pt; font-weight: 800; }
@@ -957,7 +975,7 @@ function render(product) {
     background:
       linear-gradient(90deg, ${t.grid} 1px, transparent 1px),
       linear-gradient(0deg, ${t.grid} 1px, transparent 1px),
-      rgba(255,255,255,.7);
+      rgba(255,255,255,.35);
     background-size: 12mm 12mm;
     display: flex;
     gap: 3mm;
@@ -969,7 +987,7 @@ function render(product) {
     margin-top: 4mm;
     padding: 4mm;
     border-left: 1.4mm solid ${t.accent};
-    background: #fff;
+    background: ${t.card ?? t.paper};
     border-radius: 3mm;
   }
   .insight p { color: ${t.muted}; margin-top: 1mm; }
@@ -979,7 +997,7 @@ function render(product) {
     padding: 5mm;
     border: 1px solid ${t.grid};
     border-radius: 6mm;
-    background: #fff;
+    background: ${t.card ?? t.paper};
   }
   .arch-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
   .arch-node {
@@ -1008,7 +1026,7 @@ function render(product) {
     overflow: hidden;
     border-radius: 5mm;
     border: 1px solid ${t.grid};
-    background: #fff;
+    background: ${t.card ?? t.paper};
   }
   th, td {
     vertical-align: top;
@@ -1026,10 +1044,6 @@ function render(product) {
   .tier em { display: block; color: ${t.muted}; font-style: normal; margin-bottom: 3mm; }
   .tier-features span { font-size: 7.2pt; padding: 1.7mm 2.2mm; }
   footer {
-    position: absolute;
-    left: 15mm;
-    right: 15mm;
-    bottom: 6.5mm;
     display: flex;
     justify-content: space-between;
     color: ${t.muted};
@@ -1037,6 +1051,7 @@ function render(product) {
     font-weight: 800;
     border-top: 1px solid ${t.grid};
     padding-top: 2.5mm;
+    margin-top: 4mm;
   }
   code {
     color: ${t.accent};
@@ -1081,7 +1096,7 @@ function render(product) {
     <h2>Built as a serious commercial product, not a demo dashboard.</h2>
     <p class="lead">${esc(product.position)}</p>
     <div class="grid-4">${statCards(product)}</div>
-    <div class="grid-2" style="margin-top:7mm">
+    <div class="grid-2" style="margin-top:5mm">
       <div class="callout">
         <h3>Product overview</h3>
         <p>${esc(product.promise)} The platform supports standalone operations first, then expands through integrations, automation, API access, executive reporting, and enterprise governance.</p>
@@ -1091,7 +1106,7 @@ function render(product) {
         <p>${esc(product.audience)}</p>
       </div>
     </div>
-    <div class="grid-2" style="margin-top:5mm">
+    <div class="grid-2" style="margin-top:3.5mm">
       <div class="card">
         <h3>Revenue opportunities</h3>
         <ul class="clean">${list(product.whyBuy)}</ul>

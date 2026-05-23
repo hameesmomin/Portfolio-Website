@@ -23,9 +23,13 @@
     position: relative;
     page-break-after: always;
     background:
-      radial-gradient(circle at 85% 8%, #eaf2ff 0, transparent 30%),
-      linear-gradient(180deg, #fbfdff, #ffffff 46%, #eaf2ff);
+      radial-gradient(circle at 96% 0%, #eaf2ff 0, transparent 24%),
+      linear-gradient(180deg, #f1f6ff, #f7fbff 52%, #eaf2ff);
     padding: 15mm 15mm 14mm;
+  }
+  .page > *:not(.page-mark) {
+    position: relative;
+    z-index: 1;
   }
   .page:last-child { page-break-after: auto; }
   .cover {
@@ -97,7 +101,7 @@
   }
   .cover-panel {
     border-radius: 7mm;
-    background: rgba(255,255,255,.94);
+    background: #f7fbff;
     color: #10295f;
     padding: 6mm;
     box-shadow: 0 20px 55px rgba(0,0,0,.22);
@@ -137,7 +141,7 @@
     display: grid;
     place-items: center;
     border-radius: 6mm;
-    background: #fff;
+    background: #f7fbff;
     color: #1d4ed8;
     font-weight: 900;
     font-size: 13pt;
@@ -152,6 +156,8 @@
     line-height: 1;
     font-weight: 900;
     opacity: .42;
+    z-index: 0;
+    pointer-events: none;
   }
   h2 {
     color: #10295f;
@@ -192,11 +198,11 @@
   .stack { display: grid; gap: 4mm; }
   .card, .feature-card, .module, .stat, .tier, .callout {
     border: 1px solid #d7e5ff;
-    background: rgba(255,255,255,.86);
+    background: #f7fbff;
     border-radius: 5mm;
     box-shadow: 0 10px 28px rgba(21, 28, 35, .05);
   }
-  .card, .feature-card, .module, .tier, .callout { padding: 5mm; }
+  .card, .feature-card, .module, .tier, .callout { padding: 4.4mm; }
   .feature-card { min-height: 29mm; padding: 3.6mm; }
   .feature-card h3 { font-size: 9.4pt; margin-bottom: 1.1mm; }
   .feature-card p { font-size: 8.35pt; line-height: 1.28; }
@@ -207,7 +213,7 @@
     min-height: 38mm;
     padding: 4.5mm;
     border-radius: 5mm;
-    background: #fff;
+    background: #f7fbff;
     border: 1px solid #d7e5ff;
     box-shadow: 0 10px 28px rgba(21, 28, 35, .05);
   }
@@ -222,12 +228,12 @@
   .explain-card {
     border: 1px solid #d7e5ff;
     border-radius: 5mm;
-    background: rgba(255,255,255,.92);
+    background: #f7fbff;
     padding: 4.3mm;
     box-shadow: 0 10px 28px rgba(21, 28, 35, .05);
   }
   .explain-card.hero {
-    background: linear-gradient(145deg, #fff, #eaf2ff);
+    background: linear-gradient(145deg, #f7fbff, #eaf2ff);
     border-left: 1.7mm solid #1d4ed8;
   }
   .feature-heading {
@@ -249,7 +255,7 @@
   .explain-grid div {
     padding: 3mm;
     border-radius: 3.5mm;
-    background: rgba(255,255,255,.72);
+    background: rgba(255,255,255,.42);
     border: 1px solid #d7e5ff;
   }
   .explain-grid b {
@@ -270,7 +276,7 @@
     padding: 4mm;
     border-radius: 5mm;
     border: 1px solid #d7e5ff;
-    background: #fff;
+    background: #f7fbff;
   }
   .support-card p {
     color: #43536f;
@@ -288,7 +294,7 @@
     border-radius: 6mm;
     padding: 5mm;
     border: 1px solid #d7e5ff;
-    background: #fff;
+    background: #f7fbff;
   }
   .vs-column.product {
     color: #fff;
@@ -300,8 +306,8 @@
   .vs-column ul { margin: 0; padding-left: 5mm; display: grid; gap: 4mm; }
   .vs-column li { color: #43536f; font-size: 11pt; }
   .stat {
-    padding: 4.5mm;
-    min-height: 27mm;
+    padding: 4mm;
+    min-height: 25mm;
     position: relative;
     overflow: hidden;
   }
@@ -314,6 +320,12 @@
     height: 25mm;
     border-radius: 50%;
     background: #eaf2ff;
+    z-index: 0;
+    opacity: .55;
+  }
+  .stat > * {
+    position: relative;
+    z-index: 1;
   }
   .stat div { color: #43536f; font-size: 7.8pt; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
   .stat strong { display: block; font-size: 18pt; line-height: 1.05; margin: 2mm 0; color: #10295f; }
@@ -323,12 +335,14 @@
     padding: 0;
     margin: 0;
     display: grid;
-    gap: 2.4mm;
+    gap: 1.75mm;
   }
   ul.clean li {
     position: relative;
     padding-left: 6mm;
     color: #43536f;
+    font-size: 9.4pt;
+    line-height: 1.26;
   }
   ul.clean li::before {
     content: "";
@@ -383,7 +397,7 @@
   .mockup {
     border-radius: 7mm;
     border: 1px solid #d7e5ff;
-    background: linear-gradient(180deg, #fff, #eaf2ff);
+    background: linear-gradient(180deg, #f7fbff, #eaf2ff);
     padding: 4mm;
     box-shadow: 0 24px 60px rgba(21, 28, 35, .12);
   }
@@ -410,7 +424,7 @@
     min-height: 19mm;
     border-radius: 4mm;
     padding: 3mm;
-    background: #fff;
+    background: #f1f6ff;
     border: 1px solid #d7e5ff;
   }
   .mock-card span { display: block; color: #43536f; font-size: 7.4pt; font-weight: 800; }
@@ -428,7 +442,7 @@
     background:
       linear-gradient(90deg, #d7e5ff 1px, transparent 1px),
       linear-gradient(0deg, #d7e5ff 1px, transparent 1px),
-      rgba(255,255,255,.7);
+      rgba(255,255,255,.35);
     background-size: 12mm 12mm;
     display: flex;
     gap: 3mm;
@@ -440,7 +454,7 @@
     margin-top: 4mm;
     padding: 4mm;
     border-left: 1.4mm solid #1d4ed8;
-    background: #fff;
+    background: #f7fbff;
     border-radius: 3mm;
   }
   .insight p { color: #43536f; margin-top: 1mm; }
@@ -450,7 +464,7 @@
     padding: 5mm;
     border: 1px solid #d7e5ff;
     border-radius: 6mm;
-    background: #fff;
+    background: #f7fbff;
   }
   .arch-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
   .arch-node {
@@ -479,7 +493,7 @@
     overflow: hidden;
     border-radius: 5mm;
     border: 1px solid #d7e5ff;
-    background: #fff;
+    background: #f7fbff;
   }
   th, td {
     vertical-align: top;
@@ -497,10 +511,6 @@
   .tier em { display: block; color: #43536f; font-style: normal; margin-bottom: 3mm; }
   .tier-features span { font-size: 7.2pt; padding: 1.7mm 2.2mm; }
   footer {
-    position: absolute;
-    left: 15mm;
-    right: 15mm;
-    bottom: 6.5mm;
     display: flex;
     justify-content: space-between;
     color: #43536f;
@@ -508,6 +518,7 @@
     font-weight: 800;
     border-top: 1px solid #d7e5ff;
     padding-top: 2.5mm;
+    margin-top: 4mm;
   }
   code {
     color: #1d4ed8;
@@ -579,7 +590,7 @@
       <span>Source-grounded Q&amp;A and metadata</span>
     </article>
   </div>
-    <div class="grid-2" style="margin-top:7mm">
+    <div class="grid-2" style="margin-top:5mm">
       <div class="callout">
         <h3>Product overview</h3>
         <p>Make company documents searchable, reviewable, renewal-ready, and useful for executive decisions. The platform supports standalone operations first, then expands through integrations, automation, API access, executive reporting, and enterprise governance.</p>
@@ -589,7 +600,7 @@
         <p>Business owners, HR, finance, compliance, legal, operations, procurement, and document-heavy UAE companies.</p>
       </div>
     </div>
-    <div class="grid-2" style="margin-top:5mm">
+    <div class="grid-2" style="margin-top:3.5mm">
       <div class="card">
         <h3>Revenue opportunities</h3>
         <ul class="clean"><li>Reduce missed renewals, missing files, and contract blind spots.</li><li>Make business records searchable and auditable.</li><li>Give teams AI summaries, extracted fields, and approval workflows.</li><li>Turn documents into operational intelligence instead of passive storage.</li></ul>
