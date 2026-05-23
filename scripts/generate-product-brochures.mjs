@@ -407,6 +407,109 @@ function architectureDiagram(product) {
   `;
 }
 
+function problemCards(product) {
+  return product.market.map((item, index) => `
+    <article class="problem-card">
+      <span>${String(index + 1).padStart(2, '0')}</span>
+      <h3>${index === 0 ? 'Operational pressure' : index === 1 ? 'Decision gap' : 'Commercial risk'}</h3>
+      <p>${esc(item)}</p>
+    </article>
+  `).join('');
+}
+
+function productFeatures(product) {
+  const idealUser = product.audience.split(',').slice(0, 3).join(', ');
+  const hero = product.differentiators.map(([title, text], index) => ({
+    tier: 'Tier 1',
+    title,
+    what: text,
+    value: product.whyBuy[index % product.whyBuy.length],
+    user: idealUser,
+    advantage: `Purpose-built for ${product.short} workflows instead of a generic dashboard or spreadsheet process.`,
+    roi: product.stats[(index % 3) + 1][2],
+  }));
+
+  const core = product.modules.slice(0, 6).map(([title, text], index) => ({
+    tier: 'Tier 2',
+    title,
+    what: text,
+    value: product.whyBuy[index % product.whyBuy.length],
+    user: product.audience.split(',')[index % product.audience.split(',').length].trim(),
+    advantage: `Connects directly into ${product.name}'s operating workflow and executive reporting.`,
+    roi: ['Less manual work', 'Faster decisions', 'Higher accountability', 'Better reporting', 'Reduced operational risk', 'Improved team visibility'][index],
+  }));
+
+  const supporting = [
+    ['Integration Studio', 'Marketplace, OAuth apps, API keys, webhooks, event triggers, integration logs, and data mapping.'],
+    ['Audit Center', 'Tracks who changed what, when, from where, and the previous and new values for sensitive actions.'],
+    ['Scheduled Reports', 'Exports executive summaries and recurring reports for owners, managers, and stakeholders.'],
+    ['Enterprise Controls', 'SSO-ready structure, retention policies, white label readiness, role governance, and API controls.'],
+  ].map(([title, text], index) => ({
+    tier: 'Tier 3',
+    title,
+    what: text,
+    value: ['Improves implementation speed', 'Improves trust and accountability', 'Improves management visibility', 'Improves enterprise readiness'][index],
+    user: ['Admins and integration owners', 'Owners, admins, auditors', 'Executives and department heads', 'Enterprise buyers and IT teams'][index],
+    advantage: 'Built into the product architecture rather than handled as disconnected custom work.',
+    roi: ['Lower integration cost', 'Lower audit effort', 'Less reporting time', 'Higher enterprise buyer confidence'][index],
+  }));
+
+  return { hero, core, supporting };
+}
+
+function featureCard(feature, variant = '') {
+  return `
+    <article class="explain-card ${variant}">
+      <div class="feature-heading">
+        <span>${esc(feature.tier)}</span>
+        <h3>${esc(feature.title)}</h3>
+      </div>
+      <div class="explain-grid">
+        <div><b>What it does</b><p>${esc(feature.what)}</p></div>
+        <div><b>Business value</b><p>${esc(feature.value)}</p></div>
+        <div><b>Ideal user</b><p>${esc(feature.user)}</p></div>
+        <div><b>Competitive advantage</b><p>${esc(feature.advantage)}</p></div>
+        <div><b>ROI impact</b><p>${esc(feature.roi)}</p></div>
+      </div>
+    </article>
+  `;
+}
+
+function supportingFeatureGrid(features) {
+  return features.map((feature) => `
+    <article class="support-card">
+      <span>${esc(feature.tier)}</span>
+      <h3>${esc(feature.title)}</h3>
+      <p><b>What it does:</b> ${esc(feature.what)}</p>
+      <p><b>Value:</b> ${esc(feature.value)}</p>
+      <p><b>ROI:</b> ${esc(feature.roi)}</p>
+    </article>
+  `).join('');
+}
+
+function comparison(product) {
+  const map = {
+    'aura-command': {
+      traditional: ['Multiple employees checking separate phones', 'Slow responses and inconsistent ownership', 'Manual follow-ups, spreadsheets, and weak CRM discipline'],
+      product: ['AI workforce modes inside WhatsApp operations', 'Instant visibility, SLA timers, assignment, and escalation', 'Automated workflows, CRM sync, health score, and revenue reporting'],
+    },
+    siteflow: {
+      traditional: ['Manual site reports and scattered photos', 'Spreadsheet tracking for snags, materials, and approvals', 'Delayed decisions after budget or timeline damage is visible'],
+      product: ['AI site reporting from text, photos, and voice updates', 'Live dashboards for projects, contractors, snags, safety, and materials', 'Predictive delay, budget, and subcontractor risk insights'],
+    },
+    documind: {
+      traditional: ['Folder searching across drives and inboxes', 'Manual document review and renewal tracking', 'Compliance risk from missing, expired, or duplicated records'],
+      product: ['AI search, classification, and source-grounded Q&A', 'Document intelligence with extraction, summaries, risk scores, and approvals', 'Automated expiry, obligation, and compliance tracking'],
+    },
+    secureops: {
+      traditional: ['Expensive consultants and fragmented security tools', 'Complex technical dashboards that executives cannot act on', 'Manual compliance evidence collection and reporting'],
+      product: ['AI Virtual CISO that explains risk in executive language', 'Unified cyber risk, incidents, vulnerabilities, evidence, and controls', 'Automated board reports, readiness scores, and remediation guidance'],
+    },
+  };
+
+  return map[product.slug];
+}
+
 function page(product, label, inner, className = '') {
   return `
     <section class="page ${className}">
@@ -422,6 +525,8 @@ function page(product, label, inner, className = '') {
 
 function render(product) {
   const t = product.theme;
+  const features = productFeatures(product);
+  const vs = comparison(product);
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -627,6 +732,102 @@ function render(product) {
   .feature-card p, .module p, .tier p, .card p { color: ${t.muted}; }
   .feature-meta { margin-top: 2mm; gap: 1.3mm; }
   .feature-meta span { font-size: 5.9pt; padding: 1.2mm 1.7mm; }
+  .problem-card {
+    min-height: 38mm;
+    padding: 4.5mm;
+    border-radius: 5mm;
+    background: #fff;
+    border: 1px solid ${t.grid};
+    box-shadow: 0 10px 28px rgba(21, 28, 35, .05);
+  }
+  .problem-card span, .explain-card .feature-heading span, .support-card span {
+    color: ${t.accent};
+    font-size: 7pt;
+    font-weight: 900;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+  }
+  .problem-card p { color: ${t.muted}; margin-top: 2mm; }
+  .explain-card {
+    border: 1px solid ${t.grid};
+    border-radius: 5mm;
+    background: rgba(255,255,255,.92);
+    padding: 4.3mm;
+    box-shadow: 0 10px 28px rgba(21, 28, 35, .05);
+  }
+  .explain-card.hero {
+    background: linear-gradient(145deg, #fff, ${t.soft});
+    border-left: 1.7mm solid ${t.accent};
+  }
+  .feature-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4mm;
+    margin-bottom: 3mm;
+  }
+  .feature-heading h3 {
+    font-size: 12pt;
+    margin: 0;
+  }
+  .explain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.7mm;
+  }
+  .explain-grid div {
+    padding: 3mm;
+    border-radius: 3.5mm;
+    background: rgba(255,255,255,.72);
+    border: 1px solid ${t.grid};
+  }
+  .explain-grid b {
+    display: block;
+    color: ${t.ink};
+    font-size: 7.4pt;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    margin-bottom: 1mm;
+  }
+  .explain-grid p {
+    color: ${t.muted};
+    font-size: 8.15pt;
+    line-height: 1.27;
+  }
+  .support-card {
+    min-height: 39mm;
+    padding: 4mm;
+    border-radius: 5mm;
+    border: 1px solid ${t.grid};
+    background: #fff;
+  }
+  .support-card p {
+    color: ${t.muted};
+    font-size: 8pt;
+    line-height: 1.28;
+    margin-top: 1.7mm;
+  }
+  .vs-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5mm;
+    margin-top: 5mm;
+  }
+  .vs-column {
+    border-radius: 6mm;
+    padding: 5mm;
+    border: 1px solid ${t.grid};
+    background: #fff;
+  }
+  .vs-column.product {
+    color: #fff;
+    background: linear-gradient(145deg, ${t.ink}, ${t.accent});
+    border-color: ${t.accent};
+  }
+  .vs-column.product h3, .vs-column.product li { color: #fff; }
+  .vs-column h3 { font-size: 14pt; margin-bottom: 4mm; }
+  .vs-column ul { margin: 0; padding-left: 5mm; display: grid; gap: 4mm; }
+  .vs-column li { color: ${t.muted}; font-size: 11pt; }
   .stat {
     padding: 4.5mm;
     min-height: 27mm;
@@ -902,79 +1103,75 @@ function render(product) {
     </div>
   `)}
 
-  ${page(product, 'Market Opportunity', `
-    <div class="section-title"><span class="eyebrow">Investor perspective</span></div>
-    <h2>Market opportunity and why businesses will buy this.</h2>
-    <p class="lead">The buying case is not just software convenience. The product converts operational friction into visibility, automation, accountability, and measurable business outcomes.</p>
-    <div class="grid-3">
-      ${product.market.map((item) => `<div class="card"><h3>Market signal</h3><p>${esc(item)}</p></div>`).join('')}
+  ${page(product, 'Business Problem', `
+    <div class="section-title"><span class="eyebrow">Problem</span></div>
+    <h2>The current operating model is too fragmented for modern businesses.</h2>
+    <p class="lead">The problem is not a lack of software. The problem is that daily work, decision data, reporting, and accountability are split across disconnected tools and manual habits.</p>
+    <div class="grid-3">${problemCards(product)}</div>
+    <div class="callout" style="margin-top:6mm">
+      <h3>Investor lens</h3>
+      <p>This creates a clear opportunity for a focused SaaS product that turns scattered operational work into structured workflows, executive visibility, and measurable outcomes.</p>
     </div>
-    <div class="grid-2" style="margin-top:6mm">
-      <div>
-        <h3 style="margin-bottom:3mm">Business value drivers</h3>
+  `)}
+
+  ${page(product, 'Market Challenges', `
+    <div class="section-title"><span class="eyebrow">Current market challenges</span></div>
+    <h2>Why the market is ready for ${esc(product.name)}.</h2>
+    <p class="lead">Companies want productivity, automation, security, and reporting without hiring large teams or paying for complicated enterprise platforms that are hard to adopt.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Buying pressure</h3>
         <ul class="clean">${list(product.whyBuy)}</ul>
       </div>
       ${executiveMockup(product)}
     </div>
   `)}
 
-  ${page(product, 'AI Differentiation', `
-    <div class="section-title"><span class="eyebrow">AI-native product design</span></div>
-    <h2>AI is embedded inside the workflow, not bolted on as a generic chatbot.</h2>
-    <p class="lead">${esc(product.name)} uses AI to explain data, recommend next actions, summarize activity, trigger workflows, and produce management-ready reporting.</p>
-    <div class="grid-2">${differentiatorCards(product)}</div>
-  `)}
-
-  ${page(product, 'Core Modules', `
-    <div class="section-title"><span class="eyebrow">Product architecture</span></div>
-    <h2>Core modules focused on outcomes.</h2>
-    <p class="lead">Each module exists to improve revenue, productivity, visibility, security, automation, or executive decision making.</p>
-    <div class="grid-3">${moduleCards(product)}</div>
-  `)}
-
-  ${page(product, 'Workflow', `
-    <div class="section-title"><span class="eyebrow">Operating model</span></div>
-    <h2>From daily work to executive visibility.</h2>
-    <p class="lead">The customer can start with standalone mode and later connect external systems. Integrations enhance the workflow but are not required for basic operations.</p>
+  ${page(product, 'Product Solution', `
+    <div class="section-title"><span class="eyebrow">Solution</span></div>
+    <h2>${esc(product.name)} converts daily operations into an AI-native business system.</h2>
+    <p class="lead">${esc(product.promise)} The platform starts as a standalone operating system and expands into integrations, automation, executive reporting, and enterprise controls.</p>
     <div class="flow">${flow(product.workflow)}</div>
     <div class="grid-2">
       <div class="callout">
-        <h3>Standalone mode</h3>
-        <p>Manual records, demo data, dashboards, reports, guided onboarding, roles, audit activity, and product-specific workflows are usable immediately.</p>
+        <h3>Standalone value</h3>
+        <p>Teams can use the product immediately with manual records, guided onboarding, demo data, dashboards, reports, roles, and product-specific workflows.</p>
       </div>
       <div class="callout">
-        <h3>Integrated mode</h3>
-        <p>Integration Studio adds marketplace connectors, OAuth apps, API keys, webhooks, event triggers, integration logs, and data mapping.</p>
+        <h3>Integrated value</h3>
+        <p>Admins can connect existing systems through API keys, OAuth apps, webhooks, event triggers, integration logs, and data mapping.</p>
       </div>
-    </div>
-    <div class="grid-4" style="margin-top:5mm">
-      <div class="card"><h3>Customer pays</h3><p>Checkout begins subscription setup.</p></div>
-      <div class="card"><h3>Workspace created</h3><p>Tenant data is scoped and isolated.</p></div>
-      <div class="card"><h3>Roles created</h3><p>Owner, Admin, Manager, Analyst, Agent, Viewer.</p></div>
-      <div class="card"><h3>Onboarding starts</h3><p>Demo data and guided setup reduce time to value.</p></div>
     </div>
   `)}
 
-  ${page(product, 'Executive Intelligence', `
-    <div class="section-title"><span class="eyebrow">Management view</span></div>
-    <h2>${esc(product.health.name)} and executive reporting.</h2>
-    <p class="lead">The score is designed to be understood in under 30 seconds and used in dashboards, monthly summaries, scheduled reports, AI summaries, and investor or owner conversations.</p>
+  ${page(product, 'Hero Features', `
+    <div class="section-title"><span class="eyebrow">Tier 1 feature explanations</span></div>
+    <h2>Hero features that create the strongest buying reason.</h2>
+    <p class="lead">These are the features that should lead investor and customer conversations because they explain differentiation, business value, and ROI impact quickly.</p>
+    <div class="stack">
+      ${features.hero.slice(0, 2).map((feature) => featureCard(feature, 'hero')).join('')}
+    </div>
+  `)}
+
+  ${page(product, 'Core Features', `
+    <div class="section-title"><span class="eyebrow">Tier 2 feature explanations</span></div>
+    <h2>Core features that make the product useful every day.</h2>
+    <p class="lead">These modules support the daily user workflow while still feeding executive dashboards, reports, audit trails, and AI recommendations.</p>
     <div class="grid-2">
-      ${executiveMockup(product)}
-      <div class="stack">
-        <div class="card">
-          <h3>Score inputs</h3>
-          <ul class="clean">${list(product.health.factors)}</ul>
-        </div>
-        <div class="card">
-          <h3>Executive KPIs</h3>
-          <ul class="clean">${list(product.health.executive)}</ul>
-        </div>
-      </div>
+      ${features.core.slice(0, 4).map((feature) => featureCard(feature)).join('')}
     </div>
   `)}
 
-  ${page(product, 'Integration Studio', `
+  ${page(product, 'Advanced AI Features', `
+    <div class="section-title"><span class="eyebrow">AI-native capabilities</span></div>
+    <h2>AI features explained for business owners and investors.</h2>
+    <p class="lead">${esc(product.name)} uses AI to summarize activity, explain dashboard data, recommend next actions, flag risks or opportunities, and support workflow automation.</p>
+    <div class="grid-2">
+      ${features.hero.slice(2).concat(features.core.slice(4, 6)).map((feature) => featureCard(feature, 'hero')).join('')}
+    </div>
+  `)}
+
+  ${page(product, 'Integrations', `
     <div class="section-title"><span class="eyebrow">Enterprise integration layer</span></div>
     <h2>Marketplace, API framework, webhooks, OAuth, logs, and data mapping.</h2>
     <p class="lead">Data mapping is treated as a first-class capability so companies can map external fields, such as <code>first_name</code>, into product-specific fields without painful custom work.</p>
@@ -989,7 +1186,37 @@ function render(product) {
     <div class="badge-row" style="margin-top:5mm">${badges(product.integrations)}</div>
   `)}
 
-  ${page(product, 'Commercial Model', `
+  ${page(product, 'Business Benefits', `
+    <div class="section-title"><span class="eyebrow">Business benefits</span></div>
+    <h2>Clear value for owners, teams, and executives.</h2>
+    <p class="lead">The value story is designed to be understood quickly: less manual effort, better visibility, faster decisions, and stronger governance.</p>
+    <div class="grid-2">
+      ${features.supporting.map((feature) => featureCard(feature)).join('')}
+    </div>
+  `)}
+
+  ${page(product, 'Competitive Advantage', `
+    <div class="section-title"><span class="eyebrow">Traditional solution vs our product</span></div>
+    <h2>Why ${esc(product.name)} is more compelling than manual operations or generic tools.</h2>
+    <p class="lead">The competitive advantage is workflow depth: each product is designed around a specific business domain, with AI, dashboards, automation, integrations, and executive reporting built into the same operating model.</p>
+    <div class="vs-table">
+      <div class="vs-column">
+        <h3>Traditional solution</h3>
+        <ul>${list(vs.traditional)}</ul>
+      </div>
+      <div class="vs-column product">
+        <h3>${esc(product.name)}</h3>
+        <ul>${list(vs.product)}</ul>
+      </div>
+    </div>
+    <div class="grid-3" style="margin-top:7mm">
+      <div class="card"><h3>Defensible workflow depth</h3><p>Each capability is tied to a specific customer workflow, which makes the product harder to replace with a generic dashboard.</p></div>
+      <div class="card"><h3>Executive-level clarity</h3><p>Health scores, KPI cards, AI recommendations, and reports make the product understandable to owners within minutes.</p></div>
+      <div class="card"><h3>Expansion path</h3><p>Customers can start with standalone workflows, then expand into automation, integrations, API access, and enterprise controls.</p></div>
+    </div>
+  `)}
+
+  ${page(product, 'Subscription Tiers', `
     <div class="section-title"><span class="eyebrow">Pricing architecture</span></div>
     <h2>Subscription path from small business to enterprise.</h2>
     <p class="lead">The tier model supports simple adoption, professional operations, advanced integrations, and enterprise security without requiring a major redesign.</p>
@@ -1012,7 +1239,7 @@ function render(product) {
     </div>
   `)}
 
-  ${page(product, 'Scalability & Expansion', `
+  ${page(product, 'Enterprise Features', `
     <div class="section-title"><span class="eyebrow">Enterprise readiness</span></div>
     <h2>Designed to scale beyond a single customer demo.</h2>
     <p class="lead">The product foundation supports tenant provisioning, role-based operations, secure integrations, workflow automation, reporting, white label readiness, and customer success systems.</p>
@@ -1039,26 +1266,58 @@ function render(product) {
     </div>
   `)}
 
-  ${page(product, 'Demo Agenda', `
-    <div class="section-title"><span class="eyebrow">Presentation-ready walkthrough</span></div>
-    <h2>Demo flow for owners, investors, partners, and enterprise buyers.</h2>
-    <p class="lead">The demo should focus on business outcomes first, then show product depth, integrations, automation, and executive reporting.</p>
-    <div class="flow">${flow(product.demo)}</div>
+  ${page(product, 'Security Features', `
+    <div class="section-title"><span class="eyebrow">Security and trust</span></div>
+    <h2>Security features explained in business language.</h2>
+    <p class="lead">Enterprise buyers need confidence that the product protects customer data, controls user access, records sensitive activity, and can support governance requirements.</p>
     <div class="grid-2">
-      <div class="callout">
-        <h3>Buyer message</h3>
-        <p>${esc(product.name)} is a commercial SaaS product that can operate standalone, integrate with existing systems, support subscriptions, enforce security, and deliver executive-level visibility.</p>
+      <div class="card"><h3>RBAC and tenant isolation</h3><p><b>What it does:</b> keeps each company workspace, users, records, reports, settings, and integrations scoped to that company.</p><p><b>Business value:</b> reduces cross-company data exposure risk and supports enterprise governance.</p></div>
+      <div class="card"><h3>Audit Trail System</h3><p><b>What it does:</b> records who changed what, when, from where, and previous/new values for sensitive actions.</p><p><b>ROI impact:</b> lowers audit preparation effort and increases buyer confidence.</p></div>
+      <div class="card"><h3>API and webhook security</h3><p><b>What it does:</b> supports scoped API keys, webhook signatures, event logs, retries, and rate management.</p><p><b>Competitive advantage:</b> makes integrations professional enough for enterprise buyers.</p></div>
+      <div class="card"><h3>Enterprise controls</h3><p><b>What it does:</b> supports SSO-ready structure, retention policies, archive policies, backup policies, and white label readiness.</p><p><b>Ideal user:</b> owners, admins, IT teams, auditors, and enterprise customers.</p></div>
+    </div>
+  `)}
+
+  ${page(product, 'Future Roadmap', `
+    <div class="section-title"><span class="eyebrow">Future expansion</span></div>
+    <h2>Roadmap that expands product depth without changing the core architecture.</h2>
+    <p class="lead">The roadmap shows where the product can grow for enterprise buyers, investors, and larger customers after the core platform is adopted.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Product roadmap</h3>
+        <ul class="clean">${list(product.roadmap)}</ul>
       </div>
       <div class="card">
-        <h3>Next step</h3>
-        <p>Run a private demo using realistic business data, show the executive dashboard, explain the health score, and finish with Integration Studio plus enterprise controls.</p>
+        <h3>Demo agenda</h3>
+        <ul class="clean">${list(product.demo)}</ul>
       </div>
     </div>
-    <div class="grid-4" style="margin-top:5mm">
-      <div class="stat"><div>Build</div><strong>SaaS</strong><span>Commercial architecture</span></div>
-      <div class="stat"><div>Security</div><strong>RBAC</strong><span>Audit and isolation</span></div>
-      <div class="stat"><div>AI</div><strong>Native</strong><span>Workflow recommendations</span></div>
-      <div class="stat"><div>Scale</div><strong>API</strong><span>Integrations and webhooks</span></div>
+    <div class="grid-4" style="margin-top:5mm">${statCards(product)}</div>
+  `)}
+
+  ${page(product, 'Closing', `
+    <div class="section-title"><span class="eyebrow">Closing page</span></div>
+    <h2>${esc(product.name)} is built to be shown to serious buyers.</h2>
+    <p class="lead">${esc(product.name)} is positioned as a commercial SaaS product with a clear buyer, clear business value, clear AI differentiation, clear subscription model, and clear enterprise expansion path.</p>
+    <div class="grid-2">
+      <div class="callout">
+        <h3>Final buyer message</h3>
+        <p>${esc(product.promise)} It can operate standalone, integrate with existing systems, support subscriptions, enforce security, and deliver executive-level visibility.</p>
+      </div>
+      <div class="card">
+        <h3>Best next conversation</h3>
+        <p>Run a private product demo using realistic business data. Start with the executive dashboard, show the health score, walk through one workflow, then close with Integration Studio, security, and enterprise readiness.</p>
+      </div>
+    </div>
+    <div class="grid-4" style="margin-top:7mm">
+      <div class="stat"><div>Product</div><strong>SaaS</strong><span>Commercial subscription model</span></div>
+      <div class="stat"><div>Workflow</div><strong>AI</strong><span>Recommendations and automation</span></div>
+      <div class="stat"><div>Trust</div><strong>RBAC</strong><span>Audit trails and tenant isolation</span></div>
+      <div class="stat"><div>Scale</div><strong>API</strong><span>Integrations, webhooks, and SSO-ready path</span></div>
+    </div>
+    <div class="callout" style="margin-top:7mm">
+      <h3>Built by ${esc(shared.author)}</h3>
+      <p>${esc(shared.role)}. This brochure is designed for investor conversations, enterprise sales meetings, product demonstrations, LinkedIn campaigns, and partner discussions.</p>
     </div>
   `)}
 </body>
