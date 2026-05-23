@@ -3,431 +3,1061 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aura Command Product Brochure</title>
+<title>Aura Command Investor-Ready Product Brochure</title>
 <style>
-  @page { size: A4; margin: 15mm; }
+  @page { size: A4; margin: 0; }
   * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #e8e8e8; }
   body {
-    margin: 0;
-    color: #17201f;
-    background: #f6f4ef;
-    font-family: Inter, Arial, Helvetica, sans-serif;
-    line-height: 1.45;
+    color: #082f2a;
+    font-family: Inter, Aptos, Arial, Helvetica, sans-serif;
+    font-size: 10.6pt;
+    line-height: 1.42;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .page {
-    min-height: 267mm;
-    page-break-after: always;
-    padding: 0;
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
     position: relative;
+    page-break-after: always;
+    background:
+      radial-gradient(circle at 85% 8%, #e7f7f1 0, transparent 30%),
+      linear-gradient(180deg, #fbfffd, #ffffff 46%, #e7f7f1);
+    padding: 15mm 15mm 14mm;
   }
   .page:last-child { page-break-after: auto; }
   .cover {
-    background: linear-gradient(135deg, #082f2a, #0f766e);
     color: #fff;
-    border-radius: 18px;
-    padding: 42px;
-    min-height: 245mm;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .eyebrow {
-    text-transform: uppercase;
-    letter-spacing: .12em;
-    font-size: 11px;
-    font-weight: 800;
-    color: rgba(255,255,255,.76);
-  }
-  h1 {
-    font-size: 56px;
-    line-height: 1;
-    margin: 22px 0 14px;
-    letter-spacing: 0;
-  }
-  h2 {
-    font-size: 26px;
-    margin: 0 0 14px;
-    color: #082f2a;
-    letter-spacing: 0;
-  }
-  h3 {
-    font-size: 15px;
-    margin: 0 0 6px;
-    color: #082f2a;
-  }
-  p { margin: 0 0 11px; }
-  .subtitle {
-    font-size: 24px;
-    max-width: 620px;
-    color: rgba(255,255,255,.9);
-  }
-  .promise {
-    font-size: 18px;
-    padding: 18px 20px;
-    background: rgba(255,255,255,.12);
-    border: 1px solid rgba(255,255,255,.22);
-    border-radius: 14px;
-    max-width: 620px;
-  }
-  .cover-footer {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 20px;
-    align-items: end;
-  }
-  .byline {
-    border-top: 1px solid rgba(255,255,255,.28);
-    padding-top: 16px;
-    color: rgba(255,255,255,.84);
-  }
-  .sheet {
-    background: #fffdfa;
-    border: 1px solid #e7e0d4;
-    border-radius: 16px;
-    padding: 28px;
-    min-height: 245mm;
-  }
-  .section {
-    margin-bottom: 24px;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  .three {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-  .card, .module, .tier {
-    border: 1px solid #e7e0d4;
-    border-radius: 12px;
-    padding: 15px;
-    background: #fff;
-  }
-  .module {
-    break-inside: avoid;
-  }
-  .metric {
-    background: #f7f4ed;
-    border-left: 5px solid #0f766e;
-    border-radius: 10px;
-    padding: 14px;
-    font-weight: 800;
-    color: #082f2a;
-  }
-  ul {
-    margin: 0;
-    padding-left: 18px;
-  }
-  li {
-    margin: 0 0 8px;
-  }
-  .workflow {
-    counter-reset: step;
-    list-style: none;
+    background:
+      linear-gradient(135deg, #082f2a, #0f766e 58%, #22c55e),
+      #082f2a;
     padding: 0;
   }
-  .workflow li {
-    counter-increment: step;
-    display: grid;
-    grid-template-columns: 34px 1fr;
-    gap: 10px;
-    align-items: start;
-    margin-bottom: 10px;
+  .cover::before {
+    content: "";
+    position: absolute;
+    inset: 18mm 14mm auto auto;
+    width: 74mm;
+    height: 74mm;
+    border-radius: 28mm;
+    border: 1px solid rgba(255,255,255,.28);
+    background:
+      linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(255,255,255,.12) 1px, transparent 1px);
+    background-size: 9mm 9mm;
+    transform: rotate(8deg);
   }
-  .workflow li::before {
-    content: counter(step);
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
+  .cover-inner {
+    height: 100%;
+    padding: 22mm 18mm 18mm;
     display: grid;
-    place-items: center;
-    background: #0f766e;
-    color: #fff;
+    grid-template-rows: auto 1fr auto;
+    gap: 12mm;
+    position: relative;
+    z-index: 1;
+  }
+  .eyebrow, .mock-kicker {
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    font-size: 7.5pt;
     font-weight: 800;
-    font-size: 13px;
   }
-  .badge-row {
+  .cover .eyebrow { color: rgba(255,255,255,.76); }
+  h1, h2, h3, p { margin: 0; }
+  h1 {
+    font-size: 43pt;
+    line-height: .94;
+    letter-spacing: 0;
+    max-width: 128mm;
+    margin-top: 9mm;
+  }
+  .subtitle {
+    font-size: 16pt;
+    line-height: 1.24;
+    max-width: 142mm;
+    margin-top: 6mm;
+    color: rgba(255,255,255,.88);
+  }
+  .cover-grid {
+    display: grid;
+    grid-template-columns: 1fr 68mm;
+    gap: 10mm;
+    align-items: end;
+  }
+  .cover-promise {
+    padding: 8mm;
+    border-radius: 7mm;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.22);
+    backdrop-filter: blur(10px);
+    font-size: 14pt;
+    line-height: 1.3;
+  }
+  .cover-panel {
+    border-radius: 7mm;
+    background: rgba(255,255,255,.94);
+    color: #082f2a;
+    padding: 6mm;
+    box-shadow: 0 20px 55px rgba(0,0,0,.22);
+  }
+  .cover-panel strong { display: block; font-size: 28pt; line-height: 1; }
+  .brand-row, .badge-row, .feature-meta, .tier-features {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 10px;
+    gap: 2.2mm;
   }
-  .badge {
-    border: 1px solid #ded5c6;
-    background: #fbf8f1;
-    color: #082f2a;
+  .brand-chip, .badge, .feature-meta span, .tier-features span {
     border-radius: 999px;
-    padding: 7px 10px;
-    font-size: 12px;
-    font-weight: 700;
+    padding: 2.2mm 3.3mm;
+    background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.2);
+    color: inherit;
+    font-size: 7.8pt;
+    font-weight: 800;
   }
-  .callout {
-    border-radius: 14px;
-    padding: 18px;
-    color: #fff;
-    background: #082f2a;
+  .badge, .feature-meta span, .tier-features span {
+    background: #e7f7f1;
+    border-color: #d7eee6;
+    color: #082f2a;
   }
-  .small {
-    font-size: 12px;
-    color: #5f6865;
+  .byline {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 8mm;
+    padding-top: 5mm;
+    border-top: 1px solid rgba(255,255,255,.25);
+    color: rgba(255,255,255,.82);
+    font-size: 8.8pt;
   }
-  .footer {
+  .icon-seal {
+    width: 19mm;
+    height: 19mm;
+    display: grid;
+    place-items: center;
+    border-radius: 6mm;
+    background: #fff;
+    color: #0f766e;
+    font-weight: 900;
+    font-size: 13pt;
+    margin-bottom: 7mm;
+  }
+  .page-mark {
     position: absolute;
-    bottom: 2mm;
+    right: 10mm;
+    top: 8mm;
+    color: #d7eee6;
+    font-size: 42pt;
+    line-height: 1;
+    font-weight: 900;
+    opacity: .42;
+  }
+  h2 {
+    color: #082f2a;
+    font-size: 21pt;
+    line-height: 1.05;
+    letter-spacing: 0;
+    margin-bottom: 4mm;
+    max-width: 144mm;
+  }
+  h3 {
+    color: #082f2a;
+    font-size: 10.4pt;
+    line-height: 1.22;
+    margin-bottom: 2mm;
+  }
+  .lead {
+    max-width: 156mm;
+    color: #4b635c;
+    font-size: 11.4pt;
+    margin-bottom: 5.5mm;
+  }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+    margin-bottom: 4mm;
+  }
+  .section-title::before {
+    content: "";
+    width: 9mm;
+    height: 2.2mm;
+    border-radius: 999px;
+    background: #0f766e;
+  }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+  .stack { display: grid; gap: 4mm; }
+  .card, .feature-card, .module, .stat, .tier, .callout {
+    border: 1px solid #d7eee6;
+    background: rgba(255,255,255,.86);
+    border-radius: 5mm;
+    box-shadow: 0 10px 28px rgba(21, 28, 35, .05);
+  }
+  .card, .feature-card, .module, .tier, .callout { padding: 5mm; }
+  .feature-card { min-height: 29mm; padding: 3.6mm; }
+  .feature-card h3 { font-size: 9.4pt; margin-bottom: 1.1mm; }
+  .feature-card p { font-size: 8.35pt; line-height: 1.28; }
+  .feature-card p, .module p, .tier p, .card p { color: #4b635c; }
+  .feature-meta { margin-top: 2mm; gap: 1.3mm; }
+  .feature-meta span { font-size: 5.9pt; padding: 1.2mm 1.7mm; }
+  .stat {
+    padding: 4.5mm;
+    min-height: 27mm;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat::after {
+    content: "";
+    position: absolute;
+    right: -8mm;
+    top: -10mm;
+    width: 25mm;
+    height: 25mm;
+    border-radius: 50%;
+    background: #e7f7f1;
+  }
+  .stat div { color: #4b635c; font-size: 7.8pt; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+  .stat strong { display: block; font-size: 18pt; line-height: 1.05; margin: 2mm 0; color: #082f2a; }
+  .stat span { color: #4b635c; font-size: 8pt; }
+  ul.clean {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 2.4mm;
+  }
+  ul.clean li {
+    position: relative;
+    padding-left: 6mm;
+    color: #4b635c;
+  }
+  ul.clean li::before {
+    content: "";
+    position: absolute;
     left: 0;
-    right: 0;
+    top: 2.3mm;
+    width: 3mm;
+    height: 3mm;
+    border-radius: 50%;
+    background: #0f766e;
+  }
+  .module {
+    min-height: 39mm;
+    position: relative;
+  }
+  .mini-icon {
+    display: grid;
+    place-items: center;
+    width: 10mm;
+    height: 10mm;
+    border-radius: 3mm;
+    background: #e7f7f1;
+    color: #0f766e;
+    font-size: 7pt;
+    font-weight: 900;
+    margin-bottom: 3mm;
+  }
+  .flow {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2mm;
+    margin: 6mm 0 8mm;
+  }
+  .flow-step {
+    min-height: 25mm;
+    border-radius: 4mm;
+    padding: 3mm;
+    color: #fff;
+    background: linear-gradient(145deg, #082f2a, #0f766e);
+    display: grid;
+    align-content: space-between;
+  }
+  .flow-step span { color: rgba(255,255,255,.64); font-size: 7pt; font-weight: 900; }
+  .flow-step strong { font-size: 8pt; line-height: 1.16; }
+  .callout {
+    background: #082f2a;
+    color: #fff;
+    border-color: #082f2a;
+  }
+  .callout p, .callout li { color: rgba(255,255,255,.78); }
+  .callout h3 { color: #fff; }
+  .mockup {
+    border-radius: 7mm;
+    border: 1px solid #d7eee6;
+    background: linear-gradient(180deg, #fff, #e7f7f1);
+    padding: 4mm;
+    box-shadow: 0 24px 60px rgba(21, 28, 35, .12);
+  }
+  .mock-top {
     display: flex;
     justify-content: space-between;
-    color: #7a817d;
-    font-size: 10px;
+    align-items: start;
+    margin-bottom: 4mm;
   }
-  .toc {
+  .mock-top strong { display: block; font-size: 12pt; margin-top: 1mm; }
+  .score {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-top: 20px;
+    place-items: center;
+    width: 20mm;
+    height: 20mm;
+    border-radius: 50%;
+    color: #fff;
+    background: #0f766e;
+    font-size: 14pt;
+    font-weight: 900;
   }
-  .toc div {
-    padding: 14px;
-    border: 1px solid rgba(255,255,255,.22);
-    border-radius: 12px;
-    background: rgba(255,255,255,.1);
+  .mock-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; }
+  .mock-card {
+    min-height: 19mm;
+    border-radius: 4mm;
+    padding: 3mm;
+    background: #fff;
+    border: 1px solid #d7eee6;
+  }
+  .mock-card span { display: block; color: #4b635c; font-size: 7.4pt; font-weight: 800; }
+  .mock-card strong { display: block; font-size: 12pt; margin: 1.3mm 0 2mm; }
+  .mock-card i {
+    display: block;
+    height: 1.7mm;
+    border-radius: 999px;
+    background: #0f766e;
+  }
+  .chart {
+    height: 33mm;
+    margin-top: 4mm;
+    border-radius: 4mm;
+    background:
+      linear-gradient(90deg, #d7eee6 1px, transparent 1px),
+      linear-gradient(0deg, #d7eee6 1px, transparent 1px),
+      rgba(255,255,255,.7);
+    background-size: 12mm 12mm;
+    display: flex;
+    gap: 3mm;
+    align-items: end;
+    padding: 5mm;
+  }
+  .chart span { flex: 1; border-radius: 2mm 2mm 0 0; background: linear-gradient(180deg, #22c55e, #0f766e); }
+  .insight {
+    margin-top: 4mm;
+    padding: 4mm;
+    border-left: 1.4mm solid #0f766e;
+    background: #fff;
+    border-radius: 3mm;
+  }
+  .insight p { color: #4b635c; margin-top: 1mm; }
+  .architecture {
+    display: grid;
+    gap: 3mm;
+    padding: 5mm;
+    border: 1px solid #d7eee6;
+    border-radius: 6mm;
+    background: #fff;
+  }
+  .arch-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+  .arch-node {
+    text-align: center;
+    border-radius: 4mm;
+    padding: 3.4mm;
+    background: #e7f7f1;
+    border: 1px solid #d7eee6;
+    color: #082f2a;
+    font-weight: 900;
+    font-size: 8.4pt;
+  }
+  .arch-footer {
+    border-radius: 4mm;
+    padding: 3mm;
+    text-align: center;
+    background: #082f2a;
+    color: #fff;
+    font-size: 8pt;
+    font-weight: 800;
+  }
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 5mm;
+    border: 1px solid #d7eee6;
+    background: #fff;
+  }
+  th, td {
+    vertical-align: top;
+    padding: 3.1mm;
+    border-right: 1px solid #d7eee6;
+    border-bottom: 1px solid #d7eee6;
+    font-size: 7.9pt;
+    color: #4b635c;
+  }
+  th { color: #082f2a; background: #e7f7f1; text-align: left; width: 21%; }
+  td:last-child, th:last-child { border-right: 0; }
+  tr:last-child td, tr:last-child th { border-bottom: 0; }
+  .tier { min-height: 56mm; }
+  .tier strong { display: block; font-size: 14pt; margin-bottom: 1mm; }
+  .tier em { display: block; color: #4b635c; font-style: normal; margin-bottom: 3mm; }
+  .tier-features span { font-size: 7.2pt; padding: 1.7mm 2.2mm; }
+  footer {
+    position: absolute;
+    left: 15mm;
+    right: 15mm;
+    bottom: 6.5mm;
+    display: flex;
+    justify-content: space-between;
+    color: #4b635c;
+    font-size: 7.2pt;
+    font-weight: 800;
+    border-top: 1px solid #d7eee6;
+    padding-top: 2.5mm;
+  }
+  code {
+    color: #0f766e;
+    background: #e7f7f1;
+    border-radius: 1.5mm;
+    padding: .6mm 1mm;
   }
 </style>
 </head>
 <body>
-  <section class="page">
-    <div class="cover">
+  <section class="page cover">
+    <div class="cover-inner">
       <div>
-        <div class="eyebrow">Commercial SaaS Product Brochure</div>
+        <div class="icon-seal">WA</div>
+        <div class="eyebrow">Investor-ready commercial SaaS product brochure</div>
         <h1>Aura Command</h1>
-        <p class="subtitle">AI WhatsApp Revenue & Business Command Center</p>
-        <div class="badge-row">
-          <span class="badge">Standalone-ready</span>
-          <span class="badge">Integration-ready</span>
-          <span class="badge">Subscription-ready</span>
-          <span class="badge">Security-first</span>
-          <span class="badge">Executive dashboards</span>
+        <p class="subtitle">AI WhatsApp Revenue &amp; Business Command Center</p>
+        <div class="brand-row" style="margin-top:7mm">
+          <span class="brand-chip">Commercial SaaS</span>
+          <span class="brand-chip">AI-native workflows</span>
+          <span class="brand-chip">Executive dashboards</span>
+          <span class="brand-chip">Enterprise-ready</span>
         </div>
       </div>
-      <div class="promise">Turn WhatsApp conversations and lead follow-up into a measurable revenue operations system.</div>
-      <div class="cover-footer">
-        <div class="byline">
-          <strong>Hamees Momin</strong><br>
-          Full-Stack Software Engineer | SaaS Product Builder | Cybersecurity Professional<br>
-          UAE-ready enterprise software ecosystem
+      <div class="cover-grid">
+        <div class="cover-promise">Turn WhatsApp conversations and lead follow-up into a measurable revenue operations system.</div>
+        <div class="cover-panel">
+          <span class="mock-kicker">Primary score</span>
+          <strong>92</strong>
+          <p>Revenue Operations Health Score</p>
         </div>
-        <div class="small">Prepared for company owners, executives, and decision makers. Designed for clear business discussion, product demos, and investment-style evaluation.</div>
+      </div>
+      <div class="byline">
+        <div><b>Hamees Momin</b><br>Full-Stack Software Engineer | SaaS Product Builder | Cybersecurity Professional | Enterprise Application Developer<br>UAE-ready commercial SaaS product ecosystem</div>
+        <div>Request a private product demo<br>Prepared for investors, enterprise buyers, business owners, partners, and product demonstrations.</div>
       </div>
     </div>
   </section>
 
-  <section class="page">
-    <div class="sheet">
-      <div class="section">
-        <h2>Executive Summary</h2>
-        <p><strong>Aura Command</strong> is a commercial SaaS product built for businesses that need stronger visibility, workflow control, automation, reporting, and security without turning every improvement into a custom development project.</p>
-        <p>Turn WhatsApp conversations and lead follow-up into a measurable revenue operations system.</p>
+  
+    <section class="page ">
+      <div class="page-mark">WA</div>
+      
+    <div class="section-title"><span class="eyebrow">60 second overview</span></div>
+    <h2>Built as a serious commercial product, not a demo dashboard.</h2>
+    <p class="lead">An AI WhatsApp Operations Employee for lead handling, sales follow-up, CRM workflows, and revenue visibility.</p>
+    <div class="grid-4">
+    <article class="stat">
+      <div>Revenue Health</div>
+      <strong>92</strong>
+      <span>Lead response and follow-up quality</span>
+    </article>
+  
+    <article class="stat">
+      <div>Pipeline Value</div>
+      <strong>AED 4.8M</strong>
+      <span>Visible revenue opportunities</span>
+    </article>
+  
+    <article class="stat">
+      <div>Missed Leads</div>
+      <strong>-38%</strong>
+      <span>Early alerts reduce leakage</span>
+    </article>
+  
+    <article class="stat">
+      <div>Time Saved</div>
+      <strong>18 hrs/wk</strong>
+      <span>AI summaries and automation</span>
+    </article>
+  </div>
+    <div class="grid-2" style="margin-top:7mm">
+      <div class="callout">
+        <h3>Product overview</h3>
+        <p>Turn WhatsApp conversations and lead follow-up into a measurable revenue operations system. The platform supports standalone operations first, then expands through integrations, automation, API access, executive reporting, and enterprise governance.</p>
       </div>
-      <div class="grid section">
-        <div class="card">
-          <h3>Target Audience</h3>
-          <p>Company owners, sales directors, real estate teams, service businesses, and operations managers handling leads through WhatsApp, website forms, and CRM systems.</p>
-        </div>
-        <div class="card">
-          <h3>Business Outcome</h3>
-          <ul><li>Every lead has an owner, status, source, SLA, and follow-up path.</li><li>Managers see revenue pipeline, conversion trends, missed opportunities, and team activity.</li><li>Sales agents get AI reply suggestions and next-best-action guidance.</li><li>Owners get a Revenue Operations Health Score that is understandable in under 30 seconds.</li></ul>
-        </div>
-      </div>
-      <div class="section">
-        <h2>Business Problems Solved</h2>
-        <div class="grid">
-          <div class="metric">Leads arrive from WhatsApp, website forms, referrals, and CRM channels but ownership is unclear.</div><div class="metric">Slow replies and missed follow-ups quietly reduce revenue.</div><div class="metric">Management cannot see pipeline health, agent performance, or missed opportunities in one place.</div><div class="metric">CRM sync and reporting often depend on manual spreadsheets.</div>
-        </div>
-      </div>
-      <div class="section">
-        <h2>What Makes It Enterprise-Ready</h2>
-        <div class="three">
-          <div class="card"><h3>Multi-Tenant SaaS</h3><p>Each customer gets a separate workspace with scoped users, settings, subscriptions, reports, integrations, and audit activity.</p></div>
-          <div class="card"><h3>Subscription Foundation</h3><p>Starter, Business, and Enterprise plans support feature gating, usage limits, billing events, and upgrade paths.</p></div>
-          <div class="card"><h3>Security First</h3><p>RBAC, audit trails, secure API keys, tenant isolation, retention policies, webhook verification, and enterprise SSO-ready structure.</p></div>
-        </div>
+      <div class="card">
+        <h3>Ideal customers</h3>
+        <p>Company owners, sales directors, real estate teams, service businesses, call centers, and WhatsApp-heavy operations teams.</p>
       </div>
     </div>
-    <div class="footer"><span>Aura Command</span><span>Executive Summary</span></div>
-  </section>
+    <div class="grid-2" style="margin-top:5mm">
+      <div class="card">
+        <h3>Revenue opportunities</h3>
+        <ul class="clean"><li>Recover missed leads and improve response speed.</li><li>Give management one operating view of WhatsApp revenue activity.</li><li>Replace scattered manual follow-up with governed automation.</li><li>Connect WhatsApp operations to CRM, reporting, and executive decisions.</li></ul>
+      </div>
+      <div class="card">
+        <h3>Competitive advantage</h3>
+        <ul class="clean"><li>AI Employee Modes</li><li>WhatsApp Revenue OS</li><li>Business Outcome Tracking</li><li>Integration Studio</li></ul>
+      </div>
+    </div>
+  
+      <footer>
+        <span>Aura Command</span>
+        <span>Executive Summary</span>
+      </footer>
+    </section>
+  
 
-  <section class="page">
-    <div class="sheet">
-      <h2>Core Product Modules</h2>
-      <p class="section">The product is organized around business workflows rather than isolated dashboard widgets. Each module exists to improve revenue, productivity, visibility, security, automation, or executive decision making.</p>
-      <div class="grid">
+  
+    <section class="page ">
+      <div class="page-mark">WA</div>
+      
+    <div class="section-title"><span class="eyebrow">Investor perspective</span></div>
+    <h2>Market opportunity and why businesses will buy this.</h2>
+    <p class="lead">The buying case is not just software convenience. The product converts operational friction into visibility, automation, accountability, and measurable business outcomes.</p>
+    <div class="grid-3">
+      <div class="card"><h3>Market signal</h3><p>UAE businesses rely heavily on WhatsApp for customer communication, sales, support, bookings, and collections.</p></div><div class="card"><h3>Market signal</h3><p>Most companies still manage conversations manually across phones, spreadsheets, and disconnected CRMs.</p></div><div class="card"><h3>Market signal</h3><p>Owners want direct visibility into missed opportunities, team performance, response time, and revenue impact.</p></div>
+    </div>
+    <div class="grid-2" style="margin-top:6mm">
+      <div>
+        <h3 style="margin-bottom:3mm">Business value drivers</h3>
+        <ul class="clean"><li>Recover missed leads and improve response speed.</li><li>Give management one operating view of WhatsApp revenue activity.</li><li>Replace scattered manual follow-up with governed automation.</li><li>Connect WhatsApp operations to CRM, reporting, and executive decisions.</li></ul>
+      </div>
+      
+    <div class="mockup">
+      <div class="mock-top">
+        <div>
+          <span class="mock-kicker">Executive dashboard</span>
+          <strong>Revenue Operations Health Score</strong>
+        </div>
+        <span class="score">92</span>
+      </div>
+      <div class="mock-grid">
         
-    <article class="module">
-      <h3>Shared WhatsApp Inbox</h3>
-      <p>Centralize customer conversations, assignment, priority, and status tracking for sales teams.</p>
+          <div class="mock-card">
+            <span>Inbox</span>
+            <strong>AED 4.8M</strong>
+            <i style="width:72%"></i>
+          </div>
+        
+          <div class="mock-card">
+            <span>Hot Leads</span>
+            <strong>-38%</strong>
+            <i style="width:63%"></i>
+          </div>
+        
+          <div class="mock-card">
+            <span>Revenue</span>
+            <strong>18 hrs/wk</strong>
+            <i style="width:54%"></i>
+          </div>
+        
+          <div class="mock-card">
+            <span>Follow-ups</span>
+            <strong>Live</strong>
+            <i style="width:45%"></i>
+          </div>
+        
+      </div>
+      <div class="chart">
+        <span style="height:36%"></span>
+        <span style="height:58%"></span>
+        <span style="height:44%"></span>
+        <span style="height:72%"></span>
+        <span style="height:63%"></span>
+        <span style="height:82%"></span>
+        <span style="height:76%"></span>
+      </div>
+      <div class="insight">
+        <b>AI recommendation</b>
+        <p>Recover missed leads and improve response speed. Give management one operating view of WhatsApp revenue activity.</p>
+      </div>
+    </div>
+  
+    </div>
+  
+      <footer>
+        <span>Aura Command</span>
+        <span>Market Opportunity</span>
+      </footer>
+    </section>
+  
+
+  
+    <section class="page ">
+      <div class="page-mark">WA</div>
+      
+    <div class="section-title"><span class="eyebrow">AI-native product design</span></div>
+    <h2>AI is embedded inside the workflow, not bolted on as a generic chatbot.</h2>
+    <p class="lead">Aura Command uses AI to explain data, recommend next actions, summarize activity, trigger workflows, and produce management-ready reporting.</p>
+    <div class="grid-2">
+    <article class="feature-card">
+      <h3>AI Employee Modes</h3>
+      <p>Sales, support, collections, booking, real estate, and operations agents with tone, rules, escalation, and handoff logic.</p>
+      <div class="feature-meta">
+        <span>Business value</span>
+        <span>AI-native</span>
+        <span>ROI impact</span>
+      </div>
     </article>
   
-    <article class="module">
-      <h3>Lead Pipeline</h3>
-      <p>Track inquiry lifecycle from New to Assigned, Conversation, Follow-up, Won, Lost, and Closed.</p>
+    <article class="feature-card">
+      <h3>WhatsApp Revenue OS</h3>
+      <p>Shared inbox, SLA timers, lead lifecycle, agent assignment, follow-up calendar, templates, and conversion scoring.</p>
+      <div class="feature-meta">
+        <span>Business value</span>
+        <span>AI-native</span>
+        <span>ROI impact</span>
+      </div>
     </article>
   
-    <article class="module">
-      <h3>Missed Lead Detector</h3>
-      <p>Highlight leads with no response or overdue follow-up before revenue is lost.</p>
+    <article class="feature-card">
+      <h3>Business Outcome Tracking</h3>
+      <p>Tracks conversations handled, follow-ups automated, deals influenced, manual work reduced, and revenue opportunities.</p>
+      <div class="feature-meta">
+        <span>Business value</span>
+        <span>AI-native</span>
+        <span>ROI impact</span>
+      </div>
     </article>
   
-    <article class="module">
-      <h3>AI Sales Copilot</h3>
-      <p>Generate summaries, suggested replies, sales notes, and follow-up recommendations.</p>
-    </article>
-  
-    <article class="module">
-      <h3>Revenue Analytics</h3>
-      <p>Measure pipeline value, conversion rate, response speed, and agent productivity.</p>
-    </article>
-  
-    <article class="module">
+    <article class="feature-card">
       <h3>Integration Studio</h3>
-      <p>Connect CRM, website forms, WhatsApp Business API, Google Sheets, Zapier, Make, n8n, and custom APIs.</p>
+      <p>CRM, website forms, WhatsApp Business API, Google Sheets, Zapier, Make, n8n, custom APIs, and field mapping.</p>
+      <div class="feature-meta">
+        <span>Business value</span>
+        <span>AI-native</span>
+        <span>ROI impact</span>
+      </div>
+    </article>
+  </div>
+  
+      <footer>
+        <span>Aura Command</span>
+        <span>AI Differentiation</span>
+      </footer>
+    </section>
+  
+
+  
+    <section class="page ">
+      <div class="page-mark">WA</div>
+      
+    <div class="section-title"><span class="eyebrow">Product architecture</span></div>
+    <h2>Core modules focused on outcomes.</h2>
+    <p class="lead">Each module exists to improve revenue, productivity, visibility, security, automation, or executive decision making.</p>
+    <div class="grid-3">
+    <article class="module">
+      <span class="mini-icon">SW</span>
+      <h3>Shared WhatsApp Inbox</h3>
+      <p>Centralize conversations, owners, SLA status, priority, and customer timeline.</p>
     </article>
   
+    <article class="module">
+      <span class="mini-icon">LP</span>
+      <h3>Lead Pipeline</h3>
+      <p>Track New, Assigned, In Conversation, Follow-up Needed, Won, Lost, and Closed.</p>
+    </article>
+  
+    <article class="module">
+      <span class="mini-icon">ML</span>
+      <h3>Missed Lead Detector</h3>
+      <p>Detect unanswered leads, overdue follow-ups, and stalled hot opportunities.</p>
+    </article>
+  
+    <article class="module">
+      <span class="mini-icon">VN</span>
+      <h3>Voice Note Intelligence</h3>
+      <p>Transcription-ready structure, intent detection, suggested replies, and optional voice response path.</p>
+    </article>
+  
+    <article class="module">
+      <span class="mini-icon">AR</span>
+      <h3>AI Reply Engine</h3>
+      <p>Generate summaries, replies, next-best actions, and escalation recommendations.</p>
+    </article>
+  
+    <article class="module">
+      <span class="mini-icon">RA</span>
+      <h3>Revenue Analytics</h3>
+      <p>Measure pipeline, conversion, velocity, team activity, customer sentiment, and attribution.</p>
+    </article>
+  </div>
+  
+      <footer>
+        <span>Aura Command</span>
+        <span>Core Modules</span>
+      </footer>
+    </section>
+  
+
+  
+    <section class="page ">
+      <div class="page-mark">WA</div>
+      
+    <div class="section-title"><span class="eyebrow">Operating model</span></div>
+    <h2>From daily work to executive visibility.</h2>
+    <p class="lead">The customer can start with standalone mode and later connect external systems. Integrations enhance the workflow but are not required for basic operations.</p>
+    <div class="flow">
+    <div class="flow-step">
+      <span>01</span>
+      <strong>Lead captured</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>02</span>
+      <strong>AI qualifies inquiry</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>03</span>
+      <strong>Agent assigned</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>04</span>
+      <strong>WhatsApp response suggested</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>05</span>
+      <strong>Follow-up automated</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>06</span>
+      <strong>CRM synced</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>07</span>
+      <strong>Manager sees revenue impact</strong>
+    </div>
+  </div>
+    <div class="grid-2">
+      <div class="callout">
+        <h3>Standalone mode</h3>
+        <p>Manual records, demo data, dashboards, reports, guided onboarding, roles, audit activity, and product-specific workflows are usable immediately.</p>
+      </div>
+      <div class="callout">
+        <h3>Integrated mode</h3>
+        <p>Integration Studio adds marketplace connectors, OAuth apps, API keys, webhooks, event triggers, integration logs, and data mapping.</p>
       </div>
     </div>
-    <div class="footer"><span>Aura Command</span><span>Core Modules</span></div>
-  </section>
+    <div class="grid-4" style="margin-top:5mm">
+      <div class="card"><h3>Customer pays</h3><p>Checkout begins subscription setup.</p></div>
+      <div class="card"><h3>Workspace created</h3><p>Tenant data is scoped and isolated.</p></div>
+      <div class="card"><h3>Roles created</h3><p>Owner, Admin, Manager, Analyst, Agent, Viewer.</p></div>
+      <div class="card"><h3>Onboarding starts</h3><p>Demo data and guided setup reduce time to value.</p></div>
+    </div>
+  
+      <footer>
+        <span>Aura Command</span>
+        <span>Workflow</span>
+      </footer>
+    </section>
+  
 
-  <section class="page">
-    <div class="sheet">
-      <h2>How The Workflow Works</h2>
-      <p class="section">The customer can start in standalone mode with manual records and demo data, then add integrations when the business is ready. Integrations enhance the workflow but are not required for daily use.</p>
-      <ol class="workflow"><li>Lead is created from WhatsApp, website form, CRM, API, or manual entry.</li><li>Aura assigns an agent based on rules, capacity, source, or manager choice.</li><li>SLA timer starts and the shared inbox keeps the conversation visible.</li><li>AI summarizes the customer need and suggests a reply or next best action.</li><li>Follow-up task is created automatically when the lead needs a future touch.</li><li>Manager reviews pipeline health, conversion, missed opportunities, and revenue forecast.</li></ol>
-      <div class="grid section">
-        <div class="callout">
-          <h3 style="color:#fff">Standalone Mode</h3>
-          <p>Use the product immediately with manual records, internal users, dashboards, reports, demo data, onboarding, and built-in workflows.</p>
+  
+    <section class="page ">
+      <div class="page-mark">WA</div>
+      
+    <div class="section-title"><span class="eyebrow">Management view</span></div>
+    <h2>Revenue Operations Health Score and executive reporting.</h2>
+    <p class="lead">The score is designed to be understood in under 30 seconds and used in dashboards, monthly summaries, scheduled reports, AI summaries, and investor or owner conversations.</p>
+    <div class="grid-2">
+      
+    <div class="mockup">
+      <div class="mock-top">
+        <div>
+          <span class="mock-kicker">Executive dashboard</span>
+          <strong>Revenue Operations Health Score</strong>
         </div>
-        <div class="callout">
-          <h3 style="color:#fff">Integrated Mode</h3>
-          <p>Connect external systems through Integration Studio, API keys, OAuth apps, webhooks, data mapping, workflow triggers, and integration logs.</p>
-        </div>
+        <span class="score">92</span>
       </div>
-      <h2>Tenant Provisioning</h2>
-      <div class="grid">
-        <div class="card"><h3>Customer Pays</h3><p>Checkout starts the subscription flow. Paid features are unlocked only after verified backend payment confirmation.</p></div>
-        <div class="card"><h3>Workspace Created</h3><p>The tenant workspace is created with product-specific settings and isolated customer data scope.</p></div>
-        <div class="card"><h3>Roles Created</h3><p>Owner, Admin, Manager, Analyst, Agent, and Viewer access patterns are prepared for the customer team.</p></div>
-        <div class="card"><h3>Onboarding Starts</h3><p>Demo data loads, subscription activates, and the guided onboarding checklist helps users reach value quickly.</p></div>
+      <div class="mock-grid">
+        
+          <div class="mock-card">
+            <span>Inbox</span>
+            <strong>AED 4.8M</strong>
+            <i style="width:72%"></i>
+          </div>
+        
+          <div class="mock-card">
+            <span>Hot Leads</span>
+            <strong>-38%</strong>
+            <i style="width:63%"></i>
+          </div>
+        
+          <div class="mock-card">
+            <span>Revenue</span>
+            <strong>18 hrs/wk</strong>
+            <i style="width:54%"></i>
+          </div>
+        
+          <div class="mock-card">
+            <span>Follow-ups</span>
+            <strong>Live</strong>
+            <i style="width:45%"></i>
+          </div>
+        
+      </div>
+      <div class="chart">
+        <span style="height:36%"></span>
+        <span style="height:58%"></span>
+        <span style="height:44%"></span>
+        <span style="height:72%"></span>
+        <span style="height:63%"></span>
+        <span style="height:82%"></span>
+        <span style="height:76%"></span>
+      </div>
+      <div class="insight">
+        <b>AI recommendation</b>
+        <p>Recover missed leads and improve response speed. Give management one operating view of WhatsApp revenue activity.</p>
       </div>
     </div>
-    <div class="footer"><span>Aura Command</span><span>Workflow & Provisioning</span></div>
-  </section>
-
-  <section class="page">
-    <div class="sheet">
-      <h2>Executive Dashboard & Health Score</h2>
-      <p>The executive dashboard is designed for owners and management to understand the business condition quickly. It separates daily operational work from leadership-level decisions.</p>
-      <div class="section callout">
-        <h3 style="color:#fff">Revenue Operations Health Score</h3>
-        <p>Green: 80-100. Yellow: 60-79. Red: 0-59. The score appears in dashboards, reports, monthly summaries, email report structure, and AI summaries.</p>
-      </div>
-      <div class="grid section">
+  
+      <div class="stack">
         <div class="card">
-          <h3>Score Factors</h3>
-          <ul><li>Average lead response time</li><li>Missed leads</li><li>Follow-up completion rate</li><li>Lead conversion rate</li><li>Agent activity</li><li>Pipeline velocity</li><li>CRM sync success rate</li><li>Customer engagement rate</li></ul>
+          <h3>Score inputs</h3>
+          <ul class="clean"><li>Average response time</li><li>Missed leads</li><li>Follow-up completion</li><li>Lead conversion</li><li>Agent activity</li><li>Pipeline velocity</li><li>CRM sync success</li><li>Customer engagement</li></ul>
         </div>
         <div class="card">
           <h3>Executive KPIs</h3>
-          <ul><li>Pipeline Value</li><li>Active Leads</li><li>Lead Conversion Rate</li><li>Team Performance</li><li>Missed Opportunity Alerts</li><li>Revenue Forecast</li></ul>
+          <ul class="clean"><li>Pipeline value</li><li>Active leads</li><li>Conversion rate</li><li>Team performance</li><li>Missed opportunity alerts</li><li>Revenue forecast</li></ul>
         </div>
       </div>
-      <h2>AI Copilot</h2>
-      <p>The AI assistant is contextual to Aura Command. It supports summaries, recommendations, risk signals, reporting assistance, and next actions inside the product workflow rather than acting as a generic chatbot.</p>
     </div>
-    <div class="footer"><span>Aura Command</span><span>Executive Intelligence</span></div>
-  </section>
+  
+      <footer>
+        <span>Aura Command</span>
+        <span>Executive Intelligence</span>
+      </footer>
+    </section>
+  
 
-  <section class="page">
-    <div class="sheet">
-      <h2>Integration Studio</h2>
-      <p>Integration Studio gives admins one place to manage external systems, API access, webhooks, logs, event triggers, and data mapping.</p>
-      <div class="grid section">
-        <div class="card"><h3>Marketplace</h3><p>Browse available CRM, ERP, SIEM, storage, email, workspace, automation, and custom API connectors.</p></div>
-        <div class="card"><h3>Data Mapping</h3><p>Map external fields into product fields, such as CRM <code>first_name</code> to an internal customer field, reducing integration pain.</p></div>
-        <div class="card"><h3>Webhook Builder</h3><p>Create outbound event notifications with delivery logs, retry visibility, and signature-ready architecture.</p></div>
-        <div class="card"><h3>API Key Management</h3><p>Generate scoped API keys, monitor usage, rotate keys, and revoke access when needed.</p></div>
+  
+    <section class="page ">
+      <div class="page-mark">WA</div>
+      
+    <div class="section-title"><span class="eyebrow">Enterprise integration layer</span></div>
+    <h2>Marketplace, API framework, webhooks, OAuth, logs, and data mapping.</h2>
+    <p class="lead">Data mapping is treated as a first-class capability so companies can map external fields, such as <code>first_name</code>, into product-specific fields without painful custom work.</p>
+    <div class="grid-2">
+      
+    <div class="architecture">
+      <div class="arch-node">Customer workspace</div>
+      <div class="arch-row">
+        <div class="arch-node">Operational modules</div>
+        <div class="arch-node">AI copilot</div>
+        <div class="arch-node">Executive dashboard</div>
       </div>
-      <h2>Supported Integration Categories</h2>
-      <div class="badge-row"><span class="badge">WhatsApp Business API</span><span class="badge">HubSpot</span><span class="badge">Zoho CRM</span><span class="badge">Salesforce</span><span class="badge">Pipedrive</span><span class="badge">Website Forms</span><span class="badge">Email</span><span class="badge">Google Sheets</span><span class="badge">Zapier</span><span class="badge">Make</span><span class="badge">n8n</span><span class="badge">Custom CRM API</span></div>
-      <div class="section"></div>
-      <h2>Enterprise Controls</h2>
-      <div class="three">
-        <div class="card"><h3>SSO Ready</h3><p>Enterprise tier structure for SAML, Azure AD, Microsoft Entra, Google Workspace, and Okta.</p></div>
-        <div class="card"><h3>Audit Center</h3><p>Track who changed what, when, from where, and previous/new values for sensitive actions.</p></div>
-        <div class="card"><h3>Retention Policies</h3><p>Support for 30-day, 90-day, 1-year, and custom retention, archive, and backup policies.</p></div>
+      <div class="arch-row">
+        <div class="arch-node">Integration Studio</div>
+        <div class="arch-node">Workflow engine</div>
+        <div class="arch-node">Audit Center</div>
       </div>
+      <div class="arch-row">
+        <div class="arch-node">API keys</div>
+        <div class="arch-node">Webhooks</div>
+        <div class="arch-node">Data mapping</div>
+      </div>
+      <div class="arch-footer">WhatsApp Business API | HubSpot | Zoho CRM | Salesforce | Pipedrive | Website Forms</div>
     </div>
-    <div class="footer"><span>Aura Command</span><span>Integrations & Controls</span></div>
-  </section>
-
-  <section class="page">
-    <div class="sheet">
-      <h2>Subscription Tiers</h2>
-      <p class="section">The product supports a growth path from small business use to enterprise deployment without changing the core architecture.</p>
-      <div class="grid">
-        
-    <article class="tier">
-      <h3>Starter</h3>
-      <p>Up to 3 users, shared inbox, lead pipeline, basic reports, AI summaries, notifications, Revenue Health Score, Executive Dashboard Lite.</p>
-    </article>
   
-    <article class="tier">
-      <h3>Business</h3>
-      <p>Up to 25 users, CRM integrations, workflow automation, lead scoring, team analytics, scheduled reports, API access, webhooks, forecasting.</p>
-    </article>
-  
-    <article class="tier">
-      <h3>Enterprise</h3>
-      <p>Unlimited users, SSO-ready structure, white label, multiple WhatsApp channels, custom integrations, advanced workflows, custom reports, dedicated onboarding.</p>
-    </article>
-  
-      </div>
-      <div class="section"></div>
-      <h2>Why Owners Care</h2>
-      <div class="grid">
-        <div class="metric">Revenue: clearer conversion, fewer missed actions, better follow-up, stronger reporting.</div>
-        <div class="metric">Productivity: teams work from one system instead of scattered files, chats, and spreadsheets.</div>
-        <div class="metric">Visibility: executives see KPIs, risks, forecasts, health scores, and recommendations.</div>
-        <div class="metric">Security: tenant isolation, RBAC, audit trails, API controls, and enterprise policies.</div>
+      <div class="stack">
+        <div class="card"><h3>API rate management</h3><p>Requests today, monthly requests, top endpoints, rate limit status, and webhook success rate.</p></div>
+        <div class="card"><h3>Audit Trail System</h3><p>Who changed what, when, from where, previous value, and new value across sensitive business actions.</p></div>
+        <div class="card"><h3>Enterprise controls</h3><p>SAML-ready, Azure AD, Microsoft Entra, Google Workspace SSO, Okta, retention, archive, and backup policy structure.</p></div>
       </div>
     </div>
-    <div class="footer"><span>Aura Command</span><span>Commercial Model</span></div>
-  </section>
+    <div class="badge-row" style="margin-top:5mm"><span class="badge">WhatsApp Business API</span><span class="badge">HubSpot</span><span class="badge">Zoho CRM</span><span class="badge">Salesforce</span><span class="badge">Pipedrive</span><span class="badge">Website Forms</span><span class="badge">Email</span><span class="badge">Google Sheets</span><span class="badge">Zapier</span><span class="badge">Make</span><span class="badge">n8n</span><span class="badge">Custom CRM API</span></div>
+  
+      <footer>
+        <span>Aura Command</span>
+        <span>Integration Studio</span>
+      </footer>
+    </section>
+  
 
-  <section class="page">
-    <div class="sheet">
-      <h2>Demo Agenda For Company Owners</h2>
-      <p>This agenda keeps the product demo focused on business value, not just screens.</p>
-      <ol class="workflow"><li>Show owner dashboard</li><li>Open shared inbox</li><li>Assign lead</li><li>Trigger follow-up</li><li>Review missed opportunities</li><li>Explain health score</li><li>Show Integration Studio data mapping</li></ol>
-      <div class="section"></div>
-      <h2>Implementation Discussion</h2>
-      <div class="grid">
-        <div class="card"><h3>Day 1</h3><p>Create workspace, invite users, enable demo data, review dashboard, and confirm business workflow.</p></div>
-        <div class="card"><h3>Week 1</h3><p>Configure roles, reports, onboarding, key workflows, import initial records, and validate security settings.</p></div>
-        <div class="card"><h3>Weeks 2-4</h3><p>Connect priority integrations, data mapping, webhooks, scheduled reports, and executive views.</p></div>
-        <div class="card"><h3>Enterprise Phase</h3><p>SSO, white label, custom domain, custom reporting, retention policies, integration logs, and advanced automation.</p></div>
+  
+    <section class="page ">
+      <div class="page-mark">WA</div>
+      
+    <div class="section-title"><span class="eyebrow">Pricing architecture</span></div>
+    <h2>Subscription path from small business to enterprise.</h2>
+    <p class="lead">The tier model supports simple adoption, professional operations, advanced integrations, and enterprise security without requiring a major redesign.</p>
+    <div class="grid-3">
+      
+        <div class="tier">
+          <strong>Starter</strong>
+          <em>Up to 3 users</em>
+          <div class="tier-features"><span>Shared inbox</span><span>Lead management</span><span>Basic reports</span><span>Basic AI summaries</span><span>Revenue Health Score</span></div>
+        </div>
+      
+        <div class="tier">
+          <strong>Business</strong>
+          <em>Up to 25 users</em>
+          <div class="tier-features"><span>CRM integrations</span><span>Workflow automation</span><span>Lead scoring</span><span>Team analytics</span><span>API access</span><span>Webhooks</span><span>Forecasting</span></div>
+        </div>
+      
+        <div class="tier">
+          <strong>Enterprise</strong>
+          <em>Unlimited users</em>
+          <div class="tier-features"><span>SSO-ready</span><span>White label</span><span>Multiple WhatsApp channels</span><span>Custom integrations</span><span>Advanced workflows</span><span>Custom reports</span></div>
+        </div>
+      
+    </div>
+    <div style="margin-top:5mm">
+      <table>
+        <thead>
+          <tr><th>Capability</th><th>Starter</th><th>Business</th><th>Enterprise</th></tr>
+        </thead>
+        <tbody>
+    <tr>
+      <th>Best fit</th>
+      <td>Up to 3 users</td>
+      <td>Up to 25 users</td>
+      <td>Unlimited users</td>
+    </tr>
+  
+    <tr>
+      <th>AI features</th>
+      <td>Basic AI summaries</td>
+      <td>Advanced AI insights</td>
+      <td>Advanced AI, custom reporting, and executive intelligence</td>
+    </tr>
+  
+    <tr>
+      <th>Integrations</th>
+      <td>Manual and core product setup</td>
+      <td>API access, webhooks, and priority integrations</td>
+      <td>Custom integrations, SSO-ready, white label, and enterprise governance</td>
+    </tr>
+  
+    <tr>
+      <th>Reporting</th>
+      <td>Executive Dashboard Lite</td>
+      <td>Scheduled reports and advanced analytics</td>
+      <td>Board-ready reports, custom reports, and enterprise executive suite</td>
+    </tr>
+  
+    <tr>
+      <th>Security</th>
+      <td>RBAC and tenant isolation</td>
+      <td>Audit logs, usage limits, and integration controls</td>
+      <td>SSO-ready, retention policies, advanced audit center, and custom security controls</td>
+    </tr>
+  </tbody>
+      </table>
+    </div>
+  
+      <footer>
+        <span>Aura Command</span>
+        <span>Commercial Model</span>
+      </footer>
+    </section>
+  
+
+  
+    <section class="page ">
+      <div class="page-mark">WA</div>
+      
+    <div class="section-title"><span class="eyebrow">Enterprise readiness</span></div>
+    <h2>Designed to scale beyond a single customer demo.</h2>
+    <p class="lead">The product foundation supports tenant provisioning, role-based operations, secure integrations, workflow automation, reporting, white label readiness, and customer success systems.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Scalability</h3>
+        <ul class="clean">
+          <li>Multi-tenant company workspaces</li>
+          <li>Scoped data access by customer workspace</li>
+          <li>Usage limits and feature gating</li>
+          <li>Scheduled reports and executive exports</li>
+          <li>API and webhook extension layer</li>
+        </ul>
       </div>
-      <div class="section"></div>
+      <div class="card">
+        <h3>Future expansion potential</h3>
+        <ul class="clean"><li>WhatsApp campaign governance</li><li>Advanced lead source attribution</li><li>AI quality coaching for agents</li><li>Predictive win probability</li><li>Multi-branch revenue operations</li></ul>
+      </div>
+    </div>
+    <div class="grid-3" style="margin-top:5mm">
+      <div class="card"><h3>Customer Success Center</h3><p>Knowledge base, guides, release notes, support tickets, feature requests, and product updates.</p></div>
+      <div class="card"><h3>Enterprise Readiness Score</h3><p>Admin-only score for security, integrations, automation, reporting, data quality, and user adoption.</p></div>
+      <div class="card"><h3>Notification Engine</h3><p>Email, WhatsApp, SMS, webhook, Slack, Microsoft Teams, and in-app notification structure.</p></div>
+    </div>
+  
+      <footer>
+        <span>Aura Command</span>
+        <span>Scalability &amp; Expansion</span>
+      </footer>
+    </section>
+  
+
+  
+    <section class="page ">
+      <div class="page-mark">WA</div>
+      
+    <div class="section-title"><span class="eyebrow">Presentation-ready walkthrough</span></div>
+    <h2>Demo flow for owners, investors, partners, and enterprise buyers.</h2>
+    <p class="lead">The demo should focus on business outcomes first, then show product depth, integrations, automation, and executive reporting.</p>
+    <div class="flow">
+    <div class="flow-step">
+      <span>01</span>
+      <strong>Open WhatsApp Revenue Dashboard</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>02</span>
+      <strong>Show shared inbox and SLA timer</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>03</span>
+      <strong>Assign a lead to an agent</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>04</span>
+      <strong>Trigger AI reply suggestion</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>05</span>
+      <strong>Simulate missed follow-up automation</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>06</span>
+      <strong>Review Revenue Health Score and forecast</strong>
+    </div>
+  </div>
+    <div class="grid-2">
       <div class="callout">
-        <h3 style="color:#fff">Positioning Statement</h3>
-        <p>Aura Command is positioned as a commercial SaaS product for real business operations, with standalone use, integration-ready architecture, subscription tiers, executive dashboards, health scoring, AI assistance, and security-first design.</p>
+        <h3>Buyer message</h3>
+        <p>Aura Command is a commercial SaaS product that can operate standalone, integrate with existing systems, support subscriptions, enforce security, and deliver executive-level visibility.</p>
+      </div>
+      <div class="card">
+        <h3>Next step</h3>
+        <p>Run a private demo using realistic business data, show the executive dashboard, explain the health score, and finish with Integration Studio plus enterprise controls.</p>
       </div>
     </div>
-    <div class="footer"><span>Aura Command</span><span>Demo & Rollout</span></div>
-  </section>
+    <div class="grid-4" style="margin-top:5mm">
+      <div class="stat"><div>Build</div><strong>SaaS</strong><span>Commercial architecture</span></div>
+      <div class="stat"><div>Security</div><strong>RBAC</strong><span>Audit and isolation</span></div>
+      <div class="stat"><div>AI</div><strong>Native</strong><span>Workflow recommendations</span></div>
+      <div class="stat"><div>Scale</div><strong>API</strong><span>Integrations and webhooks</span></div>
+    </div>
+  
+      <footer>
+        <span>Aura Command</span>
+        <span>Demo Agenda</span>
+      </footer>
+    </section>
+  
 </body>
 </html>

@@ -3,431 +3,1061 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Documind Product Brochure</title>
+<title>DocuMind Investor-Ready Product Brochure</title>
 <style>
-  @page { size: A4; margin: 15mm; }
+  @page { size: A4; margin: 0; }
   * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #e8e8e8; }
   body {
-    margin: 0;
-    color: #17201f;
-    background: #f6f4ef;
-    font-family: Inter, Arial, Helvetica, sans-serif;
-    line-height: 1.45;
+    color: #10295f;
+    font-family: Inter, Aptos, Arial, Helvetica, sans-serif;
+    font-size: 10.6pt;
+    line-height: 1.42;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .page {
-    min-height: 267mm;
-    page-break-after: always;
-    padding: 0;
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
     position: relative;
+    page-break-after: always;
+    background:
+      radial-gradient(circle at 85% 8%, #eaf2ff 0, transparent 30%),
+      linear-gradient(180deg, #fbfdff, #ffffff 46%, #eaf2ff);
+    padding: 15mm 15mm 14mm;
   }
   .page:last-child { page-break-after: auto; }
   .cover {
-    background: linear-gradient(135deg, #10295f, #1d4ed8);
     color: #fff;
-    border-radius: 18px;
-    padding: 42px;
-    min-height: 245mm;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .eyebrow {
-    text-transform: uppercase;
-    letter-spacing: .12em;
-    font-size: 11px;
-    font-weight: 800;
-    color: rgba(255,255,255,.76);
-  }
-  h1 {
-    font-size: 56px;
-    line-height: 1;
-    margin: 22px 0 14px;
-    letter-spacing: 0;
-  }
-  h2 {
-    font-size: 26px;
-    margin: 0 0 14px;
-    color: #10295f;
-    letter-spacing: 0;
-  }
-  h3 {
-    font-size: 15px;
-    margin: 0 0 6px;
-    color: #10295f;
-  }
-  p { margin: 0 0 11px; }
-  .subtitle {
-    font-size: 24px;
-    max-width: 620px;
-    color: rgba(255,255,255,.9);
-  }
-  .promise {
-    font-size: 18px;
-    padding: 18px 20px;
-    background: rgba(255,255,255,.12);
-    border: 1px solid rgba(255,255,255,.22);
-    border-radius: 14px;
-    max-width: 620px;
-  }
-  .cover-footer {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 20px;
-    align-items: end;
-  }
-  .byline {
-    border-top: 1px solid rgba(255,255,255,.28);
-    padding-top: 16px;
-    color: rgba(255,255,255,.84);
-  }
-  .sheet {
-    background: #fffdfa;
-    border: 1px solid #e7e0d4;
-    border-radius: 16px;
-    padding: 28px;
-    min-height: 245mm;
-  }
-  .section {
-    margin-bottom: 24px;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  .three {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-  .card, .module, .tier {
-    border: 1px solid #e7e0d4;
-    border-radius: 12px;
-    padding: 15px;
-    background: #fff;
-  }
-  .module {
-    break-inside: avoid;
-  }
-  .metric {
-    background: #f7f4ed;
-    border-left: 5px solid #1d4ed8;
-    border-radius: 10px;
-    padding: 14px;
-    font-weight: 800;
-    color: #10295f;
-  }
-  ul {
-    margin: 0;
-    padding-left: 18px;
-  }
-  li {
-    margin: 0 0 8px;
-  }
-  .workflow {
-    counter-reset: step;
-    list-style: none;
+    background:
+      linear-gradient(135deg, #10295f, #1d4ed8 58%, #38bdf8),
+      #10295f;
     padding: 0;
   }
-  .workflow li {
-    counter-increment: step;
-    display: grid;
-    grid-template-columns: 34px 1fr;
-    gap: 10px;
-    align-items: start;
-    margin-bottom: 10px;
+  .cover::before {
+    content: "";
+    position: absolute;
+    inset: 18mm 14mm auto auto;
+    width: 74mm;
+    height: 74mm;
+    border-radius: 28mm;
+    border: 1px solid rgba(255,255,255,.28);
+    background:
+      linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(255,255,255,.12) 1px, transparent 1px);
+    background-size: 9mm 9mm;
+    transform: rotate(8deg);
   }
-  .workflow li::before {
-    content: counter(step);
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
+  .cover-inner {
+    height: 100%;
+    padding: 22mm 18mm 18mm;
     display: grid;
-    place-items: center;
-    background: #1d4ed8;
-    color: #fff;
+    grid-template-rows: auto 1fr auto;
+    gap: 12mm;
+    position: relative;
+    z-index: 1;
+  }
+  .eyebrow, .mock-kicker {
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    font-size: 7.5pt;
     font-weight: 800;
-    font-size: 13px;
   }
-  .badge-row {
+  .cover .eyebrow { color: rgba(255,255,255,.76); }
+  h1, h2, h3, p { margin: 0; }
+  h1 {
+    font-size: 43pt;
+    line-height: .94;
+    letter-spacing: 0;
+    max-width: 128mm;
+    margin-top: 9mm;
+  }
+  .subtitle {
+    font-size: 16pt;
+    line-height: 1.24;
+    max-width: 142mm;
+    margin-top: 6mm;
+    color: rgba(255,255,255,.88);
+  }
+  .cover-grid {
+    display: grid;
+    grid-template-columns: 1fr 68mm;
+    gap: 10mm;
+    align-items: end;
+  }
+  .cover-promise {
+    padding: 8mm;
+    border-radius: 7mm;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.22);
+    backdrop-filter: blur(10px);
+    font-size: 14pt;
+    line-height: 1.3;
+  }
+  .cover-panel {
+    border-radius: 7mm;
+    background: rgba(255,255,255,.94);
+    color: #10295f;
+    padding: 6mm;
+    box-shadow: 0 20px 55px rgba(0,0,0,.22);
+  }
+  .cover-panel strong { display: block; font-size: 28pt; line-height: 1; }
+  .brand-row, .badge-row, .feature-meta, .tier-features {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 10px;
+    gap: 2.2mm;
   }
-  .badge {
-    border: 1px solid #ded5c6;
-    background: #fbf8f1;
-    color: #10295f;
+  .brand-chip, .badge, .feature-meta span, .tier-features span {
     border-radius: 999px;
-    padding: 7px 10px;
-    font-size: 12px;
-    font-weight: 700;
+    padding: 2.2mm 3.3mm;
+    background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.2);
+    color: inherit;
+    font-size: 7.8pt;
+    font-weight: 800;
   }
-  .callout {
-    border-radius: 14px;
-    padding: 18px;
-    color: #fff;
-    background: #10295f;
+  .badge, .feature-meta span, .tier-features span {
+    background: #eaf2ff;
+    border-color: #d7e5ff;
+    color: #10295f;
   }
-  .small {
-    font-size: 12px;
-    color: #5f6865;
+  .byline {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 8mm;
+    padding-top: 5mm;
+    border-top: 1px solid rgba(255,255,255,.25);
+    color: rgba(255,255,255,.82);
+    font-size: 8.8pt;
   }
-  .footer {
+  .icon-seal {
+    width: 19mm;
+    height: 19mm;
+    display: grid;
+    place-items: center;
+    border-radius: 6mm;
+    background: #fff;
+    color: #1d4ed8;
+    font-weight: 900;
+    font-size: 13pt;
+    margin-bottom: 7mm;
+  }
+  .page-mark {
     position: absolute;
-    bottom: 2mm;
+    right: 10mm;
+    top: 8mm;
+    color: #d7e5ff;
+    font-size: 42pt;
+    line-height: 1;
+    font-weight: 900;
+    opacity: .42;
+  }
+  h2 {
+    color: #10295f;
+    font-size: 21pt;
+    line-height: 1.05;
+    letter-spacing: 0;
+    margin-bottom: 4mm;
+    max-width: 144mm;
+  }
+  h3 {
+    color: #10295f;
+    font-size: 10.4pt;
+    line-height: 1.22;
+    margin-bottom: 2mm;
+  }
+  .lead {
+    max-width: 156mm;
+    color: #43536f;
+    font-size: 11.4pt;
+    margin-bottom: 5.5mm;
+  }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+    margin-bottom: 4mm;
+  }
+  .section-title::before {
+    content: "";
+    width: 9mm;
+    height: 2.2mm;
+    border-radius: 999px;
+    background: #1d4ed8;
+  }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+  .stack { display: grid; gap: 4mm; }
+  .card, .feature-card, .module, .stat, .tier, .callout {
+    border: 1px solid #d7e5ff;
+    background: rgba(255,255,255,.86);
+    border-radius: 5mm;
+    box-shadow: 0 10px 28px rgba(21, 28, 35, .05);
+  }
+  .card, .feature-card, .module, .tier, .callout { padding: 5mm; }
+  .feature-card { min-height: 29mm; padding: 3.6mm; }
+  .feature-card h3 { font-size: 9.4pt; margin-bottom: 1.1mm; }
+  .feature-card p { font-size: 8.35pt; line-height: 1.28; }
+  .feature-card p, .module p, .tier p, .card p { color: #43536f; }
+  .feature-meta { margin-top: 2mm; gap: 1.3mm; }
+  .feature-meta span { font-size: 5.9pt; padding: 1.2mm 1.7mm; }
+  .stat {
+    padding: 4.5mm;
+    min-height: 27mm;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat::after {
+    content: "";
+    position: absolute;
+    right: -8mm;
+    top: -10mm;
+    width: 25mm;
+    height: 25mm;
+    border-radius: 50%;
+    background: #eaf2ff;
+  }
+  .stat div { color: #43536f; font-size: 7.8pt; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+  .stat strong { display: block; font-size: 18pt; line-height: 1.05; margin: 2mm 0; color: #10295f; }
+  .stat span { color: #43536f; font-size: 8pt; }
+  ul.clean {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 2.4mm;
+  }
+  ul.clean li {
+    position: relative;
+    padding-left: 6mm;
+    color: #43536f;
+  }
+  ul.clean li::before {
+    content: "";
+    position: absolute;
     left: 0;
-    right: 0;
+    top: 2.3mm;
+    width: 3mm;
+    height: 3mm;
+    border-radius: 50%;
+    background: #1d4ed8;
+  }
+  .module {
+    min-height: 39mm;
+    position: relative;
+  }
+  .mini-icon {
+    display: grid;
+    place-items: center;
+    width: 10mm;
+    height: 10mm;
+    border-radius: 3mm;
+    background: #eaf2ff;
+    color: #1d4ed8;
+    font-size: 7pt;
+    font-weight: 900;
+    margin-bottom: 3mm;
+  }
+  .flow {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2mm;
+    margin: 6mm 0 8mm;
+  }
+  .flow-step {
+    min-height: 25mm;
+    border-radius: 4mm;
+    padding: 3mm;
+    color: #fff;
+    background: linear-gradient(145deg, #10295f, #1d4ed8);
+    display: grid;
+    align-content: space-between;
+  }
+  .flow-step span { color: rgba(255,255,255,.64); font-size: 7pt; font-weight: 900; }
+  .flow-step strong { font-size: 8pt; line-height: 1.16; }
+  .callout {
+    background: #10295f;
+    color: #fff;
+    border-color: #10295f;
+  }
+  .callout p, .callout li { color: rgba(255,255,255,.78); }
+  .callout h3 { color: #fff; }
+  .mockup {
+    border-radius: 7mm;
+    border: 1px solid #d7e5ff;
+    background: linear-gradient(180deg, #fff, #eaf2ff);
+    padding: 4mm;
+    box-shadow: 0 24px 60px rgba(21, 28, 35, .12);
+  }
+  .mock-top {
     display: flex;
     justify-content: space-between;
-    color: #7a817d;
-    font-size: 10px;
+    align-items: start;
+    margin-bottom: 4mm;
   }
-  .toc {
+  .mock-top strong { display: block; font-size: 12pt; margin-top: 1mm; }
+  .score {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-top: 20px;
+    place-items: center;
+    width: 20mm;
+    height: 20mm;
+    border-radius: 50%;
+    color: #fff;
+    background: #1d4ed8;
+    font-size: 14pt;
+    font-weight: 900;
   }
-  .toc div {
-    padding: 14px;
-    border: 1px solid rgba(255,255,255,.22);
-    border-radius: 12px;
-    background: rgba(255,255,255,.1);
+  .mock-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; }
+  .mock-card {
+    min-height: 19mm;
+    border-radius: 4mm;
+    padding: 3mm;
+    background: #fff;
+    border: 1px solid #d7e5ff;
+  }
+  .mock-card span { display: block; color: #43536f; font-size: 7.4pt; font-weight: 800; }
+  .mock-card strong { display: block; font-size: 12pt; margin: 1.3mm 0 2mm; }
+  .mock-card i {
+    display: block;
+    height: 1.7mm;
+    border-radius: 999px;
+    background: #1d4ed8;
+  }
+  .chart {
+    height: 33mm;
+    margin-top: 4mm;
+    border-radius: 4mm;
+    background:
+      linear-gradient(90deg, #d7e5ff 1px, transparent 1px),
+      linear-gradient(0deg, #d7e5ff 1px, transparent 1px),
+      rgba(255,255,255,.7);
+    background-size: 12mm 12mm;
+    display: flex;
+    gap: 3mm;
+    align-items: end;
+    padding: 5mm;
+  }
+  .chart span { flex: 1; border-radius: 2mm 2mm 0 0; background: linear-gradient(180deg, #38bdf8, #1d4ed8); }
+  .insight {
+    margin-top: 4mm;
+    padding: 4mm;
+    border-left: 1.4mm solid #1d4ed8;
+    background: #fff;
+    border-radius: 3mm;
+  }
+  .insight p { color: #43536f; margin-top: 1mm; }
+  .architecture {
+    display: grid;
+    gap: 3mm;
+    padding: 5mm;
+    border: 1px solid #d7e5ff;
+    border-radius: 6mm;
+    background: #fff;
+  }
+  .arch-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+  .arch-node {
+    text-align: center;
+    border-radius: 4mm;
+    padding: 3.4mm;
+    background: #eaf2ff;
+    border: 1px solid #d7e5ff;
+    color: #10295f;
+    font-weight: 900;
+    font-size: 8.4pt;
+  }
+  .arch-footer {
+    border-radius: 4mm;
+    padding: 3mm;
+    text-align: center;
+    background: #10295f;
+    color: #fff;
+    font-size: 8pt;
+    font-weight: 800;
+  }
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 5mm;
+    border: 1px solid #d7e5ff;
+    background: #fff;
+  }
+  th, td {
+    vertical-align: top;
+    padding: 3.1mm;
+    border-right: 1px solid #d7e5ff;
+    border-bottom: 1px solid #d7e5ff;
+    font-size: 7.9pt;
+    color: #43536f;
+  }
+  th { color: #10295f; background: #eaf2ff; text-align: left; width: 21%; }
+  td:last-child, th:last-child { border-right: 0; }
+  tr:last-child td, tr:last-child th { border-bottom: 0; }
+  .tier { min-height: 56mm; }
+  .tier strong { display: block; font-size: 14pt; margin-bottom: 1mm; }
+  .tier em { display: block; color: #43536f; font-style: normal; margin-bottom: 3mm; }
+  .tier-features span { font-size: 7.2pt; padding: 1.7mm 2.2mm; }
+  footer {
+    position: absolute;
+    left: 15mm;
+    right: 15mm;
+    bottom: 6.5mm;
+    display: flex;
+    justify-content: space-between;
+    color: #43536f;
+    font-size: 7.2pt;
+    font-weight: 800;
+    border-top: 1px solid #d7e5ff;
+    padding-top: 2.5mm;
+  }
+  code {
+    color: #1d4ed8;
+    background: #eaf2ff;
+    border-radius: 1.5mm;
+    padding: .6mm 1mm;
   }
 </style>
 </head>
 <body>
-  <section class="page">
-    <div class="cover">
+  <section class="page cover">
+    <div class="cover-inner">
       <div>
-        <div class="eyebrow">Commercial SaaS Product Brochure</div>
-        <h1>Documind</h1>
-        <p class="subtitle">AI Document Intelligence Platform for UAE Businesses</p>
-        <div class="badge-row">
-          <span class="badge">Standalone-ready</span>
-          <span class="badge">Integration-ready</span>
-          <span class="badge">Subscription-ready</span>
-          <span class="badge">Security-first</span>
-          <span class="badge">Executive dashboards</span>
+        <div class="icon-seal">DM</div>
+        <div class="eyebrow">Investor-ready commercial SaaS product brochure</div>
+        <h1>DocuMind</h1>
+        <p class="subtitle">AI Business Document Intelligence Platform</p>
+        <div class="brand-row" style="margin-top:7mm">
+          <span class="brand-chip">Commercial SaaS</span>
+          <span class="brand-chip">AI-native workflows</span>
+          <span class="brand-chip">Executive dashboards</span>
+          <span class="brand-chip">Enterprise-ready</span>
         </div>
       </div>
-      <div class="promise">Make business documents searchable, reviewable, trackable, and renewal-ready.</div>
-      <div class="cover-footer">
-        <div class="byline">
-          <strong>Hamees Momin</strong><br>
-          Full-Stack Software Engineer | SaaS Product Builder | Cybersecurity Professional<br>
-          UAE-ready enterprise software ecosystem
+      <div class="cover-grid">
+        <div class="cover-promise">Make company documents searchable, reviewable, renewal-ready, and useful for executive decisions.</div>
+        <div class="cover-panel">
+          <span class="mock-kicker">Primary score</span>
+          <strong>89</strong>
+          <p>Document Compliance Score</p>
         </div>
-        <div class="small">Prepared for company owners, executives, and decision makers. Designed for clear business discussion, product demos, and investment-style evaluation.</div>
+      </div>
+      <div class="byline">
+        <div><b>Hamees Momin</b><br>Full-Stack Software Engineer | SaaS Product Builder | Cybersecurity Professional | Enterprise Application Developer<br>UAE-ready commercial SaaS product ecosystem</div>
+        <div>Request a private product demo<br>Prepared for investors, enterprise buyers, business owners, partners, and product demonstrations.</div>
       </div>
     </div>
   </section>
 
-  <section class="page">
-    <div class="sheet">
-      <div class="section">
-        <h2>Executive Summary</h2>
-        <p><strong>Documind</strong> is a commercial SaaS product built for businesses that need stronger visibility, workflow control, automation, reporting, and security without turning every improvement into a custom development project.</p>
-        <p>Make business documents searchable, reviewable, trackable, and renewal-ready.</p>
+  
+    <section class="page ">
+      <div class="page-mark">DM</div>
+      
+    <div class="section-title"><span class="eyebrow">60 second overview</span></div>
+    <h2>Built as a serious commercial product, not a demo dashboard.</h2>
+    <p class="lead">A company document brain for UAE records, contracts, licenses, renewals, compliance files, invoices, and approvals.</p>
+    <div class="grid-4">
+    <article class="stat">
+      <div>Compliance Score</div>
+      <strong>89</strong>
+      <span>Document health and renewal readiness</span>
+    </article>
+  
+    <article class="stat">
+      <div>Expiring Soon</div>
+      <strong>17</strong>
+      <span>Licenses, contracts, IDs, and records</span>
+    </article>
+  
+    <article class="stat">
+      <div>Review Backlog</div>
+      <strong>-46%</strong>
+      <span>AI classification and approval flow</span>
+    </article>
+  
+    <article class="stat">
+      <div>Search Time</div>
+      <strong>-80%</strong>
+      <span>Source-grounded Q&amp;A and metadata</span>
+    </article>
+  </div>
+    <div class="grid-2" style="margin-top:7mm">
+      <div class="callout">
+        <h3>Product overview</h3>
+        <p>Make company documents searchable, reviewable, renewal-ready, and useful for executive decisions. The platform supports standalone operations first, then expands through integrations, automation, API access, executive reporting, and enterprise governance.</p>
       </div>
-      <div class="grid section">
-        <div class="card">
-          <h3>Target Audience</h3>
-          <p>Business owners, operations managers, HR teams, finance departments, compliance officers, legal teams, and document-heavy UAE companies.</p>
-        </div>
-        <div class="card">
-          <h3>Business Outcome</h3>
-          <ul><li>Documents are uploaded, classified, searched, reviewed, and tracked in a secure workspace.</li><li>Owners see expiring documents, missing records, approval bottlenecks, and contract risk.</li><li>AI summarizes files, extracts key fields, and flags risky clauses or renewal deadlines.</li><li>The company gains a Document Compliance Score for executive visibility.</li></ul>
-        </div>
-      </div>
-      <div class="section">
-        <h2>Business Problems Solved</h2>
-        <div class="grid">
-          <div class="metric">Important contracts, trade licenses, IDs, invoices, HR files, and vendor documents are scattered across folders and inboxes.</div><div class="metric">Expired documents can create legal, compliance, or operational risk.</div><div class="metric">Manual document review is slow and difficult to audit.</div><div class="metric">Teams need AI help, but answers must stay grounded in uploaded business records.</div>
-        </div>
-      </div>
-      <div class="section">
-        <h2>What Makes It Enterprise-Ready</h2>
-        <div class="three">
-          <div class="card"><h3>Multi-Tenant SaaS</h3><p>Each customer gets a separate workspace with scoped users, settings, subscriptions, reports, integrations, and audit activity.</p></div>
-          <div class="card"><h3>Subscription Foundation</h3><p>Starter, Business, and Enterprise plans support feature gating, usage limits, billing events, and upgrade paths.</p></div>
-          <div class="card"><h3>Security First</h3><p>RBAC, audit trails, secure API keys, tenant isolation, retention policies, webhook verification, and enterprise SSO-ready structure.</p></div>
-        </div>
+      <div class="card">
+        <h3>Ideal customers</h3>
+        <p>Business owners, HR, finance, compliance, legal, operations, procurement, and document-heavy UAE companies.</p>
       </div>
     </div>
-    <div class="footer"><span>Documind</span><span>Executive Summary</span></div>
-  </section>
+    <div class="grid-2" style="margin-top:5mm">
+      <div class="card">
+        <h3>Revenue opportunities</h3>
+        <ul class="clean"><li>Reduce missed renewals, missing files, and contract blind spots.</li><li>Make business records searchable and auditable.</li><li>Give teams AI summaries, extracted fields, and approval workflows.</li><li>Turn documents into operational intelligence instead of passive storage.</li></ul>
+      </div>
+      <div class="card">
+        <h3>Competitive advantage</h3>
+        <ul class="clean"><li>UAE Document Intelligence</li><li>AI Risk Scoring</li><li>Document Knowledge Graph</li><li>Renewal Operations</li></ul>
+      </div>
+    </div>
+  
+      <footer>
+        <span>DocuMind</span>
+        <span>Executive Summary</span>
+      </footer>
+    </section>
+  
 
-  <section class="page">
-    <div class="sheet">
-      <h2>Core Product Modules</h2>
-      <p class="section">The product is organized around business workflows rather than isolated dashboard widgets. Each module exists to improve revenue, productivity, visibility, security, automation, or executive decision making.</p>
-      <div class="grid">
+  
+    <section class="page ">
+      <div class="page-mark">DM</div>
+      
+    <div class="section-title"><span class="eyebrow">Investor perspective</span></div>
+    <h2>Market opportunity and why businesses will buy this.</h2>
+    <p class="lead">The buying case is not just software convenience. The product converts operational friction into visibility, automation, accountability, and measurable business outcomes.</p>
+    <div class="grid-3">
+      <div class="card"><h3>Market signal</h3><p>Companies lose time and risk compliance issues because critical records live in inboxes, folders, drives, and manual trackers.</p></div><div class="card"><h3>Market signal</h3><p>UAE businesses manage trade licenses, IDs, tenancy contracts, VAT files, HR records, vendor files, and contracts with frequent renewals.</p></div><div class="card"><h3>Market signal</h3><p>Executives need document risk visibility without reading every contract or chasing every department.</p></div>
+    </div>
+    <div class="grid-2" style="margin-top:6mm">
+      <div>
+        <h3 style="margin-bottom:3mm">Business value drivers</h3>
+        <ul class="clean"><li>Reduce missed renewals, missing files, and contract blind spots.</li><li>Make business records searchable and auditable.</li><li>Give teams AI summaries, extracted fields, and approval workflows.</li><li>Turn documents into operational intelligence instead of passive storage.</li></ul>
+      </div>
+      
+    <div class="mockup">
+      <div class="mock-top">
+        <div>
+          <span class="mock-kicker">Executive dashboard</span>
+          <strong>Document Compliance Score</strong>
+        </div>
+        <span class="score">89</span>
+      </div>
+      <div class="mock-grid">
         
+          <div class="mock-card">
+            <span>Library</span>
+            <strong>17</strong>
+            <i style="width:72%"></i>
+          </div>
+        
+          <div class="mock-card">
+            <span>Risks</span>
+            <strong>-46%</strong>
+            <i style="width:63%"></i>
+          </div>
+        
+          <div class="mock-card">
+            <span>Renewals</span>
+            <strong>-80%</strong>
+            <i style="width:54%"></i>
+          </div>
+        
+          <div class="mock-card">
+            <span>Approvals</span>
+            <strong>Live</strong>
+            <i style="width:45%"></i>
+          </div>
+        
+      </div>
+      <div class="chart">
+        <span style="height:36%"></span>
+        <span style="height:58%"></span>
+        <span style="height:44%"></span>
+        <span style="height:72%"></span>
+        <span style="height:63%"></span>
+        <span style="height:82%"></span>
+        <span style="height:76%"></span>
+      </div>
+      <div class="insight">
+        <b>AI recommendation</b>
+        <p>Reduce missed renewals, missing files, and contract blind spots. Make business records searchable and auditable.</p>
+      </div>
+    </div>
+  
+    </div>
+  
+      <footer>
+        <span>DocuMind</span>
+        <span>Market Opportunity</span>
+      </footer>
+    </section>
+  
+
+  
+    <section class="page ">
+      <div class="page-mark">DM</div>
+      
+    <div class="section-title"><span class="eyebrow">AI-native product design</span></div>
+    <h2>AI is embedded inside the workflow, not bolted on as a generic chatbot.</h2>
+    <p class="lead">DocuMind uses AI to explain data, recommend next actions, summarize activity, trigger workflows, and produce management-ready reporting.</p>
+    <div class="grid-2">
+    <article class="feature-card">
+      <h3>UAE Document Intelligence</h3>
+      <p>Emirates ID, trade license, VAT certificate, tenancy contract, RERA documents, invoices, contracts, HR, and supplier files.</p>
+      <div class="feature-meta">
+        <span>Business value</span>
+        <span>AI-native</span>
+        <span>ROI impact</span>
+      </div>
+    </article>
+  
+    <article class="feature-card">
+      <h3>AI Risk Scoring</h3>
+      <p>Flags missing information, expiry risk, compliance risk, duplicates, contract risk, and required action.</p>
+      <div class="feature-meta">
+        <span>Business value</span>
+        <span>AI-native</span>
+        <span>ROI impact</span>
+      </div>
+    </article>
+  
+    <article class="feature-card">
+      <h3>Document Knowledge Graph</h3>
+      <p>Connects companies, employees, contracts, suppliers, invoices, obligations, ownership, and expiry dates.</p>
+      <div class="feature-meta">
+        <span>Business value</span>
+        <span>AI-native</span>
+        <span>ROI impact</span>
+      </div>
+    </article>
+  
+    <article class="feature-card">
+      <h3>Renewal Operations</h3>
+      <p>License expiry alerts, contract reminders, payment obligations, missing document alerts, and compliance checklists.</p>
+      <div class="feature-meta">
+        <span>Business value</span>
+        <span>AI-native</span>
+        <span>ROI impact</span>
+      </div>
+    </article>
+  </div>
+  
+      <footer>
+        <span>DocuMind</span>
+        <span>AI Differentiation</span>
+      </footer>
+    </section>
+  
+
+  
+    <section class="page ">
+      <div class="page-mark">DM</div>
+      
+    <div class="section-title"><span class="eyebrow">Product architecture</span></div>
+    <h2>Core modules focused on outcomes.</h2>
+    <p class="lead">Each module exists to improve revenue, productivity, visibility, security, automation, or executive decision making.</p>
+    <div class="grid-3">
     <article class="module">
+      <span class="mini-icon">SU</span>
       <h3>Secure Upload Flow</h3>
-      <p>Upload documents with validation, categories, owners, folders, tags, and review status.</p>
+      <p>Upload documents with categories, owners, folders, tags, validation, and review status.</p>
     </article>
   
     <article class="module">
-      <h3>OCR & Classification</h3>
-      <p>OCR-ready pipeline for invoices, contracts, IDs, licenses, tenancy agreements, HR files, and compliance records.</p>
+      <span class="mini-icon">O&amp;</span>
+      <h3>OCR &amp; Classification</h3>
+      <p>OCR-ready pipeline for contracts, licenses, IDs, invoices, HR files, and compliance records.</p>
     </article>
   
     <article class="module">
-      <h3>AI Extraction & Summaries</h3>
-      <p>Extract dates, parties, amounts, renewal terms, obligations, and key clauses.</p>
+      <span class="mini-icon">AE</span>
+      <h3>AI Extraction</h3>
+      <p>Extract dates, parties, amounts, renewal terms, obligations, risky clauses, and required actions.</p>
     </article>
   
     <article class="module">
-      <h3>Expiry & Renewal Tracking</h3>
-      <p>Detect expiring documents and create reminders before business risk appears.</p>
+      <span class="mini-icon">ET</span>
+      <h3>Expiry Tracking</h3>
+      <p>Detect expiring records and create reminders before business risk appears.</p>
     </article>
   
     <article class="module">
-      <h3>Approval Workflow</h3>
-      <p>Route documents to reviewers with status, comments, and audit trail.</p>
+      <span class="mini-icon">KG</span>
+      <h3>Knowledge Graph</h3>
+      <p>Connect records across companies, employees, suppliers, invoices, contracts, and obligations.</p>
     </article>
   
     <article class="module">
-      <h3>Source-Grounded Search</h3>
-      <p>Search business records and ask questions against uploaded documents.</p>
+      <span class="mini-icon">SQ</span>
+      <h3>Source-Grounded Q&amp;A</h3>
+      <p>Ask questions against uploaded documents with business context and auditability.</p>
     </article>
+  </div>
   
+      <footer>
+        <span>DocuMind</span>
+        <span>Core Modules</span>
+      </footer>
+    </section>
+  
+
+  
+    <section class="page ">
+      <div class="page-mark">DM</div>
+      
+    <div class="section-title"><span class="eyebrow">Operating model</span></div>
+    <h2>From daily work to executive visibility.</h2>
+    <p class="lead">The customer can start with standalone mode and later connect external systems. Integrations enhance the workflow but are not required for basic operations.</p>
+    <div class="flow">
+    <div class="flow-step">
+      <span>01</span>
+      <strong>Document uploaded</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>02</span>
+      <strong>AI classifies file</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>03</span>
+      <strong>Fields extracted</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>04</span>
+      <strong>Risk scored</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>05</span>
+      <strong>Reviewer approves</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>06</span>
+      <strong>Renewal task created</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>07</span>
+      <strong>Executive dashboard updated</strong>
+    </div>
+  </div>
+    <div class="grid-2">
+      <div class="callout">
+        <h3>Standalone mode</h3>
+        <p>Manual records, demo data, dashboards, reports, guided onboarding, roles, audit activity, and product-specific workflows are usable immediately.</p>
+      </div>
+      <div class="callout">
+        <h3>Integrated mode</h3>
+        <p>Integration Studio adds marketplace connectors, OAuth apps, API keys, webhooks, event triggers, integration logs, and data mapping.</p>
       </div>
     </div>
-    <div class="footer"><span>Documind</span><span>Core Modules</span></div>
-  </section>
+    <div class="grid-4" style="margin-top:5mm">
+      <div class="card"><h3>Customer pays</h3><p>Checkout begins subscription setup.</p></div>
+      <div class="card"><h3>Workspace created</h3><p>Tenant data is scoped and isolated.</p></div>
+      <div class="card"><h3>Roles created</h3><p>Owner, Admin, Manager, Analyst, Agent, Viewer.</p></div>
+      <div class="card"><h3>Onboarding starts</h3><p>Demo data and guided setup reduce time to value.</p></div>
+    </div>
+  
+      <footer>
+        <span>DocuMind</span>
+        <span>Workflow</span>
+      </footer>
+    </section>
+  
 
-  <section class="page">
-    <div class="sheet">
-      <h2>How The Workflow Works</h2>
-      <p class="section">The customer can start in standalone mode with manual records and demo data, then add integrations when the business is ready. Integrations enhance the workflow but are not required for daily use.</p>
-      <ol class="workflow"><li>User uploads contract, license, invoice, ID, or compliance document.</li><li>Documind classifies the file and prepares OCR/extraction metadata.</li><li>AI summarizes the document and highlights important fields or risks.</li><li>Reviewer approves, requests changes, archives, or assigns owner.</li><li>Renewal reminders and document timelines keep the record alive.</li><li>Executives review compliance score, backlog, missing documents, and renewal forecast.</li></ol>
-      <div class="grid section">
-        <div class="callout">
-          <h3 style="color:#fff">Standalone Mode</h3>
-          <p>Use the product immediately with manual records, internal users, dashboards, reports, demo data, onboarding, and built-in workflows.</p>
+  
+    <section class="page ">
+      <div class="page-mark">DM</div>
+      
+    <div class="section-title"><span class="eyebrow">Management view</span></div>
+    <h2>Document Compliance Score and executive reporting.</h2>
+    <p class="lead">The score is designed to be understood in under 30 seconds and used in dashboards, monthly summaries, scheduled reports, AI summaries, and investor or owner conversations.</p>
+    <div class="grid-2">
+      
+    <div class="mockup">
+      <div class="mock-top">
+        <div>
+          <span class="mock-kicker">Executive dashboard</span>
+          <strong>Document Compliance Score</strong>
         </div>
-        <div class="callout">
-          <h3 style="color:#fff">Integrated Mode</h3>
-          <p>Connect external systems through Integration Studio, API keys, OAuth apps, webhooks, data mapping, workflow triggers, and integration logs.</p>
-        </div>
+        <span class="score">89</span>
       </div>
-      <h2>Tenant Provisioning</h2>
-      <div class="grid">
-        <div class="card"><h3>Customer Pays</h3><p>Checkout starts the subscription flow. Paid features are unlocked only after verified backend payment confirmation.</p></div>
-        <div class="card"><h3>Workspace Created</h3><p>The tenant workspace is created with product-specific settings and isolated customer data scope.</p></div>
-        <div class="card"><h3>Roles Created</h3><p>Owner, Admin, Manager, Analyst, Agent, and Viewer access patterns are prepared for the customer team.</p></div>
-        <div class="card"><h3>Onboarding Starts</h3><p>Demo data loads, subscription activates, and the guided onboarding checklist helps users reach value quickly.</p></div>
+      <div class="mock-grid">
+        
+          <div class="mock-card">
+            <span>Library</span>
+            <strong>17</strong>
+            <i style="width:72%"></i>
+          </div>
+        
+          <div class="mock-card">
+            <span>Risks</span>
+            <strong>-46%</strong>
+            <i style="width:63%"></i>
+          </div>
+        
+          <div class="mock-card">
+            <span>Renewals</span>
+            <strong>-80%</strong>
+            <i style="width:54%"></i>
+          </div>
+        
+          <div class="mock-card">
+            <span>Approvals</span>
+            <strong>Live</strong>
+            <i style="width:45%"></i>
+          </div>
+        
+      </div>
+      <div class="chart">
+        <span style="height:36%"></span>
+        <span style="height:58%"></span>
+        <span style="height:44%"></span>
+        <span style="height:72%"></span>
+        <span style="height:63%"></span>
+        <span style="height:82%"></span>
+        <span style="height:76%"></span>
+      </div>
+      <div class="insight">
+        <b>AI recommendation</b>
+        <p>Reduce missed renewals, missing files, and contract blind spots. Make business records searchable and auditable.</p>
       </div>
     </div>
-    <div class="footer"><span>Documind</span><span>Workflow & Provisioning</span></div>
-  </section>
-
-  <section class="page">
-    <div class="sheet">
-      <h2>Executive Dashboard & Health Score</h2>
-      <p>The executive dashboard is designed for owners and management to understand the business condition quickly. It separates daily operational work from leadership-level decisions.</p>
-      <div class="section callout">
-        <h3 style="color:#fff">Document Compliance Score</h3>
-        <p>Green: 80-100. Yellow: 60-79. Red: 0-59. The score appears in dashboards, reports, monthly summaries, email report structure, and AI summaries.</p>
-      </div>
-      <div class="grid section">
+  
+      <div class="stack">
         <div class="card">
-          <h3>Score Factors</h3>
-          <ul><li>Expired documents</li><li>Missing documents</li><li>Approval completion rate</li><li>Processing backlog</li><li>OCR confidence</li><li>Contract review completion</li><li>Renewal readiness</li></ul>
+          <h3>Score inputs</h3>
+          <ul class="clean"><li>Expired documents</li><li>Missing documents</li><li>Approval completion</li><li>Processing backlog</li><li>OCR confidence</li><li>Contract review completion</li><li>Renewal readiness</li></ul>
         </div>
         <div class="card">
           <h3>Executive KPIs</h3>
-          <ul><li>Documents Expiring Soon</li><li>Missing Documentation</li><li>Approval Bottlenecks</li><li>Contract Risk Summary</li><li>Renewal Forecast</li><li>AI Recommendations</li></ul>
+          <ul class="clean"><li>Expiring soon</li><li>Missing documentation</li><li>Approval bottlenecks</li><li>Contract risk summary</li><li>Renewal forecast</li><li>AI recommendations</li></ul>
         </div>
       </div>
-      <h2>AI Copilot</h2>
-      <p>The AI assistant is contextual to Documind. It supports summaries, recommendations, risk signals, reporting assistance, and next actions inside the product workflow rather than acting as a generic chatbot.</p>
     </div>
-    <div class="footer"><span>Documind</span><span>Executive Intelligence</span></div>
-  </section>
+  
+      <footer>
+        <span>DocuMind</span>
+        <span>Executive Intelligence</span>
+      </footer>
+    </section>
+  
 
-  <section class="page">
-    <div class="sheet">
-      <h2>Integration Studio</h2>
-      <p>Integration Studio gives admins one place to manage external systems, API access, webhooks, logs, event triggers, and data mapping.</p>
-      <div class="grid section">
-        <div class="card"><h3>Marketplace</h3><p>Browse available CRM, ERP, SIEM, storage, email, workspace, automation, and custom API connectors.</p></div>
-        <div class="card"><h3>Data Mapping</h3><p>Map external fields into product fields, such as CRM <code>first_name</code> to an internal customer field, reducing integration pain.</p></div>
-        <div class="card"><h3>Webhook Builder</h3><p>Create outbound event notifications with delivery logs, retry visibility, and signature-ready architecture.</p></div>
-        <div class="card"><h3>API Key Management</h3><p>Generate scoped API keys, monitor usage, rotate keys, and revoke access when needed.</p></div>
+  
+    <section class="page ">
+      <div class="page-mark">DM</div>
+      
+    <div class="section-title"><span class="eyebrow">Enterprise integration layer</span></div>
+    <h2>Marketplace, API framework, webhooks, OAuth, logs, and data mapping.</h2>
+    <p class="lead">Data mapping is treated as a first-class capability so companies can map external fields, such as <code>first_name</code>, into product-specific fields without painful custom work.</p>
+    <div class="grid-2">
+      
+    <div class="architecture">
+      <div class="arch-node">Customer workspace</div>
+      <div class="arch-row">
+        <div class="arch-node">Operational modules</div>
+        <div class="arch-node">AI copilot</div>
+        <div class="arch-node">Executive dashboard</div>
       </div>
-      <h2>Supported Integration Categories</h2>
-      <div class="badge-row"><span class="badge">Google Drive</span><span class="badge">SharePoint</span><span class="badge">OneDrive</span><span class="badge">Dropbox-ready structure</span><span class="badge">CRM</span><span class="badge">ERP</span><span class="badge">HR Systems</span><span class="badge">Email Ingestion</span><span class="badge">Custom API</span></div>
-      <div class="section"></div>
-      <h2>Enterprise Controls</h2>
-      <div class="three">
-        <div class="card"><h3>SSO Ready</h3><p>Enterprise tier structure for SAML, Azure AD, Microsoft Entra, Google Workspace, and Okta.</p></div>
-        <div class="card"><h3>Audit Center</h3><p>Track who changed what, when, from where, and previous/new values for sensitive actions.</p></div>
-        <div class="card"><h3>Retention Policies</h3><p>Support for 30-day, 90-day, 1-year, and custom retention, archive, and backup policies.</p></div>
+      <div class="arch-row">
+        <div class="arch-node">Integration Studio</div>
+        <div class="arch-node">Workflow engine</div>
+        <div class="arch-node">Audit Center</div>
       </div>
+      <div class="arch-row">
+        <div class="arch-node">API keys</div>
+        <div class="arch-node">Webhooks</div>
+        <div class="arch-node">Data mapping</div>
+      </div>
+      <div class="arch-footer">Google Drive | SharePoint | OneDrive | Dropbox-ready | CRM | ERP</div>
     </div>
-    <div class="footer"><span>Documind</span><span>Integrations & Controls</span></div>
-  </section>
-
-  <section class="page">
-    <div class="sheet">
-      <h2>Subscription Tiers</h2>
-      <p class="section">The product supports a growth path from small business use to enterprise deployment without changing the core architecture.</p>
-      <div class="grid">
-        
-    <article class="tier">
-      <h3>Starter</h3>
-      <p>Document upload, OCR-ready flow, classification, AI summaries, search, approval workflow, Document Compliance Score, Executive Dashboard Lite.</p>
-    </article>
   
-    <article class="tier">
-      <h3>Business</h3>
-      <p>Google Drive, SharePoint, expiry reminders, contract analysis, bulk processing, API access, scheduled reports.</p>
-    </article>
-  
-    <article class="tier">
-      <h3>Enterprise</h3>
-      <p>ERP/HR integrations, custom document models, redaction workflow-ready structure, white label, multi-department workspaces, advanced compliance reporting.</p>
-    </article>
-  
-      </div>
-      <div class="section"></div>
-      <h2>Why Owners Care</h2>
-      <div class="grid">
-        <div class="metric">Revenue: clearer conversion, fewer missed actions, better follow-up, stronger reporting.</div>
-        <div class="metric">Productivity: teams work from one system instead of scattered files, chats, and spreadsheets.</div>
-        <div class="metric">Visibility: executives see KPIs, risks, forecasts, health scores, and recommendations.</div>
-        <div class="metric">Security: tenant isolation, RBAC, audit trails, API controls, and enterprise policies.</div>
+      <div class="stack">
+        <div class="card"><h3>API rate management</h3><p>Requests today, monthly requests, top endpoints, rate limit status, and webhook success rate.</p></div>
+        <div class="card"><h3>Audit Trail System</h3><p>Who changed what, when, from where, previous value, and new value across sensitive business actions.</p></div>
+        <div class="card"><h3>Enterprise controls</h3><p>SAML-ready, Azure AD, Microsoft Entra, Google Workspace SSO, Okta, retention, archive, and backup policy structure.</p></div>
       </div>
     </div>
-    <div class="footer"><span>Documind</span><span>Commercial Model</span></div>
-  </section>
+    <div class="badge-row" style="margin-top:5mm"><span class="badge">Google Drive</span><span class="badge">SharePoint</span><span class="badge">OneDrive</span><span class="badge">Dropbox-ready</span><span class="badge">CRM</span><span class="badge">ERP</span><span class="badge">HR Systems</span><span class="badge">Email Ingestion</span><span class="badge">Custom API</span></div>
+  
+      <footer>
+        <span>DocuMind</span>
+        <span>Integration Studio</span>
+      </footer>
+    </section>
+  
 
-  <section class="page">
-    <div class="sheet">
-      <h2>Demo Agenda For Company Owners</h2>
-      <p>This agenda keeps the product demo focused on business value, not just screens.</p>
-      <ol class="workflow"><li>Upload sample contract</li><li>Show summary and extracted fields</li><li>Review expiry reminder</li><li>Approve document</li><li>Ask AI a grounded question</li><li>Show compliance score</li><li>Show storage integration mapping</li></ol>
-      <div class="section"></div>
-      <h2>Implementation Discussion</h2>
-      <div class="grid">
-        <div class="card"><h3>Day 1</h3><p>Create workspace, invite users, enable demo data, review dashboard, and confirm business workflow.</p></div>
-        <div class="card"><h3>Week 1</h3><p>Configure roles, reports, onboarding, key workflows, import initial records, and validate security settings.</p></div>
-        <div class="card"><h3>Weeks 2-4</h3><p>Connect priority integrations, data mapping, webhooks, scheduled reports, and executive views.</p></div>
-        <div class="card"><h3>Enterprise Phase</h3><p>SSO, white label, custom domain, custom reporting, retention policies, integration logs, and advanced automation.</p></div>
+  
+    <section class="page ">
+      <div class="page-mark">DM</div>
+      
+    <div class="section-title"><span class="eyebrow">Pricing architecture</span></div>
+    <h2>Subscription path from small business to enterprise.</h2>
+    <p class="lead">The tier model supports simple adoption, professional operations, advanced integrations, and enterprise security without requiring a major redesign.</p>
+    <div class="grid-3">
+      
+        <div class="tier">
+          <strong>Starter</strong>
+          <em>Core document teams</em>
+          <div class="tier-features"><span>Document upload</span><span>OCR-ready flow</span><span>Classification</span><span>AI summaries</span><span>Search</span><span>Approval workflow</span><span>Compliance Score</span></div>
+        </div>
+      
+        <div class="tier">
+          <strong>Business</strong>
+          <em>Department operations</em>
+          <div class="tier-features"><span>Drive integrations</span><span>SharePoint</span><span>Expiry reminders</span><span>Contract analysis</span><span>Bulk processing</span><span>API access</span></div>
+        </div>
+      
+        <div class="tier">
+          <strong>Enterprise</strong>
+          <em>Multi-department governance</em>
+          <div class="tier-features"><span>ERP/HR integrations</span><span>Custom models</span><span>Redaction workflows</span><span>White label</span><span>Advanced compliance reporting</span></div>
+        </div>
+      
+    </div>
+    <div style="margin-top:5mm">
+      <table>
+        <thead>
+          <tr><th>Capability</th><th>Starter</th><th>Business</th><th>Enterprise</th></tr>
+        </thead>
+        <tbody>
+    <tr>
+      <th>Best fit</th>
+      <td>Core document teams</td>
+      <td>Department operations</td>
+      <td>Multi-department governance</td>
+    </tr>
+  
+    <tr>
+      <th>AI features</th>
+      <td>AI summaries</td>
+      <td>Advanced AI insights</td>
+      <td>Advanced AI, custom reporting, and executive intelligence</td>
+    </tr>
+  
+    <tr>
+      <th>Integrations</th>
+      <td>Manual and core product setup</td>
+      <td>API access, webhooks, and priority integrations</td>
+      <td>Custom integrations, SSO-ready, white label, and enterprise governance</td>
+    </tr>
+  
+    <tr>
+      <th>Reporting</th>
+      <td>Executive Dashboard Lite</td>
+      <td>Scheduled reports and advanced analytics</td>
+      <td>Board-ready reports, custom reports, and enterprise executive suite</td>
+    </tr>
+  
+    <tr>
+      <th>Security</th>
+      <td>RBAC and tenant isolation</td>
+      <td>Audit logs, usage limits, and integration controls</td>
+      <td>SSO-ready, retention policies, advanced audit center, and custom security controls</td>
+    </tr>
+  </tbody>
+      </table>
+    </div>
+  
+      <footer>
+        <span>DocuMind</span>
+        <span>Commercial Model</span>
+      </footer>
+    </section>
+  
+
+  
+    <section class="page ">
+      <div class="page-mark">DM</div>
+      
+    <div class="section-title"><span class="eyebrow">Enterprise readiness</span></div>
+    <h2>Designed to scale beyond a single customer demo.</h2>
+    <p class="lead">The product foundation supports tenant provisioning, role-based operations, secure integrations, workflow automation, reporting, white label readiness, and customer success systems.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Scalability</h3>
+        <ul class="clean">
+          <li>Multi-tenant company workspaces</li>
+          <li>Scoped data access by customer workspace</li>
+          <li>Usage limits and feature gating</li>
+          <li>Scheduled reports and executive exports</li>
+          <li>API and webhook extension layer</li>
+        </ul>
       </div>
-      <div class="section"></div>
+      <div class="card">
+        <h3>Future expansion potential</h3>
+        <ul class="clean"><li>Arabic/English contract intelligence</li><li>Advanced redaction workflows</li><li>Procurement document matching</li><li>Department-level compliance maps</li><li>Custom extraction models</li></ul>
+      </div>
+    </div>
+    <div class="grid-3" style="margin-top:5mm">
+      <div class="card"><h3>Customer Success Center</h3><p>Knowledge base, guides, release notes, support tickets, feature requests, and product updates.</p></div>
+      <div class="card"><h3>Enterprise Readiness Score</h3><p>Admin-only score for security, integrations, automation, reporting, data quality, and user adoption.</p></div>
+      <div class="card"><h3>Notification Engine</h3><p>Email, WhatsApp, SMS, webhook, Slack, Microsoft Teams, and in-app notification structure.</p></div>
+    </div>
+  
+      <footer>
+        <span>DocuMind</span>
+        <span>Scalability &amp; Expansion</span>
+      </footer>
+    </section>
+  
+
+  
+    <section class="page ">
+      <div class="page-mark">DM</div>
+      
+    <div class="section-title"><span class="eyebrow">Presentation-ready walkthrough</span></div>
+    <h2>Demo flow for owners, investors, partners, and enterprise buyers.</h2>
+    <p class="lead">The demo should focus on business outcomes first, then show product depth, integrations, automation, and executive reporting.</p>
+    <div class="flow">
+    <div class="flow-step">
+      <span>01</span>
+      <strong>Upload a sample contract</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>02</span>
+      <strong>Show extracted fields and summary</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>03</span>
+      <strong>Review AI risk score</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>04</span>
+      <strong>Open knowledge graph</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>05</span>
+      <strong>Ask renewal question</strong>
+    </div>
+  
+    <div class="flow-step">
+      <span>06</span>
+      <strong>Show Compliance Score and report</strong>
+    </div>
+  </div>
+    <div class="grid-2">
       <div class="callout">
-        <h3 style="color:#fff">Positioning Statement</h3>
-        <p>Documind is positioned as a commercial SaaS product for real business operations, with standalone use, integration-ready architecture, subscription tiers, executive dashboards, health scoring, AI assistance, and security-first design.</p>
+        <h3>Buyer message</h3>
+        <p>DocuMind is a commercial SaaS product that can operate standalone, integrate with existing systems, support subscriptions, enforce security, and deliver executive-level visibility.</p>
+      </div>
+      <div class="card">
+        <h3>Next step</h3>
+        <p>Run a private demo using realistic business data, show the executive dashboard, explain the health score, and finish with Integration Studio plus enterprise controls.</p>
       </div>
     </div>
-    <div class="footer"><span>Documind</span><span>Demo & Rollout</span></div>
-  </section>
+    <div class="grid-4" style="margin-top:5mm">
+      <div class="stat"><div>Build</div><strong>SaaS</strong><span>Commercial architecture</span></div>
+      <div class="stat"><div>Security</div><strong>RBAC</strong><span>Audit and isolation</span></div>
+      <div class="stat"><div>AI</div><strong>Native</strong><span>Workflow recommendations</span></div>
+      <div class="stat"><div>Scale</div><strong>API</strong><span>Integrations and webhooks</span></div>
+    </div>
+  
+      <footer>
+        <span>DocuMind</span>
+        <span>Demo Agenda</span>
+      </footer>
+    </section>
+  
 </body>
 </html>
