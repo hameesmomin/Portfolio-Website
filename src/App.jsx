@@ -79,8 +79,11 @@ const productDemos = [
     healthScore: "Revenue Operations Health Score",
     executiveKpis: ["Pipeline Value", "Active Leads", "Lead Conversion Rate", "Team Performance", "Revenue Forecast"],
     businessValue: "Protects paid leads, shortens response time, improves agent accountability, and gives owners a clear view of revenue follow-up.",
-    standaloneMode: "Manual lead intake, shared inbox workflow, agent assignment, lifecycle stages, follow-up calendar, AI summaries, and business reporting.",
-    integratedMode: "WhatsApp Business API, website forms, HubSpot, Zoho CRM, Salesforce, Pipedrive, Google Sheets, Zapier, Make, n8n, and custom CRM APIs.",
+    standaloneMode: "Manual lead intake, contact management, CRM pipeline, agent assignment, lifecycle stages, follow-up calendar, internal notes, message templates, local AI-style reply suggestions, demo conversations, and business reporting.",
+    integratedMode: "Optional WhatsApp Business API, website forms, HubSpot, Zoho CRM, Salesforce, Pipedrive, Google Sheets, Zapier, Make, n8n, and custom CRM APIs.",
+    coreFeatures: ["Manual lead creation", "Contact timeline", "CRM pipeline", "Deal stages", "Team assignment", "Follow-up tasks", "Message templates", "Demo WhatsApp simulation"],
+    optionalIntegrations: ["Meta WhatsApp Business API", "Website forms", "External CRM sync", "AI provider", "Zapier/Make/n8n", "Custom webhooks"],
+    integrationFallback: "If WhatsApp is not connected, teams use Manual mode to create leads, log conversations, copy templates, and run reports from internal CRM data.",
     securityMeasures: ["Tenant-scoped data", "RBAC", "Audit logs", "Encrypted provider tokens", "Rate-limited APIs"],
     subscriptionModel: "Starter for small teams, Business for CRM/API automation, Enterprise for SSO-ready controls, white-label, and custom CRM connectors.",
     apiFramework: "Scoped REST API for leads, conversations, messages, website intake, CRM pipeline sync, signed webhooks, and integration logs.",
@@ -114,8 +117,11 @@ const productDemos = [
     healthScore: "Document Compliance Score",
     executiveKpis: ["Documents Expiring Soon", "Missing Documentation", "Approval Bottlenecks", "Contract Risk", "Renewal Forecast"],
     businessValue: "Reduces fines, missed renewals, document confusion, and time lost searching across inboxes, drives, and folders.",
-    standaloneMode: "Secure uploads, document classification, metadata extraction, expiry tracking, review queues, approvals, search, and reports.",
-    integratedMode: "Google Drive, SharePoint, OneDrive, Dropbox-ready storage, CRM, ERP, HR systems, email ingestion, and custom document APIs.",
+    standaloneMode: "Secure uploads, categories, tags, search, manual metadata entry, expiry tracking, document status, notes, audit logs, review queues, approvals, demo UAE business documents, and reports.",
+    integratedMode: "Optional OCR, Google Drive, SharePoint, OneDrive, Dropbox-ready storage, CRM, ERP, HR systems, email ingestion, and custom document APIs.",
+    coreFeatures: ["Manual document upload", "Categories and tags", "Manual metadata", "Expiry tracking", "Review queue", "Document notes", "Audit logs", "Demo UAE documents"],
+    optionalIntegrations: ["OCR provider", "Google Drive", "SharePoint", "Microsoft 365", "Email ingestion", "API/webhooks"],
+    integrationFallback: "If OCR is not connected, users enter metadata manually and can review demo extracted fields without broken extraction flows.",
     securityMeasures: ["Private storage", "Signed downloads", "RBAC", "Audit trail", "Tenant isolation"],
     subscriptionModel: "Starter for document control, Business for bulk upload and integrations, Enterprise for SSO-ready retention and advanced audit controls.",
     apiFramework: "Scoped document API for uploads, metadata, expiry alerts, AI queries, folder/tag records, signed downloads, webhooks, and integration logs.",
@@ -149,8 +155,11 @@ const productDemos = [
     healthScore: "Project Health Score",
     executiveKpis: ["Budget Performance", "Timeline Performance", "Delay Risks", "Contractor Rankings", "Safety Overview"],
     businessValue: "Turns scattered field updates into accountable records, reducing disputes, delays, reporting friction, and management blind spots.",
-    standaloneMode: "Projects, site reports, snags, materials, attendance, approvals, photos, safety issues, contractor scoring, and PDF-ready reports.",
-    integratedMode: "ERP, procurement tools, accounting systems, real estate CRM, document storage, email, custom APIs, and webhooks.",
+    standaloneMode: "Project creation, daily site reports, snags, materials, safety observations, contractor management, budget tracking, task assignment, approvals, photos/files, dashboards, and reports.",
+    integratedMode: "Optional Autodesk, Procore, ERP, procurement tools, accounting systems, real estate CRM, document storage, email, custom APIs, and webhooks.",
+    coreFeatures: ["Project creation", "Daily reports", "Snag tracking", "Material tracking", "Safety observations", "Contractors", "Budget tracking", "Photo/file uploads"],
+    optionalIntegrations: ["Autodesk", "Procore", "ERP", "Accounting software", "Email notifications", "API/webhooks"],
+    integrationFallback: "If construction systems are not connected, all site workflows still work manually inside SiteFlow with internal project records.",
     securityMeasures: ["Company-scoped projects", "Role permissions", "Audit logs", "Private uploads", "Rate-limited imports"],
     subscriptionModel: "Starter for small project teams, Business for approvals and advanced reports, Enterprise for ERP integrations and on-premise-ready deployments.",
     apiFramework: "Scoped project API for projects, daily reports, snags, materials, attendance, approvals, contractors, signed webhooks, and integration logs.",
@@ -184,8 +193,11 @@ const productDemos = [
     healthScore: "Security Posture Score",
     executiveKpis: ["Compliance Status", "Open Risks", "Critical Vulnerabilities", "Incident Trends", "Board-Level Report"],
     businessValue: "Helps businesses see risks, prove security work, prepare for audits, and explain technical exposure in executive language.",
-    standaloneMode: "Asset inventory, vulnerability register, incident timeline, risk scoring, evidence locker, controls, remediation tasks, and reports.",
-    integratedMode: "Splunk, Wazuh, Microsoft Sentinel, Elastic SIEM, QRadar, generic syslog/API ingestion, email alerts, and custom webhooks.",
+    standaloneMode: "Asset inventory, risk register, compliance controls, incident tracking, security tasks, evidence uploads, policy library, executive dashboard, audit logs, and internal risk scoring.",
+    integratedMode: "Optional Microsoft Defender, Google Workspace, AWS, Cloudflare, SIEM tools, endpoint protection tools, email alerts, and custom webhooks.",
+    coreFeatures: ["Asset inventory", "Risk register", "Compliance controls", "Incident tracking", "Evidence vault", "Policy library", "Executive dashboard", "Internal risk scoring"],
+    optionalIntegrations: ["Microsoft Defender", "Google Workspace", "AWS", "Cloudflare", "SIEM tools", "Endpoint protection"],
+    integrationFallback: "If no provider is connected, SecureOps stays in manual security posture mode with defensive records, evidence, reports, and compliance tracking.",
     securityMeasures: ["RBAC", "Audit logs", "Private evidence", "Defensive AI guardrails", "Signed report access"],
     subscriptionModel: "Starter for readiness tracking, Business for incident/compliance reports, Enterprise for SIEM connectors and board reporting.",
     apiFramework: "Scoped security API for assets, risks, vulnerabilities, incidents, evidence, reports, webhook ingestion, and integration logs.",
@@ -1140,6 +1152,7 @@ function ProductPage({ product }) {
         <section className="section">
           <div className="container">
             <ProductCaseStudy product={product} />
+            <StandaloneIntegrationSection product={product} />
             <div className="product-detail-matrix" data-reveal>
               {[
                 ["Product Overview", product.description],
@@ -1182,6 +1195,33 @@ function ProductPage({ product }) {
       </main>
       <Footer />
     </>
+  );
+}
+
+function StandaloneIntegrationSection({ product }) {
+  return (
+    <section className="standalone-integration-panel" data-reveal>
+      <div className="standalone-copy">
+        <span className="section-kicker">STANDALONE FIRST</span>
+        <h2>Usable from day one, even with no third-party integrations connected.</h2>
+        <p>{product.standaloneMode}</p>
+        <div className="mode-chip-grid">
+          {product.coreFeatures.map((feature) => <span key={feature}>{feature}</span>)}
+        </div>
+      </div>
+      <div className="integration-copy">
+        <span className="section-kicker">OPTIONAL ENTERPRISE INTEGRATIONS</span>
+        <h2>Connect providers later when the business is ready to scale.</h2>
+        <p>{product.integratedMode}</p>
+        <div className="mode-chip-grid">
+          {product.optionalIntegrations.map((integration) => <span key={integration}>{integration}</span>)}
+        </div>
+        <div className="fallback-note">
+          <strong>Graceful fallback</strong>
+          <p>{product.integrationFallback}</p>
+        </div>
+      </div>
+    </section>
   );
 }
 
