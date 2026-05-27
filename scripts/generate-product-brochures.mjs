@@ -276,6 +276,37 @@ const products = [
   },
 ];
 
+const implementationStatus = {
+  'aura-command': [
+    ['Implemented', 'Standalone revenue CRM', 'Manual lead creation, contact management, shared inbox workflow, pipeline stages, team assignment, follow-up tasks, templates, notes, reports, audit logs, and demo data work without Meta WhatsApp connected.', 'No external API required'],
+    ['Implemented when configured', 'WhatsApp Cloud API', 'Webhook verification, inbound/outbound messaging, template handoff, delivery status, and failure handling are provider-backed integration workflows.', 'Meta WhatsApp Cloud API credentials required'],
+    ['Beta', 'Voice Note Intelligence', 'Audio upload/storage and manual transcript fallback are demo-safe. Live transcription is connected through Whisper or Azure Speech when credentials are provided.', 'OpenAI Whisper or Azure Speech required for live transcription'],
+    ['Beta', 'Revenue Health, SLA, missed leads', 'Internal scoring and gap-analysis use response activity, failed messages, unassigned leads, follow-up activity, lead aging, and assignment signals.', 'No external API required; WhatsApp events improve accuracy'],
+    ['Roadmap / client-funded', 'CRM synchronization', 'HubSpot, Zoho, Salesforce, and Pipedrive are represented through connector readiness and manual import/export. Production bidirectional sync, mapping, logs, and conflicts require provider setup.', 'CRM OAuth/API credentials required'],
+  ],
+  siteflow: [
+    ['Implemented', 'Standalone construction operations', 'Projects, daily reports, snags, materials, contractors, safety observations, approvals, tasks, photos/files, reports, audit logs, and manual project mode work without Procore or ERP.', 'No external API required'],
+    ['Beta', 'Delay Prediction Engine', 'Deterministic delay risk uses project schedule status, open snags, material delays, approval delays, and contractor score data.', 'No external API required; weather/provider data can improve forecasts'],
+    ['Beta', 'UAE Workflow Engine', 'Approval records, owners, statuses, comments, and templates for municipality, consultant, safety, snag, and variation approvals are workflow-ready.', 'No external API required'],
+    ['Beta', 'Client-ready reporting and contractor scoring', 'PDF/report categories, executive summaries, progress snapshots, contractor rankings, pending tasks, and risk indicators are generated from internal project data.', 'No external API required'],
+    ['Roadmap / client-funded', 'Voice site updates and enterprise integrations', 'Manual transcript/rough notes and photo reports work today. Live voice transcription, Autodesk, Procore, ERP, accounting, and WhatsApp intake require provider setup.', 'Speech, ERP, Procore/Autodesk, or Aura/WhatsApp credentials required'],
+  ],
+  documind: [
+    ['Implemented', 'Standalone document platform', 'Manual upload, categories, tags, secure storage, manual metadata, expiry tracking, review queue, search, notes, audit logs, dashboard analytics, and demo UAE documents work locally.', 'No external API required'],
+    ['Beta', 'OCR Pipeline', 'OCR abstraction, processing job, confidence scores, review queue status, error handling, and manual metadata fallback are present.', 'Azure Document Intelligence, Google Document AI, AWS Textract, or Tesseract setup required for production OCR'],
+    ['Beta', 'Source-grounded Q&A', 'Answers use extracted/demo text with source document IDs and query history. Stronger citation confidence and chunk persistence are marked as in progress.', 'AI provider optional; stronger production answers need configured model/provider'],
+    ['Beta', 'AI Risk Scoring', 'Expiry risk, low-confidence review signals, compliance dashboard widgets, and executive recommendations are generated from internal document data.', 'No external API required'],
+    ['Roadmap', 'Knowledge graph and bilingual processing', 'Graph nodes/edges, visual graph view, Arabic OCR/search analyzers, and mixed-language extraction are not presented as finished production modules.', 'OCR/search provider and implementation work required'],
+  ],
+  secureops: [
+    ['Implemented', 'Standalone defensive GRC', 'Asset inventory, risk register, incidents, vulnerabilities, controls, evidence files, policy library, executive dashboard, audit logs, reports, API keys, and manual security posture mode work without SIEM.', 'No external API required'],
+    ['Beta', 'AI Virtual CISO', 'Plain-language executive risk summaries, weekly recommendations, board-ready explanations, compliance guidance, and action plans are generated from internal risk and incident data.', 'AI provider optional'],
+    ['Beta', 'Vendor and employee risk', 'Vendor-access risks, employee training status, policy acknowledgements, phishing signals, employee scores, and department scores are demo/backend-backed.', 'No external API required'],
+    ['Roadmap', 'MITRE ATT&CK mapping', 'Technique associations, incident/control mapping, matrix UI, and coverage heatmap are clearly roadmap until the structured mapping layer is completed.', 'No external API required, but implementation work required'],
+    ['Roadmap / client-funded', 'SIEM connector hub', 'Manual security event mode works today. Wazuh, Splunk, Elastic, and Microsoft Sentinel ingestion require provider credentials and paid integration work.', 'SIEM/API credentials required'],
+  ],
+};
+
 const esc = (value) => String(value)
   .replaceAll('&', '&amp;')
   .replaceAll('<', '&lt;')
@@ -483,6 +514,26 @@ function supportingFeatureGrid(features) {
       <p><b>What it does:</b> ${esc(feature.what)}</p>
       <p><b>Value:</b> ${esc(feature.value)}</p>
       <p><b>ROI:</b> ${esc(feature.roi)}</p>
+    </article>
+  `).join('');
+}
+
+function statusClass(status) {
+  const normalized = status.toLowerCase();
+  if (normalized.includes('implemented')) return 'implemented';
+  if (normalized.includes('roadmap')) return 'roadmap';
+  return 'beta';
+}
+
+function implementationStatusCards(product) {
+  return (implementationStatus[product.slug] ?? []).map(([status, title, explanation, requirement]) => `
+    <article class="status-card ${statusClass(status)}">
+      <div class="status-top">
+        <span>${esc(status)}</span>
+        <h3>${esc(title)}</h3>
+      </div>
+      <p>${esc(explanation)}</p>
+      <div class="requirement"><b>API / setup requirement:</b> ${esc(requirement)}</div>
     </article>
   `).join('');
 }
@@ -788,6 +839,57 @@ function render(product) {
     line-height: 1.28;
     margin-top: 1.7mm;
   }
+  .status-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3mm;
+  }
+  .status-card {
+    border: 1px solid ${t.grid};
+    border-left: 1.8mm solid ${t.accent};
+    border-radius: 4.5mm;
+    background: ${t.card ?? t.paper};
+    padding: 3.5mm 4mm;
+    box-shadow: 0 10px 26px rgba(21, 28, 35, .05);
+  }
+  .status-card.beta { border-left-color: #b7791f; }
+  .status-card.roadmap { border-left-color: #64748b; }
+  .status-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5mm;
+    margin-bottom: 1.8mm;
+  }
+  .status-top span {
+    flex: 0 0 auto;
+    border-radius: 999px;
+    padding: 1.5mm 2.4mm;
+    background: ${t.soft};
+    border: 1px solid ${t.grid};
+    color: ${t.ink};
+    font-size: 6.9pt;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .status-top h3 { margin: 0; font-size: 10.2pt; }
+  .status-card p {
+    color: ${t.muted};
+    font-size: 8.3pt;
+    line-height: 1.3;
+  }
+  .requirement {
+    margin-top: 2mm;
+    border-radius: 3mm;
+    background: rgba(255,255,255,.48);
+    border: 1px solid ${t.grid};
+    color: ${t.muted};
+    padding: 2mm 2.4mm;
+    font-size: 7.8pt;
+    line-height: 1.28;
+  }
+  .requirement b { color: ${t.ink}; }
   .vs-table {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1248,6 +1350,15 @@ function render(product) {
       <div class="card"><h3>Customer Success Center</h3><p>Knowledge base, guides, release notes, support tickets, feature requests, and product updates.</p></div>
       <div class="card"><h3>Enterprise Readiness Score</h3><p>Admin-only score for security, integrations, automation, reporting, data quality, and user adoption.</p></div>
       <div class="card"><h3>Notification Engine</h3><p>Email, WhatsApp, SMS, webhook, Slack, Microsoft Teams, and in-app notification structure.</p></div>
+    </div>
+  `)}
+
+  ${page(product, 'Implementation Status', `
+    <div class="section-title"><span class="eyebrow">Readiness and API requirements</span></div>
+    <h2>What is live today, what is Beta, and what needs client credentials.</h2>
+    <p class="lead">This page prevents overpromising during investor and buyer conversations. The product can be shown as a standalone SaaS today, while provider-backed integrations are clearly marked for setup or paid implementation.</p>
+    <div class="status-grid">
+      ${implementationStatusCards(product)}
     </div>
   `)}
 

@@ -260,6 +260,57 @@
     line-height: 1.28;
     margin-top: 1.7mm;
   }
+  .status-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3mm;
+  }
+  .status-card {
+    border: 1px solid #d7e5ff;
+    border-left: 1.8mm solid #1d4ed8;
+    border-radius: 4.5mm;
+    background: #f7fbff;
+    padding: 3.5mm 4mm;
+    box-shadow: 0 10px 26px rgba(21, 28, 35, .05);
+  }
+  .status-card.beta { border-left-color: #b7791f; }
+  .status-card.roadmap { border-left-color: #64748b; }
+  .status-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5mm;
+    margin-bottom: 1.8mm;
+  }
+  .status-top span {
+    flex: 0 0 auto;
+    border-radius: 999px;
+    padding: 1.5mm 2.4mm;
+    background: #eaf2ff;
+    border: 1px solid #d7e5ff;
+    color: #10295f;
+    font-size: 6.9pt;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .status-top h3 { margin: 0; font-size: 10.2pt; }
+  .status-card p {
+    color: #1f355f;
+    font-size: 8.3pt;
+    line-height: 1.3;
+  }
+  .requirement {
+    margin-top: 2mm;
+    border-radius: 3mm;
+    background: rgba(255,255,255,.48);
+    border: 1px solid #d7e5ff;
+    color: #1f355f;
+    padding: 2mm 2.4mm;
+    font-size: 7.8pt;
+    line-height: 1.28;
+  }
+  .requirement b { color: #10295f; }
   .vs-table {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1205,6 +1256,68 @@
       <footer>
         <span>DocuMind</span>
         <span>Enterprise Features</span>
+      </footer>
+    </section>
+  
+
+  
+    <section class="page ">
+      
+    <div class="section-title"><span class="eyebrow">Readiness and API requirements</span></div>
+    <h2>What is live today, what is Beta, and what needs client credentials.</h2>
+    <p class="lead">This page prevents overpromising during investor and buyer conversations. The product can be shown as a standalone SaaS today, while provider-backed integrations are clearly marked for setup or paid implementation.</p>
+    <div class="status-grid">
+      
+    <article class="status-card implemented">
+      <div class="status-top">
+        <span>Implemented</span>
+        <h3>Standalone document platform</h3>
+      </div>
+      <p>Manual upload, categories, tags, secure storage, manual metadata, expiry tracking, review queue, search, notes, audit logs, dashboard analytics, and demo UAE documents work locally.</p>
+      <div class="requirement"><b>API / setup requirement:</b> No external API required</div>
+    </article>
+  
+    <article class="status-card beta">
+      <div class="status-top">
+        <span>Beta</span>
+        <h3>OCR Pipeline</h3>
+      </div>
+      <p>OCR abstraction, processing job, confidence scores, review queue status, error handling, and manual metadata fallback are present.</p>
+      <div class="requirement"><b>API / setup requirement:</b> Azure Document Intelligence, Google Document AI, AWS Textract, or Tesseract setup required for production OCR</div>
+    </article>
+  
+    <article class="status-card beta">
+      <div class="status-top">
+        <span>Beta</span>
+        <h3>Source-grounded Q&amp;A</h3>
+      </div>
+      <p>Answers use extracted/demo text with source document IDs and query history. Stronger citation confidence and chunk persistence are marked as in progress.</p>
+      <div class="requirement"><b>API / setup requirement:</b> AI provider optional; stronger production answers need configured model/provider</div>
+    </article>
+  
+    <article class="status-card beta">
+      <div class="status-top">
+        <span>Beta</span>
+        <h3>AI Risk Scoring</h3>
+      </div>
+      <p>Expiry risk, low-confidence review signals, compliance dashboard widgets, and executive recommendations are generated from internal document data.</p>
+      <div class="requirement"><b>API / setup requirement:</b> No external API required</div>
+    </article>
+  
+    <article class="status-card roadmap">
+      <div class="status-top">
+        <span>Roadmap</span>
+        <h3>Knowledge graph and bilingual processing</h3>
+      </div>
+      <p>Graph nodes/edges, visual graph view, Arabic OCR/search analyzers, and mixed-language extraction are not presented as finished production modules.</p>
+      <div class="requirement"><b>API / setup requirement:</b> OCR/search provider and implementation work required</div>
+    </article>
+  
+    </div>
+  
+      <footer>
+        <span>DocuMind</span>
+        <span>Implementation Status</span>
       </footer>
     </section>
   
