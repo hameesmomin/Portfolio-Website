@@ -2158,6 +2158,111 @@ em.accent {
   margin: 6px 0 0;
 }
 
+.implementation-status-panel {
+  margin-top: 28px;
+  padding: clamp(22px, 4vw, 34px);
+  border: 1px dashed rgba(255, 181, 107, .28);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at top right, rgba(255, 181, 107, .12), transparent 34%),
+    rgba(8, 8, 10, .78);
+}
+
+.implementation-status-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, .34fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.implementation-status-head h2 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: clamp(1.45rem, 3vw, 2.35rem);
+  line-height: 1.08;
+}
+
+.implementation-status-head p,
+.status-card p {
+  color: var(--muted);
+  font-size: .94rem;
+  line-height: 1.6;
+}
+
+.status-source-card {
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  border: 1px dashed rgba(255, 181, 107, .24);
+  border-radius: 8px;
+  background: rgba(5, 5, 7, .52);
+}
+
+.status-source-card span,
+.status-card span {
+  color: var(--thread-orange-bright);
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.status-source-card code {
+  overflow-wrap: anywhere;
+  color: #f4eee8;
+  font-size: .78rem;
+}
+
+.status-source-card a,
+.status-source-card small {
+  color: var(--muted);
+  font-size: .76rem;
+}
+
+.implementation-status-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.status-card {
+  min-width: 0;
+  padding: 16px;
+  border: 1px dashed rgba(255, 181, 107, .2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .045);
+}
+
+.status-card h3 {
+  margin: 10px 0 8px;
+  color: var(--ink);
+  font-size: .98rem;
+  line-height: 1.2;
+}
+
+.status-card small {
+  display: block;
+  margin-top: 12px;
+  color: #f4cfa7;
+  font-size: .76rem;
+  line-height: 1.45;
+}
+
+.status-implemented span,
+.status-implemented-when-configured span {
+  color: #7ee0a3;
+}
+
+.status-beta span {
+  color: #ffd18d;
+}
+
+.status-roadmap span,
+.status-roadmap-client-funded span {
+  color: #ff9d8d;
+}
+
 .premium-screenshot-wall {
   display: grid;
   grid-template-columns: 1.2fr .8fr;
@@ -2355,8 +2460,13 @@ em.accent {
 
   .product-page-hero-grid,
   .demo-explorer,
-  .standalone-integration-panel {
+  .standalone-integration-panel,
+  .implementation-status-head {
     grid-template-columns: 1fr;
+  }
+
+  .implementation-status-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .product-detail-matrix {
@@ -2561,7 +2671,8 @@ em.accent {
   .trust-page-grid,
   .product-detail-matrix,
   .premium-screenshot-wall,
-  .demo-explorer-list {
+  .demo-explorer-list,
+  .implementation-status-grid {
     grid-template-columns: 1fr;
   }
 

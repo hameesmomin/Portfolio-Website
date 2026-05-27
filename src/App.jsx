@@ -312,6 +312,37 @@ const healthScoreSystems = [
   ["Siteflow", "Project Health Score", "Budget variance, timeline variance, site issues, contractor performance, safety incidents, inspections, materials, milestones"]
 ];
 
+const implementationStatus = {
+  "aura-command": [
+    ["Implemented", "Standalone revenue CRM", "Manual lead creation, contact management, shared inbox workflow, pipeline stages, team assignment, follow-up tasks, templates, notes, reports, audit logs, and demo data work without Meta WhatsApp connected.", "No external API required"],
+    ["Beta", "Voice Note Intelligence", "Audio upload/storage and manual transcript fallback are demo-safe. Intent, sentiment, recommendation, and summary logic can run from the transcript while live transcription is connected later.", "OpenAI Whisper or Azure Speech required for live transcription"],
+    ["Beta", "Revenue Health, SLA, missed leads", "Backend gap-analysis and internal scoring use response activity, failed messages, unassigned leads, follow-up activity, lead aging, and assignment signals.", "No external API required; WhatsApp events improve accuracy"],
+    ["Implemented when configured", "WhatsApp Cloud API", "Webhook verification, inbound/outbound messaging, template handoff, delivery status, and failure handling are provider-backed integration workflows.", "Meta WhatsApp Cloud API credentials required"],
+    ["Roadmap / client-funded", "CRM synchronization", "HubSpot, Zoho, Salesforce, and Pipedrive are represented through connector readiness and manual import/export. Production bidirectional sync, mapping, logs, and conflict resolution require provider setup.", "CRM OAuth/API credentials required"]
+  ],
+  documind: [
+    ["Implemented", "Standalone document platform", "Manual upload, categories, tags, secure storage, manual metadata, expiry tracking, review queue, search, notes, audit logs, dashboard analytics, and demo UAE documents work locally.", "No external API required"],
+    ["Beta", "OCR Pipeline", "OCR abstraction, processing job, confidence scores, review queue status, error handling, and manual metadata fallback are present.", "Azure Document Intelligence, Google Document AI, AWS Textract, or Tesseract setup required for production OCR"],
+    ["Beta", "Source-grounded Q&A", "Answers use extracted/demo text with source document IDs and query history. Stronger citation confidence and chunk persistence are marked as in progress.", "AI provider optional; stronger production answers need configured model/provider"],
+    ["Beta", "AI Risk Scoring", "Expiry risk, low-confidence review signals, compliance dashboard widgets, and executive recommendations are generated from internal document data.", "No external API required"],
+    ["Roadmap", "Knowledge graph and bilingual processing", "Graph nodes/edges, visual graph view, Arabic OCR/search analyzers, and mixed-language extraction are not presented as finished production modules.", "OCR/search provider and implementation work required"]
+  ],
+  secureops: [
+    ["Implemented", "Standalone defensive GRC", "Asset inventory, risk register, incidents, vulnerabilities, controls, evidence files, policy library, executive dashboard, audit logs, reports, API keys, and manual security posture mode work without SIEM.", "No external API required"],
+    ["Beta", "AI Virtual CISO", "Plain-language executive risk summaries, weekly recommendations, board-ready explanations, compliance guidance, and action plans are generated from internal risk and incident data.", "AI provider optional"],
+    ["Beta", "Vendor and employee risk", "Vendor-access risks, employee training status, policy acknowledgements, phishing signals, employee scores, and department scores are demo/backend-backed.", "No external API required"],
+    ["Roadmap", "MITRE ATT&CK mapping", "Technique associations, incident/control mapping, matrix UI, and coverage heatmap are clearly roadmap until the structured mapping layer is completed.", "No external API required, but implementation work required"],
+    ["Roadmap / client-funded", "SIEM connector hub", "Manual security event mode works today. Wazuh, Splunk, Elastic, and Microsoft Sentinel ingestion require provider credentials and paid integration work.", "SIEM/API credentials required"]
+  ],
+  siteflow: [
+    ["Implemented", "Standalone construction operations", "Projects, daily reports, snags, materials, contractors, safety observations, approvals, tasks, photos/files, reports, audit logs, and manual project mode work without Procore/ERP.", "No external API required"],
+    ["Beta", "Delay Prediction Engine", "Deterministic delay risk uses project schedule status, open snags, material delays, approval delays, and contractor score data.", "No external API required; weather/provider data can improve forecasts"],
+    ["Beta", "UAE Workflow Engine", "Approval records, owners, statuses, comments, and templates for municipality, consultant, safety, snag, and variation approvals are available as workflow-ready structures.", "No external API required"],
+    ["Beta", "Client-ready reporting and contractor scoring", "PDF/report categories, executive summaries, progress snapshots, contractor rankings, pending tasks, and risk indicators are generated from internal project data.", "No external API required"],
+    ["Roadmap / client-funded", "Voice site updates and enterprise integrations", "Manual transcript/rough notes and photo reports work today. Live voice recording/transcription, Autodesk, Procore, ERP, accounting, and WhatsApp intake require provider setup.", "Speech, ERP, Procore/Autodesk, or Aura/WhatsApp credentials required"]
+  ]
+};
+
 const companyMetrics = [
   ["4", "SaaS products"],
   ["50+", "core modules"],
@@ -1153,6 +1184,7 @@ function ProductPage({ product }) {
           <div className="container">
             <ProductCaseStudy product={product} />
             <StandaloneIntegrationSection product={product} />
+            <ImplementationStatusSection product={product} isLocalDemo={isLocalDemo} />
             <div className="product-detail-matrix" data-reveal>
               {[
                 ["Product Overview", product.description],
@@ -1220,6 +1252,38 @@ function StandaloneIntegrationSection({ product }) {
           <strong>Graceful fallback</strong>
           <p>{product.integrationFallback}</p>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function ImplementationStatusSection({ product, isLocalDemo = false }) {
+  const rows = implementationStatus[product.key] ?? [];
+  const gapEndpoint = `${getLocalAppUrl(product)}api/brochure-gap-analysis`;
+
+  return (
+    <section className="implementation-status-panel" data-reveal>
+      <div className="implementation-status-head">
+        <div>
+          <span className="section-kicker">IMPLEMENTATION STATUS</span>
+          <h2>Every brochure claim is statused before a demo.</h2>
+          <p>Core standalone workflows are usable with internal app data. Provider-dependent features are clearly marked so investors and buyers know what is available now, what is Beta, and what needs API credentials.</p>
+        </div>
+        <div className="status-source-card">
+          <span>Backend source of truth</span>
+          <code>/api/brochure-gap-analysis</code>
+          {isLocalDemo ? <a href={gapEndpoint}>Open local status API</a> : <small>Live app access remains private; status is verified in the product backend.</small>}
+        </div>
+      </div>
+      <div className="implementation-status-grid">
+        {rows.map(([status, feature, detail, apiNote]) => (
+          <article key={feature} className={`status-card status-${status.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
+            <span>{status}</span>
+            <h3>{feature}</h3>
+            <p>{detail}</p>
+            <small>{apiNote}</small>
+          </article>
+        ))}
       </div>
     </section>
   );
