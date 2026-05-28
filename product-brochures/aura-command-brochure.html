@@ -355,6 +355,129 @@
   .competitor-table td:nth-child(2) {
     width: 22%;
   }
+  .landscape-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 8mm;
+    margin-bottom: 4mm;
+  }
+  .landscape-head h2 {
+    font-size: 20pt;
+    line-height: 1.08;
+  }
+  .competitor-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3mm;
+    margin: 4mm 0 4.5mm;
+  }
+  .competitor-pill {
+    border: 1px solid #d7eee6;
+    border-radius: 3mm;
+    background: rgba(255,255,255,.62);
+    padding: 2.5mm 3mm;
+  }
+  .competitor-pill strong {
+    display: block;
+    font-size: 9pt;
+    color: #082f2a;
+  }
+  .competitor-pill span {
+    display: block;
+    margin-top: .8mm;
+    color: #213f38;
+    font-size: 7.2pt;
+  }
+  .landscape-table th,
+  .landscape-table td {
+    padding: 1.8mm 2.2mm;
+    font-size: 7.1pt;
+    line-height: 1.12;
+    vertical-align: middle;
+  }
+  .landscape-table thead th {
+    background: #082f2a;
+    color: #fff;
+  }
+  .landscape-table tbody th {
+    width: 34%;
+    color: #082f2a;
+    font-weight: 800;
+  }
+  .landscape-table td {
+    text-align: center;
+  }
+  .landscape-table tbody tr:nth-child(even) td,
+  .landscape-table tbody tr:nth-child(even) th {
+    background: rgba(255,255,255,.46);
+  }
+  .landscape-table tbody td:first-of-type {
+    background: #e7f7f1;
+  }
+  .landscape-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 16mm;
+    border-radius: 999px;
+    padding: 1mm 1.8mm;
+    font-size: 6.7pt;
+    font-weight: 900;
+    border: 1px solid #d7eee6;
+    color: #213f38;
+    background: rgba(255,255,255,.62);
+  }
+  .landscape-status.full {
+    color: #fff;
+    background: #0f766e;
+    border-color: #0f766e;
+  }
+  .landscape-status.partial {
+    color: #082f2a;
+    background: #e7f7f1;
+  }
+  .landscape-status.roadmap {
+    color: #213f38;
+    background: rgba(255,255,255,.52);
+  }
+  .landscape-status.no {
+    color: #657068;
+    background: #eef2f0;
+  }
+  .investor-insight {
+    margin-top: 4mm;
+    border: 1.2px solid #0f766e;
+    border-radius: 3mm;
+    background: rgba(255,255,255,.68);
+    padding: 3mm 4mm;
+  }
+  .investor-insight b {
+    display: block;
+    margin-bottom: 1.2mm;
+    color: #0f766e;
+    font-size: 7.5pt;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .investor-insight p {
+    color: #213f38;
+    font-size: 8.3pt;
+    line-height: 1.32;
+  }
+  .landscape-legend {
+    display: flex;
+    gap: 3mm;
+    align-items: center;
+    margin-top: 2.5mm;
+    color: #213f38;
+    font-size: 6.9pt;
+  }
+  .landscape-legend .landscape-status {
+    min-width: auto;
+    font-size: 6.3pt;
+    padding: .7mm 1.4mm;
+  }
   .stat {
     padding: 4mm;
     min-height: 25mm;
@@ -1166,6 +1289,144 @@
       <footer>
         <span>Aura Command</span>
         <span>Competitive Advantage</span>
+      </footer>
+    </section>
+  
+
+  
+    <section class="page ">
+      
+    <div class="landscape-head">
+      <div>
+        <div class="section-title"><span class="eyebrow">Competitive landscape</span></div>
+        <h2>Why investors should back Aura Command.</h2>
+        <p class="lead">Feature-by-feature comparison against the closest named market alternatives.</p>
+      </div>
+      <div class="badge">AI WhatsApp Revenue &amp; Business Command Center</div>
+    </div>
+    <div class="competitor-strip">
+      
+        <div class="competitor-pill">
+          <strong>HubSpot</strong>
+          <span>General CRM / marketing platform</span>
+        </div>
+      
+        <div class="competitor-pill">
+          <strong>Respond.io</strong>
+          <span>WhatsApp team inbox tool</span>
+        </div>
+      
+        <div class="competitor-pill">
+          <strong>Zoho CRM</strong>
+          <span>Broad CRM suite</span>
+        </div>
+      
+    </div>
+    <table class="landscape-table">
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th>Aura Command</th>
+          <th>HubSpot</th><th>Respond.io</th><th>Zoho CRM</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr>
+      <th>WhatsApp-native revenue tracking</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+    </tr>
+  
+    <tr>
+      <th>AI Employee Modes for sales and support</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+    </tr>
+  
+    <tr>
+      <th>Revenue Health Score dashboard</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+    </tr>
+  
+    <tr>
+      <th>Missed lead detection and alerts</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status roadmap">Emerging</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+      <td><span class="landscape-status roadmap">Emerging</span></td>
+    </tr>
+  
+    <tr>
+      <th>WhatsApp SLA timers and assignment</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+    </tr>
+  
+    <tr>
+      <th>Voice note transcription and intent</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+    </tr>
+  
+    <tr>
+      <th>UAE-market workflow templates</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+    </tr>
+  
+    <tr>
+      <th>Executive board-ready reporting</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status roadmap">Emerging</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status roadmap">Emerging</span></td>
+    </tr>
+  
+    <tr>
+      <th>Multi-tenant enterprise controls</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+    </tr>
+  
+    <tr>
+      <th>API / webhook Integration Studio</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+    </tr>
+  </tbody>
+    </table>
+    <div class="investor-insight">
+      <b>Investor insight</b>
+      <p>No enterprise CRM focuses on WhatsApp as a primary revenue channel for UAE SMBs. HubSpot and Zoho serve broad global markets; Respond.io handles messaging but lacks revenue intelligence. Aura Command owns the intersection of WhatsApp operations and executive revenue visibility.</p>
+    </div>
+    <div class="landscape-legend">
+      <span>Legend:</span>
+      <span class="landscape-status full">Full</span>
+      <span class="landscape-status partial">Partial</span>
+      <span class="landscape-status roadmap">Emerging</span>
+      <span class="landscape-status no">Not available</span>
+    </div>
+  
+      <footer>
+        <span>Aura Command</span>
+        <span>Competitive Landscape</span>
       </footer>
     </section>
   

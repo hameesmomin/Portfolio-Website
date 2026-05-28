@@ -592,6 +592,121 @@ function competitorComparison(product) {
   return map[product.slug] ?? [];
 }
 
+function competitiveLandscape(product) {
+  const map = {
+    'aura-command': {
+      competitors: [
+        ['HubSpot', 'General CRM / marketing platform'],
+        ['Respond.io', 'WhatsApp team inbox tool'],
+        ['Zoho CRM', 'Broad CRM suite'],
+      ],
+      rows: [
+        ['WhatsApp-native revenue tracking', 'Full', 'No', 'Partial', 'No'],
+        ['AI Employee Modes for sales and support', 'Full', 'No', 'No', 'No'],
+        ['Revenue Health Score dashboard', 'Full', 'No', 'No', 'No'],
+        ['Missed lead detection and alerts', 'Full', 'Roadmap', 'Partial', 'Roadmap'],
+        ['WhatsApp SLA timers and assignment', 'Full', 'No', 'Partial', 'No'],
+        ['Voice note transcription and intent', 'Full', 'No', 'No', 'No'],
+        ['UAE-market workflow templates', 'Full', 'No', 'No', 'No'],
+        ['Executive board-ready reporting', 'Full', 'Roadmap', 'No', 'Roadmap'],
+        ['Multi-tenant enterprise controls', 'Full', 'Partial', 'No', 'Partial'],
+        ['API / webhook Integration Studio', 'Full', 'Partial', 'No', 'Partial'],
+      ],
+      insight: 'No enterprise CRM focuses on WhatsApp as a primary revenue channel for UAE SMBs. HubSpot and Zoho serve broad global markets; Respond.io handles messaging but lacks revenue intelligence. Aura Command owns the intersection of WhatsApp operations and executive revenue visibility.',
+    },
+    siteflow: {
+      competitors: [
+        ['Procore', 'Enterprise construction management'],
+        ['Autodesk Build', 'Construction cloud platform'],
+        ['Monday.com', 'Generic project management'],
+      ],
+      rows: [
+        ['UAE site daily report workflow', 'Full', 'Partial', 'Partial', 'No'],
+        ['AI delay prediction and risk drivers', 'Full', 'Partial', 'Partial', 'No'],
+        ['Snag, punch list, and photo evidence', 'Full', 'Full', 'Full', 'Partial'],
+        ['Contractor performance scoring', 'Full', 'Partial', 'Partial', 'No'],
+        ['Municipality and consultant workflows', 'Full', 'No', 'No', 'No'],
+        ['Material delay and approval bottlenecks', 'Full', 'Partial', 'Partial', 'No'],
+        ['Client-ready branded PDF reports', 'Full', 'Partial', 'Partial', 'Roadmap'],
+        ['Voice and photo site updates', 'Full', 'Roadmap', 'Roadmap', 'No'],
+        ['Multi-tenant enterprise controls', 'Full', 'Full', 'Full', 'Partial'],
+        ['API / webhook Integration Studio', 'Full', 'Partial', 'Partial', 'Partial'],
+      ],
+      insight: 'Large construction platforms can be powerful but heavy for many UAE contractors. SiteFlow is positioned as a focused command center for daily site control, approvals, contractor accountability, and owner-ready progress reporting.',
+    },
+    documind: {
+      competitors: [
+        ['SharePoint', 'Document storage and collaboration'],
+        ['Google Drive', 'Cloud storage workspace'],
+        ['DocuSign CLM', 'Contract lifecycle management'],
+      ],
+      rows: [
+        ['UAE business document types', 'Full', 'No', 'No', 'Partial'],
+        ['OCR, classification, and review queue', 'Full', 'Partial', 'Partial', 'Partial'],
+        ['Document Compliance Score', 'Full', 'No', 'No', 'No'],
+        ['Expiry and renewal tracking', 'Full', 'Partial', 'Partial', 'Partial'],
+        ['Source-grounded document Q&A', 'Full', 'Roadmap', 'Roadmap', 'Partial'],
+        ['Knowledge graph for entities and obligations', 'Full', 'No', 'No', 'Roadmap'],
+        ['AI risk scoring for documents', 'Full', 'No', 'No', 'Partial'],
+        ['Arabic and English processing path', 'Full', 'Partial', 'Partial', 'Partial'],
+        ['Multi-tenant enterprise controls', 'Full', 'Partial', 'Partial', 'Full'],
+        ['API / webhook Integration Studio', 'Full', 'Partial', 'Partial', 'Partial'],
+      ],
+      insight: 'Storage tools organize files, and CLM tools focus on contracts. DocuMind is positioned as a UAE business document brain that connects licenses, IDs, VAT files, contracts, invoices, renewals, obligations, and compliance risk.',
+    },
+    secureops: {
+      competitors: [
+        ['Splunk', 'Enterprise SIEM platform'],
+        ['Microsoft Sentinel', 'Cloud-native SIEM'],
+        ['Vanta', 'Compliance automation platform'],
+      ],
+      rows: [
+        ['Executive Cyber Risk Score', 'Full', 'Partial', 'Partial', 'Partial'],
+        ['AI Virtual CISO guidance', 'Full', 'No', 'No', 'Roadmap'],
+        ['Incident lifecycle and evidence timeline', 'Full', 'Partial', 'Partial', 'No'],
+        ['Compliance controls and evidence vault', 'Full', 'Roadmap', 'Roadmap', 'Full'],
+        ['Vendor and employee risk modules', 'Full', 'No', 'No', 'Partial'],
+        ['MITRE ATT&CK coverage mapping', 'Full', 'Partial', 'Partial', 'No'],
+        ['SIEM connector hub and manual fallback', 'Full', 'Full', 'Full', 'No'],
+        ['Board-ready security reporting', 'Full', 'Partial', 'Partial', 'Partial'],
+        ['Multi-tenant enterprise controls', 'Full', 'Full', 'Full', 'Full'],
+        ['API / webhook Integration Studio', 'Full', 'Partial', 'Partial', 'Partial'],
+      ],
+      insight: 'SIEMs are powerful technical event platforms, and compliance tools focus on audit programs. SecureOps is positioned as a business-safe Virtual CISO layer that unifies risk, incidents, evidence, vendors, controls, and executive reporting.',
+    },
+  };
+
+  return map[product.slug];
+}
+
+function landscapeStatusClass(value) {
+  return value.toLowerCase().replaceAll(' ', '-');
+}
+
+function landscapeStatus(value) {
+  const label = {
+    Full: 'Full',
+    Partial: 'Partial',
+    Roadmap: 'Emerging',
+    No: 'Not available',
+  }[value] ?? value;
+
+  return `<span class="landscape-status ${landscapeStatusClass(value)}">${esc(label)}</span>`;
+}
+
+function competitiveLandscapeTable(product) {
+  const landscape = competitiveLandscape(product);
+  return landscape.rows.map(([capability, own, first, second, third]) => `
+    <tr>
+      <th>${esc(capability)}</th>
+      <td>${landscapeStatus(own)}</td>
+      <td>${landscapeStatus(first)}</td>
+      <td>${landscapeStatus(second)}</td>
+      <td>${landscapeStatus(third)}</td>
+    </tr>
+  `).join('');
+}
+
 function competitorRows(product) {
   return competitorComparison(product).map(([alternative, pricing, helps, advantage]) => `
     <tr>
@@ -619,6 +734,7 @@ function render(product) {
   const t = product.theme;
   const features = productFeatures(product);
   const vs = comparison(product);
+  const landscape = competitiveLandscape(product);
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -975,6 +1091,129 @@ function render(product) {
   }
   .competitor-table td:nth-child(2) {
     width: 22%;
+  }
+  .landscape-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 8mm;
+    margin-bottom: 4mm;
+  }
+  .landscape-head h2 {
+    font-size: 20pt;
+    line-height: 1.08;
+  }
+  .competitor-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3mm;
+    margin: 4mm 0 4.5mm;
+  }
+  .competitor-pill {
+    border: 1px solid ${t.grid};
+    border-radius: 3mm;
+    background: rgba(255,255,255,.62);
+    padding: 2.5mm 3mm;
+  }
+  .competitor-pill strong {
+    display: block;
+    font-size: 9pt;
+    color: ${t.ink};
+  }
+  .competitor-pill span {
+    display: block;
+    margin-top: .8mm;
+    color: ${t.muted};
+    font-size: 7.2pt;
+  }
+  .landscape-table th,
+  .landscape-table td {
+    padding: 1.8mm 2.2mm;
+    font-size: 7.1pt;
+    line-height: 1.12;
+    vertical-align: middle;
+  }
+  .landscape-table thead th {
+    background: ${t.ink};
+    color: #fff;
+  }
+  .landscape-table tbody th {
+    width: 34%;
+    color: ${t.ink};
+    font-weight: 800;
+  }
+  .landscape-table td {
+    text-align: center;
+  }
+  .landscape-table tbody tr:nth-child(even) td,
+  .landscape-table tbody tr:nth-child(even) th {
+    background: rgba(255,255,255,.46);
+  }
+  .landscape-table tbody td:first-of-type {
+    background: ${t.soft};
+  }
+  .landscape-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 16mm;
+    border-radius: 999px;
+    padding: 1mm 1.8mm;
+    font-size: 6.7pt;
+    font-weight: 900;
+    border: 1px solid ${t.grid};
+    color: ${t.muted};
+    background: rgba(255,255,255,.62);
+  }
+  .landscape-status.full {
+    color: #fff;
+    background: ${t.accent};
+    border-color: ${t.accent};
+  }
+  .landscape-status.partial {
+    color: ${t.ink};
+    background: ${t.soft};
+  }
+  .landscape-status.roadmap {
+    color: ${t.muted};
+    background: rgba(255,255,255,.52);
+  }
+  .landscape-status.no {
+    color: #657068;
+    background: #eef2f0;
+  }
+  .investor-insight {
+    margin-top: 4mm;
+    border: 1.2px solid ${t.accent};
+    border-radius: 3mm;
+    background: rgba(255,255,255,.68);
+    padding: 3mm 4mm;
+  }
+  .investor-insight b {
+    display: block;
+    margin-bottom: 1.2mm;
+    color: ${t.accent};
+    font-size: 7.5pt;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .investor-insight p {
+    color: ${t.muted};
+    font-size: 8.3pt;
+    line-height: 1.32;
+  }
+  .landscape-legend {
+    display: flex;
+    gap: 3mm;
+    align-items: center;
+    margin-top: 2.5mm;
+    color: ${t.muted};
+    font-size: 6.9pt;
+  }
+  .landscape-legend .landscape-status {
+    min-width: auto;
+    font-size: 6.3pt;
+    padding: .7mm 1.4mm;
   }
   .stat {
     padding: 4mm;
@@ -1365,6 +1604,46 @@ function render(product) {
       <div class="card"><h3>Defensible workflow depth</h3><p>Each capability is tied to a specific customer workflow, which makes the product harder to replace with a generic dashboard.</p></div>
       <div class="card"><h3>Executive-level clarity</h3><p>Health scores, KPI cards, AI recommendations, and reports make the product understandable to owners within minutes.</p></div>
       <div class="card"><h3>Expansion path</h3><p>Customers can start with standalone workflows, then expand into automation, integrations, API access, and enterprise controls.</p></div>
+    </div>
+  `)}
+
+  ${page(product, 'Competitive Landscape', `
+    <div class="landscape-head">
+      <div>
+        <div class="section-title"><span class="eyebrow">Competitive landscape</span></div>
+        <h2>Why investors should back ${esc(product.name)}.</h2>
+        <p class="lead">Feature-by-feature comparison against the closest named market alternatives.</p>
+      </div>
+      <div class="badge">${esc(product.category)}</div>
+    </div>
+    <div class="competitor-strip">
+      ${landscape.competitors.map(([name, type]) => `
+        <div class="competitor-pill">
+          <strong>${esc(name)}</strong>
+          <span>${esc(type)}</span>
+        </div>
+      `).join('')}
+    </div>
+    <table class="landscape-table">
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th>${esc(product.name)}</th>
+          ${landscape.competitors.map(([name]) => `<th>${esc(name)}</th>`).join('')}
+        </tr>
+      </thead>
+      <tbody>${competitiveLandscapeTable(product)}</tbody>
+    </table>
+    <div class="investor-insight">
+      <b>Investor insight</b>
+      <p>${esc(landscape.insight)}</p>
+    </div>
+    <div class="landscape-legend">
+      <span>Legend:</span>
+      ${landscapeStatus('Full')}
+      ${landscapeStatus('Partial')}
+      ${landscapeStatus('Roadmap')}
+      ${landscapeStatus('No')}
     </div>
   `)}
 

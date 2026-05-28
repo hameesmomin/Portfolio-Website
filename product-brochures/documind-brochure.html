@@ -355,6 +355,129 @@
   .competitor-table td:nth-child(2) {
     width: 22%;
   }
+  .landscape-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 8mm;
+    margin-bottom: 4mm;
+  }
+  .landscape-head h2 {
+    font-size: 20pt;
+    line-height: 1.08;
+  }
+  .competitor-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3mm;
+    margin: 4mm 0 4.5mm;
+  }
+  .competitor-pill {
+    border: 1px solid #d7e5ff;
+    border-radius: 3mm;
+    background: rgba(255,255,255,.62);
+    padding: 2.5mm 3mm;
+  }
+  .competitor-pill strong {
+    display: block;
+    font-size: 9pt;
+    color: #10295f;
+  }
+  .competitor-pill span {
+    display: block;
+    margin-top: .8mm;
+    color: #1f355f;
+    font-size: 7.2pt;
+  }
+  .landscape-table th,
+  .landscape-table td {
+    padding: 1.8mm 2.2mm;
+    font-size: 7.1pt;
+    line-height: 1.12;
+    vertical-align: middle;
+  }
+  .landscape-table thead th {
+    background: #10295f;
+    color: #fff;
+  }
+  .landscape-table tbody th {
+    width: 34%;
+    color: #10295f;
+    font-weight: 800;
+  }
+  .landscape-table td {
+    text-align: center;
+  }
+  .landscape-table tbody tr:nth-child(even) td,
+  .landscape-table tbody tr:nth-child(even) th {
+    background: rgba(255,255,255,.46);
+  }
+  .landscape-table tbody td:first-of-type {
+    background: #eaf2ff;
+  }
+  .landscape-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 16mm;
+    border-radius: 999px;
+    padding: 1mm 1.8mm;
+    font-size: 6.7pt;
+    font-weight: 900;
+    border: 1px solid #d7e5ff;
+    color: #1f355f;
+    background: rgba(255,255,255,.62);
+  }
+  .landscape-status.full {
+    color: #fff;
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+  }
+  .landscape-status.partial {
+    color: #10295f;
+    background: #eaf2ff;
+  }
+  .landscape-status.roadmap {
+    color: #1f355f;
+    background: rgba(255,255,255,.52);
+  }
+  .landscape-status.no {
+    color: #657068;
+    background: #eef2f0;
+  }
+  .investor-insight {
+    margin-top: 4mm;
+    border: 1.2px solid #1d4ed8;
+    border-radius: 3mm;
+    background: rgba(255,255,255,.68);
+    padding: 3mm 4mm;
+  }
+  .investor-insight b {
+    display: block;
+    margin-bottom: 1.2mm;
+    color: #1d4ed8;
+    font-size: 7.5pt;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .investor-insight p {
+    color: #1f355f;
+    font-size: 8.3pt;
+    line-height: 1.32;
+  }
+  .landscape-legend {
+    display: flex;
+    gap: 3mm;
+    align-items: center;
+    margin-top: 2.5mm;
+    color: #1f355f;
+    font-size: 6.9pt;
+  }
+  .landscape-legend .landscape-status {
+    min-width: auto;
+    font-size: 6.3pt;
+    padding: .7mm 1.4mm;
+  }
   .stat {
     padding: 4mm;
     min-height: 25mm;
@@ -1166,6 +1289,144 @@
       <footer>
         <span>DocuMind</span>
         <span>Competitive Advantage</span>
+      </footer>
+    </section>
+  
+
+  
+    <section class="page ">
+      
+    <div class="landscape-head">
+      <div>
+        <div class="section-title"><span class="eyebrow">Competitive landscape</span></div>
+        <h2>Why investors should back DocuMind.</h2>
+        <p class="lead">Feature-by-feature comparison against the closest named market alternatives.</p>
+      </div>
+      <div class="badge">AI Business Document Intelligence Platform</div>
+    </div>
+    <div class="competitor-strip">
+      
+        <div class="competitor-pill">
+          <strong>SharePoint</strong>
+          <span>Document storage and collaboration</span>
+        </div>
+      
+        <div class="competitor-pill">
+          <strong>Google Drive</strong>
+          <span>Cloud storage workspace</span>
+        </div>
+      
+        <div class="competitor-pill">
+          <strong>DocuSign CLM</strong>
+          <span>Contract lifecycle management</span>
+        </div>
+      
+    </div>
+    <table class="landscape-table">
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th>DocuMind</th>
+          <th>SharePoint</th><th>Google Drive</th><th>DocuSign CLM</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr>
+      <th>UAE business document types</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+    </tr>
+  
+    <tr>
+      <th>OCR, classification, and review queue</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+    </tr>
+  
+    <tr>
+      <th>Document Compliance Score</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+    </tr>
+  
+    <tr>
+      <th>Expiry and renewal tracking</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+    </tr>
+  
+    <tr>
+      <th>Source-grounded document Q&amp;A</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status roadmap">Emerging</span></td>
+      <td><span class="landscape-status roadmap">Emerging</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+    </tr>
+  
+    <tr>
+      <th>Knowledge graph for entities and obligations</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status roadmap">Emerging</span></td>
+    </tr>
+  
+    <tr>
+      <th>AI risk scoring for documents</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status no">Not available</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+    </tr>
+  
+    <tr>
+      <th>Arabic and English processing path</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+    </tr>
+  
+    <tr>
+      <th>Multi-tenant enterprise controls</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+      <td><span class="landscape-status full">Full</span></td>
+    </tr>
+  
+    <tr>
+      <th>API / webhook Integration Studio</th>
+      <td><span class="landscape-status full">Full</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+      <td><span class="landscape-status partial">Partial</span></td>
+    </tr>
+  </tbody>
+    </table>
+    <div class="investor-insight">
+      <b>Investor insight</b>
+      <p>Storage tools organize files, and CLM tools focus on contracts. DocuMind is positioned as a UAE business document brain that connects licenses, IDs, VAT files, contracts, invoices, renewals, obligations, and compliance risk.</p>
+    </div>
+    <div class="landscape-legend">
+      <span>Legend:</span>
+      <span class="landscape-status full">Full</span>
+      <span class="landscape-status partial">Partial</span>
+      <span class="landscape-status roadmap">Emerging</span>
+      <span class="landscape-status no">Not available</span>
+    </div>
+  
+      <footer>
+        <span>DocuMind</span>
+        <span>Competitive Landscape</span>
       </footer>
     </section>
   
