@@ -561,6 +561,48 @@ function comparison(product) {
   return map[product.slug];
 }
 
+function competitorComparison(product) {
+  const map = {
+    'aura-command': [
+      ['Generic WhatsApp shared inbox tools', 'Per-agent SaaS pricing plus WhatsApp provider charges', 'Centralizing replies and team inbox ownership', 'Adds revenue health, missed-lead detection, SLA monitoring, pipeline visibility, AI employee modes, CRM mapping, and executive reporting.'],
+      ['CRM suites', 'Per-seat CRM plans plus setup and integration services', 'Managing sales records, stages, and CRM reporting', 'Starts from WhatsApp revenue operations and connects CRM as an optional system of record rather than forcing sales teams to leave their daily channel.'],
+      ['Helpdesk or call center platforms', 'Agent-based subscription and implementation cost', 'Support tickets, service queues, and customer service routing', 'Focuses on lead response speed, follow-up discipline, conversion, revenue leakage, and owner-level sales visibility.'],
+      ['Manual phones and spreadsheets', 'Low software spend but high labor cost and missed revenue risk', 'Very small teams with informal tracking', 'Turns scattered conversations into assigned leads, timelines, alerts, reports, templates, and measurable pipeline outcomes.'],
+    ],
+    siteflow: [
+      ['Large construction platforms', 'Enterprise or project-based pricing plus rollout and training', 'Deep project controls for mature contractors and developers', 'Keeps UAE site teams moving with lighter daily reports, snags, approvals, materials, photos, contractor scoring, delay risk, and client-ready reporting.'],
+      ['Generic project management tools', 'Per-seat SaaS pricing', 'Tasks, comments, simple boards, and collaboration', 'Models construction-specific workflows such as consultant inspections, material delays, punch lists, safety observations, variation approvals, and site evidence.'],
+      ['ERP and accounting systems', 'Module licensing plus implementation services', 'Finance, procurement, inventory, and accounting control', 'Operates as the field command layer that feeds site evidence, progress, risk, and approvals into finance or ERP when connected.'],
+      ['WhatsApp groups and spreadsheets', 'Low tool cost but high rework, delay, and reporting cost', 'Informal updates in small teams', 'Creates governed site records, owners, due dates, proof, scorecards, executive dashboards, and professional progress exports.'],
+    ],
+    documind: [
+      ['Cloud storage platforms', 'Storage or productivity-suite subscription', 'Storing and sharing files across teams', 'Adds document intelligence, expiry tracking, risk scoring, review queues, source-grounded answers, obligations, and compliance dashboards.'],
+      ['OCR and document AI APIs', 'Usage-based API pricing plus engineering integration', 'Extracting text or fields from documents', 'Packages extraction into a full business workflow with metadata, approvals, renewal reminders, audit trails, and executive visibility.'],
+      ['Contract lifecycle tools', 'Per-seat or enterprise pricing', 'Contract drafting, negotiation, and contract workflows', 'Covers broader UAE company records including trade licenses, VAT certificates, IDs, supplier files, HR records, invoices, contracts, and compliance documents.'],
+      ['Manual admin tracking', 'Hidden labor cost and high renewal/compliance risk', 'Small teams with simple folders and calendar reminders', 'Creates a searchable document brain with risk scores, reminders, knowledge graph structure, and reportable governance.'],
+    ],
+    secureops: [
+      ['SIEM platforms', 'Data-volume, cloud, or enterprise pricing plus security engineering effort', 'High-volume security event collection and technical SOC workflows', 'Turns security activity into owner-ready cyber risk, evidence, compliance, incident, vendor, and board-report workflows for SMEs and enterprises.'],
+      ['GRC platforms', 'Enterprise subscription or quote-based pricing', 'Formal compliance control tracking and audit programs', 'Combines GRC with incidents, assets, vulnerabilities, evidence, vendor risk, employee risk, and Virtual CISO recommendations in one operating view.'],
+      ['MSSPs and security consultants', 'Monthly retainer, project fee, or assessment fee', 'External monitoring, assessments, and expert advice', 'Gives the client an internal command center for evidence, remediation, recurring reporting, and accountable ownership between consultant engagements.'],
+      ['Spreadsheets and manual audits', 'Low tool cost but high risk, audit effort, and visibility gap', 'Early-stage tracking before a formal security program exists', 'Creates a governed defensive security workflow with scores, tasks, timelines, controls, evidence, audit logs, and executive summaries.'],
+    ],
+  };
+
+  return map[product.slug] ?? [];
+}
+
+function competitorRows(product) {
+  return competitorComparison(product).map(([alternative, pricing, helps, advantage]) => `
+    <tr>
+      <th>${esc(alternative)}</th>
+      <td>${esc(pricing)}</td>
+      <td>${esc(helps)}</td>
+      <td>${esc(advantage)}</td>
+    </tr>
+  `).join('');
+}
+
 function page(product, label, inner, className = '') {
   return `
     <section class="page ${className}">
@@ -911,6 +953,29 @@ function render(product) {
   .vs-column h3 { font-size: 14pt; margin-bottom: 4mm; }
   .vs-column ul { margin: 0; padding-left: 5mm; display: grid; gap: 4mm; }
   .vs-column li { color: ${t.muted}; font-size: 11pt; }
+  .competitor-note {
+    margin-top: 4mm;
+    padding: 3mm 4mm;
+    border-radius: 4mm;
+    border: 1px solid ${t.grid};
+    background: rgba(255,255,255,.58);
+    color: ${t.muted};
+    font-size: 8.2pt;
+    line-height: 1.32;
+  }
+  .competitor-table th,
+  .competitor-table td {
+    font-size: 7.2pt;
+    line-height: 1.24;
+    padding: 2.2mm;
+    vertical-align: top;
+  }
+  .competitor-table th {
+    width: 27%;
+  }
+  .competitor-table td:nth-child(2) {
+    width: 22%;
+  }
   .stat {
     padding: 4mm;
     min-height: 25mm;
@@ -1300,6 +1365,31 @@ function render(product) {
       <div class="card"><h3>Defensible workflow depth</h3><p>Each capability is tied to a specific customer workflow, which makes the product harder to replace with a generic dashboard.</p></div>
       <div class="card"><h3>Executive-level clarity</h3><p>Health scores, KPI cards, AI recommendations, and reports make the product understandable to owners within minutes.</p></div>
       <div class="card"><h3>Expansion path</h3><p>Customers can start with standalone workflows, then expand into automation, integrations, API access, and enterprise controls.</p></div>
+    </div>
+  `)}
+
+  ${page(product, 'Competitor Pricing Comparison', `
+    <div class="section-title"><span class="eyebrow">Competitor and pricing comparison</span></div>
+    <h2>How ${esc(product.name)} compares with common buying alternatives.</h2>
+    <p class="lead">This page keeps the investor and buyer conversation practical: what customers usually compare against, how those options are priced, where they help, and why ${esc(product.name)} is positioned as a focused commercial SaaS product.</p>
+    <table class="competitor-table">
+      <thead>
+        <tr>
+          <th>Alternative</th>
+          <th>Typical pricing model</th>
+          <th>Where it helps</th>
+          <th>${esc(product.name)} advantage</th>
+        </tr>
+      </thead>
+      <tbody>${competitorRows(product)}</tbody>
+    </table>
+    <div class="competitor-note">
+      Pricing varies by vendor, region, usage, contract size, implementation scope, and provider fees. Exact competitor pricing should be verified during live sales conversations; this comparison is designed to explain buying models and value positioning without making stale price claims.
+    </div>
+    <div class="grid-3" style="margin-top:5mm">
+      <div class="card"><h3>Standalone value</h3><p>Customers can start with internal workflows before connecting external systems, which lowers adoption friction and reduces implementation risk.</p></div>
+      <div class="card"><h3>Integration upside</h3><p>API, webhook, OAuth, field mapping, logs, and retry handling turn optional integrations into paid expansion opportunities.</p></div>
+      <div class="card"><h3>Enterprise path</h3><p>White label, SSO-ready structure, audit controls, usage limits, branded reports, and dedicated deployment support larger buyers.</p></div>
     </div>
   `)}
 

@@ -332,6 +332,29 @@
   .vs-column h3 { font-size: 14pt; margin-bottom: 4mm; }
   .vs-column ul { margin: 0; padding-left: 5mm; display: grid; gap: 4mm; }
   .vs-column li { color: #1f355f; font-size: 11pt; }
+  .competitor-note {
+    margin-top: 4mm;
+    padding: 3mm 4mm;
+    border-radius: 4mm;
+    border: 1px solid #d7e5ff;
+    background: rgba(255,255,255,.58);
+    color: #1f355f;
+    font-size: 8.2pt;
+    line-height: 1.32;
+  }
+  .competitor-table th,
+  .competitor-table td {
+    font-size: 7.2pt;
+    line-height: 1.24;
+    padding: 2.2mm;
+    vertical-align: top;
+  }
+  .competitor-table th {
+    width: 27%;
+  }
+  .competitor-table td:nth-child(2) {
+    width: 22%;
+  }
   .stat {
     padding: 4mm;
     min-height: 25mm;
@@ -1143,6 +1166,67 @@
       <footer>
         <span>DocuMind</span>
         <span>Competitive Advantage</span>
+      </footer>
+    </section>
+  
+
+  
+    <section class="page ">
+      
+    <div class="section-title"><span class="eyebrow">Competitor and pricing comparison</span></div>
+    <h2>How DocuMind compares with common buying alternatives.</h2>
+    <p class="lead">This page keeps the investor and buyer conversation practical: what customers usually compare against, how those options are priced, where they help, and why DocuMind is positioned as a focused commercial SaaS product.</p>
+    <table class="competitor-table">
+      <thead>
+        <tr>
+          <th>Alternative</th>
+          <th>Typical pricing model</th>
+          <th>Where it helps</th>
+          <th>DocuMind advantage</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr>
+      <th>Cloud storage platforms</th>
+      <td>Storage or productivity-suite subscription</td>
+      <td>Storing and sharing files across teams</td>
+      <td>Adds document intelligence, expiry tracking, risk scoring, review queues, source-grounded answers, obligations, and compliance dashboards.</td>
+    </tr>
+  
+    <tr>
+      <th>OCR and document AI APIs</th>
+      <td>Usage-based API pricing plus engineering integration</td>
+      <td>Extracting text or fields from documents</td>
+      <td>Packages extraction into a full business workflow with metadata, approvals, renewal reminders, audit trails, and executive visibility.</td>
+    </tr>
+  
+    <tr>
+      <th>Contract lifecycle tools</th>
+      <td>Per-seat or enterprise pricing</td>
+      <td>Contract drafting, negotiation, and contract workflows</td>
+      <td>Covers broader UAE company records including trade licenses, VAT certificates, IDs, supplier files, HR records, invoices, contracts, and compliance documents.</td>
+    </tr>
+  
+    <tr>
+      <th>Manual admin tracking</th>
+      <td>Hidden labor cost and high renewal/compliance risk</td>
+      <td>Small teams with simple folders and calendar reminders</td>
+      <td>Creates a searchable document brain with risk scores, reminders, knowledge graph structure, and reportable governance.</td>
+    </tr>
+  </tbody>
+    </table>
+    <div class="competitor-note">
+      Pricing varies by vendor, region, usage, contract size, implementation scope, and provider fees. Exact competitor pricing should be verified during live sales conversations; this comparison is designed to explain buying models and value positioning without making stale price claims.
+    </div>
+    <div class="grid-3" style="margin-top:5mm">
+      <div class="card"><h3>Standalone value</h3><p>Customers can start with internal workflows before connecting external systems, which lowers adoption friction and reduces implementation risk.</p></div>
+      <div class="card"><h3>Integration upside</h3><p>API, webhook, OAuth, field mapping, logs, and retry handling turn optional integrations into paid expansion opportunities.</p></div>
+      <div class="card"><h3>Enterprise path</h3><p>White label, SSO-ready structure, audit controls, usage limits, branded reports, and dedicated deployment support larger buyers.</p></div>
+    </div>
+  
+      <footer>
+        <span>DocuMind</span>
+        <span>Competitor Pricing Comparison</span>
       </footer>
     </section>
   

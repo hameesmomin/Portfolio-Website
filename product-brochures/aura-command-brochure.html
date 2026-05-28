@@ -332,6 +332,29 @@
   .vs-column h3 { font-size: 14pt; margin-bottom: 4mm; }
   .vs-column ul { margin: 0; padding-left: 5mm; display: grid; gap: 4mm; }
   .vs-column li { color: #213f38; font-size: 11pt; }
+  .competitor-note {
+    margin-top: 4mm;
+    padding: 3mm 4mm;
+    border-radius: 4mm;
+    border: 1px solid #d7eee6;
+    background: rgba(255,255,255,.58);
+    color: #213f38;
+    font-size: 8.2pt;
+    line-height: 1.32;
+  }
+  .competitor-table th,
+  .competitor-table td {
+    font-size: 7.2pt;
+    line-height: 1.24;
+    padding: 2.2mm;
+    vertical-align: top;
+  }
+  .competitor-table th {
+    width: 27%;
+  }
+  .competitor-table td:nth-child(2) {
+    width: 22%;
+  }
   .stat {
     padding: 4mm;
     min-height: 25mm;
@@ -1143,6 +1166,67 @@
       <footer>
         <span>Aura Command</span>
         <span>Competitive Advantage</span>
+      </footer>
+    </section>
+  
+
+  
+    <section class="page ">
+      
+    <div class="section-title"><span class="eyebrow">Competitor and pricing comparison</span></div>
+    <h2>How Aura Command compares with common buying alternatives.</h2>
+    <p class="lead">This page keeps the investor and buyer conversation practical: what customers usually compare against, how those options are priced, where they help, and why Aura Command is positioned as a focused commercial SaaS product.</p>
+    <table class="competitor-table">
+      <thead>
+        <tr>
+          <th>Alternative</th>
+          <th>Typical pricing model</th>
+          <th>Where it helps</th>
+          <th>Aura Command advantage</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr>
+      <th>Generic WhatsApp shared inbox tools</th>
+      <td>Per-agent SaaS pricing plus WhatsApp provider charges</td>
+      <td>Centralizing replies and team inbox ownership</td>
+      <td>Adds revenue health, missed-lead detection, SLA monitoring, pipeline visibility, AI employee modes, CRM mapping, and executive reporting.</td>
+    </tr>
+  
+    <tr>
+      <th>CRM suites</th>
+      <td>Per-seat CRM plans plus setup and integration services</td>
+      <td>Managing sales records, stages, and CRM reporting</td>
+      <td>Starts from WhatsApp revenue operations and connects CRM as an optional system of record rather than forcing sales teams to leave their daily channel.</td>
+    </tr>
+  
+    <tr>
+      <th>Helpdesk or call center platforms</th>
+      <td>Agent-based subscription and implementation cost</td>
+      <td>Support tickets, service queues, and customer service routing</td>
+      <td>Focuses on lead response speed, follow-up discipline, conversion, revenue leakage, and owner-level sales visibility.</td>
+    </tr>
+  
+    <tr>
+      <th>Manual phones and spreadsheets</th>
+      <td>Low software spend but high labor cost and missed revenue risk</td>
+      <td>Very small teams with informal tracking</td>
+      <td>Turns scattered conversations into assigned leads, timelines, alerts, reports, templates, and measurable pipeline outcomes.</td>
+    </tr>
+  </tbody>
+    </table>
+    <div class="competitor-note">
+      Pricing varies by vendor, region, usage, contract size, implementation scope, and provider fees. Exact competitor pricing should be verified during live sales conversations; this comparison is designed to explain buying models and value positioning without making stale price claims.
+    </div>
+    <div class="grid-3" style="margin-top:5mm">
+      <div class="card"><h3>Standalone value</h3><p>Customers can start with internal workflows before connecting external systems, which lowers adoption friction and reduces implementation risk.</p></div>
+      <div class="card"><h3>Integration upside</h3><p>API, webhook, OAuth, field mapping, logs, and retry handling turn optional integrations into paid expansion opportunities.</p></div>
+      <div class="card"><h3>Enterprise path</h3><p>White label, SSO-ready structure, audit controls, usage limits, branded reports, and dedicated deployment support larger buyers.</p></div>
+    </div>
+  
+      <footer>
+        <span>Aura Command</span>
+        <span>Competitor Pricing Comparison</span>
       </footer>
     </section>
   

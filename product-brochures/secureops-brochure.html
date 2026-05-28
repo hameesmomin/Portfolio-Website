@@ -332,6 +332,29 @@
   .vs-column h3 { font-size: 14pt; margin-bottom: 4mm; }
   .vs-column ul { margin: 0; padding-left: 5mm; display: grid; gap: 4mm; }
   .vs-column li { color: #1e3448; font-size: 11pt; }
+  .competitor-note {
+    margin-top: 4mm;
+    padding: 3mm 4mm;
+    border-radius: 4mm;
+    border: 1px solid #cfe2f3;
+    background: rgba(255,255,255,.58);
+    color: #1e3448;
+    font-size: 8.2pt;
+    line-height: 1.32;
+  }
+  .competitor-table th,
+  .competitor-table td {
+    font-size: 7.2pt;
+    line-height: 1.24;
+    padding: 2.2mm;
+    vertical-align: top;
+  }
+  .competitor-table th {
+    width: 27%;
+  }
+  .competitor-table td:nth-child(2) {
+    width: 22%;
+  }
   .stat {
     padding: 4mm;
     min-height: 25mm;
@@ -1143,6 +1166,67 @@
       <footer>
         <span>SecureOps</span>
         <span>Competitive Advantage</span>
+      </footer>
+    </section>
+  
+
+  
+    <section class="page ">
+      
+    <div class="section-title"><span class="eyebrow">Competitor and pricing comparison</span></div>
+    <h2>How SecureOps compares with common buying alternatives.</h2>
+    <p class="lead">This page keeps the investor and buyer conversation practical: what customers usually compare against, how those options are priced, where they help, and why SecureOps is positioned as a focused commercial SaaS product.</p>
+    <table class="competitor-table">
+      <thead>
+        <tr>
+          <th>Alternative</th>
+          <th>Typical pricing model</th>
+          <th>Where it helps</th>
+          <th>SecureOps advantage</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tr>
+      <th>SIEM platforms</th>
+      <td>Data-volume, cloud, or enterprise pricing plus security engineering effort</td>
+      <td>High-volume security event collection and technical SOC workflows</td>
+      <td>Turns security activity into owner-ready cyber risk, evidence, compliance, incident, vendor, and board-report workflows for SMEs and enterprises.</td>
+    </tr>
+  
+    <tr>
+      <th>GRC platforms</th>
+      <td>Enterprise subscription or quote-based pricing</td>
+      <td>Formal compliance control tracking and audit programs</td>
+      <td>Combines GRC with incidents, assets, vulnerabilities, evidence, vendor risk, employee risk, and Virtual CISO recommendations in one operating view.</td>
+    </tr>
+  
+    <tr>
+      <th>MSSPs and security consultants</th>
+      <td>Monthly retainer, project fee, or assessment fee</td>
+      <td>External monitoring, assessments, and expert advice</td>
+      <td>Gives the client an internal command center for evidence, remediation, recurring reporting, and accountable ownership between consultant engagements.</td>
+    </tr>
+  
+    <tr>
+      <th>Spreadsheets and manual audits</th>
+      <td>Low tool cost but high risk, audit effort, and visibility gap</td>
+      <td>Early-stage tracking before a formal security program exists</td>
+      <td>Creates a governed defensive security workflow with scores, tasks, timelines, controls, evidence, audit logs, and executive summaries.</td>
+    </tr>
+  </tbody>
+    </table>
+    <div class="competitor-note">
+      Pricing varies by vendor, region, usage, contract size, implementation scope, and provider fees. Exact competitor pricing should be verified during live sales conversations; this comparison is designed to explain buying models and value positioning without making stale price claims.
+    </div>
+    <div class="grid-3" style="margin-top:5mm">
+      <div class="card"><h3>Standalone value</h3><p>Customers can start with internal workflows before connecting external systems, which lowers adoption friction and reduces implementation risk.</p></div>
+      <div class="card"><h3>Integration upside</h3><p>API, webhook, OAuth, field mapping, logs, and retry handling turn optional integrations into paid expansion opportunities.</p></div>
+      <div class="card"><h3>Enterprise path</h3><p>White label, SSO-ready structure, audit controls, usage limits, branded reports, and dedicated deployment support larger buyers.</p></div>
+    </div>
+  
+      <footer>
+        <span>SecureOps</span>
+        <span>Competitor Pricing Comparison</span>
       </footer>
     </section>
   
