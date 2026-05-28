@@ -54,6 +54,28 @@ SiteFlow:
 
 - Brochure compliance endpoints checked for all four apps.
 - Brochure generator updated to add implementation status and API/setup requirement pages.
+- Brochure generator now includes the investor-loved `Competitive Landscape` matrix page with named competitors, capability rows, investor insight, and legend.
+- Brochure generator also includes a separate `Competitor Pricing Comparison` page explaining common alternatives, buying models, and value positioning.
+- Automated brochure audit added through `npm run brochures:audit`.
 - Investor PDFs regenerated in `product-brochures`.
 - Refreshed PDFs copied to `C:\Users\hamud\Downloads`.
 - Local portfolio copy updated with refreshed brochures.
+
+## Required Investor Pages
+
+Every product brochure must include these investor-critical pages before it is shared:
+
+- `Competitive Advantage`: traditional solution vs our product.
+- `Competitive Landscape`: named competitor matrix and investor insight.
+- `Competitor Pricing Comparison`: buying alternatives and pricing model context.
+- `Subscription Tiers`: product pricing architecture and tier feature table.
+- `Implementation Status`: live, Beta, Roadmap, and API/setup requirements.
+
+Run this before demos or publishing:
+
+```bash
+npm run brochures:generate
+npm run brochures:audit
+```
+
+The audit fails if any brochure is missing the competitive landscape matrix, pricing architecture, competitor/pricing page, product-specific competitors, or core brochure claims.

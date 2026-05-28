@@ -120,4 +120,11 @@ Detailed company-owner brochures are generated in `product-brochures/`:
 - `documind-brochure.pdf`
 - `siteflow-brochure.pdf`
 
-Run `node scripts/generate-product-brochures.mjs` to regenerate the editable HTML and PDF versions.
+Run these commands to regenerate and verify the editable HTML and PDF versions:
+
+```bash
+npm run brochures:generate
+npm run brochures:audit
+```
+
+The audit checks that every brochure keeps the investor-critical sections, including the competitive landscape matrix with named competitors, competitor/pricing comparison, pricing architecture, implementation status, and product-specific feature claims.

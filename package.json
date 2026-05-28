@@ -8,6 +8,8 @@
     "dev": "vite",
     "serve": "node --watch server/index.js",
     "start": "node server/index.js",
+    "brochures:generate": "node scripts/generate-product-brochures.mjs",
+    "brochures:audit": "node scripts/audit-product-brochures.mjs",
     "build": "vite build",
     "deploy": "wrangler deploy",
     "preview": "wrangler dev"
