@@ -90,7 +90,7 @@ const productDemos = [
     workflowAutomation: "Automations for lead assignment, missed follow-up alerts, SLA escalation, CRM task creation, WhatsApp template handoff, and manager notifications.",
     enterpriseFeatures: ["SSO-ready structure", "White-label support", "Multiple WhatsApp channels", "Custom CRM connectors", "Advanced forecasting"],
     techStack: ["Laravel", "React", "TypeScript", "Sanctum", "Reverb-ready", "MySQL"],
-    roadmap: ["Template manager", "Broadcast campaign controls", "Revenue attribution reports", "Advanced CRM sync"],
+    roadmap: ["Advanced revenue attribution dashboards", "Broadcast governance controls", "Additional CRM connector packs", "Owner-level forecast tuning"],
     localPort: "8031",
     videoSrc: "/assets/trailers/aura-command-walkthrough-20260523.webm",
     posterSrc: "/assets/trailers/aura-command-poster-20260523.png",
@@ -128,7 +128,7 @@ const productDemos = [
     workflowAutomation: "Automations for document classification, low-confidence review queues, expiry reminders, approval requests, owner assignment, and storage sync.",
     enterpriseFeatures: ["Custom document models", "Redaction workflows", "Multi-department workspaces", "Advanced compliance reporting", "Retention controls"],
     techStack: ["Laravel", "Inertia React", "Tailwind", "Database queues", "SQLite/MySQL"],
-    roadmap: ["Real OCR provider", "Redaction workflow", "Duplicate detection", "Email ingestion"],
+    roadmap: ["Customer-specific extraction templates", "Advanced redaction workflows", "Duplicate detection tuning", "Email ingestion rollout"],
     localPort: "8032",
     videoSrc: "/assets/trailers/documind-walkthrough-20260523.webm",
     posterSrc: "/assets/trailers/documind-poster-20260523.png",
@@ -166,7 +166,7 @@ const productDemos = [
     workflowAutomation: "Automations for overdue snags, low stock alerts, approval requests, contractor notifications, report generation, and delay-risk escalation.",
     enterpriseFeatures: ["ERP integration", "Procurement integration", "Multi-company management", "White-label reports", "Custom workflows"],
     techStack: ["Laravel", "React", "Tailwind", "Sanctum", "Database queues", "MySQL/SQLite"],
-    roadmap: ["Gantt timeline", "RFI/submittal module", "Budget variance", "Weather and site condition logs"],
+    roadmap: ["Advanced Gantt planning", "RFI/submittal module", "Expanded budget variance forecasting", "Weather provider enrichment"],
     localPort: "8033",
     videoSrc: "/assets/trailers/siteflow-walkthrough-20260523.webm",
     posterSrc: "/assets/trailers/siteflow-poster-20260523.png",
@@ -204,7 +204,7 @@ const productDemos = [
     workflowAutomation: "Automations for critical alerts, vulnerability SLA escalation, remediation assignment, control-gap reminders, executive report scheduling, and incident updates.",
     enterpriseFeatures: ["SIEM integrations", "MITRE ATT&CK mapping-ready", "Custom frameworks", "Vendor assessments", "Board-level reporting"],
     techStack: ["Laravel", "React", "Tailwind", "Sanctum", "DomPDF", "Database queues"],
-    roadmap: ["MITRE mapping", "Security questionnaire module", "Custom frameworks", "Monthly board report generator"],
+    roadmap: ["Client-specific SIEM parser packs", "Security questionnaire library", "Custom framework packs", "Additional board-report templates"],
     localPort: "8024",
     videoSrc: "/assets/trailers/secureops-walkthrough-20260523.webm",
     posterSrc: "/assets/trailers/secureops-poster-20260523.png",
@@ -315,31 +315,31 @@ const healthScoreSystems = [
 const implementationStatus = {
   "aura-command": [
     ["Implemented", "Standalone revenue CRM", "Manual lead creation, contact management, shared inbox workflow, pipeline stages, team assignment, follow-up tasks, templates, notes, reports, audit logs, and demo data work without Meta WhatsApp connected.", "No external API required"],
-    ["Available with setup", "Voice Note Intelligence", "Audio upload/storage and manual transcript fallback are demo-safe. Intent, sentiment, recommendation, and summary logic can run from the transcript while live transcription is connected later.", "OpenAI Whisper or Azure Speech required for live transcription"],
+    ["Available with setup", "Voice Note Intelligence", "Audio upload/storage, manual transcript fallback, intent, sentiment, recommendations, and summaries are available from transcript data. Live transcription activates after speech credentials are connected.", "OpenAI Whisper or Azure Speech required for live transcription"],
     ["Available now", "Revenue Health, SLA, missed leads", "Backend gap-analysis and internal scoring use response activity, failed messages, unassigned leads, follow-up activity, lead aging, and assignment signals.", "No external API required; WhatsApp events improve accuracy"],
     ["Implemented when configured", "WhatsApp Cloud API", "Webhook verification, inbound/outbound messaging, template handoff, delivery status, and failure handling are provider-backed integration workflows.", "Meta WhatsApp Cloud API credentials required"],
     ["Enterprise add-on", "CRM synchronization", "HubSpot, Zoho, Salesforce, and Pipedrive are represented through connector readiness and manual import/export. Production bidirectional sync, mapping, logs, and conflict resolution require provider setup.", "CRM OAuth/API credentials required"]
   ],
   documind: [
     ["Implemented", "Standalone document platform", "Manual upload, categories, tags, secure storage, manual metadata, expiry tracking, review queue, search, notes, audit logs, dashboard analytics, and demo UAE documents work locally.", "No external API required"],
-    ["Available with setup", "OCR Pipeline", "OCR abstraction, processing job, confidence scores, review queue status, error handling, and manual metadata fallback are present.", "Azure Document Intelligence, Google Document AI, AWS Textract, or Tesseract setup required for production OCR"],
-    ["Available with setup", "Source-grounded Q&A", "Answers use extracted/demo text with source document IDs and query history. Stronger citation confidence and chunk persistence are marked as in progress.", "AI provider optional; stronger production answers need configured model/provider"],
+    ["Available with setup", "OCR Pipeline", "OCR jobs, provider health, confidence scores, review queues, error handling, and manual metadata fallback are implemented.", "Azure Document Intelligence, Google Document AI, AWS Textract, or Tesseract setup required for live OCR extraction"],
+    ["Implemented", "Source-grounded Q&A", "Persistent document chunks, source citations, confidence scores, query history, audit logs, and not-enough-information guardrails are implemented.", "No external API required for local retrieval; AI provider can improve answer generation"],
     ["Available now", "AI Risk Scoring", "Expiry risk, low-confidence review signals, compliance dashboard widgets, and executive recommendations are generated from internal document data.", "No external API required"],
-    ["Enterprise add-on", "Knowledge graph and bilingual processing", "Graph nodes/edges, visual graph view, Arabic OCR/search analyzers, and mixed-language extraction are not presented as finished production modules.", "OCR/search provider and implementation work required"]
+    ["Implemented", "Knowledge graph and bilingual processing", "Persistent graph nodes/edges, visual relationship summaries, Arabic/English/mixed-language chunk metadata, and obligation links are implemented.", "OCR language quality improves with provider credentials"]
   ],
   secureops: [
     ["Implemented", "Standalone defensive GRC", "Asset inventory, risk register, incidents, vulnerabilities, controls, evidence files, policy library, executive dashboard, audit logs, reports, API keys, and manual security posture mode work without SIEM.", "No external API required"],
     ["Available now", "AI Virtual CISO", "Plain-language executive risk summaries, weekly recommendations, board-ready explanations, compliance guidance, and action plans are generated from internal risk and incident data.", "AI provider optional"],
-    ["Available now", "Vendor and employee risk", "Vendor-access risks, employee training status, policy acknowledgements, phishing signals, employee scores, and department scores are demo/backend-backed.", "No external API required"],
-    ["Enterprise add-on", "MITRE ATT&CK mapping", "Technique associations, incident/control mapping, matrix UI, and coverage heatmap require structured control mapping before being sold as a completed enterprise module.", "No external API required, but implementation work required"],
-    ["Enterprise add-on", "SIEM connector hub", "Manual security event mode works today. Wazuh, Splunk, Elastic, and Microsoft Sentinel ingestion require provider credentials and paid integration work.", "SIEM/API credentials required"]
+    ["Available now", "Vendor and employee risk", "Vendor-access risks, employee training status, policy acknowledgements, phishing signals, employee scores, and department scores are backend-backed.", "No external API required"],
+    ["Available now", "MITRE ATT&CK mapping", "Technique associations, incident/control mapping, coverage scoring, and heatmap data are generated from defensive security events and controls.", "No external API required; SIEM feeds improve coverage"],
+    ["Available with setup", "SIEM connector hub", "Manual security event mode, Wazuh, Splunk, Elastic, and Microsoft Sentinel setup states, health monitoring, and ingestion readiness are available.", "SIEM/API credentials required for live event sync"]
   ],
   siteflow: [
     ["Implemented", "Standalone construction operations", "Projects, daily reports, snags, materials, contractors, safety observations, approvals, tasks, photos/files, reports, audit logs, and manual project mode work without Procore/ERP.", "No external API required"],
     ["Available now", "Delay Prediction Engine", "Deterministic delay risk uses project schedule status, open snags, material delays, approval delays, and contractor score data.", "No external API required; weather/provider data can improve forecasts"],
     ["Available now", "UAE Workflow Engine", "Approval records, owners, statuses, comments, and templates for municipality, consultant, safety, snag, and variation approvals are available as workflow-ready structures.", "No external API required"],
     ["Available now", "Client-ready reporting and contractor scoring", "PDF/report categories, executive summaries, progress snapshots, contractor rankings, pending tasks, and risk indicators are generated from internal project data.", "No external API required"],
-    ["Available with setup", "Voice site updates and enterprise integrations", "Manual transcript/rough notes and photo reports work today. Live voice recording/transcription, Autodesk, Procore, ERP, accounting, and WhatsApp intake require provider setup.", "Speech, ERP, Procore/Autodesk, or Aura/WhatsApp credentials required"]
+    ["Available now", "Voice site updates and reporting", "Voice-update upload records, manual transcript fallback, photo-linked daily reports, snag/safety creation, delay scoring, and client report exports are implemented.", "Speech credentials improve live transcription; ERP, Procore/Autodesk, and Aura/WhatsApp require provider setup"]
   ]
 };
 
@@ -373,7 +373,7 @@ const trustCenterItems = [
   ["Secure API Design", "Scoped API keys, rate limits, signed webhooks, validation, and tenant checks are part of the integration model."],
   ["Multi-Tenant Isolation", "Company/workspace boundaries are central to the data model and product architecture."],
   ["Secure File Handling", "Private storage, signed access, upload validation, and audit trails are planned where documents or evidence are handled."],
-  ["Responsible Disclosure", "Security contact and disclosure handling are part of the trust-center roadmap."]
+  ["Responsible Disclosure", "Security contact and disclosure handling are documented as part of the trust-center operating model."]
 ];
 
 function useReveal() {
