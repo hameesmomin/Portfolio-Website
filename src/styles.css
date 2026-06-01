@@ -189,12 +189,25 @@ em.accent {
 }
 
 .brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
   font-size: 1.1rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   color: var(--thread-orange-bright);
   text-shadow: 0 0 18px rgba(217, 111, 44, .32);
   text-transform: uppercase;
+}
+
+.brand-mark img {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  border-radius: 8px;
+  object-fit: cover;
+  filter: drop-shadow(0 0 14px rgba(255, 181, 107, .28));
 }
 
 .site-nav {
@@ -449,6 +462,25 @@ em.accent {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
+}
+
+.hero-personal-lockup {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  margin-bottom: 14px;
+  border: 1px solid rgba(255, 181, 107, .2);
+  border-radius: 10px;
+  background: linear-gradient(145deg, rgba(255, 181, 107, .08), rgba(255,255,255,.025));
+}
+
+.hero-personal-lockup img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center 48%;
+  opacity: .94;
 }
 
 .hero-dashboard-card {
@@ -2276,6 +2308,24 @@ em.accent {
   gap: 12px;
 }
 
+.about-brand-lockup {
+  overflow: hidden;
+  min-height: 220px;
+  border: 1px dashed rgba(255, 181, 107, .28);
+  border-radius: 10px;
+  background: rgba(8, 8, 10, .76);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .28);
+}
+
+.about-brand-lockup img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  object-position: center;
+}
+
 .about-facts article {
   padding: 20px;
   border: 1px dashed rgba(255, 181, 107, .22);
@@ -2663,6 +2713,20 @@ em.accent {
   gap: 24px;
 }
 
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-brand img {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  object-fit: cover;
+  filter: drop-shadow(0 0 12px rgba(255, 181, 107, .24));
+}
+
 .footer-brand strong {
   font-size: 1.1rem;
   font-weight: 800;
@@ -2922,6 +2986,11 @@ em.accent {
     font-size: .88rem;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  .brand-mark img {
+    width: 32px;
+    height: 32px;
   }
 
   .nav-toggle {

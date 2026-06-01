@@ -2,6 +2,12 @@ import { useEffect, useState } from "react";
 
 const contactEmail = "hamu.dxb@gmail.com";
 
+const brandAssets = {
+  mark: "/assets/brand/hamees-momin-mark.png",
+  lockup: "/assets/brand/hamees-momin-lockup.png",
+  socialCover: "/assets/brand/hamees-momin-social-cover.png"
+};
+
 const projects = [
   {
     name: "Skywing Real Estate",
@@ -455,6 +461,7 @@ function Navbar() {
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
       <div className="container header-inner">
         <a className="brand-mark" href={isSubPage ? "/" : "#home"} onClick={close} aria-label="Go to home">
+          <img src={brandAssets.mark} alt="" width="36" height="36" decoding="async" />
           <span>Hamees Momin</span>
         </a>
 
@@ -1340,6 +1347,7 @@ function Footer() {
     <footer className="site-footer">
       <div className="container footer-inner">
         <div className="footer-brand">
+          <img src={brandAssets.mark} alt="" width="34" height="34" loading="lazy" decoding="async" />
           <strong>Hamees Momin</strong>
         </div>
         <div className="footer-center">
@@ -1583,6 +1591,9 @@ function HeroShowcase() {
           <span />
           <strong>UAE SaaS Product Studio</strong>
         </div>
+        <div className="hero-personal-lockup">
+          <img src={brandAssets.lockup} alt="Hamees Momin personal brand logo" loading="eager" decoding="async" />
+        </div>
         <div className="hero-dashboard-grid">
           <article className="hero-dashboard-card hero-dashboard-card-large">
             <span>Product ecosystem</span>
@@ -1655,6 +1666,9 @@ function AboutSection() {
           <p>I work across full-stack development, SaaS products, AI-assisted workflows, cybersecurity dashboards, business automation, and UAE-focused web applications.</p>
         </div>
         <div className="about-facts" data-reveal>
+          <div className="about-brand-lockup">
+            <img src={brandAssets.lockup} alt="Hamees Momin gold personal brand lockup" loading="lazy" decoding="async" />
+          </div>
           {[
             ["Location", "Dubai, UAE"],
             ["Focus", "Full-stack development, SaaS products, AI tools, cybersecurity dashboards, automation"],
