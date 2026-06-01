@@ -44,23 +44,56 @@ const projects = [
 
 const skills = [
   {
-    title: "Frontend engineering",
+    title: "Frontend and product UI",
     levelClass: "skill-level-94",
-    copy: "Accessible React interfaces, responsive systems, polished motion, and performance-aware implementation.",
-    tags: ["React", "CSS", "Accessibility", "Performance"]
+    copy: "Responsive SaaS dashboards, polished landing pages, accessible interfaces, and premium product experiences that feel clear on mobile and desktop.",
+    tags: ["React", "Tailwind CSS", "UI/UX", "Dashboards", "Performance"]
   },
   {
-    title: "Backend engineering",
+    title: "Backend and SaaS systems",
     levelClass: "skill-level-88",
-    copy: "API design, validation, secure contact flows, deployment structure, logging, and practical maintainability.",
-    tags: ["Node.js", "APIs", "Security", "Email"]
+    copy: "Laravel and API-first backend systems with authentication, roles, validation, audit logs, tenant-aware data, and maintainable business workflows.",
+    tags: ["Laravel", "PHP", "REST APIs", "MySQL", "RBAC"]
   },
   {
-    title: "Product delivery",
+    title: "AI, automation, and security",
     levelClass: "skill-level-91",
-    copy: "Clear user journeys, focused scope, credible presentation, and launch-ready digital products.",
-    tags: ["UX flow", "SEO", "Content", "Launch"]
+    copy: "AI-assisted workflows, document intelligence, WhatsApp/CRM automation concepts, cybersecurity dashboards, and secure deployment thinking.",
+    tags: ["AI workflows", "Automation", "Security+", "Compliance", "Cloudflare"]
   }
+];
+
+const services = [
+  ["Custom Business Web Apps", "Operational systems that replace spreadsheets, manual follow-up, and disconnected admin work with clear workflows."],
+  ["SaaS Dashboards", "Subscription-ready dashboards with roles, settings, reports, onboarding, analytics, and investor/client presentation polish."],
+  ["AI Document Tools", "Upload, classify, search, summarize, and track business documents with secure review and reporting workflows."],
+  ["Cybersecurity Dashboards", "Risk, compliance, audit evidence, incident, and executive security visibility for business-friendly decision making."],
+  ["Real Estate Websites & Portals", "Premium property presentation, search, lead capture, and brand websites for UAE real estate teams."],
+  ["WhatsApp / CRM Automation", "Lead intake, assignment, follow-up reminders, template workflows, and integration-ready CRM handoff."],
+  ["Admin Panels", "Clean internal tools for users, roles, billing readiness, approvals, records, logs, and secure operational control."],
+  ["API Integrations", "Provider setup screens, API keys, webhooks, field mapping, sync logs, retries, and graceful fallback states."],
+  ["Product Landing Pages", "High-conversion pages for SaaS products, demos, investor links, service offers, and client acquisition."],
+  ["Performance & UI/UX Refactoring", "Speed, responsiveness, spacing, mobile polish, accessibility, and conversion improvements for existing apps."]
+];
+
+const buildProcess = [
+  ["Discover business problem", "Clarify the workflow, target user, operational pain, and business outcome before writing code."],
+  ["Design the workflow", "Map screens, roles, states, permissions, data, reports, and integration boundaries."],
+  ["Build secure full-stack system", "Implement frontend, backend, validation, access control, audit logging, and realistic data flows."],
+  ["Test across devices", "Check mobile, tablet, desktop, forms, navigation, empty states, and critical conversion paths."],
+  ["Deploy and optimize", "Prepare build output, performance, SEO, headers, environment settings, and deployment notes."],
+  ["Improve with feedback", "Use demos and buyer reactions to refine UX, copy, workflows, and commercial positioning."]
+];
+
+const trustBadges = [
+  "Dubai-based Full-Stack Developer",
+  "CompTIA Security+",
+  "Google Cybersecurity Certificate",
+  "AI SaaS Platforms",
+  "Business Dashboards",
+  "Laravel / React",
+  "UAE Business Software",
+  "Automation Systems"
 ];
 
 const productDemos = [
@@ -74,7 +107,7 @@ const productDemos = [
     problem: "Sales teams lose warm leads when chats sit inside one person's phone, replies get delayed, or nobody knows who owns the next move.",
     importance: "Aura Command turns messy WhatsApp conversations into a managed revenue workflow, so every inquiry has context, ownership, follow-up, and a visible path to closing.",
     fit: "Real estate teams, clinics, agencies, and service businesses",
-    status: "Strongest commercial potential",
+    status: "Available for demo and client customization",
     badges: ["WhatsApp revenue ops", "CRM-ready", "SLA follow-ups", "AI replies", "Revenue attribution"],
     healthScore: "Revenue Operations Health Score",
     executiveKpis: ["Pipeline Value", "Active Leads", "Lead Conversion Rate", "Team Performance", "Revenue Forecast"],
@@ -112,7 +145,7 @@ const productDemos = [
     problem: "Important documents are scattered across drives, inboxes, and folders until an expiry date, compliance request, or missing contract becomes an expensive surprise.",
     importance: "Documind gives operations teams a single place to store, search, understand, and act on documents before deadlines turn into penalties.",
     fit: "SMEs, HR teams, operations teams, document-heavy businesses",
-    status: "Easiest to explain and sell",
+    status: "Available for demo and client customization",
     badges: ["Expiry intelligence", "OCR-ready", "Secure search", "Approval workflows", "Source Q&A"],
     healthScore: "Document Compliance Score",
     executiveKpis: ["Documents Expiring Soon", "Missing Documentation", "Approval Bottlenecks", "Contract Risk", "Renewal Forecast"],
@@ -150,7 +183,7 @@ const productDemos = [
     problem: "Site updates often live in WhatsApp messages, photos, notebooks, and memory, making it hard to prove what happened, who approved it, and what changed.",
     importance: "Siteflow gives construction teams a cleaner record of the day, turning scattered field activity into accountable reports that clients and managers can trust.",
     fit: "Contractors, consultants, project managers, site teams",
-    status: "Focused niche SaaS",
+    status: "Available for demo and client customization",
     badges: ["Daily reports", "Snag tracking", "Contractors", "Approvals", "Client PDFs"],
     healthScore: "Project Health Score",
     executiveKpis: ["Budget Performance", "Timeline Performance", "Delay Risks", "Contractor Rankings", "Safety Overview"],
@@ -188,7 +221,7 @@ const productDemos = [
     problem: "Small and mid-sized companies are expected to look secure, but often lack a clear view of risks, evidence, vulnerabilities, and what leadership should fix first.",
     importance: "SecureOps packages security posture into language a business can act on, helping teams prioritize risks, prepare for audits, and show clients they take security seriously.",
     fit: "SMEs, regulated teams, IT providers, compliance-driven firms",
-    status: "High-ticket potential",
+    status: "Available for demo and client customization",
     badges: ["SIEM-ready", "Risk scoring", "Incidents", "Compliance", "Executive reports"],
     healthScore: "Security Posture Score",
     executiveKpis: ["Compliance Status", "Open Risks", "Critical Vulnerabilities", "Incident Trends", "Board-Level Report"],
@@ -421,7 +454,7 @@ function Navbar() {
   return (
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
       <div className="container header-inner">
-        <a className="brand-mark" href="#home" onClick={close} aria-label="Go to home">
+        <a className="brand-mark" href={isSubPage ? "/" : "#home"} onClick={close} aria-label="Go to home">
           <span>Hamees Momin</span>
         </a>
 
@@ -434,9 +467,13 @@ function Navbar() {
 
         <nav className={`site-nav ${open ? "is-open" : ""}`} id="site-nav" aria-label="Main navigation">
           {[
+            ["#home", "home"],
             ["#products", "products"],
-            ["#enterprise", "enterprise"],
-            ["#expertise", "expertise"],
+            ["#work", "projects"],
+            ["#services", "services"],
+            ["#expertise", "skills"],
+            ["#about", "about"],
+            ["#credentials", "certifications"],
             ["/trust", "trust"],
             ["#contact", "contact"]
           ].map(([href, label]) => (
@@ -551,8 +588,15 @@ function Contact() {
     <section className="section contact-section" id="contact">
       <div className="container contact-grid">
         <div className="contact-intro" data-reveal>
-          <h2>Start a project</h2>
-          <p>Send project details through the secure form, or reach out directly.</p>
+          <span className="section-kicker">REQUEST DEMO / WORK WITH ME</span>
+          <h2>Let&apos;s build your next business platform.</h2>
+          <p>Tell me what you want to improve: a SaaS demo, secure dashboard, automation workflow, real estate platform, AI tool, or full business web app.</p>
+          <div className="contact-direct-actions">
+            <a href={`mailto:${contactEmail}`}>Email me</a>
+            <a href="#products">Request product demo</a>
+            <a href="#work">View portfolio</a>
+            <a href="https://wa.me/971502877142" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </div>
         </div>
 
         <InquiryForm />
@@ -1299,10 +1343,11 @@ function Footer() {
           <strong>Hamees Momin</strong>
         </div>
         <div className="footer-center">
-          <p>(c) {year} Hamees Momin. Enterprise SaaS, security, and product engineering.</p>
+          <p>(c) {year} Hamees Momin. Built with full-stack product thinking, security awareness, and real business workflows.</p>
         </div>
         <div className="footer-links">
           <a href={`mailto:${contactEmail}`}>EMAIL</a>
+          <a href="/#products">PRODUCTS</a>
           <a href="/trust">TRUST</a>
           <a href="https://wa.me/971502877142" target="_blank" rel="noopener noreferrer">WHATSAPP</a>
         </div>
@@ -1357,14 +1402,14 @@ function App() {
       <Navbar />
       <main itemScope itemType="https://schema.org/Person">
         <section className="hero" id="home">
-          <div className="container">
+          <div className="container hero-grid">
             <div className="hero-content" data-reveal>
               <div className="availability-badge">
                 <span className="dot" />
-                AVAILABLE FOR NEW PROJECTS
+                DUBAI-BASED FULL-STACK DEVELOPER
               </div>
               
-              <h1>Building Enterprise SaaS Products, AI Solutions & Secure Business Platforms.</h1>
+              <h1>I build secure AI and SaaS platforms for businesses in the UAE.</h1>
               <meta itemProp="name" content="Hamees Momin" />
               <meta itemProp="jobTitle" content="Full-Stack Developer" />
               <meta itemProp="email" content={contactEmail} />
@@ -1372,26 +1417,31 @@ function App() {
               <meta itemProp="url" content="https://portfoliowebsite.hamu-dxb.workers.dev/" />
               
               <div className="hero-description">
-                <p itemProp="description">Full-stack software engineer, SaaS product builder, cybersecurity professional, and enterprise application developer building secure, high-performance products with real business workflows.</p>
+                <p itemProp="description">Dubai-based developer combining full-stack engineering, cybersecurity knowledge, and product thinking to create business software that is polished, practical, scalable, and ready for real-world use.</p>
               </div>
               <div className="hero-actions">
                 <a className="primary-button" href="#products">Explore products</a>
                 <a className="ghost-button" href="#contact">Request demo</a>
               </div>
+              <div className="hero-trust-tags" aria-label="Hamees Momin focus areas and certifications">
+                {trustBadges.map((badge) => <span key={badge}>{badge}</span>)}
+              </div>
             </div>
+
+            <HeroShowcase />
 
             <div className="metrics-row" data-reveal>
               <div className="metric">
-                <strong>30+</strong>
-                <span>PROJECTS SHIPPED</span>
+                <strong>4</strong>
+                <span>SAAS PRODUCT CONCEPTS BUILT</span>
               </div>
               <div className="metric">
-                <strong>98%</strong>
-                <span>PERFORMANCE SCORE</span>
+                <strong>2</strong>
+                <span>CYBERSECURITY CREDENTIALS</span>
               </div>
               <div className="metric">
-                <strong>4 Yrs</strong>
-                <span>CONSISTENT DELIVERY</span>
+                <strong>UAE</strong>
+                <span>BUSINESS SOFTWARE FOCUS</span>
               </div>
             </div>
           </div>
@@ -1468,6 +1518,8 @@ function App() {
 
         <ProductDemoHub />
 
+        <ServicesSection />
+
         <EnterpriseSaaSLayer />
 
         <ProductQualitySection />
@@ -1478,10 +1530,13 @@ function App() {
 
         <InteractiveDemoSection />
 
-        <section className="section" id="about">
+        <section className="section" id="skills">
           <div className="container">
             <div className="section-header" data-reveal>
-              <h2>Capabilities</h2>
+              <div>
+                <span className="section-kicker">TECHNICAL CAPABILITIES</span>
+                <h2>Business capability first, technology second.</h2>
+              </div>
             </div>
             <div className="skills-grid">
               {skills.map((skill, index) => (
@@ -1504,6 +1559,10 @@ function App() {
 
         <CertificationsSection />
 
+        <AboutSection />
+
+        <ProcessSection />
+
         <DeliveryStandards />
 
         <Contact />
@@ -1511,6 +1570,129 @@ function App() {
 
       <Footer />
     </>
+  );
+}
+
+function HeroShowcase() {
+  return (
+    <div className="hero-showcase" data-reveal aria-label="SaaS product dashboard preview">
+      <div className="hero-window">
+        <div className="hero-window-top">
+          <span />
+          <span />
+          <span />
+          <strong>UAE SaaS Product Studio</strong>
+        </div>
+        <div className="hero-dashboard-grid">
+          <article className="hero-dashboard-card hero-dashboard-card-large">
+            <span>Product ecosystem</span>
+            <strong>4 commercial SaaS platforms</strong>
+            <p>Revenue operations, construction command, cybersecurity posture, and document intelligence.</p>
+          </article>
+          <article className="hero-dashboard-card">
+            <span>Security</span>
+            <strong>RBAC + audit trails</strong>
+          </article>
+          <article className="hero-dashboard-card">
+            <span>AI workflows</span>
+            <strong>Copilots + reports</strong>
+          </article>
+          <article className="hero-dashboard-card">
+            <span>Integrations</span>
+            <strong>API + webhooks</strong>
+          </article>
+          <article className="hero-dashboard-card">
+            <span>Deployment</span>
+            <strong>Cloudflare-ready</strong>
+          </article>
+        </div>
+        <div className="hero-product-radar">
+          {productDemos.map((product) => (
+            <a key={product.key} href={`/products/${product.key}`}>
+              <ProductLogo product={product} compact />
+              <span>{product.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ServicesSection() {
+  return (
+    <section className="section services-section" id="services">
+      <div className="container">
+        <div className="section-header" data-reveal>
+          <div>
+            <span className="section-kicker">WHAT I CAN BUILD</span>
+            <h2>Software for businesses that need more than a pretty website.</h2>
+          </div>
+          <a href="#contact" className="view-archive">START A BUILD &rarr;</a>
+        </div>
+        <div className="services-grid">
+          {services.map(([title, copy], index) => (
+            <article className="service-card" key={title} data-reveal>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{title}</h3>
+              <p>{copy}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AboutSection() {
+  return (
+    <section className="section about-founder-section" id="about">
+      <div className="container about-founder-grid">
+        <div data-reveal>
+          <span className="section-kicker">ABOUT HAMEES</span>
+          <h2>Dubai-based developer building practical software with product, security, and business context.</h2>
+          <p>I build software with the mindset of a developer, a security learner, and a product owner. My focus is not just making apps look good, but making them useful, scalable, secure, and ready for real business workflows.</p>
+          <p>I work across full-stack development, SaaS products, AI-assisted workflows, cybersecurity dashboards, business automation, and UAE-focused web applications.</p>
+        </div>
+        <div className="about-facts" data-reveal>
+          {[
+            ["Location", "Dubai, UAE"],
+            ["Focus", "Full-stack development, SaaS products, AI tools, cybersecurity dashboards, automation"],
+            ["Certifications", "CompTIA Security+ and Google Cybersecurity Certificate"],
+            ["Available for", "Freelance projects, SaaS demos, white-label discussions, and business software builds"]
+          ].map(([label, value]) => (
+            <article key={label}>
+              <span>{label}</span>
+              <strong>{value}</strong>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProcessSection() {
+  return (
+    <section className="section process-section" id="process">
+      <div className="container">
+        <div className="section-header" data-reveal>
+          <div>
+            <span className="section-kicker">HOW I BUILD</span>
+            <h2>A clear path from business problem to polished software.</h2>
+          </div>
+        </div>
+        <div className="process-timeline">
+          {buildProcess.map(([title, copy], index) => (
+            <article className="process-step" key={title} data-reveal>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{title}</h3>
+              <p>{copy}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
