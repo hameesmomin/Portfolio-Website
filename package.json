@@ -11,6 +11,7 @@
     "brochures:generate": "node scripts/generate-product-brochures.mjs",
     "brochures:audit": "node scripts/audit-product-brochures.mjs",
     "demo-access:audit": "node scripts/audit-demo-access.mjs",
+    "release:preflight": "node scripts/release-preflight.mjs",
     "build": "vite build",
     "deploy": "wrangler deploy",
     "preview": "wrangler dev"

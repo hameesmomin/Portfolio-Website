@@ -128,3 +128,13 @@ npm run brochures:audit
 ```
 
 The audit checks that every brochure keeps the investor-critical sections, including the competitive landscape matrix with named competitors, competitor/pricing comparison, pricing architecture, implementation status, and product-specific feature claims.
+
+## Release Preflight
+
+Before pushing the live portfolio, run the release gate:
+
+```bash
+npm run release:preflight
+```
+
+This validates the production build, brochure completeness, and live demo-access policy. Live visitors should only be able to request demos; runnable app links belong in the local demo portfolio.
