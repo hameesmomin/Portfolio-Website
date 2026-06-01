@@ -1,21 +1,151 @@
-MIT License
+HAMEES MOMIN COMMERCIAL PROPRIETARY LICENSE
+Version 1.0 - Effective 2026
 
-Copyright (c) 2026 hameesmomin
+Copyright (c) 2026 Hamees Momin. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This license applies to the software, source code, compiled code, designs,
+documentation, product materials, databases, workflows, APIs, integrations,
+reports, templates, screenshots, videos, assets, and related materials contained
+in this repository and associated product repositories, including but not limited
+to Aura Command, SecureOps, DocuMind, SiteFlow, and the portfolio/product
+showcase websites.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. Ownership
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+All intellectual property rights, title, and interest in the Products remain
+exclusively owned by Hamees Momin. No sale, subscription, demo access,
+integration project, white-label deployment, private deployment, client
+configuration, custom branding, support arrangement, or commercial discussion
+transfers ownership of the Products, source code, architecture, design systems,
+workflows, data models, integrations, AI logic, reports, documentation, or
+underlying intellectual property.
+
+White-label access changes the customer-facing presentation only. It does not
+assign, sell, transfer, or license ownership of the Products or source code.
+Hamees Momin remains the sole owner of the Products and all related intellectual
+property at all times.
+
+2. Permitted Use
+
+Unless a separate written agreement signed by Hamees Momin grants additional
+rights, access to the Products is limited to one or more of the following:
+
+- private evaluation and demonstration;
+- use of a hosted SaaS account provided by Hamees Momin;
+- use of a private deployment provisioned or authorized by Hamees Momin;
+- implementation, onboarding, integration, or support work approved by Hamees
+  Momin;
+- internal business use by an authorized client under an active commercial
+  agreement, subscription, pilot, statement of work, or written permission.
+
+Authorized clients receive only a limited, revocable, non-exclusive,
+non-transferable right to access and use the relevant Product according to the
+commercial agreement in force. No source code license is granted unless
+explicitly stated in a separate signed written agreement.
+
+3. Restrictions
+
+You may not, directly or indirectly, without prior written permission from
+Hamees Momin:
+
+- copy, publish, distribute, resell, sublicense, lease, rent, share, or transfer
+  the Products or any substantial part of them;
+- provide the Products to third parties as your own software or competing SaaS
+  platform;
+- host, operate, or commercialize the Products for any third party outside an
+  authorized agreement;
+- reverse engineer, decompile, disassemble, scrape, extract, or attempt to
+  recreate the source code, architecture, user interface, database structure,
+  workflows, business logic, AI prompts, AI pipelines, reports, or integration
+  patterns;
+- remove or alter ownership, copyright, license, security, audit, or attribution
+  notices;
+- use the Products to build a substantially similar or competing product;
+- train, fine-tune, benchmark, or derive an AI model, code generator, design
+  system, or product template from the Products without written permission;
+- bypass subscription gates, billing controls, tenant isolation, API rate limits,
+  security controls, or access restrictions;
+- use demo credentials, demo environments, or private preview access for any
+  purpose other than evaluation authorized by Hamees Momin;
+- use the Products for unlawful, harmful, offensive, exploitative, or abusive
+  activity.
+
+4. Client Data and Client Materials
+
+Clients retain ownership of their own business data, customer data, uploaded
+documents, API credentials, brand assets, logos, trademarks, and confidential
+materials submitted to the Products. Hamees Momin does not claim ownership of
+client data or client brand assets.
+
+Client-specific configuration, integration mappings, report branding, tenant
+settings, and deployment settings may be used only for the authorized client's
+environment. Product code, reusable modules, connectors, templates, frameworks,
+and improvements remain owned by Hamees Momin unless a separate signed written
+agreement expressly states otherwise.
+
+5. Integrations and Third-Party Services
+
+Some Product capabilities may require third-party APIs, provider credentials,
+paid subscriptions, cloud services, payment gateways, WhatsApp/Meta services,
+OCR providers, AI providers, CRM systems, SIEM tools, ERP systems, or other
+external services. Clients are responsible for obtaining and maintaining their
+own third-party accounts, credentials, approvals, costs, and legal permissions
+unless a separate written agreement states otherwise.
+
+Integration setup, connector configuration, provider-specific implementation,
+custom reports, private deployment, and white-label work may be charged
+separately. Payment for such work does not transfer ownership of the Products or
+source code.
+
+6. Confidentiality
+
+Source code, private repositories, product roadmaps, demos, credentials,
+architecture, business logic, implementation details, and non-public product
+materials are confidential. Access to them must not be disclosed, copied, or
+shared except as expressly authorized by Hamees Momin.
+
+7. Third-Party Components
+
+The Products may include or depend on third-party open-source or commercial
+components. Those components remain governed by their respective licenses. This
+license does not override any third-party license terms. The proprietary rights
+reserved by Hamees Momin apply to the original Product code, design, workflow,
+documentation, and materials owned by Hamees Momin.
+
+8. Termination
+
+Any rights granted under this license terminate immediately if you breach this
+license or any applicable commercial agreement. Upon termination, you must stop
+using the Products and delete or return any copies, credentials, private access,
+documentation, and confidential materials in your possession unless retention is
+required by law or expressly permitted in writing.
+
+9. No Warranty
+
+The Products are provided "as is" unless a separate written agreement provides
+specific warranties, service levels, or support commitments. To the maximum
+extent permitted by law, Hamees Momin disclaims all implied warranties,
+including warranties of merchantability, fitness for a particular purpose,
+non-infringement, availability, and error-free operation.
+
+10. Limitation of Liability
+
+To the maximum extent permitted by law, Hamees Momin will not be liable for any
+indirect, incidental, special, consequential, exemplary, punitive, or lost-profit
+damages arising from access to or use of the Products. Any liability under a
+separate written agreement is limited according to that agreement.
+
+11. Written Agreements
+
+If a separate written agreement signed by Hamees Momin conflicts with this
+license, the signed written agreement controls only for the specific client,
+scope, product, and period covered by that agreement. All rights not expressly
+granted are reserved by Hamees Momin.
+
+12. Contact
+
+For licensing, demo access, SaaS subscriptions, private deployment,
+white-labeling, integration work, or enterprise commercial terms, contact Hamees
+Momin directly.
+
+All rights not expressly granted in this license are reserved.
